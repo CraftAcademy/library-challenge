@@ -75,6 +75,7 @@ I would like to know when my book is supposed to be returned
 * You understand how classes can interact with each other.
 * You know how to make use of arrays, hashes, and associated methods to create dynamic lists.
 * You know how to write specs and use them as a blueprint in your development.
+* I can track your work by following you commit history - so please commit as soon you are done with a feature or when you have made a test pass. 
 
 #####In your Pull Request, I'm hoping to see:
 * That you are testing the right thing in the right spec file.
