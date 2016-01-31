@@ -1,14 +1,21 @@
-class books
+class Books
  attr_accessor :title, :author
 
-  def initialize(title, author)
+# Books = [{title: @title, author: @author}]
+
+ def initialize(options={})
     @title = title
     @author = author
+#  Books = [{title: @title, author: @author}]
   end
 
-#  def rent(book) #TODO library if its needed or not !!!
-#    add = {item: book, duedate: duedate}
-#    @books.push add
-  end
+  def search_by_title(title)
+    book.detect{|a| a[:title] == title}
+    end
 
+  def search_by_author(author)
+    books.detect do |book|
+        book[:author] == author
+       end
+    end
 end
