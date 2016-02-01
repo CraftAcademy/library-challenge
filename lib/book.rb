@@ -1,21 +1,18 @@
-class Books
- attr_accessor :title, :author
+class Book
+attr_accessor :title, :author
 
-# Books = [{title: @title, author: @author}]
-
- def initialize(options={})
+ def initialize(title, author)
     @title = title
     @author = author
-#  Books = [{title: @title, author: @author}]
-  end
+ end
 
-  def search_by_title(title)
-    book.detect{|a| a[:title] == title}
-    end
+# def search_by_title(title)
+#  books.detect{|a| a[:title] == title}
+# end
 
-  def search_by_author(author)
-    books.detect do |book|
-        book[:author] == author
-       end
-    end
+  #def search_by_author(author)
+  #  books.detect do |book|
+  #      book[:author] == author
+  #     end
+  #  end
 end
