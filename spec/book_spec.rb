@@ -14,14 +14,4 @@ describe Book do
     expect(book.author).to eq 'rich'
   end
 
-
-#  it 'searched by :title' do
-#    subject.search_by_title(title: 'managment 101')
-#      expect(subject.search_by_title).to eq [{title: 'managment 101', author: 'rich' }]
- #end
-
-#  it 'searched by :author' do
-#    book.search_by_author(fat)
-#        expect(search_by_author).to eq [{title: 'managment 101', author: 'rich' }]
-#  end
 end

@@ -1,11 +1,11 @@
 require './lib/person'
 
-   describe Person do
+#   describe Person do
 #     books = [{title: 'Managment101', author: 'Rich' }, { title: 'Cooking101', author: 'Fat'}]
-#
+
 #     it 'constract of empty array at start' do
 #    expect(subject.portfolio).to eq []
-#  end
+# end
 #
 #  context 'adding book to portfolio' do
 #    before { allow(library).to receive(:check_out).and_return({ }) }

@@ -1,23 +1,16 @@
-#equire 'data'
+require 'Book'
+require 'Date'
 
 class Person
-#  attr_accessor :user :portfolio
-#
-#  def initialize(options={})
-#   @portfolio = []
-#  end
-#
-# def rent(library,book)
-#   books.detect do |book|
-#          if  book[:status] = :okay then
-#    book = library.books.detect{}
-#  add = {item: book, duedate: duedate}
-#
-#    @portfolio.push add
-#  end
-end
+ attr_accessor :portfolio
 
-#  def return(book)
-#    remove = portfolio.any?{item: book, duedate: duedate}
-#    @portfolio.pop remove
-#  end
+  def initialize(person)
+   @portfolio = []
+  end
+
+def rent(book)
+    items = books.detect{|a| a[:title] == title}
+    add = {item: items, duedate: duedate }
+    @portfolio.push add
+
+end
