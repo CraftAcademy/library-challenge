@@ -25,7 +25,6 @@ describe Library do
 
     after { subject.check_in(item, user) }
 
-
     it 'allows for check-out of :item' do
       response = {title: "Bible",
                   author: "TGAOTU",
