@@ -5,9 +5,4 @@ class Person
     @book_shelf = []
   end
 
-  def get_book(library, args={})
-    book = library.books.detect{|obj| obj[args.keys.first] == (args[args.keys.first]).to_s }
-    @book_shelf.push book if library.check_out(book)
-  end
-
 end
