@@ -1,9 +1,6 @@
 require './lib/library'
 
 describe Library do
-  items = [{item:{ title: 'Alfons leker', author: 'A. Andersson' }, available: true, return_date: nil},
-           {item: { title: 'Bible', author: 'TGAOTU' }, available: true, return_date: nil} ]
-  subject { described_class.new(items: items) }
 
   let(:user) { double('User') }
 
@@ -25,6 +22,9 @@ describe Library do
     let(:item) { {item: { title: 'Bible', author: 'TGAOTU' }, available: true, return_date: nil} }
 
     before { allow(user).to receive(:book_shelf).and_return([]) }
+
+    after { subject.check_in(item, user) }
+
 
     it 'allows for check-out of :item' do
       response = {title: "Bible",
