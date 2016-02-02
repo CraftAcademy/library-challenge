@@ -33,6 +33,17 @@ describe Library do
       expect(subject.check_out(item, user)).to include response
     end
 
+    it 'rejects check-out if book_shelf has overdue books' do
+      overdue_book = [{title: "Bible",
+                      author: "TGAOTU",
+                      checked_out_date: Date.today.prev_month.strftime('%F'),
+                      return_date: Date.today.prev_month(2).strftime('%F')}]
+      allow(user).to receive(:book_shelf).and_return(overdue_book)
+      response = { message: 'You have books that are overdue!' }
+      expect(subject.check_out(item, user)).to include response
+
+    end
+
 
   end
 
