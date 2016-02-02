@@ -1,5 +1,5 @@
-require 'Book'
-require 'Date'
+require 'book'
+require 'date'
 
 class Person
  attr_accessor :portfolio

@@ -1,7 +1,7 @@
 require './lib/book.rb'
 
 describe Book do
-  let (:book) {Book.new('managment 101', 'rich')}
+  let(:book) {described_class.new('managment 101', 'rich')}
 
 
   it 'should respond to title' do

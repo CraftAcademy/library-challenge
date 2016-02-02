@@ -1,6 +1,6 @@
-require './lib/person'
+require './lib/person.rb'
 
-#   describe Person do
+  describe Person do
 #     books = [{title: 'Managment101', author: 'Rich' }, { title: 'Cooking101', author: 'Fat'}]
 
 #     it 'constract of empty array at start' do
