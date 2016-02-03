@@ -1,4 +1,5 @@
 require 'date'
+require 'pry'
 
 class Library
   attr_accessor :books #TODO duedate person status
@@ -16,19 +17,22 @@ class Library
     @books.push add
   end
 
-  def lend(title, user)
-    book = @books.detect { |a| a[:title] == title[:title] }
+  def lend(user, args={})
+    book = @books.detect { |obj| obj[args.keys.first] == args[args.keys.first] }
     case
       when book[:status] == :lended then
         'Sorry, book is already with another reader'
       when user.portfolio.select { |a| a[:duedate] > Date.today.strftime('%F') } != [] then
         'Sorry, you have one overdue book to return'
       else
-        book[:status] = :lended
-        book[:person] = :MEEE
-        book[:duedate] = set_duedate
+        @books.each do |object|
+          if object[:title] == book[:title]
+            object[:status] = :lended
+            object[:person] = :MEEE
+            object[:duedate] = set_duedate
+          end
+        end
     end
-    book
   end
 
 

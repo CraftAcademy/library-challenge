@@ -1,9 +1,17 @@
 require './lib/person.rb'
+require './lib/library.rb'
 
 describe Person do
   books = [{title: 'Managment101', author: 'Rich'}, {title: 'Cooking101', author: 'Fat'}]
 
-  let(:library) { double(:library, books: books) }
+  #let(:library) { double(:library, books: books) }
+  let(:library) { Library.new }
+
+  before do
+    books.each do |book|
+      library.check_in(book)
+    end
+  end
 
   it 'constract of empty array at start' do
     expect(subject.portfolio).to eq []
@@ -18,7 +26,7 @@ describe Person do
     end
 
     before do
-      allow(library).to receive(:lend).and_return({})
+     # allow(library).to receive(:lend).and_return({})
     end
 
     it 'searched by :title' do

@@ -9,13 +9,18 @@ class Person
   end
 
   def rent(library, args={})
-    item = library.books.detect{|obj| obj[args.keys.first] == (args[args.keys.first]).to_s }
-    #item = library.books.detect { |a| a[:title] == book[:title] }
+    #binding.pry
+    item = library.books.detect { |obj| obj[args.keys.first] == args[args.keys.first] }
     to_add = {}
     if item
+      if args.keys.first == :title
+        library.lend(self, title: item[:title])
+      elsif args.keys.first == :author
+        library.lend(self, author: item[:author])
+      end
       to_add.merge!({title: item[:title],
-                    author: item[:author],
-                    duedate: duedate })
+                     author: item[:author],
+                     duedate: duedate})
       @portfolio.push to_add
     else
       'Nothing was added'
@@ -25,7 +30,7 @@ class Person
 
 
   def duedate
-    "2016-03-02"
+    "2016-03-03"
   end
 
 end
