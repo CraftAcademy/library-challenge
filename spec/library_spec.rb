@@ -21,16 +21,17 @@ describe Library do
     expect(subject.books).to be_kind_of Array
   end
 
-
+#let(:user) { double('user') }
   it 'finds and allows rent by title' do
-    item = {title: 'Alfons leker'}
+   item = {title: 'Alfons leker'}
     response = {title: 'Alfons leker',
                 author: 'A. Andersson',
                 status: :lended,
                 person: :MEEE,
                 duedate: Date.today.next_month.strftime('%F')}
 
-    allow(person).to receive(:portfolio).and_return([])
-    expect(subject.lend(item, person)).to eq response
+
+   allow(person).to receive(:portfolio).and_return([])
+    expect(subject.lend(person, item)).to eq response
   end
 end
