@@ -1,6 +1,3 @@
-require 'date'
-require 'pry'
-
 class Person
   attr_accessor :name,list_of_borrowed_book
 
