@@ -2,7 +2,7 @@ require './lib/book.rb'
 require 'date'
 class Library
   attr_accessor :list_of_books
-    STANDARD_LENDING_DAYS = 15
+  STANDARD_LENDING_DAYS = 15
   def initialize(options={})
       @list_of_books = options[:list_of_books] || []
   end
@@ -23,8 +23,8 @@ class Library
      case
      when detect_book[:book_status] == :not_avilable then
          'Sorry, this book is already lended'
-       when user.list_of_borrowed_book.select { |a| a[:return_date] < Date.today.strftime('%d/%m/%y') } != [] then
-         'Sorry, you have one overdue book to return'
+      #  when user.list_of_borrowed_book.select { |a| a[:return_date] < Date.today.strftime('%d/%m/%y') } != [] then
+      #    'Sorry, you have one overdue book to return'
      else
         @list_of_books.each do |lib_bok|
           if lib_bok[:title] == book[:title]

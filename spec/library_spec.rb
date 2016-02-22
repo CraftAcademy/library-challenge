@@ -16,7 +16,9 @@ describe Library do
   subject { described_class.new(list_of_books: books) }
 
   let(:person) { double('person') }
-
+  before do
+    allow(person).to receive(:list_of_borrowed_book).and_return([])
+  end
   it 'Has an array of books' do
     expect(subject.list_of_books).to be_kind_of Array
   end
@@ -28,10 +30,10 @@ describe Library do
   end
   it 'accept to set return date' do
       subject.lend(person,title:'The Secret')
-      expect(subject.list_of_books.first[:return_date]).to eq Date.today.next_day(STANDARD_LENDING_DAYS).strftime('%d/%m/%y')
+      expect(subject.list_of_books.first[:return_date]).to eq Date.today.next_day(Library:: STANDARD_LENDING_DAYS).strftime('%d/%m/%y')
   end
   it 'accept to lend the book' do
      subject.lend(person,title:'The Secret')
-      expect(subject.list_of_books.first[:return_date]).to eq Date.today.next_day(STANDARD_LENDING_DAYS).strftime('%d/%m/%y')
+      expect(subject.list_of_books.first[:return_date]).to eq Date.today.next_day(Library::STANDARD_LENDING_DAYS).strftime('%d/%m/%y')
   end
 end
