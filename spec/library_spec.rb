@@ -4,12 +4,12 @@ require 'date'
 describe Library do
   books = [{title: 'The Secret',
             author: 'Rhonda Byrne',
-            book_status: :Avilable,
+            book_status: :avilable,
             person: :non,
             return_date: ''},
            {title: 'The Da Vinci Code',
             author: 'Dan Brown',
-            book_status: :Not_avilable,
+            book_status: :not_avilable,
             person: :user,
             return_date: "25-02-2016"}]
 

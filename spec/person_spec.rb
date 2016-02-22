@@ -8,7 +8,7 @@ describe Person do
     expect(person.name).to eq 'Tarek'
   end
 
-  it 'Has an array of borrwoed books' do
+  it 'Has an array of borrowed books' do
     expect(person.list_of_borrowed_book).to be_kind_of Array
   end
 
