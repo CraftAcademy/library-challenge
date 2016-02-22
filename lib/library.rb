@@ -23,7 +23,7 @@ class Library
      case
      when detect_book[:book_status] == :not_avilable then
          'Sorry, this book is already lended'
-       when user.list_of_borrowed_book.select { |a| a[:return_date] > Date.today.strftime('%d/%m/%y') } != [] then
+       when user.list_of_borrowed_book.select { |a| a[:return_date] < Date.today.strftime('%d/%m/%y') } != [] then
          'Sorry, you have one overdue book to return'
      else
         @list_of_books.each do |lib_bok|
@@ -46,7 +46,7 @@ class Library
              lib_bok[:return_date] = ""
         end
     end
-  lib_bok
+  'The book has returned succesfully to the library'
 end
 
  def change_status(user,lib_bok,book)

@@ -20,4 +20,18 @@ describe Library do
   it 'Has an array of books' do
     expect(subject.list_of_books).to be_kind_of Array
   end
+  it 'tell the user that the book is already lended' do
+      expect(subject.lend(person, title:'The Da Vinci Code')).to eq 'Sorry, this book is already lended'
+  end
+  it 'accept to retun book' do
+      expect(subject.return_book(title:'The Da Vinci Code')).to eq 'The book has returned succesfully to the library'
+  end
+  it 'accept to set return date' do
+      subject.lend(person,title:'The Secret')
+      expect(subject.list_of_books.first[:return_date]).to eq Date.today.next_day(STANDARD_LENDING_DAYS).strftime('%d/%m/%y')
+  end
+  it 'accept to lend the book' do
+     subject.lend(person,title:'The Secret')
+      expect(subject.list_of_books.first[:return_date]).to eq Date.today.next_day(STANDARD_LENDING_DAYS).strftime('%d/%m/%y')
+  end
 end
