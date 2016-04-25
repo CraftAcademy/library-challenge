@@ -107,7 +107,7 @@ I would like to know when my book is supposed to be returned
  => [{:item=>{:title=>"Alfons leker", :author=>"A. Andersson"}, :available=>true, :return_date=>nil}]
 2.2.3 :008 > lib.items.push book2
  => [{:item=>{:title=>"Alfons leker", :author=>"A. Andersson"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"Bible", :author=>"TGAOTU"}, :available=>true, :return_date=>nil}]
-2.2.3 :009 > desired_book = lib.find(title: 'Alfons leker')
+2.2.3 :009 > desired_book = lib.find_item(title: 'Alfons leker')
  => {:item=>{:title=>"Alfons leker", :author=>"A. Andersson"}, :available=>true, :return_date=>nil}
 2.2.3 :010 > lib.check_out(desired_book, user)
  => [{:title=>"Alfons leker", :author=>"A. Andersson", :checked_out_date=>"2016-02-01", :return_date=>"2016-03-01"}]

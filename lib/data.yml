@@ -7,8 +7,8 @@
 - :item:
     :title: Alfons leker
     :author: A. Andersson
-  :available: true
-  :return_date: 
+  :available: false
+  :return_date: '2016-05-25'
 - :item:
     :title: Alfons bygger koja
     :author: T. Ochman
