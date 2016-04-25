@@ -5,14 +5,15 @@ class Library
   attr_accessor :items
 
   def initialize
-    @items = YAML.load_file('./lib/data.yml') || []
+    @items = YAML.load_file('./lib/data.yml')
   end
 
   def check_out(item, user)
-  case
-    when book_shelf_okay?(user) then perform_check_out(item, user)
-    else
-        { message: 'You have books that are overdue!' }
+    case
+      when !book_shelf_okay?(user) then {message: 'You have books that are overdue!'}
+      when !item[:available] then {message: 'Book is not available'}
+      else
+        perform_check_out(item, user)
     end
   end
 
@@ -22,8 +23,8 @@ class Library
     user.book_shelf.delete check_out_message(item)
   end
 
-  def find(args={})
-    @items.detect{|obj| obj[:item][args.keys.first] == (args[args.keys.first]).to_s }
+  def find_item(args={})
+    @items.detect { |obj| obj[:item][args.keys.first] == (args[args.keys.first]).to_s }
   end
 
   private
@@ -52,17 +53,17 @@ class Library
   end
 
   def check_out_message(item)
-    { title: item[:item][:title],
-      author: item[:item][:author],
-      checked_out_date: set_today,
-      return_date: set_return_date }
+    {title: item[:item][:title],
+     author: item[:item][:author],
+     checked_out_date: set_today,
+     return_date: set_return_date}
   end
 
   def book_shelf_okay?(user)
-    user.book_shelf.select{|a| a[:return_date] < Date.today.strftime('%F')}.empty?
+    user.book_shelf.select { |a| a[:return_date] < Date.today.strftime('%F') }.empty?
   end
 
   def update_yaml_file
-    File.open('./lib/data.yml', 'w') {|f| f.write self.items.to_yaml }
+    File.open('./lib/data.yml', 'w') { |f| f.write self.items.to_yaml }
   end
 end
