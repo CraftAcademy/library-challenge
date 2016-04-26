@@ -1,21 +1,26 @@
 ---
 - :item:
-    :title: Alfons bråkar
-    :author: T. Ochman
+    :title: Alfons och soldatpappan
+    :author: Gunilla Bergström
   :available: true
   :return_date: 
 - :item:
-    :title: Alfons leker
-    :author: A. Andersson
-  :available: false
-  :return_date: '2016-05-25'
-- :item:
-    :title: Alfons bygger koja
-    :author: T. Ochman
+    :title: Skratta lagom! Sa pappa Åberg
+    :author: Gunilla Bergström
   :available: true
   :return_date: 
 - :item:
-    :title: Bible
-    :author: TGAOTU
+    :title: Osynligt med Alfons
+    :author: Gunilla Bergström
+  :available: true
+  :return_date: 
+- :item:
+    :title: Pippi Långstrump
+    :author: Astrid Lindgren
+  :available: true
+  :return_date: 
+- :item:
+    :title: Pippi Långstrump går ombord
+    :author: Astrid Lindgren
   :available: true
   :return_date: 

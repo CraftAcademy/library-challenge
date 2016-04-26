@@ -1,5 +1,6 @@
 require 'date'
 require 'yaml'
+require 'pry'
 
 class Library
   attr_accessor :items
@@ -24,7 +25,20 @@ class Library
   end
 
   def find_item(args={})
-    @items.detect { |obj| obj[:item][args.keys.first] == (args[args.keys.first]).to_s }
+    # Specific search for `:title` usage: `find_item(title: 'Alfons')`
+    # @items.detect { |obj| obj[:item][:title].include?(args[args.keys.first])  }
+
+    # Generic search for any attribute within `:item`
+    # usage: `find_item(title: 'Alfons')` or `find_item(author: 'Gunilla')`
+
+    # This method searches for an EXACT match and returns the FIRST object it finds
+    #@items.detect { |obj| obj[:item][args.keys.first] == args[args.keys.first] }
+
+    # This method searches for a PARTIAL match and returns th FIRST object it finds
+    @items.detect { |obj| obj[:item][args.keys.first].include?(args[args.keys.first])  }
+
+    # This method searches for a PARTIAL match and returns th ALL object it finds
+    #@items.select { |obj| obj[:item][args.keys.first].include?(args[args.keys.first])  }
   end
 
   private
@@ -64,6 +78,6 @@ class Library
   end
 
   def update_yaml_file
-    File.open('./lib/data.yml', 'w') { |f| f.write self.items.to_yaml }
+    File.open('./lib/data.yml', 'w') { |f| f.write @items.to_yaml }
   end
 end
