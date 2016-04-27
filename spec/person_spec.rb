@@ -13,7 +13,12 @@ describe Person do
     expect(library.book_list).not_to be_empty
   end
 
-
+# As an individual
+# In order to borrow a book
+# I must create an account in the library
+  it 'is expected to register in the library' do
+    expect(subject.register('Yan')).to be_truthy
+  end
 
 # As an individual
 # In order to avoid awkward moments at the library
