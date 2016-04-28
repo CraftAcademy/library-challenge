@@ -19,6 +19,13 @@ describe Library do
                                 {title:'Thinking in C++', author:'Bruce Eckel'})
   end
 
+  # As a library
+  # A book cannot be borrowed if it is not in the list
+
+  it 'Show No book is found if checking out a book which is not in the list' do
+      expected_output = {status: false, message:'No book is found'}
+      expect(subject.checkout( {title: 'Learning XML', author:'Walter Johansson'})).to eq expected_output
+  end
 
   # As a library
   # In order to make the books available to many individuals

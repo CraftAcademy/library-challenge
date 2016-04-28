@@ -8,7 +8,11 @@ class Library
   end
 
   def checkout(book)
-    @book_list.delete(book)
+    if @book_list.include? book
+      @book_list.delete(book)
+    else
+      expected_output = {status: false, message:'No book is found'}
+    end
   end
 
 end
