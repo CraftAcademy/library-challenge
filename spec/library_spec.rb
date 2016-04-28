@@ -31,4 +31,10 @@ describe Library do
   # In order to make the books available to many individuals
   # I would like to set a return date on every check out
   # and I would like that date to be 1 month from checkout date
+  it 'A success checkout should return a date with return date in one month from now' do
+    return_date = Date.today + Library::LOAN_DURATION
+    book = {title: 'Steve Jobs', author:'Walter Isaacsson'}
+    expected_output = {status: true, book: book, return_date: return_date.strftime("%d/%m/%y")}
+    expect(subject.checkout(book)).to eq expected_output
+  end
 end
