@@ -6,7 +6,7 @@ class Library
     @catalog = YAML.load_file('./lib/catalog.yml')
   end
 
-  def checkout(book)
+  def checkout(book, person)
     @catalog.detect do |item|
       if item[:item][:title] == book[:item][:title]
         item[:available] = false
@@ -14,6 +14,7 @@ class Library
       end
     end
     File.open('./lib/catalog.yml', 'w') { |f| f.write @catalog.to_yaml }
+    person.my_books.push(book)
   end
 
 end
