@@ -20,7 +20,7 @@ class Library
   def find(book_title)
     search_results = @book_list.select{|obj| obj[:item][:title].include? book_title}
     for book in search_results
-      if book[:item][:title].eql? book_title && book[:available] == true
+      if (book[:item][:title].eql? book_title) && book[:available]
         return {status: true, book: book[:item]}
       end
     end
