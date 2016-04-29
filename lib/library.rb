@@ -12,8 +12,7 @@ class Library
       {status: false, message:'No book is found'}
     else
       search_result[:available] = false
-      return_date = Date.today + Library::LOAN_DURATION
-      search_result[:return_date] = return_date.strftime("%d/%m/%y")
+      search_result[:return_date] = get_return_date_text
       save_to_disk
       {status: true, book: search_result, return_date: search_result[:return_date]}
     end
@@ -30,7 +29,12 @@ class Library
   end
 
   private
-  
+
+  def get_return_date_text
+    return_date = Date.today + Library::LOAN_DURATION
+    return_date_text = return_date.strftime("%d/%m/%y")
+  end
+
   def save_to_disk
     File.open('./lib/data.yml', 'w') { |f| f.write @book_list.to_yaml }
   end
