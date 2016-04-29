@@ -10,13 +10,21 @@ describe Library do
   end
 
   # As a library
+  # In order to lend a book to a Person
+  # I would like to be able to find a book by its title
+  it 'Return status true by searching the book title' do
+    expected_output = subject.find('Pippi Långstrump')
+    expect(expected_output[:status]).to be true
+  end
+
+  # As a library
   # In order to have good books to offer to the public
   # I would like to be able to allow individuals to check out a book
 
   it 'Reduce books from its list for check out' do
-    subject.checkout( {title: 'Steve Jobs', author:'Walter Isaacsson'})
-    expect(subject.book_list).to include({title:'Veg Recipes', author:'Tan Li'},
-                                {title:'Thinking in C++', author:'Bruce Eckel'})
+    expected_output = subject.book_list.length - 1
+    subject.checkout('Pippi Långstrump')
+    expect(subject.book_list.length).to eq expected_output
   end
 
   # As a library
