@@ -12,7 +12,7 @@ class Library
       {status: false, message:'No book is found'}
     else
       search_result[:available] = false
-      search_result[:return_date] = get_return_date_text
+      search_result[:return_date] = return_date_text
       save_to_disk
       {status: true, book: search_result, return_date: search_result[:return_date]}
     end
@@ -30,7 +30,7 @@ class Library
 
   private
 
-  def get_return_date_text
+  def return_date_text
     return_date = Date.today + Library::LOAN_DURATION
     return_date_text = return_date.strftime("%d/%m/%y")
   end
