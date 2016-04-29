@@ -8,7 +8,7 @@ class Library
 
   def checkout(book_title)
     search_result = find(book_title)
-    if search_result[:status]
+    if search_result
       search_result[:available] = false
       return_date = Date.today + Library::LOAN_DURATION
       search_result[:return_date] = return_date.strftime("%d/%m/%y")
