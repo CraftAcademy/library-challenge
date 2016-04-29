@@ -60,8 +60,8 @@ describe Library do
   # and I would like that date to be 1 month from checkout date
   it 'A success checkout should return a date with return date in one month from now' do
     return_date = Date.today + Library::LOAN_DURATION
-    book = {title: 'Steve Jobs', author:'Walter Isaacsson'}
-    expected_output = {status: true, book: book, return_date: return_date.strftime("%d/%m/%y")}
-    expect(subject.checkout(book)).to eq expected_output
+    expected_output = return_date.strftime("%d/%m/%y")
+    result = subject.checkout('Osynligt med Alfons')
+    expect(result[:return_date]).to eq expected_output
   end
 end
