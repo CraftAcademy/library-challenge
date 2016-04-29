@@ -7,8 +7,13 @@ class Library
   end
 
   def checkout(book)
-    book[:available] = false
-    book[:return_date] = Date.today.next_month(DEFAULT_CHECKOUT_PERIOD)
+    @catalog.detect do |item|
+      if item[:item][:title] == book[:item][:title]
+        item[:available] = false
+        item[:return_date] = Date.today.next_month(DEFAULT_CHECKOUT_PERIOD)
+      end
+    end
+    File.open('./lib/catalog.yml', 'w') { |f| f.write @catalog.to_yaml }
   end
 
 end

@@ -36,6 +36,12 @@ describe Library do
       expect(book[:return_date]).to eq Date.today.next_month
     end
 
+    it 'updates yml file' do
+      collection = YAML.load_file('./lib/catalog.yml')
+      updated_book = collection.detect { |item| item[:item][:title] == book[:item][:title] }
+      expect(updated_book[:available]).to eq false
+    end
+
   end
 
 end
