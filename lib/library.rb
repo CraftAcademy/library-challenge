@@ -11,7 +11,9 @@ class Library
     if search_result[:status]
       search_result[:available] = false
       return_date = Date.today + Library::LOAN_DURATION
-      {status: true, book: search_result, return_date: return_date.strftime("%d/%m/%y")}
+      search_result[:return_date] = return_date.strftime("%d/%m/%y")
+      save_to_disk
+      {status: true, book: search_result, return_date: search_result[:return_date]}
     else
       {status: false, message:'No book is found'}
     end
@@ -21,10 +23,15 @@ class Library
     search_results = @book_list.select{|obj| obj[:item][:title].include? book_title}
     for book in search_results
       if (book[:item][:title].eql? book_title) && book[:available]
-        return {status: true, book: book}
+        return book
       end
     end
     {status: false}
   end
+
+  def save_to_disk
+    File.open('./lib/data.yml', 'w') { |f| f.write @book_list.to_yaml }
+  end
+
 
 end
