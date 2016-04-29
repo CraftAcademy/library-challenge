@@ -67,6 +67,16 @@ describe Library do
   end
 
   # As a library
+  # I need to save the book status to the data file
+  it 'Save the change into the data.yml file' do
+    new_name = "Gunilla Bergström 2"
+    subject.book_list[0][:item][:author] = new_name
+    subject.save_to_disk
+    collection = YAML.load_file('./lib/data.yml')
+    expect(collection[0][:item][:author]).to eq new_name
+  end
+
+  # As a library
   # I need to remember which book is checked out.
   # Therefore the book status should be saved to the data file
   it 'Save the available status into the data.yml file after a successful checkout' do
@@ -76,4 +86,5 @@ describe Library do
     booked_checked = collection.detect{|obj| obj[:item][:title].include? book_title}
     expect(booked_checked[:available]).to be false
   end
+
 end

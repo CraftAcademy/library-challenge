@@ -1,6 +1,6 @@
 class Library
   LOAN_DURATION = 30
-  attr_reader :book_list
+  attr_accessor:book_list
 
   def initialize
     @book_list = YAML.load_file('./lib/data.yml')
