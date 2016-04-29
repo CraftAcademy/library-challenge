@@ -12,9 +12,10 @@ describe Library do
   # As a library
   # In order to lend a book to a Person
   # I would like to be able to find a book by its title
-  it 'Return status true by searching the book title' do
-    expected_output = subject.find('Pippi Långstrump går ombord')
-    expect(expected_output[:status]).to be true
+  it 'Return the book by searching the book title' do
+    title = 'Pippi Långstrump går ombord'
+    expected_output = subject.find(title)
+    expect(expected_output[:item][:title]).to eq title
   end
 
   # As a library
