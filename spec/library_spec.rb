@@ -18,4 +18,14 @@ describe Library do
   it ':catalog has 5 items' do
     expect(subject.catalog.count).to eq 5
   end
+
+  it 'allows book for checkout' do
+    book = {item:
+                            {title: 'Skratta lagom! Sa pappa Åberg',
+                             author: 'Gunilla Bergström'},
+                        available: true,
+                        return_date: nil}
+    subject.checkout(book)
+    expect(book[:available]).to eq false
+  end
 end
