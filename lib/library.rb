@@ -8,14 +8,14 @@ class Library
 
   def checkout(book_title)
     search_result = find(book_title)
-    if search_result
+    if search_result[:status] == false
+      {status: false, message:'No book is found'}
+    else
       search_result[:available] = false
       return_date = Date.today + Library::LOAN_DURATION
       search_result[:return_date] = return_date.strftime("%d/%m/%y")
       save_to_disk
       {status: true, book: search_result, return_date: search_result[:return_date]}
-    else
-      {status: false, message:'No book is found'}
     end
   end
 
