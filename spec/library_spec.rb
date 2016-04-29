@@ -2,11 +2,12 @@ require './lib/library'
 
 describe Library do
   before do
-      subject.catalog.each do |item|
-        item[:available] = true
-        item[:return_date] = nil
-      end
+    subject.catalog.each do |item|
+      item[:available] = true
+      item[:return_date] = nil
     end
+  end
+
   let(:book) do
     {item:
          {title: 'Skratta lagom! Sa pappa Åberg',
@@ -28,26 +29,21 @@ describe Library do
   end
 
   describe '#checkout is expected' do
-    let(:person) {instance_double('Person', my_books: [])}
+    let(:person) { instance_double('Person') }
 
     before do
       allow(person).to receive(:my_books).and_return([])
       subject.checkout(book, person)
+      collection = YAML.load_file('./lib/catalog.yml')
+      @updated_book = collection.detect { |item| item[:item][:title] == book[:item][:title] }
     end
 
-    it 'to set :avaiable to false' do
-      expect(book[:available]).to eq false
+    it 'to set :available to false' do
+      expect(@updated_book[:available]).to eq false
     end
 
     it 'to set a return date' do
-      expect(book[:return_date]).to eq Date.today.next_month
-    end
-
-    it 'updates yml file' do
-      collection = YAML.load_file('./lib/catalog.yml')
-      updated_book = collection.detect { |item| item[:item][:title] == book[:item][:title] }
-      binding.pry
-      expect(updated_book[:available]).to eq false
+      expect(@updated_book[:return_date]).to eq Date.today.next_month
     end
 
   end
