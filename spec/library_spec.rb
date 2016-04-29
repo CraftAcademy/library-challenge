@@ -46,6 +46,16 @@ describe Library do
       expect(@updated_book[:return_date]).to eq Date.today.next_month
     end
 
+    it 'to return a message with the return date' do
+      expected_output = {status: true, message: 'To be returned by: ', date: Date.today.next_month}
+      expect(subject.checkout(book, person)).to be_truthy
+    end
+
+    it 'to return an error message if item is not available' do
+      expected_output = {status: true, message: 'Sorry, this item is not available'}
+      expect(@updated_book[:available]).to eq false
+    end
+
   end
 
 end

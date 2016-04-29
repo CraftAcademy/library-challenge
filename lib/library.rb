@@ -17,4 +17,21 @@ class Library
     person.my_books.push(book)
   end
 
+  def checkoutmsg
+    case
+    when checkout(book, person) then
+      {status: true, message: 'To be returned by: ', date: Date.today.next_month}
+    else
+      checked_out
+    end
+  end
+
+  def checked_out
+    @catalog.detect do |check|
+      if check[:available] = false then
+        {status: true, message: 'Sorry, this item is not available'}
+      end
+    end
+  end
+
 end
