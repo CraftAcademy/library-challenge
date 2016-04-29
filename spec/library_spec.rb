@@ -31,7 +31,7 @@ describe Library do
 
   it 'Reduce books from its list for check out' do
     expected_output = subject.book_list.length - 1
-    subject.checkout('Pippi Långstrump')
+    subject.checkout('Pippi Långstrump går ombord')
     expect(subject.book_list.length).to eq expected_output
   end
 

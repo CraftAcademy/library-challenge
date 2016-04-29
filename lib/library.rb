@@ -24,7 +24,7 @@ class Library
         return {status: true, book: book[:item]}
       end
     end
-    return {status: false}
+    {status: false}
   end
 
 end
