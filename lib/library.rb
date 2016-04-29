@@ -9,7 +9,7 @@ class Library
   def checkout(book_title)
     search_result = find(book_title)
     if search_result[:status]
-      @book_list.delete(search_result)
+      search_result[:available] = false
       return_date = Date.today + Library::LOAN_DURATION
       {status: true, book: search_result, return_date: return_date.strftime("%d/%m/%y")}
     else

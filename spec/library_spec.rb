@@ -35,15 +35,15 @@ describe Library do
     expect(result[:status]).to be true
   end
 
-
   # As a library
   # In order to have good books to offer to the public
   # I would like to be able to allow individuals to check out a book
+  # After a book is checked out, the book list will change the available
+  # status of the book to be false.
 
-  it 'Reduce books from its list for check out' do
-    expected_output = subject.book_list.length - 1
-    subject.checkout('Pippi Långstrump går ombord')
-    expect(subject.book_list.length).to eq expected_output
+  it 'Change a book\'s available status to false after checking out a book' do
+    expected_output = subject.checkout('Pippi Långstrump går ombord')
+    expect(expected_output[:book][:available]).to eq false
   end
 
   # As a library
