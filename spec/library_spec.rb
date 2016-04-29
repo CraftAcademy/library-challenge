@@ -51,7 +51,7 @@ describe Library do
 
   it 'Show No book is found if checking out a book which is not in the list' do
       expected_output = {status: false, message:'No book is found'}
-      expect(subject.checkout( {title: 'Learning XML', author:'Walter Johansson'})).to eq expected_output
+      expect(subject.checkout('Learning XML')).to eq expected_output
   end
 
   # As a library
