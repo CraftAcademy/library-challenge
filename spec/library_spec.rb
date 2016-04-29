@@ -27,6 +27,17 @@ describe Library do
 
   # As a library
   # In order to have good books to offer to the public
+  # I would like to allow individuals to check out a book
+  # and return status true if it is checked out successfully
+
+  it 'Return true if a book can be checked out' do
+    result = subject.checkout('Alfons och soldatpappan')
+    expect(result[:status]).to be true
+  end
+
+
+  # As a library
+  # In order to have good books to offer to the public
   # I would like to be able to allow individuals to check out a book
 
   it 'Reduce books from its list for check out' do

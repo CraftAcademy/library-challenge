@@ -8,7 +8,7 @@ class Library
 
   def checkout(book_title)
     search_result = find(book_title)
-    if search_result[:status] == true
+    if search_result[:status]
       @book_list.delete(search_result)
       return_date = Date.today + Library::LOAN_DURATION
       {status: true, book: search_result, return_date: return_date.strftime("%d/%m/%y")}
@@ -21,7 +21,7 @@ class Library
     search_results = @book_list.select{|obj| obj[:item][:title].include? book_title}
     for book in search_results
       if (book[:item][:title].eql? book_title) && book[:available]
-        return {status: true, book: book[:item]}
+        return {status: true, book: book}
       end
     end
     {status: false}
