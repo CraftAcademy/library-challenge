@@ -1,1 +1,1 @@
-require './lib/person.rb'
+require './lib/personirb.rb'

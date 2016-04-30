@@ -1,9 +1,21 @@
 require './lib/library.rb'
 describe Library do
+  
+  before do
+    subject.catalog.each do |item|
+      item[:available] = true
+      item[:return_date] = nil
+    end
 
+  end
     it 'is expected to have a catalog' do
         expect(subject.catalog).to_not eq nil   
     end
+    
+    it 'is expected that catalog lists books as available or checked out' do
+        expect(subject.catalog[0][:available]).to eq true 
+    end
+    
     
 end     
     #it 'is expected that catalog lists books as available or checked out'
