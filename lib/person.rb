@@ -17,6 +17,17 @@ class Person
     return book[:book]
   end
 
+  def return_book(args)
+    args[:lib] == nil ? ErrorHandler.alert('The library does not exist'): library = args[:lib]
+    title = args[:title]
+    book = library.return_book(title)
+    if book != nil
+      @bookshelf.delete(book)
+      save_to_disk
+      return @bookshelf.length
+    end
+  end
+
   private
   def save_to_disk
     File.open('./lib/my_bookshelf.yml', 'w') { |f| f.write @bookshelf.to_yaml }
