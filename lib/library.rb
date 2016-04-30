@@ -32,8 +32,10 @@ class Library
 
   def return_book(book_title)
     search_result = find(book_title)
-    search_result[:available] = true
-    return search_result
+    if search_result[:item][:title] == book_title
+      search_result[:available] = true
+      return search_result
+    end
   end
 
   private
