@@ -21,7 +21,7 @@ $rvm use 2.2.3
 ```
 
 ###User stories
-----
+
 #####This Library program has the following user stories:
 
 ```
@@ -86,4 +86,3 @@ $irb
 ```
 > puts person.bookshelf
 ```
-----
