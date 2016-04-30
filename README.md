@@ -70,11 +70,12 @@ $irb
 ```
 > load './lib/person.rb'
 ```
-* Step 4: Create a new person instance
+* Step 4: Create a new person instance. Two books are loaded into the person's
+bookshelf.
 ```
 > person = Person.new
 ```
-* Step 5: Create a new library instance
+* Step 5: Create a new library instance. Books are loaded into the library.
 ```
 > library = Library.new
 ```
@@ -85,4 +86,9 @@ $irb
 * Step 7: Show the person's bookshelf has got the book 'Alfons och soldatpappan'
 ```
 > puts person.bookshelf
+```
+* Step 8: Return the book. The amount of books on the bookshelf should become
+ 2, which is shown in the output.
+```
+> person.return_book(title:'Alfons och soldatpappan', 'lib':library)
 ```
