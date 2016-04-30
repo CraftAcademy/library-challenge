@@ -3,7 +3,4 @@ class Person
 
   end
 
-  def register(name)
-    { status: 'true', name: name}
-  end
 end
