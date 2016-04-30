@@ -77,4 +77,12 @@ describe Library do
     expect(booked_checked[:available]).to be false
   end
 
+  # As a library
+  # I need to receive returned books
+  # by changing status to be true
+  it 'Change available true after a book is returned' do
+    book_title = 'Skratta lagom! Sa pappa Åberg'
+    expect(subject.return_book(book_title)[:available]).to eq true
+  end
+
 end

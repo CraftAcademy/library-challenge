@@ -28,6 +28,12 @@ class Library
     {status: false}
   end
 
+  def return_book(book_title)
+    search_result = find(book_title)
+    search_result[:available] = true
+    return search_result
+  end
+
   private
 
   def return_date_text
