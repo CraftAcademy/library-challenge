@@ -5,7 +5,7 @@ class Person
   attr_accessor :bookshelf
 
   def initialize
-
+    @bookshelf = YAML.load_file('./lib/my_bookshelf.yml')
   end
 
   def checkout(args)

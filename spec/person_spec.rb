@@ -35,8 +35,11 @@ describe Person do
   end
 
 # As an individual
-# I would like to have an empty bookshelf at the beginning
-  it 'is expected to have an empty bookshelf at the beginning' do
-    expect(subject.bookshelf).to be nil
+# I would like to have a bookshelf with my own books at the beginning
+  it 'is expected to have a bookshelf with my own books at the beginning' do
+    expect(subject.bookshelf.length).to be > 0
   end
+
+
+
 end
