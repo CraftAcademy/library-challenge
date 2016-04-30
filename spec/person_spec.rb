@@ -33,4 +33,10 @@ describe Person do
     expected_output = return_date.strftime("%d/%m/%y")
     expect(subject.checkout(title:book_title, lib:library)[:return_date]).to eq expected_output
   end
+
+# As an individual
+# I would like to have an empty bookshelf at the beginning
+  it 'is expected to have an empty bookshelf at the beginning' do
+    expect(subject.bookshelf).to be nil
+  end
 end

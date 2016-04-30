@@ -2,6 +2,8 @@ require './lib/library.rb'
 require './lib/error_handler.rb'
 
 class Person
+  attr_accessor :bookshelf
+
   def initialize
 
   end
