@@ -3,9 +3,24 @@
     :title: Steve Jobbs
     :author: Walter Isaacson
   :available: true
-  :return_date:
+  :return_date: 
 - :item:
     :title: Building Microservices
     :author: Sam Newman
   :available: true
-  :return_date:
+  :return_date: 
+- :item:
+    :title: Alfons och soldatpappan
+    :author: Gunilla Bergström
+  :available: false
+  :return_date: 30/05/16
+- :item:
+    :title: Osynligt med Alfons
+    :author: Gunilla Bergström
+  :available: false
+  :return_date: 30/05/16
+- :item:
+    :title: Pippi Långstrump går ombord
+    :author: Astrid Lindgren
+  :available: false
+  :return_date: 30/05/16

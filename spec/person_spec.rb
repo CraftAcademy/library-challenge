@@ -53,7 +53,7 @@ describe Person do
 # I would like to return my borrowed book
 # My bookshelf should be updated
   it 'reduce one book after it is returned to the library' do
-    title = 'Pippi Långstrump går ombord'
+    title = 'Pippi Långstrump går ombord 2'
     expected_output = subject.bookshelf.length
     subject.checkout(title: title, lib: library)
     expect(subject.return_book(title: title, lib: library)).to eq expected_output
