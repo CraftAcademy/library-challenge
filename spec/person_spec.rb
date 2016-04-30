@@ -14,7 +14,7 @@ describe Person do
 # As an individual
 # I would like to check out a book from the library
   it 'is expected to check out a book from the library' do
-    book_title = 'Alfons och soldatpappan'
+    book_title = 'Pippi Långstrump går ombord 3'
     expect(subject.checkout(title:book_title, lib:library)).to be_truthy
   end
 
@@ -28,7 +28,7 @@ describe Person do
 # In order to avoid awkward moments at the library
 # I would like to know when my book is supposed to be returned
   it 'is expected to borrow a book and get return_date' do
-    book_title = 'Osynligt med Alfons'
+    book_title = 'Pippi Långstrump går ombord 4'
     return_date = Date.today + Library::LOAN_DURATION
     expected_output = return_date.strftime("%d/%m/%y")
     expect(subject.checkout(title:book_title, lib:library)[:return_date]).to eq expected_output
