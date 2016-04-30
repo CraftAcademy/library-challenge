@@ -19,6 +19,12 @@ describe Person do
   end
 
 # As an individual
+# I would like to check out a book from the library
+  it 'raise the library doesn\'t exist error' do
+    book_title = 'Alfons och soldatpappan'
+    expect{subject.checkout({title:book_title})}.to raise_error(RuntimeError, 'The library does not exist')
+  end
+# As an individual
 # In order to avoid awkward moments at the library
 # I would like to know when my book is supposed to be returned
   # it 'is expected to borrow a book and get return_date' do

@@ -1,11 +1,13 @@
 require './lib/library.rb'
+require './lib/error_handler.rb'
+
 class Person
   def initialize
 
   end
 
   def checkout(args)
-    library = args[:lib]
+    args[:lib] == nil ? ErrorHandler.alert('The library does not exist'): library = args[:lib]
     title = args[:title]
     library.checkout(title)
   end
