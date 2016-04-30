@@ -27,10 +27,10 @@ describe Person do
 # As an individual
 # In order to avoid awkward moments at the library
 # I would like to know when my book is supposed to be returned
-  # it 'is expected to borrow a book and get return_date' do
-  #   book_title = 'Alfons och soldatpappan'
-  #   return_date = Date.today + Library::LOAN_DURATION
-  #   expected_output = return_date.strftime("%d/%m/%y")
-  #   expect(subject.checkout({title:book_title, lib:library})[:return_date]).to eq expected_output
-  # end
+  it 'is expected to borrow a book and get return_date' do
+    book_title = 'Osynligt med Alfons'
+    return_date = Date.today + Library::LOAN_DURATION
+    expected_output = return_date.strftime("%d/%m/%y")
+    expect(subject.checkout(title:book_title, lib:library)[:return_date]).to eq expected_output
+  end
 end
