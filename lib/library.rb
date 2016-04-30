@@ -8,9 +8,7 @@ class Library
 
   def checkout(book_title)
     search_result = find(book_title)
-    if search_result[:status] == false
-      {status: false, message:'No book is found'}
-    elsif search_result[:available] == false
+    if search_result[:status] == false || search_result[:available] == false
       {status: false, message:'No book is found'}
     else
       search_result[:available] = false

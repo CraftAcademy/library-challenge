@@ -19,14 +19,6 @@ describe Library do
   end
 
   # As a library
-  # In order to lend a book to a Person
-  # I would like to find a book with same title and is available
-  it 'Return status false if a book is not available' do
-      expected_output = subject.find('Pippi Långstrump')
-      expect(expected_output[:status]).to be false
-  end
-
-  # As a library
   # In order to have good books to offer to the public
   # I would like to allow individuals to check out a book
   # and return status true if it is checked out successfully
