@@ -49,6 +49,4 @@ class Library
     File.open('./lib/data.yml', 'w') { |f| f.write @book_list.to_yaml }
   end
 
-
-
 end

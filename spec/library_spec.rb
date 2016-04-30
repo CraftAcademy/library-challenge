@@ -65,8 +65,8 @@ describe Library do
     book_title = 'Alfons och soldatpappan'
     subject.checkout(book_title)
     collection = YAML.load_file('./lib/data.yml')
-    booked_checked = collection.detect{|obj| obj[:item][:title].include? book_title}
-    expect(booked_checked[:available]).to be false
+    book_checked = collection.detect{|obj| obj[:item][:title].include? book_title}
+    expect(book_checked[:available]).to be false
   end
 
   # As a library
