@@ -85,4 +85,11 @@ describe Library do
     expect(subject.return_book(book_title)[:available]).to eq true
   end
 
+  # As a library
+  # I need to receive returned books
+  # and remove its return date
+  it 'Remove return_date after a book is returned' do
+    book_title = 'Skratta lagom! Sa pappa Åberg'
+    expect(subject.return_book(book_title)[:return_date]).to be_nil
+  end
 end

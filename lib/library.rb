@@ -10,6 +10,8 @@ class Library
     search_result = find(book_title)
     if search_result[:status] == false
       {status: false, message:'No book is found'}
+    elsif search_result[:available] == false
+      {status: false, message:'No book is found'}
     else
       search_result[:available] = false
       search_result[:return_date] = return_date_text
@@ -21,7 +23,7 @@ class Library
   def find(book_title)
     search_results = @book_list.select{|obj| obj[:item][:title].include? book_title}
     for book in search_results
-      if (book[:item][:title].eql? book_title) && book[:available]
+      if (book[:item][:title].eql? book_title)
         return book
       end
     end
