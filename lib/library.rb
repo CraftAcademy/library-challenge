@@ -34,6 +34,7 @@ class Library
     search_result = find(book_title)
     if search_result[:item][:title] == book_title
       search_result[:available] = true
+      search_result[:return_date] = nil
       return search_result
     end
   end
