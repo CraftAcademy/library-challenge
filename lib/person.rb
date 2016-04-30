@@ -12,7 +12,13 @@ class Person
     args[:lib] == nil ? ErrorHandler.alert('The library does not exist'): library = args[:lib]
     title = args[:title]
     book = library.checkout(title)
-    @bookshelf.push(book)
-    return book
+    @bookshelf.push(book[:book])
+    save_to_disk
+    return book[:book]
+  end
+
+  private
+  def save_to_disk
+    File.open('./lib/my_bookshelf.yml', 'w') { |f| f.write @bookshelf.to_yaml }
   end
 end

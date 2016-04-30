@@ -44,8 +44,8 @@ describe Person do
 # I would like to save my borrowed books in my own bookshelf
   it 'add one book after it is checked out from the library' do
     title = 'Pippi Långstrump går ombord'
+    expected_output = subject.bookshelf.length + 1
     subject.checkout(title:title, lib: library)
-    expected_output = 3
     expect(subject.bookshelf.length).to eq expected_output
   end
 
