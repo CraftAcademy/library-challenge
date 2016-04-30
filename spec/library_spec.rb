@@ -84,4 +84,15 @@ describe Library do
     book_title = 'Skratta lagom! Sa pappa Åberg'
     expect(subject.return_book(book_title)[:return_date]).to be_nil
   end
+
+  # As a library
+  # I need to receive returned books
+  # This result needs to be stored to disk
+  it 'Store the updated book list into data.yml file' do
+      book_title = 'Skratta lagom! Sa pappa Åberg'
+      subject.return_book(book_title)
+      collection = YAML.load_file('./lib/data.yml')
+      book = collection.detect{|obj| obj[:item][:title].include? book_title}
+      expect(book[:available]).to be true
+  end
 end

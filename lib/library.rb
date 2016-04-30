@@ -33,6 +33,7 @@ class Library
     if search_result[:item][:title] == book_title
       search_result[:available] = true
       search_result[:return_date] = nil
+      save_to_disk
       return search_result
     end
   end
