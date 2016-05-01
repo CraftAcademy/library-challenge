@@ -21,28 +21,16 @@ describe Library do
         expect(subject.catalog[3]).to eq expected_output 
     end
 
-    #it 'is expected that books can be checked out' do
-    #subject.catalog[].checked_out 
-    #    expect(subject.catalog[][:available]).to eq false 
-    #end
-    #it 'is expected that catalog includes information about title' do
-    #    expect(subject.catalog[:title]).to_not be nil
-    #end
-    
-    #it 'is expected that catalog includes information about title' do
-    #    expect(subject.catalog[0][:title]).to eq 'Alfons och soldatpappan'
-    #end
-
-    #it 'is expected that catalog lists books as available or checked out' do
-    #    expect(subject.catalog[:available]).to_not eq nil
-    #end
-    
+    it 'is expected that books can be checked out' do
+        :item[1..5][:available] = false
+        expect(subject.catalog[rand(1..5)][:available]).to eq 'Tyvärr, boken är utlånad.' 
+    end
+   
 #describe '#checkout is expected' do
 #let(:person) { double('person') }
     
 end     
     #it 'is expected that the catalog is searchable'
-    #it 'is expected that the catalog includes information about title and author'
     #it 'is expected that catalog can be shown as a list'
     #it 'is expected that checked out books have a return date 1 month away'
     #it 'is expected to have checked out books listed for person who borrowed them, incl return date'
