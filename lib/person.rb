@@ -18,7 +18,7 @@ class Person
   end
 
   def return_book(args)
-    args[:lib] == nil ? ErrorHandler.alert('The library does not exist'): library = args[:lib]
+    args[:lib].nil? ? ErrorHandler.alert('The library does not exist'): library = args[:lib]
     title = args[:title]
     book = library.return_book(title)
     if book != nil
