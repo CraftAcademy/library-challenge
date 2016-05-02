@@ -12,13 +12,13 @@ describe Library do
         expect(subject.catalog).to_not eq nil   
     end
     
-    it 'is expected that catalog lists books as available or checked out' do
+    it 'is expected that books are listed as available or checked out' do
         expect(subject.catalog[rand(1..5)][:available]).to eq(true).or(eq(false))
     end
     
-    it 'is expected that catalog includes title, author, availability and return date' do
-        expected_output = {:item=>{:title=>"Pippi Långstrump", :author=>"Astrid Lindgren"}, 
-        :available=>true, :return_date=>nil}
+    it 'is expected that catalog includes title, author, status and date' do
+        expected_output = { item: {title:"Pippi Långstrump", author:"Astrid Lindgren" }, 
+        available: true, return_date: nil}
         expect(subject.catalog[3]).to eq expected_output 
     end
 
