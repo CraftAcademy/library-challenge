@@ -22,7 +22,8 @@ describe Person do
 # I would like to check out a book from the library
   it 'raise the library doesn\'t exist error' do
     book_title = 'Alfons och soldatpappan'
-    expect{subject.checkout(title:book_title)}.to raise_error(ArgumentError, 'The library does not exist')
+    expect{subject.checkout(title:book_title)}.to raise_error(ArgumentError,
+      'The library does not exist')
   end
 # As an individual
 # In order to avoid awkward moments at the library
