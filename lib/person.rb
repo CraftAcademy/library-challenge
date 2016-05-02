@@ -9,7 +9,7 @@ class Person
   end
 
   def checkout(args)
-    args[:lib] == nil ? ErrorHandler.alert('The library does not exist'): library = args[:lib]
+    args[:lib].nil? ? ErrorHandler.alert('The library does not exist'): library = args[:lib]
     title = args[:title]
     book = library.checkout(title)
     @bookshelf.push(book[:book])
