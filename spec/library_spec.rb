@@ -22,12 +22,9 @@ describe Library do
     end
 
     it 'is expected that books can be checked out' do
-        :item[1..5][:available] = false
-        expect(subject.catalog[rand(1..5)][:available]).to eq 'Tyvärr, boken är utlånad.' 
+        subject.catalog[:available] = false
+        expect(subject.catalog[1..5][:available]).to eq 'Tyvärr, boken är utlånad.' 
     end
-   
-#describe '#checkout is expected' do
-#let(:person) { double('person') }
     
 end     
     #it 'is expected that the catalog is searchable'
@@ -35,3 +32,5 @@ end
     #it 'is expected that checked out books have a return date 1 month away'
     #it 'is expected to have checked out books listed for person who borrowed them, incl return date'
     #it 'is expected that books can be checked out by individuals'
+#describe '#checkout is expected' do
+#let(:person) { double('person') }
