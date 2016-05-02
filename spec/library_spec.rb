@@ -17,7 +17,8 @@ describe Library do
     end
     
     it 'is expected that catalog includes title, author, availability and return date' do
-        expected_output = {:item=>{:title=>"Pippi Långstrump", :author=>"Astrid Lindgren"}, :available=>true, :return_date=>nil}
+        expected_output = {:item=>{:title=>"Pippi Långstrump", :author=>"Astrid Lindgren"}, 
+        :available=>true, :return_date=>nil}
         expect(subject.catalog[3]).to eq expected_output 
     end
 

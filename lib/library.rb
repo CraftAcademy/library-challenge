@@ -6,32 +6,32 @@ class Library
         require 'yaml'
     end
     
-    def checkout(book) 
+    def checkout(item) 
         case 
-        when already_checked_out(book) then
+        when already_checked_out(item) then
             'Tyvärr, boken är utlånad.'
         else
-            perform_transaction(book)
-                end
-            end
+            perform_transaction(item)
         end
+    end
+end
    #     File.open('./lib/catalog.yml', 'w') { |f| f.write @catalog.to_yaml }
     #end
 
 
 private
 
-    def already_checked_out(book)
+    def already_checked_out(item)
         item[:available] == false
     end
         
-    def perform_transaction(book)
-        'Tack för att du lånar hos oss. Boken ska återlämnas inom en månad'
-        item[:available] = false
-        item[:return_date] = set_return_date 
-    end 
+    #def perform_transaction(item)
+    #    'Tack för att du lånar hos oss. Boken ska återlämnas inom en månad'
+    #    item[:available] = false
+    #    item[:return_date] = return_date_set 
+    #end 
     
-    def set_return_date(book)
+    def return_date_set(item)
         return_date = Date.today + 30
     end 
 
