@@ -5,8 +5,6 @@ require 'date'
 
 describe Library do
 
-  let(:library) { class_double('Library') }
-
   it 'has a collection of books in a file' do
     expected_collection = YAML.load_file('./lib/data.yml')
     expect(subject.collection).to eq expected_collection
