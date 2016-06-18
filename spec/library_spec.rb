@@ -1,4 +1,6 @@
 require './lib/library.rb'
+require 'yaml'
+require 'date'
 
   describe Library do
     before do
@@ -6,7 +8,12 @@ require './lib/library.rb'
     end
   end
 
-  # list books in library
+  # has a catalog
+  it 'is expected to have a catalog' do
+    expect(subject.catalog).to_not eq nil
+  end
+
+  # has books in catalog
 
 
 end
