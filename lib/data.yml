@@ -1,0 +1,26 @@
+--
+- :item:
+    :title: Moby Dick
+    :author: Herman Melville
+  :available: true
+  :return_date:
+- :item:
+    :title: Hamlet
+    :author: William Shakespeare
+  :available: false
+  :return_date: '2016-05-25'
+- :item:
+    :title: The Great Gatsby
+    :author: F. Scott Fitzgerald
+  :available: true
+  :return_date:
+- :item:
+    :title: The Adventures of Huckleberry Finn
+    :author: Mark Twain
+  :available: true
+  :return_date:
+- :item:
+    :title: Pride and Prejudice
+    :author: Jane Austen
+  :available: true
+  :return_date:
