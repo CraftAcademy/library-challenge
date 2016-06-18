@@ -10,15 +10,17 @@ describe Library do
     expect(subject.collection).to eq expected_collection
   end
 
+  it 'checks for books available for checkout' do
+    expect(subject.available_books).not_to be_empty
+  end
+
+
   # it 'checked out books recieve a return date' do
   #   expected_return_date = Date.today.next_month
   #   expect(library.set_return_date).to eq expected_return_date
   # end
   #
-  # it 'checks for books that are available for checkout' do
-  #   allow
-  #   library
-  # end
+
   #
   # it 'books can be checked out' do
   #   expect(library.check_out)         # will come back to this later.
