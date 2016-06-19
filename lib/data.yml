@@ -1,26 +1,26 @@
-
+---
 - :item:
-    :title: Moby Dick
-    :author: Herman Melville
+    :title: Alfons och soldatpappan
+    :author: Gunilla Bergström
   :available: true
-  :return_date:
+  :return_date: 
 - :item:
-    :title: Hamlet
-    :author: William Shakespeare
+    :title: Skratta lagom! Sa pappa Åberg
+    :author: Gunilla Bergström
   :available: false
-  :return_date: '2016-05-25'
+  :return_date: 2016-07-19
 - :item:
-    :title: The Great Gatsby
-    :author: F. Scott Fitzgerald
+    :title: Osynligt med Alfons
+    :author: Gunilla Bergström
   :available: true
-  :return_date:
+  :return_date: 
 - :item:
-    :title: The Adventures of Huckleberry Finn
-    :author: Mark Twain
+    :title: Pippi Långstrump
+    :author: Astrid Lindgren
   :available: true
-  :return_date:
+  :return_date: 
 - :item:
-    :title: Pride and Prejudice
-    :author: Jane Austen
+    :title: Pippi Långstrump går ombord
+    :author: Astrid Lindgren
   :available: true
-  :return_date:
+  :return_date: 

@@ -1,19 +1,16 @@
 require './lib/library.rb'
-require 'yaml'
 require 'date'
+require 'yaml'
+require 'pry'
 
-  describe Library do
-    before do
-      subject.catalog.each do |item|
-    end
+
+describe Library do
+  it 'has a catalog of books' do
+    expected_catalog = YAML.load_file('./lib/data.yml')
+    expect(subject.catalog).to eq expected_catalog
   end
 
-  # has a catalog
-  it 'is expected to have a catalog' do
-    expect(subject.catalog).to_not eq nil
+  it 'checks list of books' do
+    expect(subject.list_available_books).not_to be_empty
   end
-
-  # has books in catalog
-
-
 end
