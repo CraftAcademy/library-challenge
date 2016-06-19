@@ -8,6 +8,7 @@ http://stackoverflow.com/questions/5513558/executing-code-for-every-method-call-
 
 show books in a list:
 http://www.dotnetperls.com/array-ruby
+http://betterspecs.org/#matchers
 
 How to set expiry date 30days from date book was taken out
 http://stackoverflow.com/questions/19198936/add-an-expiration-date-to-to-a-rails-model-saves-nil-instead-of-date
