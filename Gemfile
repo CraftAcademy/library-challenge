@@ -7,3 +7,4 @@ gem 'rspec'
 gem 'pry'
 gem 'coveralls', require: false
 gem 'rubocop'
+gem 'pry-byebug'

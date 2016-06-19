@@ -1,5 +1,6 @@
 require 'yaml'
 require 'date'
+require 'pry-byebug'
 
 class Library
 
@@ -10,11 +11,11 @@ class Library
   end
 
   def checkout(desired_book)
-    case
-    when unavailable?(desired_book) then 'That book is unavailable'
-    else
-      perform_checkout(desired_book)
-    end
+    return 'That book is unavailable' unless unavailable?(desired_book)
+    book = find_title(desired_book)
+    book[:available] = false
+    book[:return_date] = Date.today.next_month
+    book
   end
 
   def list_available_books
@@ -25,18 +26,18 @@ class Library
     @collection.detect { |item| item[:item][:title] == title }
   end
 
-  def perform_checkout(desired_book)
-    desired_book[:available] = false
-    desired_book[:return_date] = Date.today.next_month
-    #File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
-  end
-
   private
   def unavailable?(desired_book)
-    desired_book[:available] == false
+    book = find_title(desired_book)
+    book[:available]
   end
 end
 
+# def perform_checkout(desired_book)
+#   desired_book[:available] = false
+#   desired_book[:return_date] = Date.today.next_month
+#   #File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
+# end
 
 =begin
 

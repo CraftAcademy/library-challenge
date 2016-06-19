@@ -22,4 +22,25 @@ describe Library do
       expect(result).to include expected_item
   end
 
+  describe '#checkout' do
+    it 'returns that book is unavailable when not available' do
+      desired_book = "Skratta lagom! Sa pappa Åberg"
+      expect(subject.checkout(desired_book)).to eq 'That book is unavailable'
+    end
+
+    it 'checked out book should have a correct return date' do
+      desired_book = "Alfons och soldatpappan"
+      return_date = Date.today.next_month
+      expect(subject.checkout(desired_book)[:return_date]).to eq return_date
+    end
+
+    it 'changes available status to false when checked out' do
+      desired_book = "Alfons och soldatpappan"
+      expected_result = {item: {title: "Alfons och soldatpappan",
+                      author: "Gunilla Bergström"}, available: false,
+                      return_date: Date.today.next_month }
+      expect(subject.checkout(desired_book)[:available]).to be_falsey
+    end
+  end
+
 end
