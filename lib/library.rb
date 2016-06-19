@@ -9,6 +9,7 @@ class Library
 
   def initialize
     @collection = YAML.load_file('./lib/data.yml')
+
   end
 
   def checkout(desired_book)
@@ -27,11 +28,14 @@ class Library
     @collection.detect { |item| item[:item][:title] == title }
   end
 
+
   private
   def unavailable?(desired_book)
     book = find_title(desired_book)
     book[:available]
   end
+
+
 end
 
 # def perform_checkout(desired_book)
