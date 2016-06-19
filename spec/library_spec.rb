@@ -23,13 +23,13 @@ describe Library do
     end
 
     describe '#checkout is expected' do
-        let(:person) { instance_double('Person') }
+        let(:person) { class_double('Person') }
 
         before do
           allow(person).to receive(:my_books).and_return([])
           subject.checkout(book, person)
-          collection = YAML.load_file('./lib/catalog.yml')
-          @updated_book = collection.detect { |item| item[:item][:title] == book[:item][:title] }
+          catalog = YAML.load_file('./lib/catalog.yml')
+          @updated_book = catalog.detect { |item| item[:item][:title] == book[:item][:title] }
         end
     end
 
@@ -38,6 +38,6 @@ describe Library do
     end
 
     it 'to set a return date' do
-      expect(@updated_book[:return_date]).to eq Date.today.next_month
+      expect(@updated_book[:return_date]).to eq Date.today + 30.days
     end
 end

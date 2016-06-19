@@ -23,8 +23,21 @@ class Library
        book[:available] = false
        book[:return_date] = Date.today + 30.days
        book
+      end
+  end
+
+  def checkout_message
+    case
+    when checkout(book, person) then
+      {status: true, message: 'To be returned by: ', date: Date.today + 30.days}
+     else
+      checked_out
      end
+   end
 
-
-
+   def checked_out
+     @catalog.detect do |check|
+       if check[:available] = false then
+         {status: true, message: 'Sorry, this book is not available'}
+    end
 end
