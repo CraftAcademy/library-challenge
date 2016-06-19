@@ -1,3 +1,4 @@
+require './lib/person.rb'
 require 'yaml'
 require 'date'
 require 'pry-byebug'
