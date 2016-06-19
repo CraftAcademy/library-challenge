@@ -11,17 +11,23 @@ describe Library do
   end
 
   it 'checks if there are books available for checkout' do
-    expect(subject.available_books).not_to be_empty
+    expect(subject.list_available_books).not_to be_empty
   end
 
-  it 'are there any books checked out' do
-    expect(subject.checked_out_books.empty?).to eq false
+  it 'expects to find desired title' do
+    desired_title = subject.find_title('Alfons och soldatpappan')
+    expect(subject.find_title(title)).to eq desired_title
   end
 
-  it 'can search for a specific title' do
-      result = subject.search_title('Skratta lagom! Sa pappa Åberg')
-      expect(subject.search_title('Skratta lagom! Sa pappa Åberg')).to eq result
-  end
+  # it 'are there any books checked out' do
+  #   expect(subject.checked_out_books.empty?).to eq false
+  # end
+  #
+  # it 'can search for a specific title' do
+  #     result =  subject.search_title("Skratta lagom! Sa pappa Åberg")
+  #     expected_item = {item: {title: "Skratta lagom! Sa pappa Åberg"}}
+  #     expect(result).to include expected_item
+  # end
 
   # it 'does checking a book out remove it from the available list' do
   #   expect
