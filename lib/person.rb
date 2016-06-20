@@ -1,4 +1,4 @@
-ass Person
+class Person
 
   def initialize
   end
