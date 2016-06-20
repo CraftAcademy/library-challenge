@@ -7,3 +7,6 @@ gem 'rspec'
 gem 'pry'
 gem 'coveralls', require: false
 gem 'rubocop'
+gem "rspec-rails", :group => [:development, :test]
+gem "rspec-rails", :group => [:development, :test]
+gem "rspec-rails", :group => [:development, :test]
