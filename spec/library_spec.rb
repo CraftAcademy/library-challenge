@@ -9,4 +9,10 @@ describe Library do
   it "Checks that a book is available" do
     expect(subject.is_available?("Alfons och soldatpappan", "Gunilla Bergström")).to be true
   end
+
+  it "Allows individuals to check out a book" do
+    expected_output = { title: "Alfons och soldatpappan", author: "Gunilla Bergström", message: "item booked successfully" }
+    expect(subject.book_checkout("Alfons och soldatpappan", "Gunilla Bergström")).to eq expected_output
+    expect(subject.is_available?("Alfons och soldatpappan", "Gunilla Bergström")).to be false
+  end
 end
