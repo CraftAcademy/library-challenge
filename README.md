@@ -3,15 +3,14 @@
 
 User stories implemented so far
 
-
 ```
-As a library
+As a librarian
 In order to have good books to offer to the public
-I would like to be able to have a collection of books
+I would like to be able to have a collection of books stored in a file
 ```
 
 ```
-As a library
+As a librarian
 In order to have good books to offer to the public
 I would like to be able to allow individuals to check out a book
 ```
