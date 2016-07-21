@@ -36,7 +36,7 @@ class Library
   end
 
   def set_return_date(booked_item)
-    booked_item[:return_date] = Date.today.next_month(RETURN_DATE).strftime('%m/%y')
+    booked_item[:return_date] = Date.today.next_month(RETURN_DATE).strftime('%d/%m/%y')
     booked_item[:return_date]
   end
 
