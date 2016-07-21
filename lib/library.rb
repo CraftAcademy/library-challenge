@@ -25,6 +25,10 @@ class Library
     end
   end
 
+  def available_books
+    list = @books.select { |item| item[:available] == true }
+  end
+
   private
 
   def get_book(title, author)
