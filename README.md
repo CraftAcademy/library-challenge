@@ -1,20 +1,82 @@
-##Library Challenge
-###Week 1 Ruby challenge
-
-Instructions
--------
-Read this entire README carefully and follow all instructions.
-
-* Challenge time: this weekend, until Monday 9am
-* Feel free to use Google, Stack Overflow, your notes, previously written code, books, etc. but work on your own
-* If you refer to or have in whole or partially used the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution to GitHub and create a Pull Request**
-* You must submit a Pull Request to this repository with your code by 9.30am Monday morning - before the stand-up
+#Library Challenge
+##Week 1 Ruby challenge
 
 
-###Learning objective
-----
-#####Write a Library program with the following user stories:
+
+###User stories implemented so far:
+
+```
+As a librarian
+In order to have good books to offer to the public
+I would like to be able to have a collection of books stored in a file
+```
+
+* How do I check this functionality in irb?
+
+```
+$ irb
+2.2.3 :001 > require './lib/library.rb'
+ => true 
+2.2.3 :002 > require './lib/person.rb'
+ => true 
+2.2.3 :003 > lib = Library.new
+ => #<Library:0x007f8948b15bb0 @books=[{:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"Skratta lagom! Sa pappa Åberg", :author=>"Gunilla Bergström"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"Osynligt med Alfons", :author=>"Gunilla Bergström"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"Pippi Långstrump", :author=>"Astrid Lindgren"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"Pippi Långstrump går ombord", :author=>"Astrid Lindgren"}, :available=>true, :return_date=>nil}]> 
+```
+
+Next thing we want to do:
+
+```
+As a librarian
+In order to have good books to offer to the public
+I would like to be able to allow individuals to check out a book
+```
+
+* How to check for this?
+
+```
+$ irb
+2.2.3 :004 > per = Person.new
+ => #<Person:0x007f8948b05850 @list=[]> 
+2.2.3 :005 > checkout = lib.book_checkout("Alfons och soldatpappan", "Gunilla Bergström")
+ => {:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström", :message=>"item booked successfully", :return_date=>"21/08/16"} 
+```
+
+After checking out a book we receive a message containing the return date set to 1 month after booking the item.
+
+```
+As a librarian
+In order to make the books available to many individuals
+I would like to set a return date on every check out
+and I would like that date to be 1 month from checkout date
+```
+
+* The method set_return_date in Library class returns a value in Date format DD/MM/YY on every check out message as shown in the example above.
+What comes after is explained in comments in between the irb commands.
+
+```
+$ irb
+
+#IF WE TRY TO CHECK OUT THE SAME BOOK TWICE WE GET AN ERROR MESSAGE
+
+2.2.3 :007 > checkout2 = lib.book_checkout("Alfons och soldatpappan", "Gunilla Bergström")
+RuntimeError: This book is not available
+
+#AFTER CHECKING OUT A BOOK WE STORE IT IN A LIST OF BOOKED ITEMS
+
+2.2.3 :008 > per.add_to_list(checkout)
+ => [{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström", :return_date=>"21/08/16"}] 
+
+#IF WE ADD A SECOND ITEM TO THE LIST AFTER CHECKING OUT THE OUTPUT OF "list" WILL CHANGE REPORTING BOTH ITEMS
+
+2.2.3 :009 > checkout3 = lib.book_checkout("Skratta lagom! Sa pappa Åberg", "Gunilla Bergström")
+ => {:title=>"Skratta lagom! Sa pappa Åberg", :author=>"Gunilla Bergström", :message=>"item booked successfully", :return_date=>"21/08/16"} 
+2.2.3 :010 > per.add_to_list(checkout3)
+ => [{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström", :return_date=>"21/08/16"}, {:title=>"Skratta lagom! Sa pappa Åberg", :author=>"Gunilla Bergström", :return_date=>"21/08/16"}] 
+2.2.3 :016 > per.list
+ => [{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström", :return_date=>"21/08/16"}, {:title=>"Skratta lagom! Sa pappa Åberg", :author=>"Gunilla Bergström", :return_date=>"21/08/16"}] 
+```
+
+* Lastly, we want to check a final scenario:
 
 ```
 As an individual
@@ -24,65 +86,7 @@ with information about the title and author
 ```
 
 ```
-As a library
-In order to have good books to offer to the public
-I would like to be able to have a collection of books
+$ irb
+2.2.3 :017 > lib.available_books
+ => [{:item=>{:title=>"Osynligt med Alfons", :author=>"Gunilla Bergström"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"Pippi Långstrump", :author=>"Astrid Lindgren"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"Pippi Långstrump går ombord", :author=>"Astrid Lindgren"}, :available=>true, :return_date=>nil}] 
 ```
-
-```
-As a library
-In order to have good books to offer to the public
-I would like to be able to allow individuals to check out a book
-```
-
-```
-As a library
-In order to make the books available to many individuals
-I would like to set a return date on every check out
-and I would like that date to be 1 month from checkout date
-```
-
-```
-As an individual
-In order to avoid awkward moments at the library
-I would like to know when my book is supposed to be returned
-```
-
-###Tasks
-----
-
-* Fork the challenge repo: https://github.com/CraftAcademy/library-challenge
-* Run the command 'bundle' in the project directory to ensure you have all the gems
-* Write your specs and implementation
-* Be smart about using Git: commit and push often. Use feature branches.
-* Create a Pull Request as soon as possible
-* Read the comments from Hound and fix any issues that the service points out.
-
-###Tips
-----
-
-#####Some hints:
-  * A Person needs to have a list of books that he currently has in his possession. That list needs to include the return date.
-  * The return date can be calculated using the `Date` object. Out of the box, there are methods you can use to add days to the current date.
-  * Make use of `doubles` when writing your specs
-  * Follow the [naming conventions/standards](https://craftacademy.gitbooks.io/coding-as-a-craft/content/extras/naming_standards.html) for methods and variables
-
-###What we are looking for
-----
-#####I'm hoping to see that:
-* You can take a problem set and write a well tested implementation on your own.
-* You understand how to define Ruby Classes and work with objects.
-* You understand how classes can interact with each other.
-* You know how to make use of arrays, hashes, and associated methods to create dynamic lists.
-* You know how to write specs and use them as a blueprint in your development.
-* I can track your work by following you commit history - so please commit as soon you are done with a feature or when you have made a test pass. 
-
-#####In your Pull Request, I'm hoping to see:
-* That you are testing the right thing in the right spec file.
-* That all tests passing - green is good!
-* High test coverage (above 95% is accepted)
-* The code is easy to follow: every class has a clear responsibility, methods are short, code is nicely formatted, etc.
-* The README.md includes information on how to use your solution with command examples in `irb`. (Feel free to remove this text)
-
-
-**Happy coding!**
