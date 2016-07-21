@@ -8,9 +8,8 @@ class Person
   end
 
   def add_to_list(result)
-    @list.push( { :title => result[:title],
-                  :author => result[:author],
-                  :return_date => result[:return_date] } )
+    @list.push( { title: result[:title],
+                  author: result[:author],
+                  return_date: result[:return_date] } )
   end
-
 end

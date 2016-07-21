@@ -21,10 +21,14 @@ describe Library do
 
   it "Sets a return date for a booked item to 1 month after check out" do
     expected_date = Date.today.next_month(1).strftime("%d/%m/%y")
-    expect(subject.book_checkout("Alfons och soldatpappan", "Gunilla Bergström")[:return_date]).to eq expected_date
     expected_output = { title: "Alfons och soldatpappan",
                         author: "Gunilla Bergström",
                         message: "item booked successfully",
                         return_date: expected_date }
+    expect(subject.book_checkout("Alfons och soldatpappan", "Gunilla Bergström")[:return_date]).to eq expected_date
+  end
+
+  it "Returns an error message if trying to check out unavailable books" do
+    expect { subject.book_checkout("Osynligt med Alfons", "Gunilla Bergström") }.to raise_error "This book is not available"
   end
 end

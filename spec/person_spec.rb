@@ -1,6 +1,5 @@
 require './lib/library.rb'
 require './lib/person.rb'
-require 'pry'
 
 describe Person do
   let(:library) { Library.new }
@@ -27,5 +26,4 @@ describe Person do
                         return_date: expected_date }
     expect(subject.list[0]).to eq expected_output
   end
-
 end

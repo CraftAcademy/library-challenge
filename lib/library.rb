@@ -39,5 +39,4 @@ class Library
     booked_item[:return_date] = Date.today.next_month(RETURN_DATE).strftime('%d/%m/%y')
     booked_item[:return_date]
   end
-
 end
