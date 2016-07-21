@@ -1,5 +1,9 @@
-class Person
+require './lib/library.rb'
 
-  def initialize
+class Person
+  attr_accessor
+
+  def initialize(attrs={})
+
   end
 end

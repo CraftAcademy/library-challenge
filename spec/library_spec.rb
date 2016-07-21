@@ -11,7 +11,10 @@ describe Library do
   end
 
   it "Allows individuals to check out a book" do
-    expected_output = { title: "Alfons och soldatpappan", author: "Gunilla Bergström", message: "item booked successfully", return_date: Date.today.next_month(1).strftime("%m/%y") }
+    expected_output = { title: "Alfons och soldatpappan",
+                        author: "Gunilla Bergström",
+                        message: "item booked successfully",
+                        return_date: Date.today.next_month(1).strftime("%m/%y") }
     expect(subject.book_checkout("Alfons och soldatpappan", "Gunilla Bergström")).to eq expected_output
     expect(subject.available?("Alfons och soldatpappan", "Gunilla Bergström")).to be false
   end
@@ -19,6 +22,9 @@ describe Library do
   it "Sets a return date for a booked item to 1 month after check out" do
     expected_date = Date.today.next_month(1).strftime("%m/%y")
     expect(subject.book_checkout("Alfons och soldatpappan", "Gunilla Bergström")[:return_date]).to eq expected_date
-    expected_output = { title: "Alfons och soldatpappan", author: "Gunilla Bergström", message: "item booked successfully", return_date: expected_date }
+    expected_output = { title: "Alfons och soldatpappan",
+                        author: "Gunilla Bergström",
+                        message: "item booked successfully",
+                        return_date: expected_date }
   end
 end
