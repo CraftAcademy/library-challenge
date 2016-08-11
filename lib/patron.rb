@@ -1,5 +1,3 @@
-
-
 class Patron
 
   attr_accessor :nightstand, :library
@@ -39,7 +37,8 @@ class Patron
   end
 
   def add_book_to_nightstand(book)
-    @nightstand + book.to_a
+    @nightstand << book
+    puts "Here's a book: #{book}"
     File.open('./lib/patron_books.yml', 'w') {|book| book.write nightstand.to_yaml}
   end
 

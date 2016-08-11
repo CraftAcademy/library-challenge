@@ -10,8 +10,8 @@ describe Patron do
     allow(library).to receive(:release_book_to_patron).and_return({:item=>
        {:title=>"I Do Not Like Green Eggs and Ham",
         :author=>"Doctor Seuss"},
-      :available=>true,
-      :due_date=>nil})
+      :available=>false,
+      :due_date=>'2016-09-15'})
     allow(library).to receive(:bookshelf).and_return(bookshelf)
   end
 
