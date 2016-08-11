@@ -18,16 +18,12 @@ describe Patron do
     expect(subject.nightstand).not_to be nil
   end
 
-  it 'can display library_books from author search' do
-    expect(subject.search_books_by_author(library, 'Lowry')).not_to be nil
-  end
-
-  it 'can display library_books from title search' do
-    expect(subject.search_books_by_title(library, 'BFG')).not_to be nil
-  end
-
-  it 'can display books with author *or* title' do
+  it 'can find books with a title' do
     expect( subject.search_library_bookshelf(library, title: 'BFG')).not_to be nil
+  end
+
+  it 'can find books with an author' do
+    expect( subject.search_library_bookshelf(library, author: 'Lowry')).not_to be nil
   end
 
   it 'raises error if searching for something other than title or author' do
@@ -42,20 +38,24 @@ describe Patron do
     expect{subject.search_library_bookshelf(library, title: 'adfkj')}.to raise_error 'Your search returned no books'
   end
 
-  it 'can see if a book is available' do
+  describe 'Patron has found books by a search' do
+    before do subject.search_library_bookshelf(library, author: 'Seuss')
+    end
 
+    xit 'can check out a book from the library if it is available' do
+      expect(subject.check_out_from_library(0)).to be_truthy
+    end
+
+    it 'raises an error when patron tries to check out an unavailable book' do
+
+    end
+
+    it 'stores library books on the nightstand' do
+
+    end
+
+    it 'has a due date on checked-out books' do
+
+    end
   end
-
-  it 'can check out a book from the library' do
-
-  end
-
-  it 'stores library books on the nightstand' do
-
-  end
-
-  it 'has a due date on checked-out books' do
-
-  end
-
 end

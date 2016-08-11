@@ -17,8 +17,13 @@ class Patron
     else
       search_failed_error
     end
-
   end
+
+  # def check_out_from_library(book_index)
+  #   library.bookshelf[book_index].nil? ? no_book_error : check_book_out_from_bookshelf(book_index)
+  # end
+
+  private
 
   def search_books_by_author(library, author)
     search = library.bookshelf.select { |book| book[:item][:author].include? author}
@@ -30,7 +35,6 @@ class Patron
     search == [] ? no_books_found : search
   end
 
-  private
   def search_failed_error
     raise 'Please enter a title or an author'
   end
