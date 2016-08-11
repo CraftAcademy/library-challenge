@@ -1,0 +1,26 @@
+---
+- :item:
+    :title: I Do Not Like Green Eggs and Ham
+    :author: Doctor Seuss
+  :available: true
+  :due_date:
+- :item:
+    :title: Hop on Pop
+    :author: Doctor Seuss
+  :available: false
+  :due_date: 2016-05-25
+- :item:
+    :title: Anne of Green Gables
+    :author: I Forgot Actually
+  :available: true
+  :due_date:
+- :item:
+    :title: The BFG
+    :author: Roald Dahl
+  :available: true
+  :due_date:
+- :item:
+    :title: The Giver
+    :author: Lois Lowry
+  :available: true
+  :due_date:
