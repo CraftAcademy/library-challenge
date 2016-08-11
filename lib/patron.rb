@@ -11,22 +11,22 @@ class Patron
   def search_library_bookshelf(library, attrs={})
     case
     when attrs[:title] != nil then
-      search_books_by_title(library, attrs)
+      search_books_by_title(library, attrs[:title])
     when attrs[:author] != nil then
-      search_books_by_author(library, attrs)
+      search_books_by_author(library, attrs[:author])
     else
       search_failed_error
     end
 
   end
 
-  def search_books_by_author(library, attrs = {})
-    search = library.bookshelf.select { |book| book[:item][:author].include? attrs[:author]}
+  def search_books_by_author(library, author)
+    search = library.bookshelf.select { |book| book[:item][:author].include? author}
     search == [] ? no_books_found : search
   end
 
-  def search_books_by_title(library, attrs = {})
-    search = library.bookshelf.select { |book| book[:item][:title].include? attrs[:title]}
+  def search_books_by_title(library, title)
+    search = library.bookshelf.select { |book| book[:item][:title].include? title}
     search == [] ? no_books_found : search
   end
 

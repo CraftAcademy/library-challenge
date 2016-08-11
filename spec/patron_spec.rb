@@ -19,15 +19,15 @@ describe Patron do
   end
 
   it 'can display library_books from author search' do
-    expect(subject.search_books_by_author(library, author: 'Lowry')).not_to be nil
+    expect(subject.search_books_by_author(library, 'Lowry')).not_to be nil
   end
 
   it 'can display library_books from title search' do
-    expect(subject.search_books_by_title(library, title: 'BFG')).not_to be nil
+    expect(subject.search_books_by_title(library, 'BFG')).not_to be nil
   end
 
   it 'can display books with author *or* title' do
-    expect( subject.search_library_bookshelf(library, author: 'Lowry')).not_to be nil
+    expect( subject.search_library_bookshelf(library, title: 'BFG')).not_to be nil
   end
 
   it 'raises error if searching for something other than title or author' do
@@ -35,7 +35,7 @@ describe Patron do
   end
 
   it 'raises error if no search parameters included' do
-    expect { subject.search_library_bookshelf(library, title: nil)}.to raise_error 'Your search returned no books'
+    expect { subject.search_library_bookshelf(library, title: nil)}.to raise_error 'Please enter a title or an author'
   end
 
   it 'raises error if no books found' do
