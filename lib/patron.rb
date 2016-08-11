@@ -11,9 +11,9 @@ class Patron
   def search_library_bookshelf(library, attrs={})
     case
     when attrs[:title] != nil then
-      search_books_by_title(library, attrs[:title])
+      search_books_by_title(library, attrs)
     when attrs[:author] != nil then
-      search_books_by_author(library, attrs[:author])
+      search_books_by_author(library, attrs)
     else
       search_failed_error
     end

@@ -27,7 +27,7 @@ describe Patron do
   end
 
   it 'can display books with author *or* title' do
-    expect( subject.search_library_bookshelf(library, title: 'BFG')).not_to be nil
+    expect( subject.search_library_bookshelf(library, author: 'Lowry')).not_to be nil
   end
 
   it 'raises error if searching for something other than title or author' do
