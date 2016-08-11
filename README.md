@@ -3,9 +3,6 @@
 
 Thomas
 
-this is on branch testing
-
-addition 1
 
 Instructions
 -------
