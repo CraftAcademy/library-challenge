@@ -30,6 +30,7 @@ class Library
     bookshelf[book_index][:available] = false
     bookshelf[book_index][:due_date] = set_due_date
     File.open('./lib/library_books.yml', 'w') {|f| f.write bookshelf.to_yaml}
+    bookshelf[book_index]
   end
 
   def reset_due_date(book_index)

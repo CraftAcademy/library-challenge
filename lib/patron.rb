@@ -1,14 +1,15 @@
-require './lib/library.rb'
+
 
 class Patron
 
-  attr_accessor :nightstand
+  attr_accessor :nightstand, :library
 
   def initialize
     @nightstand = YAML.load_file('./lib/patron_books.yml')
   end
 
   def search_library_bookshelf(library, attrs={})
+    @library = library
     case
     when attrs[:title] != nil then
       search_books_by_title(library, attrs[:title])
@@ -19,9 +20,11 @@ class Patron
     end
   end
 
-  # def check_out_from_library(book_index)
-  #   library.bookshelf[book_index].nil? ? no_book_error : check_book_out_from_bookshelf(book_index)
-  # end
+  def check_out_from_library(book_index)
+    book = library.
+    release_book_to_patron(book_index)
+    add_book_to_nightstand(book)
+  end
 
   private
 
@@ -33,6 +36,11 @@ class Patron
   def search_books_by_title(library, title)
     search = library.bookshelf.select { |book| book[:item][:title].include? title}
     search == [] ? no_books_found : search
+  end
+
+  def add_book_to_nightstand(book)
+    @nightstand + book.to_a
+    File.open('./lib/patron_books.yml', 'w') {|book| book.write nightstand.to_yaml}
   end
 
   def search_failed_error
