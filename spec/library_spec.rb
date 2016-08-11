@@ -33,5 +33,9 @@ describe Library do
     it 'can mark a returned book as available' do
       expect(subject.bookshelf[0][:available]).to be true
     end
+
+    it 'resets due date on returned book' do
+      expect(subject.bookshelf[0][:due_date]).to be nil
+    end
   end
 end
