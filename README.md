@@ -1,6 +1,8 @@
 ##Library Challenge
 ###Week 1 Ruby challenge
 
+Thomas 
+
 Instructions
 -------
 Read this entire README carefully and follow all instructions.
