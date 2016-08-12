@@ -59,13 +59,9 @@ describe Patron do
       expect{ subject.check_out_from_library(1)}.to raise_error('Book unavailable')
 
     end
-    #
-    # it 'stores library books on the nightstand' do
-    #
-    # end
-    #
-    # it 'has a due date on checked-out books' do
-    #
-    # end
+
+    it 'has a due date on checked-out books' do
+      expect(subject.nightstand[0][:due_date]).not_to be nil
+    end
   end
 end

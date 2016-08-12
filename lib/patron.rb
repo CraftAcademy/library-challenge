@@ -21,7 +21,7 @@ class Patron
   def check_out_from_library(book_index)
     book = library.
     release_book_to_patron(book_index)
-    add_book_to_nightstand(book_index)
+    add_book_to_nightstand(book_index, book)
   end
 
   private
@@ -36,8 +36,8 @@ class Patron
     search == [] ? no_books_found : search
   end
 
-  def add_book_to_nightstand(book)
-    book_available(book) ? write_book_to_nightstand(book) : book_unavailable_error
+  def add_book_to_nightstand(book_index, book)
+    book_available(book_index) ? write_book_to_nightstand(book) : book_unavailable_error
   end
 
   def book_available(book)
