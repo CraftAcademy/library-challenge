@@ -1,5 +1,5 @@
 require "yaml"
-require "date"
+
 class Person
   attr_accessor :list
 
