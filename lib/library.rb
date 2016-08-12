@@ -4,7 +4,7 @@ require 'date'
 class Library
 
   attr_accessor :bookshelf
-  BOOK_LOAN_PERIOD = 30
+  BOOK_LOAN_PERIOD_MONTHS = 1
 
   def initialize
     @bookshelf = YAML.load_file('./lib/library_books.yml')
@@ -24,7 +24,7 @@ class Library
   end
 
   def set_due_date
-    Date.today.next_day(BOOK_LOAN_PERIOD)
+    Date.today.next_month(BOOK_LOAN_PERIOD_MONTHS)
   end
 
   private

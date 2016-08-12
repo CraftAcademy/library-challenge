@@ -25,8 +25,7 @@ describe Patron do
   end
 
   it 'can find books with a title' do
-    expect( subject.search_library_bookshelf(library,
-      title: 'BFG')).not_to be nil
+    expect( subject.search_library_bookshelf(library, title: 'BFG')).not_to be nil
   end
 
   it 'can find books with an author' do
@@ -34,18 +33,22 @@ describe Patron do
   end
 
   it 'raises error if searching for something other than title or author' do
-    expect{ subject.search_library_bookshelf(library,
-      rating: 'green')}.to raise_error 'Please enter a title or an author'
+    expect do subject.search_library_bookshelf(library, rating: 'green')
+    end
+    .to raise_error 'Please enter a title or an author'
   end
 
   it 'raises error if no search parameters included' do
-    expect { subject.search_library_bookshelf(library,
-      title: nil)}.to raise_error 'Please enter a title or an author'
+    expect do subject.search_library_bookshelf(library, title: nil)
+    end
+    .to raise_error 'Please enter a title or an author'
   end
 
   it 'raises error if no books found' do
-    expect{subject.search_library_bookshelf(library,
-      title: 'adfkj')}.to raise_error 'Your search returned no books'
+    expect do
+    subject.search_library_bookshelf(library, title: 'adfkj')
+    end
+    .to raise_error 'Your search returned no books'
   end
 
   it 'shows only available books' do
