@@ -21,7 +21,7 @@ class Patron
   def check_out_from_library(book_index)
     book = library.
     release_book_to_patron(book_index)
-    add_book_to_nightstand(book)
+    add_book_to_nightstand(book_index)
   end
 
   private
@@ -37,9 +37,20 @@ class Patron
   end
 
   def add_book_to_nightstand(book)
+    book_available(book) ? write_book_to_nightstand(book) : book_unavailable_error
+  end
+
+  def book_available(book)
+    library.bookshelf[book][:available]
+  end
+
+  def write_book_to_nightstand(book)
     @nightstand << book
-    puts "Here's a book: #{book}"
     File.open('./lib/patron_books.yml', 'w') {|book| book.write nightstand.to_yaml}
+  end
+
+  def book_unavailable_error
+    raise 'Book unavailable'
   end
 
   def search_failed_error

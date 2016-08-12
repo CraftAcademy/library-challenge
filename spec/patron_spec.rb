@@ -55,9 +55,10 @@ describe Patron do
       expect(subject.check_out_from_library(0)).to be_truthy
     end
 
-    # it 'raises an error when patron tries to check out an unavailable book' do
-    #
-    # end
+    it 'raises an error when patron tries to check out an unavailable book' do
+      expect{ subject.check_out_from_library(1)}.to raise_error('Book unavailable')
+
+    end
     #
     # it 'stores library books on the nightstand' do
     #
