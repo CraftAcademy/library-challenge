@@ -1,0 +1,11 @@
+---
+- :item:
+    :title: Journey to the Center of the Earth
+    :author: Jules Verne
+  :available: false
+  :due_date: 2017-01-01
+- :item:
+    :title: The Babysitters Club
+    :author: Teenager Authorlady
+  :available: false
+  :due_date: 2017-01-01
