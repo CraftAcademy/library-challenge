@@ -1,3 +1,5 @@
+require './lib/error_module.rb'
+
 class Patron
 
   attr_accessor :nightstand, :library
@@ -14,7 +16,7 @@ class Patron
     when !attrs[:author].nil? then
       search_books_by_author(library, attrs[:author])
     else
-      search_failed_error
+      Error_module.search_failed_error
     end
   end
 
@@ -47,34 +49,22 @@ class Patron
 
   def search_books_by_author(library, author)
     search = library.bookshelf.select { |book| book[:item][:author].include? author}
-    search == [] ? no_books_found : search
+    search == [] ? Error_module.no_books_found : search
   end
 
   def search_books_by_title(library, title)
     search = library.bookshelf.select { |book| book[:item][:title].include? title}
-    search == [] ? no_books_found : search
+    search == [] ? Error_module.no_books_found : search
   end
 
   def add_book_to_nightstand(book_index, book)
     library.bookshelf[book_index][:available] ?
-     write_book_to_nightstand(book) : book_unavailable_error
+     write_book_to_nightstand(book) : Error_module.book_unavailable_error
   end
 
   def write_book_to_nightstand(book)
     @nightstand << book
     commit_changes_to_nightstand
-  end
-
-  def book_unavailable_error
-    raise 'Book unavailable'
-  end
-
-  def search_failed_error
-    raise 'Please enter a title or an author'
-  end
-
-  def no_books_found
-    raise 'Your search returned no books'
   end
 
 end
