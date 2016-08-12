@@ -11,11 +11,14 @@ class Library
   end
 
   def release_book_to_patron(book_index)
-    bookshelf[book_index].nil? ? no_book_error : check_book_out_from_bookshelf(book_index)
+    bookshelf[book_index].nil? ? no_book_error :
+     check_book_out_from_bookshelf(book_index)
   end
 
   def receive_returned_book(book_index)
-    bookshelf[book_index][:available] = true
+    book = bookshelf[book_index]
+    book.nil? ? unreturnable_book_error :
+     book[:available] = true
     reset_due_date(book_index)
     File.open('./lib/library_books.yml', 'w') {|f| f.write bookshelf.to_yaml}
   end
@@ -39,5 +42,9 @@ class Library
 
   def no_book_error
     raise 'Book not found'
+  end
+
+  def unreturnable_book_error
+    raise 'Book cannot be returned'
   end
 end

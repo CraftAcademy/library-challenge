@@ -29,6 +29,10 @@ describe Library do
 
   describe 'working with a returned book' do
 
+    it 'refuses a book not from the library' do
+      expect{subject.receive_returned_book(999)}.to raise_error('Book cannot be returned')
+    end
+
     before {subject.receive_returned_book(0)}
     it 'can mark a returned book as available' do
       expect(subject.bookshelf[0][:available]).to be true
