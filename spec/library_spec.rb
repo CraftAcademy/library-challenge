@@ -9,7 +9,7 @@ describe Library do
 
   it 'sets return_date' do
     subject.set_return_date(0)
-    expect(subject.items[0][:return_date]).to eq(subject.set_return_date(0))
+    expect(subject.items[0][:return_date]).to eq(subject.return_date(0))
   end
 
   it 'has a book to lend' do
@@ -23,7 +23,7 @@ describe Library do
 
   it 'has returndate on checked out book' do
     subject.check_out(0)
-    expect(subject.items[0][:return_date]).to eq(subject.set_return_date(0))
+    expect(subject.items[0][:return_date]).to eq(subject.return_date(0))
   end
 
   it 'allows returns' do

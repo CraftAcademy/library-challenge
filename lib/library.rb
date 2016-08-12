@@ -8,7 +8,7 @@ class Library
     @items = YAML.load_file('./lib/library_list.yml')
   end
 
-  def set_return_date(item_number)
+  def return_date(item_number)
     items[item_number][:return_date] = due_date
     File.open('./lib/library_list.yml', 'w') { |f| f.write items.to_yaml }
     items[item_number][:return_date]
@@ -16,7 +16,7 @@ class Library
 
   def check_out(item_number)
     items[item_number][:available] = false
-    set_return_date(item_number)
+    return_date(item_number)
   end
 
   def check_in(item_number)
@@ -27,7 +27,6 @@ class Library
   private
 
   def due_date
-    #lägger till en månad till dagens datum
     Date.today.next_month
   end
 
