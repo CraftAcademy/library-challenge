@@ -47,8 +47,13 @@ describe Patron do
     expect{subject.search_library_bookshelf(library, title: 'adfkj')}.to raise_error 'Your search returned no books'
   end
 
+  it 'shows only available books' do
+    expect(subject.show_only_available_books(library, author: 'Seuss')).not_to be nil
+  end
+
   describe 'Patron has found books by a search' do
-    before do subject.search_library_bookshelf(library, author: 'Dahl')
+    before do
+      subject.search_library_bookshelf(library, author: 'Dahl')
     end
 
     it 'can check out a book from the library if it is available' do

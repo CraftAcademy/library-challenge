@@ -24,6 +24,11 @@ class Patron
     add_book_to_nightstand(book_index, book)
   end
 
+  def show_only_available_books(library, attrs = {})
+    sorting_search = search_books_by_author(library, attrs[:author]).nil? ? search_books_by_title[:title] : search_books_by_author(library, attrs[:author])
+    sorting_search.select {|book| book[:item][:available] == true}
+  end
+
   private
 
   def search_books_by_author(library, author)
