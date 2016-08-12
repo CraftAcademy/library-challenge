@@ -27,8 +27,8 @@ describe Library do
   end
 
   it 'allows returns' do
-    subject.check_out(0)
-    expect(subject.items[0][:available]).to eq(false)
+    subject.check_in(0)
+    expect(subject.items[0][:available]).to eq(true)
   end
 
 end

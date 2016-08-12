@@ -19,6 +19,11 @@ class Library
     set_return_date(item_number)
   end
 
+  def check_in(item_number)
+    items[item_number][:available] = true
+    items[item_number][:return_date] = nil
+  end
+
   private
 
   def due_date
