@@ -1,8 +1,8 @@
 require 'yaml'
 require 'date'
+require './lib/error_module.rb'
 
 class Library
-
   attr_accessor :bookshelf
   BOOK_LOAN_PERIOD_MONTHS = 1
 
@@ -17,7 +17,7 @@ class Library
 
   def receive_returned_book(book_index)
     book = bookshelf[book_index]
-    book.nil? ? unreturnable_book_error :
+    book.nil? ? Error.unreturnable_book_error :
      book[:available] = true
     reset_due_date(book_index)
     commit_changes_to_bookshelf
