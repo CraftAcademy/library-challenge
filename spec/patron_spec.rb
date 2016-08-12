@@ -33,22 +33,20 @@ describe Patron do
   end
 
   it 'raises error if searching for something other than title or author' do
-    expect do subject.search_library_bookshelf(library, rating: 'green')
-    end
-    .to raise_error 'Please enter a title or an author'
+    expect do
+      subject.search_library_bookshelf(library, rating: 'green')
+    end.to raise_error 'Please enter a title or an author'
   end
 
   it 'raises error if no search parameters included' do
     expect do subject.search_library_bookshelf(library, title: nil)
-    end
-    .to raise_error 'Please enter a title or an author'
+    end.to raise_error 'Please enter a title or an author'
   end
 
   it 'raises error if no books found' do
     expect do
     subject.search_library_bookshelf(library, title: 'adfkj')
-    end
-    .to raise_error 'Your search returned no books'
+    end.to raise_error 'Your search returned no books'
   end
 
   it 'shows only available books' do
