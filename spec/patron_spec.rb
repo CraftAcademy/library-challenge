@@ -7,11 +7,15 @@ describe Patron do
 
   before do
     bookshelf = YAML.load_file('./spec/fixtures/library_books.yml')
-    allow(library).to receive(:release_book_to_patron).and_return({:item=>
-       {:title=>"I Do Not Like Green Eggs and Ham",
-        :author=>"Doctor Seuss"},
-      :available=>false,
-      :due_date=>'2016-09-15'})
+    allow(library).to receive(:release_book_to_patron)
+      .and_return(
+        item:
+          {
+            title: "I Do Not Like Green Eggs and Ham",
+            author: "Doctor Seuss"
+          },
+            available: false,
+            due_date: '2016-09-15')
     allow(library).to receive(:bookshelf).and_return(bookshelf)
     allow(library).to receive(:receive_returned_book)
   end
