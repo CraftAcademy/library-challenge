@@ -4,8 +4,6 @@ require "Date"
 class Library
   attr_accessor :items
 
-   ITEM_BORROW_TIME = 30
-
   def initialize
     @items = YAML.load_file('./lib/library_list.yml')
   end
@@ -16,11 +14,16 @@ class Library
     items[item_number][:return_date]
   end
 
+  def check_out(item_number)
+    items[item_number][:available] = false
+    set_return_date(item_number)
+  end
+
   private
 
   def due_date
-    #lägger till 30 till dagens datum
-    Date.today.next_day(ITEM_BORROW_TIME)
+    #lägger till en månad till dagens datum
+    Date.today.next_month
   end
 
 end
