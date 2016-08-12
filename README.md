@@ -1,4 +1,4 @@
-##Library Challenge
+##The Suss Library Challenge
 ###Week 1 Ruby challenge
 
 Instructions
