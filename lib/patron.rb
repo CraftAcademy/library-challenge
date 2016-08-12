@@ -29,6 +29,12 @@ class Patron
     sorting_search.select {|book| book[:item][:available] == true}
   end
 
+  def return_book_to_library(library_index, nightstand_index)
+    library.receive_returned_book(library_index)
+    @nightstand.delete(@nightstand[nightstand_index])
+    File.open('./lib/patron_books.yml', 'w') {|book| book.write nightstand.to_yaml}
+  end
+
   private
 
   def search_books_by_author(library, author)

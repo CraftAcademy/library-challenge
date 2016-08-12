@@ -13,10 +13,7 @@ describe Patron do
       :available=>false,
       :due_date=>'2016-09-15'})
     allow(library).to receive(:bookshelf).and_return(bookshelf)
-  end
-
-  after do
-
+    allow(library).to receive(:receive_returned_book)
   end
 
   it 'expects there to be a library' do
@@ -67,6 +64,18 @@ describe Patron do
 
     it 'has a due date on checked-out books' do
       expect(subject.nightstand[0][:due_date]).not_to be nil
+    end
+  end
+
+  describe 'Patron has a book checked out' do
+
+    before do
+      subject.search_library_bookshelf(library, author: 'Dahl')
+      subject.return_book_to_library(0, 2)
+    end
+
+    it 'returning a book to the library removes it from nightstand' do
+      expect(subject.nightstand[2]).to be nil
     end
   end
 end
