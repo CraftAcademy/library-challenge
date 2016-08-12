@@ -2,8 +2,8 @@
 - :item:
     :title: I Do Not Like Green Eggs and Ham
     :author: Doctor Seuss
-  :available: false
-  :due_date: 2016-09-10
+  :available: true
+  :due_date: 
 - :item:
     :title: Hop on Pop
     :author: Doctor Seuss
