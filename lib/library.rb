@@ -20,7 +20,7 @@ class Library
     book.nil? ? unreturnable_book_error :
      book[:available] = true
     reset_due_date(book_index)
-    File.open('./lib/library_books.yml', 'w') {|f| f.write bookshelf.to_yaml}
+    commit_changes_to_bookshelf
   end
 
   def set_due_date
@@ -29,11 +29,21 @@ class Library
 
   private
 
+  def commit_changes_to_bookshelf
+    File.open('./lib/library_books.yml', 'w') {|f| f.write bookshelf.to_yaml}
+  end
+
   def check_book_out_from_bookshelf(book_index)
+    book = bookshelf[book_index]
+    book.nil? ? no_book_error :
+     execute_checkout(book_index)
+    commit_changes_to_bookshelf
+    return bookshelf[book_index]
+  end
+
+  def execute_checkout(book_index)
     bookshelf[book_index][:available] = false
     bookshelf[book_index][:due_date] = set_due_date
-    File.open('./lib/library_books.yml', 'w') {|f| f.write bookshelf.to_yaml}
-    bookshelf[book_index]
   end
 
   def reset_due_date(book_index)

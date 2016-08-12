@@ -25,17 +25,25 @@ class Patron
   end
 
   def show_only_available_books(library, attrs = {})
-    sorting_search = search_books_by_author(library, attrs[:author]).nil? ? search_books_by_title[:title] : search_books_by_author(library, attrs[:author])
-    sorting_search.select {|book| book[:item][:available] == true}
+    sorting_search(library, attrs).
+    select {|book| book[:item][:available] == true}
   end
 
   def return_book_to_library(library_index, nightstand_index)
     library.receive_returned_book(library_index)
-    @nightstand.delete(@nightstand[nightstand_index])
-    File.open('./lib/patron_books.yml', 'w') {|book| book.write nightstand.to_yaml}
+    nightstand.delete(nightstand[nightstand_index])
+    commit_changes_to_nightstand
   end
 
   private
+
+  def commit_changes_to_nightstand
+    File.open('./lib/patron_books.yml', 'w') {|book| book.write nightstand.to_yaml}
+  end
+
+  def sorting_search(library, attrs)
+    search_books_by_author(library, attrs[:author]).nil? ? search_books_by_title[:title] : search_books_by_author(library, attrs[:author])
+  end
 
   def search_books_by_author(library, author)
     search = library.bookshelf.select { |book| book[:item][:author].include? author}
@@ -48,16 +56,13 @@ class Patron
   end
 
   def add_book_to_nightstand(book_index, book)
-    book_available(book_index) ? write_book_to_nightstand(book) : book_unavailable_error
-  end
-
-  def book_available(book)
-    library.bookshelf[book][:available]
+    library.bookshelf[book_index][:available] ?
+     write_book_to_nightstand(book) : book_unavailable_error
   end
 
   def write_book_to_nightstand(book)
     @nightstand << book
-    File.open('./lib/patron_books.yml', 'w') {|book| book.write nightstand.to_yaml}
+    commit_changes_to_nightstand
   end
 
   def book_unavailable_error
