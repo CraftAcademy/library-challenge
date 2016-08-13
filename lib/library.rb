@@ -2,13 +2,12 @@ require 'yaml'
 
 class Library
 
-  attr_accessor :jane_library, :exp_date
+  attr_accessor :jane_library, :exp_date, :lend, :title, :author, :published
 
   def initialize
     @jane_library = YAML.load_file('./lib/data.yml')
     @exp_date = Date.today.next_month(1).strftime("%m/%y")
   end
-  #attr_accessor :item, :title, :author, :published, :available, :return_date
 
   def lend(item, titel)
     case
@@ -23,7 +22,6 @@ class Library
   end
 
   private
-
   def set_expiry_date
     Date.today.next_month(30).strftime("%m/%y")
   end

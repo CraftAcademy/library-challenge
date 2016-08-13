@@ -9,8 +9,12 @@ describe Library do
     expect(subject.jane_library[0][:item][:title]).to eq 'Sense and Sensibility'
   end
 
+  it 'fetches information about book from yaml file' do
+    expect(subject.jane_library[0][:item][:published]).to eq '1811'
+  end
+
   it 'rejects lend if book is not available' do
-    expected_output = { available: false, message: 'Book is not in library' }
+    expected_output = { available: false, message: 'This book is not available' }
   end
 
   it 'rejects lend if subject have library book at home' do
