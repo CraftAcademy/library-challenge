@@ -3,6 +3,11 @@ require './lib/person.rb'
 describe Person do
   let(:library) {double('Library')}
 
+
+  it 'is a person' do
+      expect(person).not_to be nil
+  end
+
   it 'has a list of books' do
     expect(subject.list).not_to be nil
   end
