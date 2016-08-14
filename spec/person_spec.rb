@@ -3,7 +3,6 @@ require './lib/person.rb'
 describe Person do
   let(:library) {double('Library')}
 
-
   it 'is by a library' do
       expect(library).not_to be nil
   end
