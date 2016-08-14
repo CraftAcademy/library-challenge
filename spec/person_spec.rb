@@ -4,8 +4,8 @@ describe Person do
   let(:library) {double('Library')}
 
 
-  it 'is a person' do
-      expect(person).not_to be nil
+  it 'is by a library' do
+      expect(library).not_to be nil
   end
 
   it 'has a list of books' do

@@ -3,8 +3,8 @@ require './lib/library.rb'
 describe Library do
   let(:person) {double('Person')}
 
-  it 'is a library' do
-      expect(library).not_to be nil
+  it 'allows people' do
+      expect(person).not_to be nil
   end
 
   it 'has a list of items' do
