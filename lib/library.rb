@@ -14,8 +14,6 @@ class Library
     items[item_number][:return_date]
   end
 
-
-
   def check_in(item_number)
     items[item_number][:available] = true
     items[item_number][:return_date] = nil
@@ -26,14 +24,6 @@ class Library
     case
     when no_item_available?(item_number) then
       raise 'Item not found'
-    when item_not_available?(item_number) then
-      raise 'Item not available'
-  #  when incorrect_pin?(pin_code, account.pin_code) then
-  #    give_error_message('wrong pin')
-  #  when card_expired?(account.exp_date) then
-  #    give_error_message('card expired')
-  #  when account_disabled?(account.account_status) then
-  #    give_error_message('account disabled')
     else
       check_out(item_number)
     end
