@@ -1,5 +1,5 @@
 require "yaml"
-require "Date"
+require "date"
 
 class Library
   attr_accessor :items
