@@ -14,6 +14,6 @@ describe Library do
 
   it 'can search for a specific book' do
     expected_output = [{:item=>{:title=>"Pippi Långstrump", :author=>"Astrid Lindgren"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"Pippi Långstrump går ombord", :author=>"Astrid Lindgren"}, :available=>true, :return_date=>nil}]
-    expect(subject.search('pippi')).to eq expected_output
+    expect(subject.search('Pippi')).to eq expected_output
   end
 end
