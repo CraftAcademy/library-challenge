@@ -10,13 +10,8 @@ class Library
   def search(book)
     @books.select{ |obj| obj[:item][:title].include? book }
   end
-end
-#   def available
-#     puts @books.select{ |obj| obj[:available].include?  }
-#   end
-# end
 
-  # if book == nil
-  #   @books = book
-  #   else
-  #  end
+  def what_is_available?
+    @books.select { |obj| obj[:available] == true }
+  end
+end
