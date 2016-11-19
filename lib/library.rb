@@ -8,11 +8,11 @@ class Library
   end
 
   def search(book)
-    search_book = @books.select{ |obj| obj[:item][:title].include? book }
+    @books.select{ |obj| obj[:item][:title].include? book }
   end
 
   def what_is_available?
-    @books.select { |obj| obj[:available] == true }
+    @books.select{ |obj| obj[:available] == true }.map{|obj| obj[:item]}
   end
 
   def borrow(book)
