@@ -18,7 +18,7 @@ class Library
   def borrow(book, individual)
     # case
     # when search(book).map{|obj| obj[:available] != true}
-    #   raise 'Book is not availble right now' + date=
+    #   raise 'Book is not availble right now' + date=?????
     # else
       search(book).map{|obj| obj[:available] = false}
       search(book).map{|obj| obj[:current_possessor] = (individual)}
