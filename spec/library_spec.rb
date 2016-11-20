@@ -6,7 +6,6 @@ describe Library do
   it 'should have books available' do
     expect(subject.books).not_to be nil
   end
-
 #change this to lambda??? to long maybe
   it 'can check which books are available' do
     # command = lambda {subject.what_is_available?}
@@ -45,26 +44,25 @@ describe Library do
         subject.borrow('Skratta lagom! Sa pappa Åberg', rodrigo)
         expect{subject.borrow('Skratta lagom! Sa pappa Åberg', philip)}.to raise_error 'Book is not available right now'
       end
+
+      describe 'A person should be able to return a book' do
+
+      it 'should be set available:true upon returning' do
+        subject.return('Alfons och soldatpappan')
+        expect(subject.search('Alfons och soldatpappan').map{|obj| obj[:available]}).to eq [true]
+      end
+      #   it 'should set current_possessor to nil' do
+      #     subject.return('Alfons och soldatpappan')
+      #     expect(subject.search('Alfons och soldatpappan').map{|obj| obj[:current_possessor]}).to eq [' ']
+      #   end
+      end
     end
-  #
-  #   describe 'A person should be able to return a book' do
-  #
-  #     it 'should set current_possessor to nil' do
-  #     subject.return('Alfons och soldatpappan')
-  #     expect(subject.search('Alfons och soldatpappan').map{|obj| obj[:current_possessor]}).to eq [nil]
-  #   end
-  # end
+  end
 end
-end
-    #
 
 
-    # it 'should be set available:true upon returning' do
-    #   subject.return('Skratta lagom! Sa pappa Åberg')
-    #   expect(subject.search('Skratta lagom! Sa pappa Åberg').map{|obj| obj[:available]}).to eq [true]
-    #     end
-    #   end
-    # end
+
+
 
     # it 'should set a return_date on that book' do
     # {subject.borrow('Skratta lagom! Sa pappa Åberg', invidivual.name)}

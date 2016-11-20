@@ -25,8 +25,9 @@ class Library
       File.open('./lib/data.yml', 'w') { |f| f.write @books.to_yaml }
     end
   end
-end
 
-  # def return(book)
-  #   search(book).map{|obj| obj[:available] = true}
-# end
+  def return(book)
+    search(book).map{|obj| obj[:available] = true }
+    # search(book).map{|obj| obj[:current_possessor] = ' '}
+  end
+end
