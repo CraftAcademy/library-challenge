@@ -86,3 +86,34 @@ I would like to know when my book is supposed to be returned
 
 
 **Happy coding!**
+
+###Tochman solution
+
+#####Usage
+```irb
+2.2.3 :001 > load './lib/person.rb'
+ => true
+2.2.3 :002 > load './lib/library.rb'
+ => true
+2.2.3 :003 > user = Person.new
+ => #<Person:0x007f892b8d6178 @book_shelf=[]>
+2.2.3 :004 > lib = Library.new
+ => #<Library:0x007f892b8ce248 @items=[]>
+2.2.3 :005 > book = {item:{ title: 'Alfons leker', author: 'A. Andersson' }, available: true, return_date: nil}
+ => {:item=>{:title=>"Alfons leker", :author=>"A. Andersson"}, :available=>true, :return_date=>nil}
+2.2.3 :006 > book2 = {item: { title: 'Bible', author: 'TGAOTU' }, available: true, return_date: nil}
+ => {:item=>{:title=>"Bible", :author=>"TGAOTU"}, :available=>true, :return_date=>nil}
+2.2.3 :007 > lib.items.push book
+ => [{:item=>{:title=>"Alfons leker", :author=>"A. Andersson"}, :available=>true, :return_date=>nil}]
+2.2.3 :008 > lib.items.push book2
+ => [{:item=>{:title=>"Alfons leker", :author=>"A. Andersson"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"Bible", :author=>"TGAOTU"}, :available=>true, :return_date=>nil}]
+2.2.3 :009 > desired_book = lib.find_item(title: 'Alfons leker')
+ => {:item=>{:title=>"Alfons leker", :author=>"A. Andersson"}, :available=>true, :return_date=>nil}
+2.2.3 :010 > lib.check_out(desired_book, user)
+ => [{:title=>"Alfons leker", :author=>"A. Andersson", :checked_out_date=>"2016-02-01", :return_date=>"2016-03-01"}]
+2.2.3 :011 > user.book_shelf
+ => [{:title=>"Alfons leker", :author=>"A. Andersson", :checked_out_date=>"2016-02-01", :return_date=>"2016-03-01"}] 
+2.2.3 :012 > lib.items
+ => [{:item=>{:title=>"Alfons leker", :author=>"A. Andersson"}, :available=>false, :return_date=>"2016-03-01"}, {:item=>{:title=>"Bible", :author=>"TGAOTU"}, :available=>true, :return_date=>nil}]
+2.2.3 :013 >
+```
