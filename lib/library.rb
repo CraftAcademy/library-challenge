@@ -1,8 +1,8 @@
 require 'yaml'
+require 'date'
 
 class Library
   attr_accessor :books
-
   def initialize
     @books = YAML.load_file('./lib/data.yml')
   end
@@ -15,14 +15,18 @@ class Library
     @books.select{ |obj| obj[:available] == true }.map{|obj| obj[:item]}
   end
 
-  def borrow(book)
-    # if search(book).map{|obj| obj[:available] = false}
-    #   raise 'book is not availble right now'
+  def borrow(book, individual)
+    # case
+    # when search(book).map{|obj| obj[:available] != true}
+    #   raise 'Book is not availble right now' + date=
     # else
-    search(book).map{|obj| obj[:available] = false}
-    File.open('./lib/data.yml', 'w') { |f| f.write @books.to_yaml }
+      search(book).map{|obj| obj[:available] = false}
+      search(book).map{|obj| obj[:current_possessor] = (individual)}
+      search(book).map{|obj| obj[:return_date] = Date.today.next_month(1).strftime('%d/%m/%y')}
+      File.open('./lib/data.yml', 'w') { |f| f.write @books.to_yaml }
+    end
   end
 
   # def return(book)
-  #   gör om filen till book :available false
-end
+  #   search(book).map{|obj| obj[:available] = true}
+# end

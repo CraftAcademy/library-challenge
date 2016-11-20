@@ -20,41 +20,37 @@ describe Library do
     expect(subject.search('Pippi')).to eq expected_output
   end
 
-  describe 'be able to lend a book' do
-    # let(:person) { instance_double('Person'}
+  describe 'be able to check-out a book' do
+    let(:individual) { instance_double('Philip', name: 'Philip Zudemberg') }
     before {
-      subject.search('Skratta lagom! Sa pappa Åberg').map{|obj| obj[:available] = true
-      File.open('./lib/data.yml', 'w') { |f| f.write @books.to_yaml }}
+      subject.search('Skratta lagom! Sa pappa Åberg').map{|obj| obj[:available] = true}
+      File.open('./lib/data.yml', 'w') { |f| f.write @books.to_yaml }
     }
 
-    # before do
-    #   allow(person).to receive(:borrowed_books).and_return({:item=>{:title=>"Pippi Långstrump går ombord", :author=>"Astrid Lindgren"}, :available=>false, :return_date=>nil})
+    # it 'should raise an error if book is not available' do
+    #  expect { subject.borrow('Skratta lagom! Sa pappa Åberg') }.to raise_error 'Book is not available right now'
     # end
-
 
     it 'Should set so available: false upon lending' do
-      subject.borrow('Skratta lagom! Sa pappa Åberg')
-      expected_output = [{:item=>{:title=>'Skratta lagom! Sa pappa Åberg', :author=>"Gunilla Bergström"}, :available=>false, :return_date=>nil}]
-      expect(subject.search('Skratta lagom! Sa pappa Åberg')).to eq expected_output
+      subject.borrow('Skratta lagom! Sa pappa Åberg', individual.name)
+      expect(subject.search('Skratta lagom! Sa pappa Åberg').map{|obj| obj[:available]}).to eq [false]
+    end
+
+    it 'Should be in the individuals possession after lending' do
+     subject.borrow('Skratta lagom! Sa pappa Åberg', individual.name)
+      expect(subject.search('Skratta lagom! Sa pappa Åberg').map{|obj| obj[:current_possessor]}).to eq [(individual.name)]
     end
   end
+end
 
     # it 'should set a return_date on that book' do
-      # philip.borrow('Pippi Långstrump går ombord')
-      # expected_output = [{:item=>{:title=>"Pippi Långstrump", :author=>"Astrid Lindgren"}, :available=>false, :return_date=>nil}
+    # {subject.borrow('Skratta lagom! Sa pappa Åberg', invidivual.name)}
+    #  expect{subject.search('Skratta lagom! Sa pappa Åberg').map{|obj| obj[:return_date]}}.to eq Date.today.next_month(1).strftime('%d/%m/%y')}
     # end
     #
-    # it 'should set so current owner of that book is person' do
-    #
-    # end
 
-    # it 'should give an error if book is not available' do
-    #
-    # end
-    #
-    #
+
+
     # it 'A person should be able to return a book' do
     #    == true
     # end
-  # end
-end
