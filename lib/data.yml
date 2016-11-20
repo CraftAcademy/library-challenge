@@ -1,0 +1,54 @@
+- :item:
+    :title: Sense and Sensibility
+    :author: Jane Austen
+    :published: '1811'
+  :available: false
+  :return_date: '2016-05-25'
+- :item:
+    :title: Pride and Prejudice
+    :author: Jane Austen
+    :published: '1813'
+  :available: true
+  :return_date:
+- :item:
+    :title: Mansfield Park
+    :author: Jane Austen
+    :published: '1814'
+  :available: true
+  :return_date:
+- :item:
+    :title: Emma
+    :author: Jane Austen
+    :published: '1815'
+  :available: true
+  :return_date:
+- :item:
+    :title: Northanger Abbey
+    :author: Jane Austen
+    :published: '1818'
+  :available: true
+  :return_date:
+- :item:
+    :title: Persuasion
+    :author: Jane Austen
+    :published: '1818'
+  :available: true
+  :return_date:
+- :item:
+    :title: Lady Susan
+    :author: Jane Austen
+    :published: '1871'
+  :available: true
+  :return_date:
+- :item:
+    :title: Sanditon
+    :author: Jane Austen and an other Lady
+    :published: '1975'
+  :available: true
+  :return_date:
+- :item:
+    :title: The Younger Sister
+    :author: Jane Austen and Catherine Hubback
+    :published: '1850'
+  :available: true
+  :return_date:
