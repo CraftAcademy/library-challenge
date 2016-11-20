@@ -2,6 +2,9 @@ require 'yaml'
 require './lib/library'
 
 describe Library do
+  before do
+    subject.books = YAML.load_file('./lib/data_reset.yml')
+  end
 #resetta data.yml innan du börjar
   it 'should have books available' do
     expect(subject.books).not_to be nil
@@ -37,6 +40,11 @@ describe Library do
       expect(subject.search('Alfons och soldatpappan').map{|obj| obj[:current_possessor]}).to eq ['Philip Zudemberg']
     end
 
+    it 'should set a return_date on that book' do
+      subject.borrow('Alfons och soldatpappan', philip)
+      expect(subject.search('Alfons och soldatpappan').map{|obj| obj[:return_date]}).to eq [Date.today.next_month(1).strftime('%d/%m/%y')]
+    end
+
     describe 'Rodrigo tries to borrow a book that is lended to Philip' do
       let(:rodrigo) { instance_double('Individual', name: 'Rodrigo') }
 
@@ -47,25 +55,21 @@ describe Library do
 
       describe 'A person should be able to return a book' do
 
-      it 'should be set available:true upon returning' do
-        subject.return('Alfons och soldatpappan')
-        expect(subject.search('Alfons och soldatpappan').map{|obj| obj[:available]}).to eq [true]
-      end
-      #   it 'should set current_possessor to nil' do
-      #     subject.return('Alfons och soldatpappan')
-      #     expect(subject.search('Alfons och soldatpappan').map{|obj| obj[:current_possessor]}).to eq [' ']
-      #   end
+        it 'should be set available:true upon returning' do
+          subject.return('Alfons och soldatpappan')
+          expect(subject.search('Alfons och soldatpappan').map{|obj| obj[:available]}).to eq [true]
+        end
+
+        it 'should set current_possessor to nil' do
+          subject.return('Alfons och soldatpappan')
+          expect(subject.search('Alfons och soldatpappan').map{|obj| obj[:current_possessor]}).to eq ['nil']
+        end
+
+        it 'should set return_date to nil' do
+          subject.return('Alfons och soldatpappan')
+          expect(subject.search('Alfons och soldatpappan').map{|obj| obj[:return_date]}).to eq ['nil']
+        end
       end
     end
   end
 end
-
-
-
-
-
-    # it 'should set a return_date on that book' do
-    # {subject.borrow('Skratta lagom! Sa pappa Åberg', invidivual.name)}
-    #  expect{subject.search('Skratta lagom! Sa pappa Åberg').map{|obj| obj[:return_date]}}.to eq Date.today.next_month(1).strftime('%d/%m/%y')}
-    # end
-    #
