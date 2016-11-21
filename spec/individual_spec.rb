@@ -30,9 +30,9 @@ describe Individual do
 
     describe 'should be able to return a book'
       it 'if returned, book should be gone from individuals possession(borrowed_books)' do
-      expected_output = [{:title=>nil, :return_date=>nil}]
-      subject.return('Pippi Långstrump går ombord', library)
-      expect(subject.borrowed_books).to eq expected_output
+        expected_output = [{:title=>nil, :return_date=>nil}]
+        subject.return('Pippi Långstrump går ombord', library)
+        expect(subject.borrowed_books).to eq expected_output
+      end
     end
   end
-end
