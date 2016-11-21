@@ -11,8 +11,6 @@ describe Library do
   end
 #change this to lambda??? to long maybe
   it 'can check which books are available' do
-    # command = lambda {subject.what_is_available?}
-    # expect(command.call).to be_truthy
     expected_output = [{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, {:title=>"Osynligt med Alfons", :author=>"Gunilla Bergström"}, {:title=>"Pippi Långstrump", :author=>"Astrid Lindgren"}, {:title=>"Pippi Långstrump går ombord", :author=>"Astrid Lindgren"}]
     expect(subject.what_is_available?).to eq expected_output
   end
