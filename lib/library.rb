@@ -1,5 +1,6 @@
 require 'yaml'
 require 'date'
+require './lib/individual.rb'
 
 class Library
   attr_accessor :books
