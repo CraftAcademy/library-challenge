@@ -17,10 +17,7 @@ class Library
   end
 
   def availability
-    if @books.select { |obj| obj[:available] == true }.any?
       @books.select { |obj| obj[:available] == true }
-    
-    end
   end
 
 end
