@@ -1,4 +1,5 @@
 require 'yaml'
+require 'pry'
 
 class Library
   attr_accessor :books
@@ -12,6 +13,13 @@ class Library
       @books.select { |obj| obj[:item][:title].include? (books) }
     else
       @books.select { |obj| obj[:item][:author].include? (books) }
+    end
+  end
+
+  def availability
+    if @books.select { |obj| obj[:available] == true }.any?
+      @books.select { |obj| obj[:available] == true }
+    
     end
   end
 
