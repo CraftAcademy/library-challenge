@@ -28,4 +28,16 @@ describe Library do
             :title=>"Pippi Långstrump går ombord", :author=>"Astrid Lindgren"}, :available=>true, :return_date=>nil}]
     expect(subject.availability).to eq expected_output
   end
+
+  it 'should check out books to patron' do
+    patron = instance_double('Patron')
+
+    subject.borrow('Pippi Långstrump', patron)
+
+    expected_output = [{
+      :item=>{:title=>'Pippi Långstrump', :author=>'Astrid Lindgren'}, :available=>false, :return_date=>Date.today.next_month(1).strftime('%d/%m')}]
+    expect(subject.search(true))
+
+  end
+
 end

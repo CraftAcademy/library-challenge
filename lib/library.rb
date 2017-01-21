@@ -1,5 +1,6 @@
 require 'yaml'
 require 'pry'
+require './lib/patron.rb'
 
 class Library
   attr_accessor :books
@@ -20,4 +21,7 @@ class Library
       @books.select { |obj| obj[:available] == true }
   end
 
+  # def borrow(books, person)
+  #   @patron = YAML.load_file('./lib/borrowed_books.yml')
+  # end
 end
