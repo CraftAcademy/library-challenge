@@ -58,14 +58,14 @@ describe Library do
   end
 
   it 'should have books in for customers' do
-  library = Library.new
-  expected_books = [
-    'Alfons sover igen', 'Pappa Åberg åker utomlands', 'Osynligt med Alfons', 'Pippi Långstrump', 'Pippi Långstrump går ombord'
-  ]
+    library = Library.new
+    expected_books = [
+      'Alfons sover igen', 'Pappa Åberg åker utomlands', 'Osynligt med Alfons', 'Pippi Långstrump', 'Pippi Långstrump går ombord'
+    ]
 
-  actual_book = library.available_books
+    actual_book = library.available_books
 
-  expect(actual_book).to eq expected_books
+    expect(actual_book).to eq expected_books
 end
 
 
