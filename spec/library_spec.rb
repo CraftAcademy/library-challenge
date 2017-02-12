@@ -26,4 +26,8 @@ describe Library do
     expect(subject.return_date).to eq Date.today + 30
   end
 
+  it 'allow individuals to return books' do
+    expect(subject.return_book).to eq nil
+  end
+
 end

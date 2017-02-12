@@ -6,16 +6,14 @@ class Library
 
   def initialize(books)
     @books = YAML.load_file('./lib/data.yml')
-
   end
 
   def available_books
-    list = @books
-    list.select { |obj| obj[:available] == true  }
+    @books.select { |obj| obj[:available] == true  }#.each_with_index {|val, index| puts "#{val} => #{index}" }
   end
 
   def all_books
-    list = @books
+   @books#.each_with_index {|val, index| puts "#{index}" }
   end
 
   def person_checkout
@@ -24,6 +22,11 @@ class Library
 
   def return_date
     @books[0][:return_date] = Date.today + 30
+  end
+
+  def return_book
+    @books[0][:available] = false
+    @books[0][:return_date] = nil
   end
 
 end
