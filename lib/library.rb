@@ -2,7 +2,7 @@ require 'yaml'
 
 class Library
 
-  attr_accessor
+  attr_accessor :books
 
   def initialize(books)
     @books = YAML.load_file('./lib/data.yml')
@@ -20,6 +20,10 @@ class Library
 
   def person_checkout
     @books[0][:available] = false
+  end
+
+  def return_date
     @books[0][:return_date] = Date.today + 30
   end
+
 end

@@ -19,11 +19,11 @@ describe Library do
   end
 
   it 'allow individuals to check out a book' do
-    expect(subject.person_checkout).to eq true
+    expect(subject.person_checkout).to eq false
   end
 
-  # it 'set a return date on every check out, 1 month from checkout date' do
-  #   expect(subject.checkout_date + 30).to eq to subjectreturn_date
-  # end
+  it 'set a return date on every check out, 1 month from checkout date' do
+    expect(subject.return_date).to eq Date.today + 30
+  end
 
 end
