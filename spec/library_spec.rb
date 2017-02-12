@@ -19,19 +19,21 @@ describe Library do
   end
 
   it 'allow individuals to check out a book' do
-    collection[3][:available] = false
-    collection[3][:return_date] = Date.today + 30
+    collection[1][:available] = false
+    date = Date.today + 30
+    collection[1][:return_date] = date.to_s
     File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
-    expect(collection[3][:available]).to eq false
+    expect(collection[1][:available]).to eq false
   end
 
   it 'set a return date on every check out, 1 month from checkout date' do
-    expect(collection[3][:return_date]).to eq Date.today + 30
+    date = Date.today + 30
+    expect(collection[1][:return_date]).to eq date.to_s
   end
 
   it 'allow individuals to return books' do
-    collection[3][:available] = true
-    collection[3][:return_date] = 'in_house'
+    collection[1][:available] = true
+    collection[1][:return_date] = 'in_house'
     File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
     expect(collection[3][:available]).to eq true
   end

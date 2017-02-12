@@ -9,22 +9,25 @@ class Library
   end
 
   def available_books
-    @books.select { |obj| obj[:available] == true  }.each_with_index {|val, index| puts "#{val} checkout nr #{index}" }
+    @books.select { |obj| obj[:available] == true  }.each {|val| puts val }
   end
 
   def all_books
-   @books.each_with_index {|val, index| puts "#{val} checkout nr #{index}" }
+   @books.each {|val| puts val }
   end
 
-  def person_checkout(book_nr)
-    @books[book_nr][:available] = false
-    @books[book_nr][:return_date] = Date.today + 30
+  def person_checkout(book_id)
+    book_id -=1
+    date = Date.today + 30
+    @books[book_id][:available] = false
+    @books[book_id][:return_date] = date.to_s
     File.open('./lib/data.yml', 'w') { |f| f.write @books.to_yaml }
   end
 
-  def return_book(book_nr)
-    @books[book_nr][:available] = true
-    @books[book_nr][:return_date] = 'in_house'
+  def return_book(book_id)
+    book_id -=1
+    @books[book_id][:available] = true
+    @books[book_id][:return_date] = 'in_house'
     File.open('./lib/data.yml', 'w') { |f| f.write @books.to_yaml }
   end
 

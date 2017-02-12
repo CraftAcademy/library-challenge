@@ -6,15 +6,15 @@ class Person
 
   def initialize
     @books = YAML.load_file('./lib/data.yml')
-
   end
 
-  def book_list
-    @books.select { |obj| obj[:available] == false  }
+  def available_books
+    @books.select { |obj| obj[:available] == true  }.each {|val| puts val }
   end
 
-  def person_checkout(library, book)
-    library.person_checkout(book)
+  def borrowd_book_list
+    @books.select { |obj| obj[:available] == false  }.each {|val| puts val }
   end
+
 
 end
