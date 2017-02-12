@@ -4,16 +4,16 @@ class Library
 
   attr_accessor :books
 
-  def initialize(books)
+  def initialize
     @books = YAML.load_file('./lib/data.yml')
   end
 
   def available_books
-    @books.select { |obj| obj[:available] == true  }#.each_with_index {|val, index| puts "#{val} => #{index}" }
+    @books.select { |obj| obj[:available] == true  }.each_with_index {|val, index| puts "#{val} checkout nr #{index}" }
   end
 
   def all_books
-   @books#.each_with_index {|val, index| puts "#{index}" }
+   @books.each_with_index {|val, index| puts "#{val} checkout nr #{index}" }
   end
 
   def person_checkout(book_nr)

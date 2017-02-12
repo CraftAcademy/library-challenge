@@ -10,8 +10,7 @@ class Person
   end
 
   def book_list
-    list = @books
-    list.select { |obj| obj[:available] == false  }
+    @books.select { |obj| obj[:available] == false  }
   end
 
   def person_checkout(library, book)

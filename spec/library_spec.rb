@@ -4,7 +4,7 @@ require './lib/library.rb'
 collection = YAML.load_file('./lib/data.yml')
 describe Library do
 
-  subject { described_class.new(name: 'Casper') }
+  subject { described_class.new }
 
   it 'list all books in library' do
     expect(subject.all_books).not_to eq nil
