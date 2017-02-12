@@ -7,8 +7,8 @@
 - :item:
     :title: The Alchemist
     :author: Paulo Coelho
-  :available: false
-  :return_date: '2017-03-25'
+  :available: true
+  :return_date: 
 - :item:
     :title: Eat Pray Love
     :author: Elizabeth Gilbert
