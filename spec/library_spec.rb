@@ -24,6 +24,7 @@ describe Library do
     collection[1][:return_date] = date.to_s
     File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
     expect(collection[1][:available]).to eq false
+    expect(collection[1][:return_date]).to eq date.to_s
   end
 
   it 'set a return date on every check out, 1 month from checkout date' do
