@@ -19,6 +19,10 @@ def check_out(item)
  end
 end
 
+def perform_checkin(item)
+  add_book(item, avaialable: true, return_date: '')
+end
+
 def perform_checkout(item)
   change_status(item, available: false, return_date: Date.today + 30)
   # update_yaml_file   <==== add yaml file update method later.
@@ -29,6 +33,10 @@ def if_not_available?(item)
 end
 
 private
+
+def add_book(item, args)
+
+end
 
 def check_status(item, args)
   @items.detect do |item|

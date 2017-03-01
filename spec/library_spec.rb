@@ -17,10 +17,9 @@ describe Library do
     expect(subject.check_out('Skratta lagom! Sa pappa Åberg')).to eq 'Book is not available'
   end
 
-  xit 'should be able to receive books from person' do
-    subject.check_in('Pettsson och Findus')
-    expected_output = { title: '', author: '', available: true, return_date: nil }
-    expect(subject('Pettsson och Findus')).to eq expected_output
+  it 'should be able to receive books from person' do
+    expected_output = {item: {title: 'Pettsson och Findus', author: 'Sven Nordqvist'}, available: true, return_date: '' }
+    expect(subject.perform_checkin('Pettsson och Findus')).to eq expected_output
   end
 
   xit 'should set a return date when lending books to person to be 30 days from now' do
