@@ -5,14 +5,12 @@ describe Library do
   let(:person) { double('Person', check_out: true, check_in: true)}
 
   it 'has a list of books on initialize' do
-    library = Library.new
     expected_output = { title: '', author: '', available: '', return_date: '' }
   end
 
   it 'should be able to lend books to the person' do
-    subject.perform_checkout('Alfons och soldatpappan')
-    expected_output = { title: '', author: '', available: false, return_date: '' }
-    expect(subject('Alfons och soldatpappan')).to eq expected_output
+    expected_output = {:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, :available=>false, return_date: Date.today + 30 }
+    expect(subject.perform_checkout('Alfons och soldatpappan')).to eq expected_output
   end
 
   xit 'should reject check_out if book is not available' do

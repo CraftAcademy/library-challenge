@@ -19,33 +19,33 @@ end
 #  end
 #end
 
-private
-
-def if_not_available?(item)
-  check_status(item, available)
-end
-
-def check_status(item, available)
-  @items.detect do |x|
-    if x[:item][:title] == item[:item][:title]
-      x[:available] = false
-end
-end
-
 def perform_checkout(item)
   change_status(item, available: false, return_date: Date.today + 30) #<===Partial solution from class video
-#  @items.detect do |x|         <=====Why can't i do this instead?
-#  if x[:available] = false
-#  x[:return_date] =  Date.today + 40
+  #   if x[:available] = false
+  #     x[:return_date] =  Date.today + 30
+  # end
 end
-end
-def change_status(item, args={})   #<=====Partial solution from class video
-  @items.detect do |x|
-    if x[:item][:title] == item[:item][:title]
-      x[:available] = args[:available]
-      x[:return_date] = args[:return_date]
+
+private
+
+# def if_not_available?(item)
+#   check_status(item, available)
+# end
+#
+# def check_status(item, available)
+#   @items.detect do |x|
+#     if x[:item][:title] == item[:item][:title]
+#       x[:available] = false
+#     end
+#   end
+# end
+
+def change_status(item, args)   #<=====Partial solution from class video
+  @items.detect do |item|
+    if item[:item][:title] == item[:item][:title]
+      item[:available] = args[:available]
+      item[:return_date] = args[:return_date]
     end
   end
-end
 end
 end
