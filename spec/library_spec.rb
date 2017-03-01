@@ -9,13 +9,12 @@ describe Library do
   end
 
   it 'should be able to lend books to the person' do
-    expected_output = {:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, :available=>false, return_date: Date.today + 30 }
+    expected_output = {item: {title: "Alfons och soldatpappan", author: "Gunilla Bergström"}, available: false, return_date: Date.today + 30 }
     expect(subject.perform_checkout('Alfons och soldatpappan')).to eq expected_output
   end
 
-  xit 'should reject check_out if book is not available' do
-    subject.check_out('Skratta lagom! Sa pappa Åberg')
-    expect(subject('Skratta lagom! Sa pappa Åberg')).to eq 'Book is not available'
+  it 'should reject check out if book is not available' do
+    expect(subject.check_out('Skratta lagom! Sa pappa Åberg')).to eq 'Book is not available'
   end
 
   xit 'should be able to receive books from person' do
