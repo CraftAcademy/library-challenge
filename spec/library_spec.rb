@@ -22,10 +22,4 @@ describe Library do
     expect(subject.perform_checkin('Skratta lagom! Sa pappa Åberg')).to eq expected_output
   end
 
-  xit 'should set a return date when lending books to person to be 30 days from now' do
-    subject.check_out('Pippi Långstrump')
-    expected_output = { title: '', author: '', available: '', return_date: Date.today + 30 }
-    expect(subject('Pippi Långstrump')).to eq expected_output
-  end
-
 end

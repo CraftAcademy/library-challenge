@@ -13,7 +13,6 @@ end
 def perform_returnbook(title)
   book_return(title, available: false, return_date: '')
   # File.open('./lib/person.yml', 'w') { |f| f.write @books.to_yaml }
-  return 'Book has been returned'
 end
 
 def perform_borrow(title)
