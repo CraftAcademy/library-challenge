@@ -21,7 +21,7 @@ def check_out(title)
 end
 
 def perform_checkin(title)
-  add_book(title, avaialable: true, return_date: '')
+  add_book(title, available: true, return_date: '')
   # File.open('./lib/data.yml', 'w') { |f| f.write @items.to_yaml }
   # perform_returnbook(item)
 end
