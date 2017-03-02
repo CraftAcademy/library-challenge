@@ -1,8 +1,6 @@
-require './lib/shelf.rb'
+require './lib/person.rb'
 
-describe Shelf do
-
-  let(:person) { double('Person', check_out: true, check_in: true)}
+describe Person do
 
   it 'has a list of books on initialize' do
     expected_output = { title: '', author: '', available: '', return_date: '' }

@@ -2,7 +2,7 @@ require 'yaml'
 require 'date'
 require 'pry'
 
-class Shelf
+class Person
 
 attr_accessor :books
 
