@@ -10,31 +10,33 @@ def initialize
   @books = YAML.load_file('./lib/person.yml')
 end
 
-def perform_returnbook(item)
-  book_return(item, available: false, return_date: '')
+def perform_returnbook(title)
+  book_return(title, available: false, return_date: '')
+  # File.open('./lib/person.yml', 'w') { |f| f.write @books.to_yaml }
   return 'Book has been returned'
 end
 
-def perform_borrow(item)
-  book_borrow(item, available: true, return_date: Date.today + 30)
+def perform_borrow(title)
+  book_borrow(title, available: true, return_date: Date.today + 30)
+  # File.open('./lib/person.yml', 'w') { |f| f.write @books.to_yaml }
 end
 
 private
 
-def book_borrow(item, args)
-  @books.detect do |item|
-    if item[:item][:title] == item[:item][:title]
-      item[:available] = args[:available]
-      item[:return_date] = args[:return_date]
+def book_borrow(title, args)
+  @books.detect do |x|
+    if x[:item][:title] == title
+      x[:available] = args[:available]
+      x[:return_date] = args[:return_date]
     end
   end
 end
 
-def book_return(item, args)
-  @books.detect do |item|
-    if item[:item][:title] == item[:item][:title]
-      item[:available] = args[:available]
-      item[:return_date] = args[:return_date]
+def book_return(title, args)
+  @books.detect do |x|
+    if x[:item][:title] == title
+      x[:available] = args[:available]
+      x[:return_date] = args[:return_date]
     end
   end
 end

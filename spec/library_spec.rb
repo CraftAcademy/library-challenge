@@ -18,8 +18,8 @@ describe Library do
   end
 
   it 'should be able to receive books from person' do
-    expected_output = {item: {title: 'Pettsson och Findus', author: 'Sven Nordqvist'}, available: true, return_date: '' }
-    expect(subject.perform_checkin('Pettsson och Findus')).to eq expected_output
+    expected_output = {item: {title: 'Skratta lagom! Sa pappa Åberg', author: 'Gunilla Bergström'}, available: true, return_date: '' }
+    expect(subject.perform_checkin('Skratta lagom! Sa pappa Åberg')).to eq expected_output
   end
 
   xit 'should set a return date when lending books to person to be 30 days from now' do
