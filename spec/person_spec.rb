@@ -3,10 +3,15 @@ require './lib/person.rb'
 describe Person do
 
   it 'has a list of books on initialize' do
-    expected_output = { item: '', author: '', available: '', return_date: '' }
+    expect(subject.books).to be_kind_of Array
   end
 
   it 'should be able to return books to the library' do
-  expect(subject.perform_returnbook('Pettsson och Findus')).to eq 'Book has been returned'
+  expect(subject.perform_returnbook('Skratta lagom! Sa pappa Åberg')).to eq 'Book has been returned'
+  end
+
+  it 'should be able to borrow books from library' do
+    expected_output = {item: {title: "Skratta lagom! Sa pappa Åberg", author: "Gunilla Bergström"}, available: true, return_date: Date.today + 30 }
+  expect(subject.perform_borrow('Skratta lagom! Sa pappa Åberg')).to eq expected_output
   end
 end

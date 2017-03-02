@@ -5,7 +5,7 @@ describe Library do
   let(:person) { double('Person', check_out: true, check_in: true)}
 
   it 'has a list of books on initialize' do
-    expected_output = { title: '', author: '', available: '', return_date: '' }
+    expect(subject.items).to be_kind_of Array
   end
 
   it 'should be able to lend books to the person' do
