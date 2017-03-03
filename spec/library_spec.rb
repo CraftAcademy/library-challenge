@@ -8,9 +8,9 @@ describe Library do
     allow(person).to receive(:perform_borrow)
     .and_return({item: {title: "Alfons och soldatpappan", author: "Gunilla Bergström"}, available: false, return_date: Date.today + 30 })
   end
-  
+
   it 'has a list of books on initialize' do
-    expect(subject.items).to be_kind_of Array
+    expect(subject.see_list).not_to be []
   end
 
   it 'should be able to lend books to the person' do

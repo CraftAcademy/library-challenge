@@ -2,8 +2,19 @@ require './lib/person.rb'
 
 describe Person do
 
-  it 'has a list of books on initialize' do
+  let(:library) { double('Library')}
+
+  before do
+    allow(library).to receive(:see_list)
+    .and_return(hash)
+  end
+
+  it 'has a bookshelf where it can put books on initialize' do
     expect(subject.books).to be_kind_of Array
+  end
+
+  it 'should be able to see list of books in library' do
+    expect(subject.watch_list(library)).not_to be nil
   end
 
   it 'should be able to return books to the library' do

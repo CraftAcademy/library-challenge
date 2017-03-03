@@ -1,6 +1,7 @@
 require 'yaml'
 require 'date'
 require 'pry'
+require './lib/library.rb'
 
 class Person
 
@@ -17,6 +18,11 @@ def perform_returnbook(title)
       @books.delete_at(index)
     end
   end
+end
+
+def watch_list(library)
+  binding.pry
+  library.see_list
 end
 
 def perform_borrow(title)
