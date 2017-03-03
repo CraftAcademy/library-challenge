@@ -17,4 +17,8 @@ describe Library do
   it 'I should be able to allow individuals to check out a book' do
     expect(subject.books).not_to eq nil
   end
+
+  it 'I should set return date on checkout, that date will be 1 month from checkout date' do
+    expect(subject.)
+  end
 end
