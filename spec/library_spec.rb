@@ -1,8 +1,6 @@
 require 'yaml'
 require './lib/library.rb'
 
-
-person = YAML.load_file('./lib/person.yml')
 describe Library do
 
   subject { described_class.new }
