@@ -2,7 +2,7 @@ require 'yaml'
 
 class Patron
 
-  attr_accessor :books
+  attr_accessor :bookrack
 
   def initialize
     @patron = YAML.load_file('./lib/patrondb.yml')
