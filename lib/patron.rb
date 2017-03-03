@@ -12,5 +12,9 @@ class Patron
     @patron.select { |obj| obj[:available] == true  }.each {|val| puts val }
   end
 
+  def checkedout_book_list
+    @patron.select { |obj| obj[:available] == false }.each {|val| puts val}
+  end
+
 
 end

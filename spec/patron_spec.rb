@@ -10,4 +10,8 @@ describe Patron do
       expect(subject.available_books).not_to eq nil
   end
 
+  it 'can view the list of the checkout books' do
+       expect(subject.checkedout_book_list).to eq patron.select { |obj| obj[:available] == true  }
+  end
+
 end
