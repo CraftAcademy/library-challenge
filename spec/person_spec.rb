@@ -1,8 +1,7 @@
 require 'yaml'
 require './lib/person.rb'
-require './lib/library.rb'
 
-collection = YAML.load_file('./lib/data.yml')
+
 person = YAML.load_file('./lib/person.yml')
 describe Person do
 

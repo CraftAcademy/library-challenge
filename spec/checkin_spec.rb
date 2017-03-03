@@ -1,7 +1,6 @@
 require 'yaml'
 require './lib/library.rb'
 
-collection = YAML.load_file('./lib/data.yml')
 person = YAML.load_file('./lib/person.yml')
 describe Library do
 
@@ -11,5 +10,5 @@ describe Library do
       subject.return_book(1)
       expect(person[0][:available]).to eq true
     end
-  
+
 end

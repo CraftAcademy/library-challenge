@@ -31,7 +31,6 @@ class Library
 
   def return_book(book_id)
     book_id -=1
-    date = Date.today + 30
     @books[book_id][:available] = true
     @books[book_id][:return_date] = 'in_house'
     File.open('./lib/data.yml', 'w') { |f| f.write @books.to_yaml }
