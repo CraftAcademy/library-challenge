@@ -10,12 +10,12 @@ class Library
   end
 
   def available_books
-    @books.select { |obj| obj[:available] == true  }.each {|val| puts val }
+    @books.select { |obj| obj[:available] == true  }.each {|book| book }
   end
 
 
   def all_books
-   @books.each {|val| puts val }
+   @books.each {|book| puts book }
   end
 
   def person_checkout(book_id)

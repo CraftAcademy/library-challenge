@@ -2,8 +2,8 @@
 - :item:
     :title: Alfons och soldatpappan
     :author: Gunilla Bergström
-  :available: false
-  :return_date: '2017-04-02'
+  :available: true
+  :return_date: in_house
   :book_id: 1
 - :item:
     :title: Skratta lagom! Sa pappa Åberg
