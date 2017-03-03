@@ -3,7 +3,7 @@ require './lib/library.rb'
 collection = YAML.load_file('./lib/booksdb.yml')
 
 describe Library do
-  #let(:patron) {double('Patron')}
+  let(:patron) {double('Patron')}
 
   it 'should have the list of books' do
     expect(subject.bookrack).not_to be nil
@@ -23,6 +23,11 @@ describe Library do
     collection[1][:return_date] = date.to_s
     File.open('./lib/booksdb.yml', 'w') {|f| f.write collection.to_yaml}
     expect(collection[1][:available]).to eq false
+  end
+
+  it 'set a return date on every check out, 1 month from checkout date' do
+    date = Date.today + 30
+    expect(collection[1][:return_date]).to eq date.to_s
   end
 
 

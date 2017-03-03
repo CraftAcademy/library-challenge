@@ -28,5 +28,15 @@ def patron_checkout(book_id)
   File.open('./lib/booksdb.yml','w') {|f| f.write @bookrack.to_yaml}
   @patron[book_id][:available] = false
   @patron[book_id][:return_date] = date.to_s
-  File.open('.lib/patron.yml','w'){|f| f.write @patron.to_yaml}
+  File.open('.lib/patrondb.yml','w'){|f| f.write @patron.to_yaml}
+end
+
+def patron_return_book(book_id)
+  book_id -=1
+  @bookrack[book_id][:available] = true
+  @bookrack[book_id][:return_date] = 'in_house'
+  File.open('./lib/booksdb.yml', 'w') { |f| f.write @books.to_yaml }
+  @patron[book_id][:available] = true
+  @patron[book_id][:return_date] = 'in_house'
+  File.open('./lib/patrondb.yml', 'w') { |f| f.write @person.to_yaml }
 end
