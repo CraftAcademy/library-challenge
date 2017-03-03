@@ -11,12 +11,12 @@ def initialize
   @items = YAML.load_file('./lib/data.yml')
 end
 
-def check_out(title)
+def check_out(title, person)
  case
  when
-   if_not_available?(title) then 'Book is not available'
+   if_not_available?(title, person) then 'Book is not available'
  else
-   perform_checkout(title)
+   perform_checkout(title, person)
  end
 end
 
@@ -26,13 +26,13 @@ def perform_checkin(title)
   # perform_returnbook(item)
 end
 
-def perform_checkout(title)
+def perform_checkout(title, person)
   change_status(title, available: false, return_date: Date.today + 30)
+  person.perform_borrow(title)
   # File.open('./lib/data.yml', 'w') { |f| f.write @items.to_yaml }
-  # perform_borrow(item)
 end
 
-def if_not_available?(title)
+def if_not_available?(title, person)
   check_status(title, available: false)
 end
 

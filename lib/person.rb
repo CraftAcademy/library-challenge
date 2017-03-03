@@ -11,8 +11,12 @@ def initialize
 end
 
 def perform_returnbook(title)
-  book_return(title, available: false, return_date: '')
-  # File.open('./lib/person.yml', 'w') { |f| f.write @books.to_yaml }
+  @books.detect do |x|
+    if x[:item][:title] == title
+      index = @books.index(x)
+      @books.delete_at(index)
+    end
+  end
 end
 
 def perform_borrow(title)
@@ -23,15 +27,6 @@ end
 private
 
 def book_borrow(title, args)
-  @books.detect do |x|
-    if x[:item][:title] == title
-      x[:available] = args[:available]
-      x[:return_date] = args[:return_date]
-    end
-  end
-end
-
-def book_return(title, args)
   @books.detect do |x|
     if x[:item][:title] == title
       x[:available] = args[:available]
