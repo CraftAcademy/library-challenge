@@ -16,12 +16,12 @@ def perform_returnbook(title)
     if x[:item][:title] == title
       index = @books.index(x)
       @books.delete_at(index)
+      # File.open('./lib/person.yml', 'w') { |f| f.write @books.to_yaml }
     end
   end
 end
 
 def watch_list(library)
-  binding.pry
   library.see_list
 end
 
