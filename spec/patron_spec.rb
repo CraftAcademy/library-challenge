@@ -14,5 +14,4 @@ describe Patron do
        expect(subject.checkedout_book_list).to eq patron.select { |obj| obj[:available] == false  }
   end
 
-
 end

@@ -1,7 +1,7 @@
 require 'yaml'
 require './lib/library.rb'
 
-collection = YAML.load_file('./lib/booksdb.yml')
+#collection = YAML.load_file('./lib/booksdb.yml')
 
 describe Library do
   let(:patron) {double('Patron')}
@@ -14,26 +14,21 @@ describe Library do
      expect(subject.bookrack[0][:available]).to be true
   end
 
-  it 'should have a collection of books in the file' do
-    expect(collection).not_to eq nil
+  it 'should return error if book not available' do
+     expect{subject.check_book_availability(100)}.to raise_error('Book not available')
   end
 
-  it 'should allow patron to check out a book' do
-    collection[1][:available] = false
-    date = Date.today + 30
-    collection[1][:return_date] = date.to_s
-    File.open('./lib/booksdb.yml', 'w') {|f| f.write collection.to_yaml}
-    expect(collection[1][:available]).to eq false
+  describe "Checked-out process:" do
+  before {subject.check_book_availability(0)}
+    it 'can checkout book to patron and update the bookrack' do
+      expect(subject.bookrack[0][:available]).to be false
+    end
   end
 
-  it 'should set a return date on every check out, 1 month from checkout date' do
-    date = Date.today + 30
-    expect(collection[1][:return_date]).to eq date.to_s
+  describe 'Returning of books process:' do
+    before {subject.receive_book_returned_by_patron(0)}
+      it 'it can update the availability of book to true' do
+        expect(subject.bookrack[0][:available]).to be true
+      end
   end
-
-
-
-
-
-
 end
