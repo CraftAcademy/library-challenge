@@ -1,7 +1,7 @@
 require 'yaml'
 require './lib/patron.rb'
 
-collection = YAML.load_file('./lib/booksdb.yml')
+#collection = YAML.load_file('./lib/booksdb.yml')
 patron = YAML.load_file('./lib/patrondb.yml')
 
 describe Patron do
@@ -10,8 +10,9 @@ describe Patron do
       expect(subject.available_books).not_to eq nil
   end
 
-  it 'can view the list of the checkout books' do
-       expect(subject.checkedout_book_list).to eq patron.select { |obj| obj[:available] == true  }
+  it 'can view the list of the checked out books' do
+       expect(subject.checkedout_book_list).to eq patron.select { |obj| obj[:available] == false  }
   end
+
 
 end
