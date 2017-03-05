@@ -1,0 +1,28 @@
+---
+- :item:
+    :title: Purpose Driven Life
+    :author: Rick Warren
+  :available: true
+  :return_date: 
+  :due_date: 
+- :item:
+    :title: The Alchemist
+    :author: Paulo Coelho
+  :available: false
+  :return_date: '2017-04-03'
+- :item:
+    :title: Eat Pray Love
+    :author: Elizabeth Gilbert
+  :available: false
+  :return_date: '2017-03-25'
+- :item:
+    :title: Gulliver's Travels
+    :author: Jonathan Swift
+  :available: false
+  :return_date: 
+  :due_date: 2017-04-03
+- :item:
+    :title: The Roadless Travelled
+    :author: M. Scott Peck Md
+  :available: true
+  :return_date: 
