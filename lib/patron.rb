@@ -2,7 +2,7 @@ require 'yaml'
 
 class Patron
 
-  attr_accessor :bookrack
+  attr_accessor :bookrack, :library
 
   def initialize
     @patron = YAML.load_file('./lib/patrondb.yml')
@@ -15,6 +15,5 @@ class Patron
   def checkedout_book_list
     @patron.select { |obj| obj[:available] == false }.each {|val| puts val}
   end
-
 
 end

@@ -3,7 +3,8 @@ require 'date'
 
 class Library
   attr_accessor :bookrack
-#  ALLOWED_DAYS = 30
+  ALLOWED_LOAN_DAYS = 30
+
 
   def initialize
     @bookrack = YAML.load_file('./lib/booksdb.yml')
@@ -22,7 +23,7 @@ class Library
   end
 
   def set_due_date
-    Date.today.next_day + 30.days
+    Date.today.next_day(ALLOWED_LOAN_DAYS)
   end
 
   def receive_book_returned_by_patron(book_index)
