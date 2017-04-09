@@ -5,7 +5,6 @@ describe Patron do
   arr_books = [{ item: { title: "Pippi Långstrump", author: "Astrid Lindgren" },
      available: false, return_date: (Date.today+30).to_s }]
 
-
   let(:library) { Library.new }
 
   let(:item) { { title: "Osynligt med Alfons", author: "Gunilla Bergström" } }
