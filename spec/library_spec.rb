@@ -20,21 +20,20 @@ describe Library do
   end
 
   it "can show a list of books available" do
-    expected_output = av_books
-    expect(subject.available_books).to eq expected_output
+    expect(subject.available_books[0][:available]).to eq true
   end
 
   describe 'book check-out' do
     it "is able to check out a book to a patron" do
-      item = { title: "Osynligt med Alfons", author: "Gunilla Bergström" }
-      expected_output = { item: { title: "Osynligt med Alfons",
+      item = { title: "Alfons och soldatpappan", author: "Gunilla Bergström" }
+      expected_output = { item: { title: "Alfons och soldatpappan",
         author: "Gunilla Bergström" }, available: false,
         return_date: (Date.today+30).to_s }
       expect(subject.book_check_out(item, patron)).to eq expected_output
     end
 
     it "is not able to check out a book that is already checked-out" do
-      item = { title: "Osynligt med Alfons", author: "Gunilla Bergström" }
+      item = { title: "Alfons och soldatpappan", author: "Gunilla Bergström" }
       expected_output = 'Book is not available. It will be returned ' +
         (Date.today + 30).to_s
       expect(subject.book_check_out(item, patron)).to eq expected_output
