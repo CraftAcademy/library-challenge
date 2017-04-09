@@ -4,12 +4,6 @@ require './lib/library.rb'
 describe Library do
   let(:patron) { instance_double('Patron')}
 
-  av_books = [{ item: { title: "Alfons och soldatpappan",
-    author: "Gunilla Bergström" },available: true, return_date: nil },
-    { item: { title: "Osynligt med Alfons", author: "Gunilla Bergström" },
-    available: true, return_date: nil }, { item: { title: "Pippi Långstrump",
-    author: "Astrid Lindgren" }, available: true, return_date: nil }]
-
   before do
     allow(patron).to receive(:borrowed_books).and_return([])
     allow(patron).to receive(:borrowed_books=)
