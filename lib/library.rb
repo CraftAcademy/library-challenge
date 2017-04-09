@@ -21,6 +21,15 @@ class Library
     end
   end
 
+  def available_books
+    avail_books = []
+    @collection.each do |book|
+      avail_books << book if book[:available] == true
+    end
+    avail_books
+  end
+  
+
   private
 
   def load_book_collection
