@@ -10,9 +10,8 @@ class Library
 
   end
 
-
-
-
-
-
+  def book_available
+    @books.select { |book| book[:available] == true}
+  end
+  
 end
