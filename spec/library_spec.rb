@@ -35,4 +35,9 @@ describe Library do
       return_date: due_date }
     expect(subject.book_checkout("Pippi Långstrump", "Astrid Lindgren")).to eq expected_output
   end
+
+  it "should raise errror if book doesn't exist" do
+    execute = proc { subject.book_checkout("Clean Code", "Robert.C.Martins")}
+    expect { execute.call }.to raise_error "You can't borrow a book that is not available"
+  end
 end
