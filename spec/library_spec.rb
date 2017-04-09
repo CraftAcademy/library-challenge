@@ -15,13 +15,24 @@ describe Library do
       {:item=>{:title=>"Skratta lagom! Sa pappa Åberg", :author=>"Gunilla Bergström"}, :available=>true, :return_date=>nil},
       {:item=>{:title=>"Pippi Långstrump", :author=>"Astrid Lindgren"}, :available=>true, :return_date=>nil},
       {:item=>{:title=>"Pippi Långstrump går ombord", :author=>"Astrid Lindgren"}, :available=>true, :return_date=>nil}]
-    expect(subject.book_available).to eq expected_output
+    expect(subject.books_instock).to eq expected_output
   end
 
   it 'allows to search for a particular book' do
     expected_output = {:item=>{:title=>"Pippi Långstrump", :author=>"Astrid Lindgren"}, :available=>true, :return_date=>nil}
-    expect(subject.search("Pippi Långstrump", "Astrid Lindgren")). to eq expected_output
+    expect(subject.book_available?("Pippi Långstrump", "Astrid Lindgren")). to eq expected_output
   end
 
-
+  it 'allows check out of book from the library' do
+    return_duration = 1       # Value is in months
+    today = Date.today
+    next_month = today >> return_duration
+    due_date = next_month.strftime('%d/%m/%y')
+    expected_output = {
+      title: "Pippi Långstrump",
+      author: "Astrid Lindgren",
+      message: "Book successfully borrowed",
+      return_date: due_date }
+    expect(subject.book_checkout("Pippi Långstrump", "Astrid Lindgren")).to eq expected_output
+  end
 end
