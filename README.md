@@ -1,6 +1,55 @@
 ##Library Challenge
 ###Week 1 Ruby challenge
 
+Usage instructions
+----------------------
+This solution have two classes: library and patron.
+
+Here are some features with some code examples from irb.
+In these examples my_lib is an instance of the class Library
+and my_pat is an instance from the class Patron
+
+A patron can see a list of books he have borrowed
+Ex: > my_pat.borrowed_books
+ => [{:item=>{:title=>"Osynligt med Alfons", :author=>"Gunilla Bergström"},
+      :available=>false, :return_date=>"2017-05-09"},
+      {:item=>{:title=>"Alfons och soldatpappan",
+      :author=>"Gunilla Bergström"}, :available=>false,
+      :return_date=>"2017-05-09"}]
+
+The library have access to a collection or all their books
+Ex: > my_lib.collection
+ => [{:item=>{:title=>"Alfons och soldatpappan",
+      :author=>"Gunilla Bergström"}, :available ...
+
+They can also produce a list of available books to borrow (that patrons can see)
+Ex: > my_lib.available_books
+ => [{:item=>{:title=>"Alfons och soldatpappan", :author ...
+
+It is also possible to check out and borrow a book that is available.
+Ex: > my_pat.borrow_book( {item:{title: "Alfons och soldatpappan",
+  author: "Gunilla Bergström"}, library: my_lib})
+ => {:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"},
+        :available=>false, :return_date=>"2017-05-09"}
+
+Should the book not be available a message about this is returned, along
+with the date the book must be returned.
+Ex: > my_pat.borrow_book( {item:{title: "Alfons och soldatpappan",
+  author: "Gunilla Bergström"}, library: my_lib})
+ => "Book is not available. It will be returned 2017-05-09"
+
+Also if a patron tries to borrow a book that is not owned by the library a
+message about this will appear
+Ex: > my_pat.borrow_book( {item:{title: "Hello World",
+  author: "Gunilla Bergström"}, library: my_lib})
+ => "Library does not have this book"
+
+
+
+
+
+
+
 Instructions
 -------
 Read this entire README carefully and follow all instructions.
