@@ -35,7 +35,8 @@ describe Library do
 
     it "is not able to check out a book that is already checked-out" do
       item = { title: "Osynligt med Alfons", author: "Gunilla Bergström" }
-      expected_output = 'Book is not available'
+      expected_output = 'Book is not available. It will be returned ' +
+        (Date.today + 30).to_s
       expect(subject.book_check_out(item, patron)).to eq expected_output
     end
 

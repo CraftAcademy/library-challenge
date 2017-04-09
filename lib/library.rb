@@ -15,7 +15,8 @@ class Library
     when book == 'no book'
       'Library does not have this book'
     when book[:available] == false
-      'Book is not available'
+      'Book is not available. It will be returned ' +
+        (@collection[book[:index]][:return_date]).to_s
     else
       perform_transaction(book, patron)
     end
@@ -28,7 +29,7 @@ class Library
     end
     avail_books
   end
-  
+
 
   private
 
