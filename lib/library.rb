@@ -22,6 +22,20 @@ class Library
   end
 
   def book_checkout(title, author)
+    checkout(title,author)
+  end
+
+  def search_book(title, author)
+    search(title, author)
+  end
+
+  private
+
+  def search(title, author)
+    @books.detect { |book| book[:item][:title] == title && book[:item][:author] == author }
+  end
+
+  def checkout(title, author)
     if book_available?(title, author)
       @borrowed_book = search_book(title, author)
       @borrowed_book[:available] = false
@@ -32,12 +46,6 @@ class Library
       raise "You can't borrow a book that is not available"
     end
 
-  end
-
-  private
-
-  def search_book(title, author)
-    @books.detect { |book| book[:item][:title] == title && book[:item][:author] == author }
   end
 
   def set_return_date

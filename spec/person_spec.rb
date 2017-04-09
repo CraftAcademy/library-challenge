@@ -25,4 +25,9 @@ describe Person do
      expect(subject.checkout("Pippi Långstrump", "Astrid Lindgren")).to eq expected_output
   end
 
+  it 'should be able to re-confirm return date' do
+    expected_output = {:return_date => Date.today.next_month(1).strftime('%d/%m/%y')}
+    expect(subject.check_date("Pippi Långstrump", "Astrid Lindgren")).to eq expected_output
+  end
+
 end
