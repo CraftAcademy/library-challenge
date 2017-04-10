@@ -40,7 +40,7 @@ class Library
       @borrowed_book = search_book(title, author)
       @borrowed_book[:available] = false
       @borrowed_book[:return_date] = set_return_date
-      save_to_yaml()
+      save_to_yaml() 
       {title: title, author: author, message: "Book successfully borrowed", :return_date => set_return_date}
     else
       raise "You can't borrow a book that is not available"
