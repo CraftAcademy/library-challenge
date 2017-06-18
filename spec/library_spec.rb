@@ -11,4 +11,8 @@ subject { described_class.new()}
     expect(first_book["title"]).to be_truthy
     expect(first_book["author"]).to be_truthy
   end
+  it ' should print a book so it is readable' do
+    new_book = {"title":"Easy and Short", "author": "Katy Perry"}
+  end
+
 end
