@@ -1,9 +1,9 @@
 require './lib/library.rb'
-
 describe Library do
-subject { described_class.new()}
+  let(:person) {instance_double('Person')}
+  subject { described_class.new()}
   it 'should load books from a file' do
-  expect(subject.books.length).to eq 5
+    expect(subject.books.length).to eq 5
   end
 
   it ' should display title and author of available books' do
@@ -11,13 +11,19 @@ subject { described_class.new()}
     expect(first_item[:item][:title]).to be_truthy
     expect(first_item[:item][:author]).to be_truthy
   end
+
   it ' should print a book so it is readable' do
     item = {"title":"Easy and Short", "author": "Katy Perry"}
     expected_printout = "Easy and Short by Katy Perry"
     expect(subject.print_item_info(item)).to eq expected_printout
   end
+
   it ' should list only available books' do
-  available_books = subject.available_books
-  expect(available_books.length).to eq 4
+    available_books = subject.available_books
+    expect(available_books.length).to eq 4
   end
+
+  #it 'should allow person to find a specific book'
+  #allow(:person).to receive().and_return()
+
 end
