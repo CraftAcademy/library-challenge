@@ -12,5 +12,9 @@ describe Library do
   library.item.should == "item"
   end
 
+it "Should load data.yml" do
+  expect.Library(config).to eq(answer1ß)
+
+end
 
 end

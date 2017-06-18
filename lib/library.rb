@@ -11,7 +11,17 @@ class Library
     @item = 'item'
   end
 
-def method_name
+collection = YAML.load_file('./lib/data.yml')
+puts collection
+
+loop do
+  puts "Do you want to borrow a book? (Y/N)"
+  answer = gets.chomp
+  if answer != "Y"
+    break
+  end
+  puts "Wich book do you want to borrow?"
+  answer1 = gets.chomp
 
 end
 
