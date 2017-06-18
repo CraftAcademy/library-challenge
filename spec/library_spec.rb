@@ -3,14 +3,14 @@ require 'spec_helper.rb'
 require 'library'
 
 describe Library do
-  it "proper library" do
-    library = Library.new
-    library.title.should == "title"
+  it "1 proper library" do
+  library = Library.new
+  library.title.should == "title"
+  library.author.should == "author"
+  library.available.should == "available"
+  library.return_date.should == "return_date"
+  library.item.should == "item"
   end
 
-  it "have a author" do
-    library = Library.new
-    library.author.should == "author"
-  end
 
 end
