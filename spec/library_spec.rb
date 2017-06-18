@@ -7,12 +7,14 @@ subject { described_class.new()}
   end
 
   it ' should display title and author of available books' do
-    first_book = subject.available_books[0]
-    expect(first_book["title"]).to be_truthy
-    expect(first_book["author"]).to be_truthy
+    first_item = subject.available_books[0]
+    expect(first_item[:item][:title]).to be_truthy
+    expect(first_item[:item][:author]).to be_truthy
   end
   it ' should print a book so it is readable' do
-    new_book = {"title":"Easy and Short", "author": "Katy Perry"}
-  end
+    item = {"title":"Easy and Short", "author": "Katy Perry"}
+    expected_printout = "Easy and Short by Katy Perry"
+    expect(subject.print_item_info(item)).to eq expected_printout
 
+  end
 end

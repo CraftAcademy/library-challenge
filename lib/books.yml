@@ -1,10 +1,26 @@
-- title:     "Today I wore a green shoe, and it was fun."
-  author:    Bob Robertsson
-- title:     "German Humor"
-  author:    Tara Starr
-- title:     "The life of a Robot Vacuum Cleaner"
-  author:    Fredrick Helström
-- title:     "I Survived Elin, Now I Can Conquer the World!"
-  author:    Elliot Berlin
-- title:     "Why Danish People Cannot Prounounce the Letter 'R'"
-  author:    Sara Høst
+---
+- :item:
+    :title: Alfons och soldatpappan
+    :author: Gunilla Bergström
+  :available: true
+  :return_date:
+- :item:
+    :title: Skratta lagom! Sa pappa Åberg
+    :author: Gunilla Bergström
+  :available: false
+  :return_date: '2016-05-25'
+- :item:
+    :title: Osynligt med Alfons
+    :author: Gunilla Bergström
+  :available: true
+  :return_date:
+- :item:
+    :title: Pippi Långstrump
+    :author: Astrid Lindgren
+  :available: true
+  :return_date:
+- :item:
+    :title: Pippi Långstrump går ombord
+    :author: Astrid Lindgren
+  :available: true
+  :return_date:
