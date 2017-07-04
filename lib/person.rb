@@ -4,6 +4,6 @@ class Person
   def initialize(name)
     @name = name
     @books = []
-
   end
+  
 end

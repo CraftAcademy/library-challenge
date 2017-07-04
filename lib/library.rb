@@ -9,15 +9,16 @@ class Library
   def load_item_info
      YAML.load_file('./lib/books.yml')
   end
-  def print_item_info(item)
-  item [:title] + " " + "by" + " " + item [:author]
+  def print_item_info(item, item_number)
+   "[" + item_number.to_s + "]" + item[:title] + " " + "by" + " " + item[:author]
   end
   def available_book_list
     listed_books = available_books
+    i = 0
     listed_books.each do |book_info|
       puts "*******************************************"
-      puts print_item_info(book_info[:item])
-
+      puts print_item_info(book_info[:item], i)
+      i = i + 1
     end
     puts "*******************************************"
   end
@@ -29,5 +30,10 @@ class Library
       end
     end
     temp_books
+  end
+  def checkout_book(person, book_info)
+    # Update that the book is no longer available
+    # Set a return date
+    # Put the book on the person yeah i cant
   end
 end
