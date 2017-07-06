@@ -38,4 +38,14 @@ describe Library do
     expect(person.books.length).to eq 1
   end
 
+  it 'should set available to false when book is checked out' do
+    checked_out_book = subject.checkout_book(person, "Pippi Långstrump")
+    expect(checked_out_book[:available]).to be false
+  end
+
+  it 'should set a return date when book is checked out' do
+    checked_out_book = subject.checkout_book(person, "Pippi Långstrump")
+    expect(checked_out_book[:return_date]).to be_truthy
+  end
+
 end
