@@ -11,19 +11,6 @@ class Library
      YAML.load_file('./lib/books.yml')
   end
 
-  def print_item_info(item)
-    item[:title] + " " + "by" + " " + item[:author]
-  end
-
-  def available_book_list
-    listed_books = available_books
-    listed_books.each do |book_info|
-      puts "*******************************************"
-      puts print_item_info(book_info[:item])
-    end
-    puts "*******************************************"
-  end
-
   def available_books
     temp_books = []
     @books.each do |book_info|

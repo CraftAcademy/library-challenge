@@ -1,22 +1,16 @@
 require './lib/library.rb'
 require './lib/person.rb'
 describe Library do
-  person = Person.new("Carissa")
+  let(:person) { Person.new('Carissa') }
   subject { described_class.new()}
   it 'should load books from a file' do
-    expect(subject.books.length).to eq 5
+    expect(subject.books).to be_a Array
   end
 
   it 'should display title and author of available books' do
     first_item = subject.books[0]
-    expect(first_item[:item][:title]).to be_truthy
-    expect(first_item[:item][:author]).to be_truthy
-  end
-
-  it 'should print a book so it is readable' do
-    item = {"title":"Easy and Short", "author": "Katy Perry"}
-    expected_printout = "Easy and Short by Katy Perry"
-    expect(subject.print_item_info(item)).to eq expected_printout
+    expect(first_item[:item][:title]).to eq "Alfons och soldatpappan"
+    expect(first_item[:item][:author]).to eq "Gunilla Bergström"
   end
 
   it 'should list only available books' do
@@ -29,7 +23,7 @@ describe Library do
 
   it 'should be able to find a specific title in available books' do
     found_book = subject.find_available_book("Pippi Långstrump")
-    expect(found_book).to be_truthy
+    expect(found_book[:item][:title]).to eq "Pippi Långstrump"
   end
 
   it 'should allow person to pick a book by title and add to person' do
@@ -45,7 +39,7 @@ describe Library do
 
   it 'should set a return date when book is checked out' do
     checked_out_book = subject.checkout_book(person, "Pippi Långstrump")
-    expect(checked_out_book[:return_date]).to be_truthy
+    expect(checked_out_book[:return_date]).to eq subject.get_return_date
   end
 
 end
