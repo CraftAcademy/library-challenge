@@ -1,0 +1,6 @@
+---
+- :item:
+    :title: test book
+    :author: magnus
+  :available: true
+  :return_date: '2017-08-20'
