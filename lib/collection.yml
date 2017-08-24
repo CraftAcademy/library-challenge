@@ -1,0 +1,26 @@
+---
+- :item:
+    :title: The Colour of Magic
+    :author: Terry Pratchett
+  :available: true
+  :return_date:
+- :item:
+    :title: Small Gods
+    :author: Terry Pratchett
+  :available: false
+  :return_date: '2016-05-25'
+- :item:
+    :title: The Dark Elf Trilogy
+    :author: R.A. Salvatore
+  :available: true
+  :return_date:
+- :item:
+    :title: The Icewind Dale Trilogy
+    :author: R.A. Salvatore
+  :available: true
+  :return_date:
+- :item:
+    :title: Wizard's First Rule
+    :author: Terry Goodkind
+  :available: true
+  :return_date:
