@@ -6,7 +6,7 @@ describe Library do
   end
 
   it 'should list books' do
-    expected_output = subject.collection
+    expected_output = subject.list_books
     expect(subject.collection).to eq expected_output
   end
 
