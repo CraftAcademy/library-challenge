@@ -6,8 +6,13 @@ describe Library do
   end
 
   it 'should list books' do
-    expected_output = subject.list_books
-    expect(subject.collection).to eq expected_output
+    expected_output = "#{book[:item][:title]} by #{book[:item][:author]} (#{book[:item][:genre]})"
+    expect().to eq expected_output
+  end
+
+  it 'should list books that are available' do
+    list_available_books =
+    expect()
   end
 
 end
