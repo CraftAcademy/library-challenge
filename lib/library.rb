@@ -15,4 +15,12 @@ class Library
   def load_yaml(file)
     YAML.load_file(file)
   end
+
+  def list_books(file)
+    title = file[0][:item][:title]
+    author = file[0][:item][:author]
+    available = file[0][:available]
+    return_date = file[0][:return_date]
+    "#{title} #{author} #{ available ? "available" : return_date}"
+  end
 end
