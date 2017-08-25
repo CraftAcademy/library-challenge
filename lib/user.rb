@@ -2,9 +2,10 @@ require './lib/library.rb'
 require 'date'
 
 class User
-  books = []
+  attr_accessor :books, :name
 
-  def list_borrowed_books
-    puts @books
+  def initialize(attrs = {})
+    @books = []
+    @name = attrs[:name]
   end
 end

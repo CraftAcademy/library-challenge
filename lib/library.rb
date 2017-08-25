@@ -10,24 +10,30 @@ class Library
     @collection = YAML.load_file('./lib/book_data.yml')
   end
 
+  #@current_user
+
   def menu
     @exit = false
 
     while @exit == false
 
       puts 'Welcome to the Library of Coming Books. Choose an option.
-      1. to list which books are available/unavailable
-      2. to searching for an author
-      3. to borrow a book
-      4. to exit'
+      1. to create an user or log in
+      2. to list which books are available/unavailable
+      3. to searching for an author
+      4. to borrow a book
+      5. to show your borrowed books
+      0. to exit'
 
       n = gets.chomp.to_i
 
       case n
-      when 1 then list_books
-      when 2 then search_author
-      when 3 then borrow
-      when 4 then exit_program
+      when 1 then user
+      when 2 then list_books
+      when 3 then search_author
+      when 4 then borrow
+      when 5 then show_borrowed_books
+      when 0 then exit_program
       else error_message
       end
 
@@ -40,6 +46,12 @@ class Library
   end
 
   #private
+  def user
+    puts 'Welcome to the library. Who are you?'
+    username = gets.chomp
+    @current_user = User.new(name: username)
+    puts "Welcome #{@current_user.name}."
+  end
 
   def list_books
     @collection.each do |title|
@@ -62,19 +74,29 @@ class Library
   end
 
   def borrow
-    puts 'Which book do you want to borrow? Enter the corresponding number.'
-    @collection.each_with_index do |title, index|
-      index_plus_one = index + 1
-      puts "#{index_plus_one}. #{title[:item][:title]} by #{title[:item][:author]} (#{title[:item][:genre]})"
+   if @current_user != nil
+      puts 'Which book do you want to borrow? Enter the corresponding number.'
+      @collection.each_with_index do |title, index|
+        index_plus_one = index + 1
+        puts "#{index_plus_one}. #{title[:item][:title]} by #{title[:item][:author]} (#{title[:item][:genre]})"
+      end
+  #I want to use an if statement for when books are unavailable
+      index = gets.chomp.to_i - 1
+      return_date(index)
+      change_status(index)
+      puts "You borrowed: #{@collection[index][:item][:title]} by #{@collection[index][:item][:author]}. Return by: #{@collection[index][:return_date]}!"
+      @current_user.books << "#{@collection[index][:item][:title]} by #{@collection[index][:item][:author]} (return by #{@collection[index][:return_date]})"
+    else
+      puts 'Create an user or log in first!'
     end
+  end
 
-    index = gets.chomp.to_i - 1
-    return_date(index)
-    change_status(index)
-    puts "You borrowed: #{@collection[index][:item][:title]} by #{@collection[index][:item][:author]}. Return by: #{@collection[index][:return_date]}!"
-
-    user.books << "#{@collection[index][:item][:title]}, #{@collection[index][:return_date]}"
-
+  def show_borrowed_books
+    if @current_user != nil
+      puts @current_user.books
+    else
+      puts 'Create an user or log in first!'
+    end
   end
 
   def exit_program
@@ -83,7 +105,7 @@ class Library
   end
 
   def change_status(index)
-    @collection[index][:available] ^= true
+    @collection[index][:available] = false
     File.open('./lib/book_data.yml', 'w') {|f| f.write @collection.to_yaml}
   end
 
