@@ -11,6 +11,10 @@ class Library
   end
 
   def checkout
-    collection.select { |obj| obj[:available]}
+    if collection.select { |obj| obj[:available]}
+      'Book is available for checkout'
+    else
+      'Book is not available for checkout'
+    end
   end
 end
