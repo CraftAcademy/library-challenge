@@ -7,6 +7,10 @@ class Library
     books.select { |obj| obj[:available] == true }
   end
 
+  def list_all
+    books.select { |obj| obj[:item]}
+  end
+
   def books
     YAML.load_file('./lib/books.yml')
   end
