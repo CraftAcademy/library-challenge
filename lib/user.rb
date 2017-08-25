@@ -4,4 +4,8 @@ class User
   def initialize
     @books = nil
   end
+
+  def borrowed_books
+    puts books
+  end
 end
