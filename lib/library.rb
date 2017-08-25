@@ -21,7 +21,7 @@ class Library
       1. to create an user or log in
       2. to list which books are available/unavailable
       3. to searching for an author
-      4. to borrow a book
+      4. to borrow an available book
       5. to show your borrowed books
       0. to exit'
 
@@ -76,16 +76,16 @@ class Library
   def borrow
    if @current_user != nil
       puts 'Which book do you want to borrow? Enter the corresponding number.'
-      @collection.each_with_index do |title, index|
+      collection = @collection.select { |obj| obj[:available] == true}
+      collection.each_with_index do |title, index|
         index_plus_one = index + 1
         puts "#{index_plus_one}. #{title[:item][:title]} by #{title[:item][:author]} (#{title[:item][:genre]})"
       end
-  #I want to use an if statement for when books are unavailable
       index = gets.chomp.to_i - 1
       return_date(index)
       change_status(index)
-      puts "You borrowed: #{@collection[index][:item][:title]} by #{@collection[index][:item][:author]}. Return by: #{@collection[index][:return_date]}!"
-      @current_user.books << "#{@collection[index][:item][:title]} by #{@collection[index][:item][:author]} (return by #{@collection[index][:return_date]})"
+      puts "You borrowed: #{collection[index][:item][:title]} by #{collection[index][:item][:author]}. Return by: #{collection[index][:return_date]}!"
+      @current_user.books << "#{collection[index][:item][:title]} by #{collection[index][:item][:author]} (return by #{collection[index][:return_date]})"
     else
       puts 'Create an user or log in first!'
     end
