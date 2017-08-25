@@ -17,10 +17,24 @@ class Library
   end
 
   def list_books(file)
-    title = file[0][:item][:title]
-    author = file[0][:item][:author]
-    available = file[0][:available]
-    return_date = file[0][:return_date]
-    "#{title} #{author} #{ available ? "available" : return_date}"
+    file.each do |book|
+      title = book[:item][:title]
+      author = book[:item][:author]
+      available = book[:available]
+      return_date = book[:return_date]
+      puts "#{title} #{author} #{ available ? "available" : return_date}"
+    end
   end
+  #
+  # def list_books(file)
+  #   title = file[0][:item][:title]
+  #   author = file[0][:item][:author]
+  #   available = file[0][:available]
+  #   return_date = file[0][:return_date]
+  #   "#{title} #{author} #{ available ? "available" : return_date}"
+  # end
 end
+
+lib = Library.new
+booklist = lib.book_list
+lib.list_books(booklist)

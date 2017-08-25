@@ -17,7 +17,8 @@ describe Library do
 
     it 'should print out a list of books' do
       list = subject.load_yaml('./lib/testYaml.yml')
-      expected_output = "#{'test book'} #{'magnus'} available"
+      # expected_output = "#{'test book'} #{'magnus'} available"
+      expected_output = [{:item=>{:title=>"test book", :author=>"magnus"}, :available=>true, :return_date=>"2017-08-20"}]
       expect(subject.list_books(list)).to eq expected_output
     end
   end
