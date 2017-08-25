@@ -21,20 +21,20 @@
     :title: Oathbringer
     :author: Brandon Sanderson
     :genre: Fantasy
-  :available: false
-  :return_date: 25/09/17
+  :available: true
+  :return_date: 
 - :item:
     :title: Tower of Dawn
     :author: Sarah J. Maas
     :genre: Fantasy
-  :available: true
-  :return_date: 
+  :available: false
+  :return_date: 25/09/17
 - :item:
     :title: The Bastards and the Knives
     :author: Scott Lynch
     :genre: Fantasy
-  :available: true
-  :return_date: 
+  :available: false
+  :return_date: 25/09/17
 - :item:
     :title: Provenance
     :author: Ann Leckie
@@ -75,5 +75,5 @@
     :title: Poor Relations
     :author: Jo Walton
     :genre: Science Fiction
-  :available: true
-  :return_date: 
+  :available: false
+  :return_date: 25/09/17

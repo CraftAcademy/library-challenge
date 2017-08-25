@@ -10,8 +10,6 @@ class Library
     @collection = YAML.load_file('./lib/book_data.yml')
   end
 
-  #@current_user
-
   def menu
     @exit = false
 
@@ -56,9 +54,9 @@ class Library
   def list_books
     @collection.each do |title|
       if title[:available] == true
-        puts "available: #{title[:item][:title]} by #{title[:item][:author]} (#{title[:item][:genre]})"
+        puts "AVAILABLE: #{title[:item][:title]} by #{title[:item][:author]} (#{title[:item][:genre]})"
       else
-        puts "not available: #{title[:item][:title]} by #{title[:item][:author]} (#{title[:item][:genre]}). Return date: #{title[:return_date]}"
+        puts "NOT AVAILABLE: #{title[:item][:title]} by #{title[:item][:author]} (#{title[:item][:genre]}). Return date: #{title[:return_date]}"
       end
     end
   end
@@ -76,16 +74,23 @@ class Library
   def borrow
    if @current_user != nil
       puts 'Which book do you want to borrow? Enter the corresponding number.'
-      collection = @collection.select { |obj| obj[:available] == true}
-      collection.each_with_index do |title, index|
+      @collection.each_with_index do |title, index|
         index_plus_one = index + 1
-        puts "#{index_plus_one}. #{title[:item][:title]} by #{title[:item][:author]} (#{title[:item][:genre]})"
+        if title[:available] == true
+          puts "AVAILABLE: #{index_plus_one}. #{title[:item][:title]} by #{title[:item][:author]} (#{title[:item][:genre]})"
+        else
+          puts "NOT AVAILABLE: #{index_plus_one}. #{title[:item][:title]} by #{title[:item][:author]} (#{title[:item][:genre]})"
+        end
       end
       index = gets.chomp.to_i - 1
-      return_date(index)
-      change_status(index)
-      puts "You borrowed: #{collection[index][:item][:title]} by #{collection[index][:item][:author]}. Return by: #{collection[index][:return_date]}!"
-      @current_user.books << "#{collection[index][:item][:title]} by #{collection[index][:item][:author]} (return by #{collection[index][:return_date]})"
+      if @collection[index][:available] == true
+        return_date(index)
+        change_status(index)
+        puts "You borrowed: #{@collection[index][:item][:title]} by #{@collection[index][:item][:author]}. Return by: #{@collection[index][:return_date]}!"
+        @current_user.books << "#{@collection[index][:item][:title]} by #{@collection[index][:item][:author]} (return by #{@collection[index][:return_date]})"
+      else
+        puts "That book is unavailable. It will be returned by #{@collection[index][:return_date]}"
+      end
     else
       puts 'Create an user or log in first!'
     end
