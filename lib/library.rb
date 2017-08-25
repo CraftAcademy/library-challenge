@@ -16,6 +16,11 @@ class Library
     YAML.load_file(file)
   end
 
+  def book_available(list)
+    yes = list.select { |obj| obj[:available]}
+    list_books(yes)
+  end
+
   def list_books(file)
     file.each do |book|
       title = book[:item][:title]
