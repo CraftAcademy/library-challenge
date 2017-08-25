@@ -21,4 +21,11 @@ describe Library do
       expected_output = [{:item=>{:title=>"test book", :author=>"magnus"}, :available=>true, :return_date=>"2017-08-20"}]
       expect(subject.list_books(list)).to eq expected_output
     end
+
+    it 'can borrow a book and the return date is correct' do
+      list = subject.load_yaml('./lib/testYaml.yml')
+      due = Date.today.next_month
+      expected_output = {:item=>{:title=>"test book", :author=>"magnus"}, :available=>false, :return_date=>due}
+      expect(subject.borrow_a_book(list, 'test book')).to eq expected_output
+    end
   end

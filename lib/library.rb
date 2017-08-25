@@ -25,16 +25,17 @@ class Library
       puts "#{title} #{author} #{ available ? "available" : return_date}"
     end
   end
-  #
-  # def list_books(file)
-  #   title = file[0][:item][:title]
-  #   author = file[0][:item][:author]
-  #   available = file[0][:available]
-  #   return_date = file[0][:return_date]
-  #   "#{title} #{author} #{ available ? "available" : return_date}"
-  # end
-end
 
-lib = Library.new
-booklist = lib.book_list
-lib.list_books(booklist)
+  def borrow_a_book(list, book)
+    borrow_book = list.detect { |obj| obj[:item][:title].include? book}
+    if borrow_book[:available] = true
+      return_book = return_date(Date.today)
+      "The book is available and you need to return it no later than #{return_book}"
+      {:item=>{:title=>"test book", :author=>"magnus"}, :available=>false, :return_date=>return_book}
+    end
+  end
+end
+# for testing purposes
+# lib = Library.new
+# booklist = lib.book_list
+# lib.list_books(booklist)
