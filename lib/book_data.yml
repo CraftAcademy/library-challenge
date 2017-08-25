@@ -4,76 +4,76 @@
     :author: G.R.R. Martin
     :genre: Fantasy
   :available: true
-  :return_date:
+  :return_date: 
 - :item:
     :title: The Thorn of Emberlain
     :author: Scott Lynch
     :genre: Fantasy
-  :available: true
-  :return_date:
+  :available: false
+  :return_date: 
 - :item:
     :title: Doors of Stone
     :author: Patrick Rothfuss
     :genre: Fantasy
-  :available: true
-  :return_date:
+  :available: false
+  :return_date: 
 - :item:
     :title: Oathbringer
     :author: Brandon Sanderson
     :genre: Fantasy
   :available: true
-  :return_date:
+  :return_date: 
 - :item:
     :title: Tower of Dawn
     :author: Sarah J. Maas
     :genre: Fantasy
   :available: true
-  :return_date:
+  :return_date: 
 - :item:
     :title: The Bastards and the Knives
     :author: Scott Lynch
     :genre: Fantasy
   :available: true
-  :return_date:
+  :return_date: 
 - :item:
     :title: Provenance
     :author: Ann Leckie
     :genre: Science Fiction
-  :available: True
-  :return_date:
+  :available: true
+  :return_date: 
 - :item:
     :title: The Girl in the Tower
     :author: Katherine Arden
     :genre: Fantasy
-  :available: true
-  :return_date:
+  :available: false
+  :return_date: 
 - :item:
     :title: The Night Masquerade
     :author: Nnedi Okorafor
     :genre: Science Fiction
   :available: true
-  :return_date:
+  :return_date: 
 - :item:
     :title: Tortall - a Spy's Guide
     :author: Tamora Pierce
     :genre: Fantasy
   :available: true
-  :return_date:
+  :return_date: 
 - :item:
     :title: Sorcerer Royal
     :author: Zen Cho
     :genre: Fantasy
   :available: true
-  :return_date:
+  :return_date: 
 - :item:
     :title: Grey Sister
     :author: Mark Lawrence
     :genre: Fantasy
   :available: true
-  :return_date:
+  :return_date: 
 - :item:
     :title: Poor Relations
     :author: Jo Walton
     :genre: Science Fiction
   :available: true
-  :return_date:
+  :return_date: 

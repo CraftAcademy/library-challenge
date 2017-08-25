@@ -1,5 +1,7 @@
 require 'yaml'
 require 'pry'
+require 'date'
+require './lib/user.rb'
 
 class Library
   attr_accessor :collection
@@ -13,7 +15,7 @@ class Library
 
     while @exit == false
 
-      puts 'Welcome to the library of coming books. Choose an option.
+      puts 'Welcome to the Library of Coming Books. Choose an option.
       1. to list which books are available/unavailable
       2. to searching for an author
       3. to exit'
@@ -35,10 +37,10 @@ class Library
     end
   end
 
-  private
+  #private
 
   def list_books
-    collection.each do |title|
+    @collection.each do |title|
       if title[:available] == true
         puts "available: #{title[:item][:title]} by #{title[:item][:author]} (#{title[:item][:genre]})"
       else
@@ -50,7 +52,7 @@ class Library
   def search_author
     puts 'Which author do you want to search for? Please enter first OR last name.'
     author = gets.chomp.capitalize
-    result = collection.select { |obj| obj[:item][:author].include? author }
+    result = @collection.select { |obj| obj[:item][:author].include? author }
 
     result.each do |book|
       puts "#{book[:item][:title]} by #{book[:item][:author]} (#{book[:item][:genre]})"
@@ -62,8 +64,13 @@ class Library
     puts 'Come back soon, there\'s lots to read here!'
   end
 
-  def return_to_menu
+  def change_status(index)
+    @collection[index][:available] ^= true
+    File.open('./lib/book_data.yml', 'w') {|f| f.write @collection.to_yaml}
   end
+
+  # def return_to_menu
+  # end
 
   def error_message
     puts 'Choose correct menu number'
