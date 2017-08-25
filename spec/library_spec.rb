@@ -85,4 +85,12 @@ describe Library do
     it 'return a book that was not borrowed' do
       expect(subject.return_a_book(list, 'test book')).to eq "That book was not borrowed from here"
     end
+
+    it 'return a overdue book' do
+      list = [{:item=> {:title=> 'overdue',
+        :author=> 'magnus'},
+        :available=> false,
+        :return_date=> '2017-07-07'}]
+        expect(subject.return_a_book(list, 'overdue')).to eq "There is a 100kr fine for returning the book to late"
+    end
   end
