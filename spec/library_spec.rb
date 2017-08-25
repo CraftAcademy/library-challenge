@@ -6,8 +6,7 @@ describe Library do
   end
 
   it 'should list if books are available/unavailable' do
-    list_available_books =
-    expect()
+    expect(subject.menu).to be_truthy
   end
 
 end
