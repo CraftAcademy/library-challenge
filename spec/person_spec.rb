@@ -6,6 +6,5 @@ describe Person do
   end
 
   it 'can know when the book is supposed to be returned' do
-    expect(subject).not_to eq object
   end
 end
