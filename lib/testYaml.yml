@@ -3,10 +3,9 @@
     :title: test book in
     :author: magnus
   :available: true
-  :return_date:
-
+  :return_date: 
 - :item:
     :title: test book not in
     :author: magnus
-  :available: false
+  :available: true
   :return_date: '2017-09-20'

@@ -5,7 +5,7 @@ class Library
   attr_reader :book_list
 
   def initialize
-    @book_list = load_yaml
+
   end
 
   def return_date(date)
@@ -13,11 +13,11 @@ class Library
   end
 
   def load_yaml(file = './lib/collection.yml')
-    YAML.load_file(file)
+    @book_list = YAML.load_file(file)
   end
 
   def write_to_yaml(list, file = './lib/collection.yml')
-    File.open(file)
+    File.open(file, 'w') { |item| item.write list.to_yaml }
   end
 
   def book_available(list)
@@ -68,6 +68,6 @@ class Library
   end
 end
 # for testing purposes
-# lib = Library.new
-# booklist = lib.book_list
+lib = Library.new
+booklist = lib.book_list
 # lib.list_books(booklist)

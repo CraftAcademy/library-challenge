@@ -18,20 +18,6 @@ describe Library do
       expect(subject.load_yaml('./lib/testYaml.yml')).to eq expected_output
     end
 
-    xit 'should write to YAML file' do
-      list = subject.return_a_book(list, 'test book not in')
-      subject.write_to_yaml(list)
-      expected_output = [{:item=> {:title=> 'test book in',
-        :author=> 'magnus'},
-        :available=> true,
-        :return_date=> nil},
-        {:item=>{:title=> 'test book not in',
-          :author=> 'magnus'},
-          :available=> true,
-          :return_date=> nil}]
-      expect(subject.load_yaml('./lib/testYaml.yml')).to eq expected_output
-    end
-
     it 'checks the return date' do
       date = Date.today
       due = Date.today.next_month
@@ -93,4 +79,20 @@ describe Library do
         :return_date=> '2017-07-07'}]
         expect(subject.return_a_book(list, 'overdue')).to eq "There is a 100kr fine for returning the book to late"
     end
-  end
+
+    describe 'for writing to yaml test' do
+
+      after do
+        list = YAML.load_file('./lib/testYaml.yml')
+        list[1][:available] = true
+        File.open('./lib/testYaml.yml', 'w') { |f| f.write list.to_yaml }
+      end
+
+      it 'should write to YAML file' do
+        list[1][:available] = false
+        subject.write_to_yaml(list, './lib/testYaml.yml')
+        list2 = subject.load_yaml('./lib/testYaml.yml')
+        expect(list).to eq list2
+      end
+    end
+end
