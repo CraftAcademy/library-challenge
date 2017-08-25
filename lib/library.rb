@@ -13,6 +13,10 @@ class Library
       book_id[:available]
   end
 
+  def return_date
+    Date.today.next_month(1).strftime("%m,%y")
+  end
+
   private
 
   def get_book(title, author)
