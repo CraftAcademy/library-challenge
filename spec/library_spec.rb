@@ -84,12 +84,12 @@ describe Library do
 
       after do
         list = YAML.load_file('./lib/testYaml.yml')
-        list[1][:available] = true
+        list[1][:available] = false
         File.open('./lib/testYaml.yml', 'w') { |f| f.write list.to_yaml }
       end
 
       it 'should write to YAML file' do
-        list[1][:available] = false
+        list[1][:available] = true
         subject.write_to_yaml(list, './lib/testYaml.yml')
         list2 = subject.load_yaml('./lib/testYaml.yml')
         expect(list).to eq list2
