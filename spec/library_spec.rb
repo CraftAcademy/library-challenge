@@ -78,7 +78,11 @@ describe Library do
     end
 
     it 'return a book' do
-      list = YAML.load_file('./lib/testYaml.yml')
+      # list = YAML.load_file('./lib/testYaml.yml')
       expect(subject.return_a_book(list, 'test book not in')).to eq "Thank you for returning the book"
+    end
+
+    it 'return a book that was not borrowed' do
+      expect(subject.return_a_book(list, 'test book')).to eq "That book was not borrowed from here"
     end
   end

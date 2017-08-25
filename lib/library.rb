@@ -58,8 +58,10 @@ class Library
     else
       return_book[:available] = true
       if return_book[:return_date] >= Date.today.to_s
+        return_book[:return_date] = nil
         "Thank you for returning the book"
       else
+        return_book[:return_date] = nil
         "There is a 100kr fine for returning the book to late"
       end
     end
