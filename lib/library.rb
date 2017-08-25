@@ -28,10 +28,12 @@ class Library
 
   def borrow_a_book(list, book)
     borrow_book = list.detect { |obj| obj[:item][:title].include? book}
-    if borrow_book[:available] = true
+    if borrow_book[:available] == true
       return_book = return_date(Date.today)
+      borrow_book[:available] = false
       "The book is available and you need to return it no later than #{return_book}"
-      {:item=>{:title=>"test book", :author=>"magnus"}, :available=>false, :return_date=>return_book}
+    else
+      "That book is not available until #{borrow_book[:return_date]}"
     end
   end
 end
