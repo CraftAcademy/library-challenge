@@ -4,48 +4,48 @@
     :author: G.R.R. Martin
     :genre: Fantasy
   :available: true
-  :return_date: 
+  :return_date: 25/09/17
 - :item:
     :title: The Thorn of Emberlain
     :author: Scott Lynch
     :genre: Fantasy
-  :available: false
-  :return_date: 
+  :available: true
+  :return_date: 25/09/17
 - :item:
     :title: Doors of Stone
     :author: Patrick Rothfuss
     :genre: Fantasy
   :available: false
-  :return_date: 
+  :return_date: 25/09/17
 - :item:
     :title: Oathbringer
     :author: Brandon Sanderson
     :genre: Fantasy
-  :available: true
-  :return_date: 
+  :available: false
+  :return_date: 25/09/17
 - :item:
     :title: Tower of Dawn
     :author: Sarah J. Maas
     :genre: Fantasy
-  :available: true
-  :return_date: 
+  :available: false
+  :return_date: 25/09/17
 - :item:
     :title: The Bastards and the Knives
     :author: Scott Lynch
     :genre: Fantasy
-  :available: true
-  :return_date: 
+  :available: false
+  :return_date: 25/09/17
 - :item:
     :title: Provenance
     :author: Ann Leckie
     :genre: Science Fiction
-  :available: true
-  :return_date: 
+  :available: false
+  :return_date: 25/09/17
 - :item:
     :title: The Girl in the Tower
     :author: Katherine Arden
     :genre: Fantasy
-  :available: false
+  :available: true
   :return_date: 
 - :item:
     :title: The Night Masquerade

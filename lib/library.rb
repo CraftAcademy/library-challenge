@@ -18,14 +18,16 @@ class Library
       puts 'Welcome to the Library of Coming Books. Choose an option.
       1. to list which books are available/unavailable
       2. to searching for an author
-      3. to exit'
+      3. to borrow a book
+      4. to exit'
 
       n = gets.chomp.to_i
 
       case n
       when 1 then list_books
       when 2 then search_author
-      when 3 then exit_program
+      when 3 then borrow
+      when 4 then exit_program
       else error_message
       end
 
@@ -44,7 +46,7 @@ class Library
       if title[:available] == true
         puts "available: #{title[:item][:title]} by #{title[:item][:author]} (#{title[:item][:genre]})"
       else
-        puts "not available: #{title[:item][:title]} by #{title[:item][:author]} (#{title[:item][:genre]}). Return date is: #{title[:return_date]}"
+        puts "not available: #{title[:item][:title]} by #{title[:item][:author]} (#{title[:item][:genre]}). Return date: #{title[:return_date]}"
       end
     end
   end
@@ -59,6 +61,22 @@ class Library
     end
   end
 
+  def borrow
+    puts 'Which book do you want to borrow? Enter the corresponding number.'
+    @collection.each_with_index do |title, index|
+      index_plus_one = index + 1
+      puts "#{index_plus_one}. #{title[:item][:title]} by #{title[:item][:author]} (#{title[:item][:genre]})"
+    end
+
+    index = gets.chomp.to_i - 1
+    return_date(index)
+    change_status(index)
+    puts "You borrowed: #{@collection[index][:item][:title]} by #{@collection[index][:item][:author]}. Return by: #{@collection[index][:return_date]}!"
+
+    user.books << "#{@collection[index][:item][:title]}, #{@collection[index][:return_date]}"
+
+  end
+
   def exit_program
     @exit = true
     puts 'Come back soon, there\'s lots to read here!'
@@ -69,8 +87,10 @@ class Library
     File.open('./lib/book_data.yml', 'w') {|f| f.write @collection.to_yaml}
   end
 
-  # def return_to_menu
-  # end
+  def return_date(index)
+    @collection[index][:return_date] = Date.today.next_month.strftime("%d/%m/%y")
+    File.open('./lib/book_data.yml', 'w') {|f| f.write @collection.to_yaml}
+  end
 
   def error_message
     puts 'Choose correct menu number'

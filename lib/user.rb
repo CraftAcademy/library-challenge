@@ -1,11 +1,10 @@
+require './lib/library.rb'
+require 'date'
+
 class User
-  attr_accessor :books
+  books = []
 
-  def initialize
-    @books = nil
-  end
-
-  def borrowed_books
-    puts books
+  def list_borrowed_books
+    puts @books
   end
 end

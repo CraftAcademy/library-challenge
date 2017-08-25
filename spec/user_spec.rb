@@ -8,4 +8,5 @@ describe User do
   it 'should be able to see its books' do
     expect(subject.borrowed_books).to eq subject.books
   end
+
 end
