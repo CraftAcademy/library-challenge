@@ -21,6 +21,11 @@ class Library
     list_books(yes)
   end
 
+  def books_out(list)
+    yes = list.select { |obj| obj[:available] == false}
+    list_books(yes)
+  end
+
   def list_books(file)
     file.each do |book|
       title = book[:item][:title]
