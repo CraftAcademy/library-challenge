@@ -31,7 +31,12 @@ class Library
   end
 
   def search_by_author(list, author)
-    books = list.select { |obj| obj[:item][:author] == author }
+    books = list.select { |obj| obj[:item][:author].include? author }
+    list_books(books)
+  end
+
+  def search_by_title(list, title)
+    books = list.select { |obj| obj[:item][:title].include? title }
     list_books(books)
   end
 
