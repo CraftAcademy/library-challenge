@@ -30,6 +30,11 @@ class Library
     list_books(yes)
   end
 
+  def my_books_on_loan(list, name)
+    my_books = list.select { |obj| obj[:loanee] }
+    list_books(my_books)
+  end
+
   def list_books(file)
     file.each do |book|
       title = book[:item][:title]
@@ -67,7 +72,3 @@ class Library
     end
   end
 end
-# for testing purposes
-lib = Library.new
-booklist = lib.book_list
-# lib.list_books(booklist)

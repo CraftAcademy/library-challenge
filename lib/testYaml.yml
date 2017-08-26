@@ -4,8 +4,10 @@
     :author: magnus
   :available: true
   :return_date: 
+  :loanee: 
 - :item:
     :title: test book not in
     :author: magnus
   :available: false
   :return_date: '2017-09-20'
+  :loanee: maggi
