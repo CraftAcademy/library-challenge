@@ -84,8 +84,13 @@ class Library
     edit = list.select { |obj| obj[:item][:title] == title }
     edit[0][:item][:author] = new_author
   end
-  
+
   def add_book(title, author)
     @book_list << [{:item=>{ :title=> title, :author=> author} , :available=> true, :return_date=> nil, :loanee=> nil}]
+  end
+
+  def delete_book(book)
+    delete = @book_list.detect { |obj| obj[:item][:title].include? book}
+    @book_list.delete(delete)
   end
 end

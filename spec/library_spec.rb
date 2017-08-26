@@ -113,6 +113,17 @@ describe Library do
     expect(subject.book_list).to include(expected_output)
   end
 
+  it 'delete from the list' do
+    expected_output = [{:item=> {:title=> 'test book not in',
+      :author=> 'magnus'},
+      :available=> true,
+      :return_date=> nil,
+      :loanee=> nil}]
+      subject.load_yaml('./lib/testYaml.yml')
+      subject.delete_book('test book in')
+      expect(subject.book_list).not_to include(expected_output)
+  end
+
   describe 'for writing to yaml test' do
 
     after do
