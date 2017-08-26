@@ -1,11 +1,14 @@
 # Library program
+The Library program has two classes, **Library** and **User**.
 
 ## How to use the Library program
 
 ### Starting the program
 
-The Library program has two classes, **Library** and **User**.
+**Starting it with the start-file:**
+You may start it in terminal with ```ruby ./lib/start.rb```
 
+**Starting it manually in IRB:**
 Start the Library program in IRB by requesting the Library file
 ```require './lib/library.rb'```
 
@@ -27,23 +30,23 @@ You may:
 
 Navigate through the menu with the corresponding numbers.
 
-**Create an user**
+**Create an user:**
 You enter a username and are now logged in.
 
-**List books in the library system**
+**List books in the library system:**
 No need to log in.
 
-**Search for a book with an author name**
+**Search for a book with an author name:**
 No need to log in. User will get an message if there is no match.
 
-**Borrow books**
+**Borrow books:**
 The user will get an error message if it has not logged in.
 The user will get an error message if it does not put in a number that corresponds to the listed books.
 The user will get an error message if it's trying to borrow an unavailable book.
 
-**Looking at the users borrowed books**
+**Looking at the users borrowed books:**
 The user will get an error message if it has not logged in, or if has no borrowed books.
 Otherwise the user will see the title of the book, and the return date.
 
-**Exiting the menu**
-Exits the menu, but is still in IRB.
+**Exiting the menu:**
+Exits the program. If you are in IRB it exits the menu, but is still in IRB.
