@@ -109,8 +109,8 @@ describe Library do
 
   end
 
-  it 'should be able to search for an author' do
-
+  it 'should be able search for an author' do
+    expect{subject.search_author}.to output("Which author do you want to search for? Please enter first OR last name.\nNo matching author.\n").to_stdout
   end
 
   after do
