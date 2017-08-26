@@ -102,6 +102,17 @@ describe Library do
     expect(subject.edit_author(list, 'test book in', 'new_author')).to eq 'new_author'
   end
 
+  it 'add book to the list' do
+    expected_output = [{:item=> {:title=> 'added an book',
+      :author=> 'magnus'},
+      :available=> true,
+      :return_date=> nil,
+      :loanee=> nil}]
+    subject.load_yaml('./lib/testYaml.yml')
+    subject.add_book('added an book', 'magnus')
+    expect(subject.book_list).to include(expected_output)
+  end
+
   describe 'for writing to yaml test' do
 
     after do
