@@ -98,6 +98,10 @@ describe Library do
     expect(subject.edit_list(list, 'test book in', 'changed title')).to eq 'changed title'
   end
 
+  it 'change author of book' do
+    expect(subject.edit_author(list, 'test book in', 'new_author')).to eq 'new_author'
+  end
+
   describe 'for writing to yaml test' do
 
     after do

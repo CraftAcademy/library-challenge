@@ -79,10 +79,9 @@ class Library
     edit = list.select { |obj| obj[:item][:title] == title }
     edit[0][:item][:title] = new_title
   end
-end
 
-lib = Library.new
-lib.load_yaml
-lib.list_books(lib.book_list)
-puts ""
-puts ""
+  def edit_author(list, title, new_author)
+    edit = list.select { |obj| obj[:item][:title] == title }
+    edit[0][:item][:author] = new_author
+  end
+end
