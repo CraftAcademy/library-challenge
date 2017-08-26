@@ -37,5 +37,8 @@ describe Library do
    it 'if book is out on loan' do
      expected_output = 'Sorry this book is out now'
    end
+   it 'librarian loans out book' do
+     expected_output = (subject.search_books)[{:available=> false, :return_date=> (Date.today + 30) }]
+   end
 
 end
