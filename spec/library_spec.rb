@@ -82,7 +82,7 @@ describe Library do
       :available=> false,
       :return_date=> '2017-07-07',
       :loanee=> 'maggi'}]
-      expect(subject.return_a_book(list, 'overdue')).to eq "There is a 100kr fine for returning the book to late"
+    expect(subject.return_a_book(list, 'overdue')).to eq "There is a 100kr fine for returning the book to late"
   end
 
   it 'checks when my books are due' do
@@ -91,7 +91,11 @@ describe Library do
       :available=> false,
       :return_date=> '2017-09-20',
       loanee: 'maggi'}]
-      expect(subject.my_books_on_loan(list, 'maggi')).to eq expected_output
+    expect(subject.my_books_on_loan(list, 'maggi')).to eq expected_output
+  end
+
+  it 'change books in the list' do
+    expect(subject.edit_list(list, 'test book in', 'changed title')).to eq 'changed title'
   end
 
   describe 'for writing to yaml test' do
