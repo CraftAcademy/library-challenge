@@ -4,10 +4,6 @@ class Library
 
   attr_reader :book_list
 
-  def initialize
-
-  end
-
   def return_date(date)
     date.next_month
   end
