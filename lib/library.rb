@@ -22,7 +22,7 @@ class Library
       case n
       when 1 then user_name_input
       when 2 then list_books
-      when 3 then search_author
+      when 3 then search_author_input
       when 4 then borrow_menu
       when 5 then show_borrowed_books
       when 6 then exit_program
@@ -67,9 +67,13 @@ class Library
     end
   end
 
-  def search_author
+  def search_author_input
     puts 'Which author do you want to search for? Please enter first OR last name.'
     author = gets.chomp.capitalize
+    search_author(author)
+  end
+
+  def search_author(author)
     result = @collection.select { |obj| obj[:item][:author].include? author }
       if result.empty?
         error_message_no_match

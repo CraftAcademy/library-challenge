@@ -114,9 +114,15 @@ describe Library do
 
   end
 
-  # it 'should be able search for an author' do
-  #   expect{subject.search_author}.to output("Which author do you want to search for? Please enter first OR last name.\nNo matching author.\n").to_stdout
-  # end
+  it 'should be able search for an author - has match' do
+    author = 'Martin'
+    expect{subject.search_author(author)}.to output("The Winds of Winter by G.R.R. Martin (Fantasy)\n").to_stdout
+  end
+
+  it 'should be able search for an author - has no match' do
+    author = 'q'
+    expect{subject.search_author(author)}.to output("No matching author.\n").to_stdout
+  end
 
   after do
     collection = YAML.load_file('./lib/book_data.yml')
