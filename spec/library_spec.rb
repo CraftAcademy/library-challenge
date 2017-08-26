@@ -44,8 +44,12 @@ describe Library do
     expect{subject.book_is_unavailable(index)}.to output("The Winds of Winter is unavailable. It will be returned by #{return_date}.\n").to_stdout
   end
 
-  it 'error message' do
+  it 'error message if searching for non existing author' do
     expect{subject.error_message_no_match}.to output("No matching author.\n").to_stdout
+  end
+
+  it 'should be able to create_user' do
+    expect{subject.create_user('Amanda')}.to output("Welcome Amanda.\n").to_stdout
   end
 
   after do
