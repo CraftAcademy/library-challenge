@@ -96,8 +96,21 @@ describe Library do
     expect{subject.error_message_no_match}.to output("No matching author.\n").to_stdout
   end
 
+  it 'should print out a starting menu' do
+    expect{subject.menu_options}.to output("--- Welcome to the Library of Coming Books. Choose an option. ---\n    1. to create an user or log in\n    2. to list which books are available/unavailable\n    3. to searching for an author\n    4. to borrow an available book\n    5. to show your borrowed books\n    6. to exit\n").to_stdout
+  end
+
+  it 'should run user_name_input' do
+    expect{subject.user_name_input}.to output("Welcome to the library. Who are you?\nWelcome require './lib/library.rb'.\n").to_stdout
+  end
+
+
+  it 'should be able to navigate menu' do
+
+  end
+
   it 'should be able to search for an author' do
-    expect(subject.search_author).to be_truthy
+
   end
 
   after do
