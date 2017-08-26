@@ -26,7 +26,7 @@ describe Library do
     expect(subject.collection[index][:return_date]).to eq expected_date
   end
 
-  it 'should show a borrow book menu' do
+  it 'should show_books_menu when borrowing' do
     expect(subject.show_books_menu).to be_truthy
   end
 
@@ -43,7 +43,7 @@ describe Library do
     return_date = Date.today.next_month.strftime("%d/%m/%y")
     subject.collection[index][:available] = false
     subject.collection[index][:return_date] = Date.today.next_month.strftime("%d/%m/%y")
-    expect{subject.book_is_unavailable(index)}.to output("The Winds of Winter is unavailable. It will be returned by #{return_date}.\n").to_stdout
+    expect{subject.borrow_book(index)}.to output("The Winds of Winter is unavailable. It will be returned by #{return_date}.\n").to_stdout
   end
 
   it 'should borrow book if available' do
@@ -88,10 +88,13 @@ describe Library do
     expect{subject.error_message_no_user}.to output("Create an user or log in first!\n").to_stdout
   end
 
-  it 'should show error message if searching for non existing author' do
+  it 'should show error message if not correct menu number' do
     expect{subject.error_message_menu}.to output("Choose correct menu number, please.\n").to_stdout
   end
 
+  it 'should show error message if searching for non existing author' do
+    expect{subject.error_message_no_match}.to output("No matching author.\n").to_stdout
+  end
 
   after do
     collection = YAML.load_file('./lib/book_data.yml')
