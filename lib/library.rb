@@ -41,16 +41,17 @@ class Library
       author = book[:item][:author]
       available = book[:available]
       return_date = book[:return_date]
-      "#{title} #{author} #{ available ? "available" : return_date}"
+      puts "#{title} #{author} #{ available ? "available" : return_date}"
     end
   end
 
-  def borrow_a_book(list, book)
+  def borrow_a_book(list, book, name)
     borrow_book = list.detect { |obj| obj[:item][:title].include? book}
     if borrow_book[:available] == true
-      return_book = return_date(Date.today)
+      borrow_book[:return_date] = return_date(Date.today)
       borrow_book[:available] = false
-      "The book is available and you need to return it no later than #{return_book}"
+      borrow_book[:loanee] = name
+      "The book is available and you need to return it no later than #{borrow_book[:return_date]}"
     else
       "That book is not available until #{borrow_book[:return_date]}"
     end
@@ -63,12 +64,20 @@ class Library
     else
       return_book[:available] = true
       if return_book[:return_date] >= Date.today.to_s
+        return_book[:loanee] = nil
         return_book[:return_date] = nil
         "Thank you for returning the book"
       else
         return_book[:return_date] = nil
+        return_book[:loanee] = nil
         "There is a 100kr fine for returning the book to late"
       end
     end
   end
 end
+
+lib = Library.new
+lib.load_yaml
+lib.list_books(lib.book_list)
+puts ""
+puts ""

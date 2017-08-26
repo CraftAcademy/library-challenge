@@ -60,12 +60,12 @@ describe Library do
   it 'can borrow a book and the return date is correct' do
     due = Date.today.next_month
     expected_output = "The book is available and you need to return it no later than #{due}"
-    expect(subject.borrow_a_book(list, 'test book in')).to eq expected_output
+    expect(subject.borrow_a_book(list, 'test book in', 'maggi')).to eq expected_output
   end
 
   it 'can not borrow book if not available' do
     expected_output = 'That book is not available until 2017-09-20'
-    expect(subject.borrow_a_book(list, 'test book not in')).to eq expected_output
+    expect(subject.borrow_a_book(list, 'test book not in', 'maggi')).to eq expected_output
   end
 
   it 'return a book' do
