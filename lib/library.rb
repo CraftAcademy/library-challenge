@@ -7,6 +7,7 @@ class Library
   attr_accessor :collection
 
   def initialize
+    system "clear"
     @collection = YAML.load_file('./lib/book_data.yml')
   end
 
@@ -78,7 +79,11 @@ class Library
    if @current_user != nil
     show_books_menu
     index = gets.chomp.to_i - 1
-    borrow_book(index)
+      if index < 0 || index >= @collection.length
+        error_message_menu
+      else
+        borrow_book(index)
+      end
     else
       error_message_no_user
     end
@@ -97,9 +102,9 @@ class Library
     @collection.each_with_index do |title, index|
     index_plus_one = index + 1
     if title[:available] == true
-      puts "AVAILABLE: #{index_plus_one}. #{title[:item][:title]} by #{title[:item][:author]} (#{title[:item][:genre]})"
+      puts "#{index_plus_one}. AVAILABLE: #{title[:item][:title]} by #{title[:item][:author]} (#{title[:item][:genre]})"
     else
-      puts "NOT AVAILABLE UNTIL #{title[:return_date]}: #{index_plus_one}. #{title[:item][:title]} by #{title[:item][:author]} (#{title[:item][:genre]})"
+      puts "#{index_plus_one}. NOT AVAILABLE UNTIL #{title[:return_date]}: #{title[:item][:title]} by #{title[:item][:author]} (#{title[:item][:genre]})"
     end
   end
 end
@@ -116,10 +121,12 @@ end
   end
 
   def show_borrowed_books
-    if @current_user != nil # && @current_user.books != nil
+    if @current_user != nil && @current_user.books.any?
       puts @current_user.books
-    else
+    elsif @current_user == nil
       error_message_no_user
+    else
+      error_message_no_borrowed_books
     end
   end
 
@@ -156,7 +163,7 @@ end
     puts 'No matching author.'
   end
 
-  # def error_message_no_borrowed_books
-  #   puts 'No books borrowed'
-  # end
+  def error_message_no_borrowed_books
+    puts 'No books borrowed from here yet.'
+  end
 end
