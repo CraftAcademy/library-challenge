@@ -16,7 +16,7 @@ Read this entire README carefully and follow all instructions.
 ----
 #####Write a Library program with the following user stories:
 
-```
+<!-- ```
 As an individual
 In order to get my hands on a good book
 I would like to see a list of books currently available in the library
@@ -27,7 +27,7 @@ with information about the title and author
 As a library
 In order to have good books to offer to the public
 I would like to be able to have a collection of books
-```
+``` -->
 
 ```
 As a library
