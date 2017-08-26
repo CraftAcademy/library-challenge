@@ -4,7 +4,7 @@ require 'date'
 require './lib/user.rb'
 
 class Library
-  attr_accessor :collection
+  attr_accessor :collection, :current_user
 
   def initialize
     system "clear"

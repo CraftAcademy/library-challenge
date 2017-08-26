@@ -8,6 +8,7 @@ describe Library do
   end
 
   it 'should make a list of books that are available/unavailable' do
+    subject.collection[0][:available] = false
     expect(subject.list_books).to be_truthy
   end
 
@@ -50,6 +51,16 @@ describe Library do
 
   it 'should be able to create_user' do
     expect{subject.create_user('Amanda')}.to output("Welcome Amanda.\n").to_stdout
+  end
+
+  it 'should show users borrowed books if there is an user with books' do
+    subject.create_user('Amanda')
+    subject.current_user.books = ['hey, it\'s a book!']
+    expect{subject.show_borrowed_books}.to output("hey, it\'s a book!\n").to_stdout
+  end
+
+  it 'should exit menu' do
+    expect{subject.exit_program}.to output("Come back soon, there\'s lots to read here!\n").to_stdout
   end
 
   after do
