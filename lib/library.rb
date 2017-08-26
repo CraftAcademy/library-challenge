@@ -20,7 +20,7 @@ class Library
       n = gets.chomp.to_i
 
       case n
-      when 1 then user
+      when 1 then user_name_input
       when 2 then list_books
       when 3 then search_author
       when 4 then borrow_menu
@@ -46,9 +46,13 @@ class Library
     6. to exit'
   end
 
-  def user
+  def user_name_input
     puts 'Welcome to the library. Who are you?'
     username = gets.chomp
+    create_user(username)
+  end
+
+  def create_user(username)
     @current_user = User.new(name: username)
     puts "Welcome #{@current_user.name}."
   end
