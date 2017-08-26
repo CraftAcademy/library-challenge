@@ -15,35 +15,36 @@ class Library
 
     while @exit == false
 
-      puts 'Welcome to the Library of Coming Books. Choose an option.
-      1. to create an user or log in
-      2. to list which books are available/unavailable
-      3. to searching for an author
-      4. to borrow an available book
-      5. to show your borrowed books
-      0. to exit'
-
+      menu_options
       n = gets.chomp.to_i
 
       case n
       when 1 then user
       when 2 then list_books
       when 3 then search_author
-      when 4 then borrow
+      when 4 then borrow_menu
       when 5 then show_borrowed_books
-      when 0 then exit_program
-      else error_message
+      when 6 then exit_program
+      else error_message_menu
       end
 
       if @exit == false
-        puts 'press ENTER to return to menu'
-        x = gets.chomp
-        system "clear"
+        return_to_menu
       end
     end
   end
 
   #private
+  def menu_options
+    puts '--- Welcome to the Library of Coming Books. Choose an option. ---
+    1. to create an user or log in
+    2. to list which books are available/unavailable
+    3. to searching for an author
+    4. to borrow an available book
+    5. to show your borrowed books
+    6. to exit'
+  end
+
   def user
     puts 'Welcome to the library. Who are you?'
     username = gets.chomp
@@ -65,42 +66,60 @@ class Library
     puts 'Which author do you want to search for? Please enter first OR last name.'
     author = gets.chomp.capitalize
     result = @collection.select { |obj| obj[:item][:author].include? author }
-
+      if result.empty?
+        error_message_no_match
+      end
     result.each do |book|
       puts "#{book[:item][:title]} by #{book[:item][:author]} (#{book[:item][:genre]})"
     end
   end
 
-  def borrow
+  def borrow_menu
    if @current_user != nil
-      puts 'Which book do you want to borrow? Enter the corresponding number.'
-      @collection.each_with_index do |title, index|
-        index_plus_one = index + 1
-        if title[:available] == true
-          puts "AVAILABLE: #{index_plus_one}. #{title[:item][:title]} by #{title[:item][:author]} (#{title[:item][:genre]})"
-        else
-          puts "NOT AVAILABLE: #{index_plus_one}. #{title[:item][:title]} by #{title[:item][:author]} (#{title[:item][:genre]})"
-        end
-      end
-      index = gets.chomp.to_i - 1
-      if @collection[index][:available] == true
-        return_date(index)
-        change_status(index)
-        puts "You borrowed: #{@collection[index][:item][:title]} by #{@collection[index][:item][:author]}. Return by: #{@collection[index][:return_date]}!"
-        @current_user.books << "#{@collection[index][:item][:title]} by #{@collection[index][:item][:author]} (return by #{@collection[index][:return_date]})"
-      else
-        puts "That book is unavailable. It will be returned by #{@collection[index][:return_date]}"
-      end
+    show_books_menu
+    index = gets.chomp.to_i - 1
+    borrow_book(index)
     else
-      puts 'Create an user or log in first!'
+      error_message_no_user
     end
   end
 
+  def borrow_book(index)
+    if @collection[index][:available] == true
+      book_is_available(index)
+    else
+      book_is_unavailable(index)
+    end
+  end
+
+  def show_books_menu
+    puts 'Which book do you want to borrow? Enter the corresponding number.'
+    @collection.each_with_index do |title, index|
+    index_plus_one = index + 1
+    if title[:available] == true
+      puts "AVAILABLE: #{index_plus_one}. #{title[:item][:title]} by #{title[:item][:author]} (#{title[:item][:genre]})"
+    else
+      puts "NOT AVAILABLE UNTIL #{title[:return_date]}: #{index_plus_one}. #{title[:item][:title]} by #{title[:item][:author]} (#{title[:item][:genre]})"
+    end
+  end
+end
+
+  def book_is_available(index)
+    return_date(index)
+    change_status(index)
+    puts "You borrowed: #{@collection[index][:item][:title]} by #{@collection[index][:item][:author]}. Return by: #{@collection[index][:return_date]}!"
+    @current_user.books << "#{@collection[index][:item][:title]} by #{@collection[index][:item][:author]} (return by #{@collection[index][:return_date]})"
+  end
+
+  def book_is_unavailable(index)
+    puts "#{@collection[index][:item][:title]} is unavailable. It will be returned by #{@collection[index][:return_date]}."
+  end
+
   def show_borrowed_books
-    if @current_user != nil
+    if @current_user != nil # && @current_user.books != nil
       puts @current_user.books
     else
-      puts 'Create an user or log in first!'
+      error_message_no_user
     end
   end
 
@@ -119,7 +138,25 @@ class Library
     File.open('./lib/book_data.yml', 'w') {|f| f.write @collection.to_yaml}
   end
 
-  def error_message
-    puts 'Choose correct menu number'
+  def return_to_menu
+    puts 'press ENTER to return to menu.'
+    x = gets.chomp
+    system "clear"
   end
+
+  def error_message_no_user
+    puts 'Create an user or log in first!'
+  end
+
+  def error_message_menu
+    puts 'Choose correct menu number, please.'
+  end
+
+  def error_message_no_match
+    puts 'No matching author.'
+  end
+
+  # def error_message_no_borrowed_books
+  #   puts 'No books borrowed'
+  # end
 end
