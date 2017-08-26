@@ -1,9 +1,8 @@
 require 'yaml'
-require 'Date'
+require 'date'
 
 class Library
   attr_accessor :books
-
 
   def list_available
     books.select { |obj| obj[:available] == true }
@@ -15,12 +14,8 @@ class Library
 
 
   def search_books
-    puts 'look up a book'
-    look_up = gets.chomp!
-    look_up1 = books.index { |each| each == look_up }
-    books.bsearch { |obj| obj[:item][:title]; look_up1}
+    books.select { |obj| obj[:item][:title]}
     if [:available] == false
-      return 'Sorry this book is out now'
     elsif [:available] == true
       look_up1[:available] = false
       look_up1[:return_date] = set_outdate
@@ -29,7 +24,7 @@ class Library
   end
 
   def set_outdate
-    Date.today + 30
+    Date.next_month
   end
 
   def books

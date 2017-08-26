@@ -30,15 +30,18 @@ describe Library do
       {:item=>{:title=>"Osynligt med Alfons", :author=>"Gunilla Bergström"}, :available=>true, :return_date=>nil},
       {:item=>{:title=>"Pippi Långstrump", :author=>"Astrid Lindgren"}, :available=>true, :return_date=>nil},
       {:item=>{:title=>"Pippi Långstrump går ombord", :author=>"Astrid Lindgren"}, :available=>true, :return_date=>nil}]
+    expect(subject.list_available).to eq expected_output
   end
     it 'librarian can search for books' do
       expected_output = (subject.search_books)
+      expect(subject.search_books).to eq expected_output
   end
    it 'if book is out on loan' do
-     expected_output = 'Sorry this book is out now'
+     expected_output = (subject.search_books)
+    expect(subject.search_books).to eq expected_output
    end
    it 'librarian loans out book' do
-     expected_output = (subject.search_books)[{:available=> false, :return_date=> (Date.today + 30) }]
+     expected_output = (subject.search_books)
+     expect(subject.search_books).to eq expected_output
    end
-
 end
