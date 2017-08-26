@@ -25,8 +25,29 @@ describe Library do
     expect(subject.collection[index][:return_date]).to eq expected_date
   end
 
-  it 'should allow a user to borrow books' do
-    subject.borrow
+  it 'should show a borrow book menu' do
+    expect(subject.show_books_menu).to be_truthy
+  end
+
+  it 'should borrow book if available' do
+    index = 0
+    return_date = Date.today.next_month.strftime("%d/%m/%y")
+    STDOUT.should_receive(:puts).with("You borrowed: The Winds of Winter by G.R.R. Martin. Return by: #{return_date}!")
+    subject.book_is_available(index)
+  end
+
+  it 'should tell you if book you want to borrow is unavailable' do
+    index = 0
+    return_date = Date.today.next_month.strftime("%d/%m/%y")
+    subject.collection[0][:available] = false
+    subject.collection[0][:return_date] = Date.today.next_month.strftime("%d/%m/%y")
+    STDOUT.should_receive(:puts).with("The Winds of Winter is unavailable. It will be returned by #{return_date}.")
+    subject.book_is_unavailable(index)
+  end
+
+  it 'error message' do
+    STDOUT.should_receive(:puts).with('No matching author.')
+    subject.error_message_no_match
   end
 
   after do
