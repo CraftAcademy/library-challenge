@@ -34,5 +34,8 @@ describe Library do
     it 'librarian can search for books' do
       expected_output = (subject.search_books)
   end
+   it 'if book is out on loan' do
+     expected_output = 'Sorry this book is out now'
+   end
 
 end

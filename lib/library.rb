@@ -17,6 +17,9 @@ class Library
     look_up = gets.chomp!
     look_up1 = books.index { |each| each == look_up }
     books.bsearch { |obj| obj[:item][:title]; look_up1}
+    if [:available] == false
+      return 'Sorry this book is out now'
+    end
   end
 
   def books
