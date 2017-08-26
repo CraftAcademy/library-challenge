@@ -96,6 +96,10 @@ describe Library do
     expect{subject.error_message_no_match}.to output("No matching author.\n").to_stdout
   end
 
+  it 'should be able to search for an author' do
+    expect(subject.search_author).to be_truthy
+  end
+
   after do
     collection = YAML.load_file('./lib/book_data.yml')
     collection.each { |obj| obj[:available] = true }
