@@ -59,6 +59,15 @@ describe Library do
     expect{subject.show_borrowed_books}.to output("hey, it\'s a book!\n").to_stdout
   end
 
+  it 'should show error message if no user wants to show books' do
+    expect{subject.show_borrowed_books}.to output("Create an user or log in first!\n").to_stdout
+  end
+
+  it 'should show error message if user who has no books wants to show books' do
+    subject.create_user('Amanda')
+    expect{subject.show_borrowed_books}.to output("No books borrowed from here yet.\n").to_stdout
+  end
+
   it 'should exit menu' do
     expect{subject.exit_program}.to output("Come back soon, there\'s lots to read here!\n").to_stdout
   end
