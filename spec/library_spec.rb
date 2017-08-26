@@ -48,6 +48,20 @@ describe Library do
     expect(subject.book_available(list)).to eq expected_output
   end
 
+  it 'search for all book by author' do
+    expected_output = [{:item=> {:title=> 'test book in',
+      :author=> 'magnus'},
+      :available=> true,
+      :return_date=> nil,
+      :loanee=> nil},
+      {:item=> {:title=> 'test book not in',
+        :author=> 'magnus'},
+        :available=> false,
+        :return_date=> '2017-09-20',
+        :loanee=> 'maggi'}]
+    expect(subject.search_by_author(list, 'magnus')).to eq expected_output
+  end
+
   it 'when are the books due to return' do
     expected_output = [{:item=> {:title=> 'test book not in',
       :author=> 'magnus'},

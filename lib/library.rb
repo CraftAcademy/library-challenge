@@ -30,7 +30,12 @@ class Library
     list_books(yes)
   end
 
-  def my_books_on_loan(list, name)
+  def search_by_author(list, author)
+    books = list.select { |obj| obj[:item][:author] == author }
+    list_books(books)
+  end
+
+  def my_books_on_loan(list, _name)
     my_books = list.select { |obj| obj[:loanee] }
     list_books(my_books)
   end
