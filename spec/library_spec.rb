@@ -28,12 +28,13 @@ describe Library do
   end
 
   it 'should show_books_menu that are available when borrowing' do
-    expect(subject.show_books_menu).to be_truthy
+    expect{subject.show_books_menu}.to output("Which book do you want to borrow? Enter the corresponding number.\n1. AVAILABLE: The Winds of Winter by G.R.R. Martin (Fantasy)\n2. AVAILABLE: The Thorn of Emberlain by Scott Lynch (Fantasy)\n3. AVAILABLE: Doors of Stone by Patrick Rothfuss (Fantasy)\n4. AVAILABLE: Oathbringer by Brandon Sanderson (Fantasy)\n5. AVAILABLE: Tower of Dawn by Sarah J. Maas (Fantasy)\n6. AVAILABLE: The Bastards and the Knives by Scott Lynch (Fantasy)\n7. AVAILABLE: Provenance by Ann Leckie (Science Fiction)\n8. AVAILABLE: The Girl in the Tower by Katherine Arden (Fantasy)\n9. AVAILABLE: The Night Masquerade by Nnedi Okorafor (Science Fiction)\n10. AVAILABLE: Tortall - a Spy's Guide by Tamora Pierce (Fantasy)\n11. AVAILABLE: Sorcerer Royal by Zen Cho (Fantasy)\n12. AVAILABLE: Grey Sister by Mark Lawrence (Fantasy)\n13. AVAILABLE: Poor Relations by Jo Walton (Science Fiction)\n").to_stdout
   end
 
   it 'should show_books_menu that are unavailable when borrowing' do
-    subject.collection[0][:available] == false
-    expect(subject.show_books_menu).to be_truthy
+    subject.collection[0][:available] = false
+    expected_date = Date.today.next_month.strftime("%d/%m/%y")
+    expect{subject.show_books_menu}.to output("Which book do you want to borrow? Enter the corresponding number.\n1. NOT AVAILABLE UNTIL : The Winds of Winter by G.R.R. Martin (Fantasy)\n2. AVAILABLE: The Thorn of Emberlain by Scott Lynch (Fantasy)\n3. AVAILABLE: Doors of Stone by Patrick Rothfuss (Fantasy)\n4. AVAILABLE: Oathbringer by Brandon Sanderson (Fantasy)\n5. AVAILABLE: Tower of Dawn by Sarah J. Maas (Fantasy)\n6. AVAILABLE: The Bastards and the Knives by Scott Lynch (Fantasy)\n7. AVAILABLE: Provenance by Ann Leckie (Science Fiction)\n8. AVAILABLE: The Girl in the Tower by Katherine Arden (Fantasy)\n9. AVAILABLE: The Night Masquerade by Nnedi Okorafor (Science Fiction)\n10. AVAILABLE: Tortall - a Spy's Guide by Tamora Pierce (Fantasy)\n11. AVAILABLE: Sorcerer Royal by Zen Cho (Fantasy)\n12. AVAILABLE: Grey Sister by Mark Lawrence (Fantasy)\n13. AVAILABLE: Poor Relations by Jo Walton (Science Fiction)\n").to_stdout
   end
 
   it 'should be able to send borrow_book to available' do
@@ -160,6 +161,8 @@ describe Library do
       subject.set_input_for_test(input_fake)
       expect{subject.return_to_menu}.to output("press ENTER to return to menu.\n").to_stdout
     end
+
+
 
   # it 'should run through the menu options' do
   #   n = [1, 2, 3, 4, 5, 6]
