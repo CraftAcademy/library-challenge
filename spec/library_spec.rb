@@ -29,4 +29,11 @@ describe Library do
     expected_date = Date.today.next_month(1).strftime("%d,%m,%y")
     expect(subject.return_date).to eq expected_date
   end
+
+  after do
+   collection = YAML.load_file('./lib/data.yml')
+   collection.each { |obj| obj[:available] = true }
+   collection.each { |obj| obj[:return_date] = nil }
+   File.open('./lib/book_data.yml', 'w') { |f| f.write collection.to_yaml }
+ end
 end

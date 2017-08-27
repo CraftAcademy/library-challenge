@@ -33,4 +33,8 @@ class Library
     Date.today.next_month(1).strftime("%d,%m,%y")
   end
 
+  def available_books
+    list = @collection.select { |item| item[:available] == true }
+  end
+
 end
