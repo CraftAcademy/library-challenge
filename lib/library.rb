@@ -23,7 +23,7 @@ class Library
     while @exit == false
 
       menu_options
-      n = gets.chomp.to_i
+      n = @input.input_menu
       menu_choices(n)
 
       if @exit == false

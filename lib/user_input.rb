@@ -19,4 +19,8 @@ class User_input
   def input_return_to_menu
     return gets.chomp
   end
+
+  def input_menu
+    return gets.chomp.to_i
+  end
 end

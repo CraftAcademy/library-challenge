@@ -162,6 +162,12 @@ describe Library do
       expect{subject.return_to_menu}.to output("press ENTER to return to menu.\n").to_stdout
     end
 
+    it 'should take an input in start menu' do
+      input_fake = Fake_user_input.new
+      input_fake.menu_start_input = 6
+      subject.set_input_for_test(input_fake)
+      expect{subject.menu}.to output("--- Welcome to the Library of Coming Books. Choose an option. ---\n    1. to create an user or log in\n    2. to list which books are available/unavailable\n    3. to searching for an author\n    4. to borrow an available book\n    5. to show your borrowed books\n    6. to exit\nCome back soon, there's lots to read here!\n").to_stdout
+    end
 
 
   # it 'should run through the menu options' do
