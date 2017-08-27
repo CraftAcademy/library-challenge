@@ -1,5 +1,6 @@
 require 'yaml'
 require 'date'
+require './lib/person.rb'
 
 class Library
   attr_accessor :books
@@ -12,17 +13,21 @@ class Library
     books.select { |obj| obj[:item] }
   end
 
-
-  def search_books
+  def search_books_NA
     books.select { |obj| obj[:item][:title]}
     if [:available] == false
-    elsif [:available] == true
-      look_up1[:available] = false
-      look_up1[:return_date] = set_outdate
-      look_up1[:renter] != nil
-      change_books
+      raise 'Not available'
     end
   end
+
+  def loan_books
+    books[2][:available] = false
+    books[2][:return_date] = set_outdate
+    books[2][:renter] = Person
+    File.open('./lib/books.yml', 'w') { |f| f.write books.to_yaml }
+  end
+
+
 
   def check_outdate
     books.select { |obj| obj[:item][:title]}

@@ -16,7 +16,7 @@ Read this entire README carefully and follow all instructions.
 ----
 #####Write a Library program with the following user stories:
 
-<!-- ```
+```
 As an individual
 In order to get my hands on a good book
 I would like to see a list of books currently available in the library
@@ -40,7 +40,7 @@ As a library
 In order to make the books available to many individuals
 I would like to set a return date on every check out
 and I would like that date to be 1 month from checkout date
-``` -->
+```
 
 ```
 As an individual
