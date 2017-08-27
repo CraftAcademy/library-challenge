@@ -6,9 +6,14 @@ describe Library do
     expect(subject.collection).to eq expected_output
   end
 
-  it 'can allow individuals to checkout a book' do
+  it 'can allow person to see available books' do
     expected_output = 'Book is available for checkout'
     expect(subject.checkout).to eq expected_output
+  end
+
+  it 'can allow individuals to checkout a book' do
+    expected_output = 'All the books have been borrowed'
+    expect(subject.remaining_books).to eq expected_output
   end
 
   it 'can set return date of book to exactly one month after checkout' do
