@@ -86,20 +86,20 @@ class Library
   end
 
   def edit_list(list, title, new_title)
-    edit = list.select { |obj| obj[:item][:title] == title }
+    edit = list.detect { |obj| obj[:item][:title] == title }
     if edit == nil
       message
     else
-      edit[0][:item][:title] = new_title
+      edit[:item][:title] = new_title
     end
   end
 
   def edit_author(list, title, new_author)
-    edit = list.select { |obj| obj[:item][:title] == title }
+    edit = list.detect { |obj| obj[:item][:title] == title }
     if edit == nil
       message
     else
-      edit[0][:item][:author] = new_author
+      edit[:item][:author] = new_author
     end
   end
 

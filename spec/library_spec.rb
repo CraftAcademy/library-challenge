@@ -98,7 +98,7 @@ describe Library do
   it 'return a book' do
     expect(subject.return_a_book(list, 'test book not in')).to eq "Thank you for returning the book"
   end
-#skoða aðeins
+
   it 'return a book that was not borrowed' do
     expect(subject.return_a_book(list, 'wrong library')).to eq "We dont have that book"
   end
@@ -125,8 +125,16 @@ describe Library do
     expect(subject.edit_list(list, 'Test book in', 'changed title')).to eq 'changed title'
   end
 
+  it 'change books in list fails if book is not in the list' do
+    expect(subject.edit_list(list, 'not in the list', 'changed title')).to eq 'We dont have that book'
+  end
+
   it 'change author of book' do
     expect(subject.edit_author(list, 'Test book in', 'new_author')).to eq 'new_author'
+  end
+
+  it 'change author of book fails in book is not in list' do
+    expect(subject.edit_author(list, 'not in the list', 'new_author')).to eq 'We dont have that book'
   end
 
   it 'add book to the list' do
