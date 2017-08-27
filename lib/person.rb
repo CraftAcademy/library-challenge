@@ -31,4 +31,15 @@ class Person
       'Person has book in possession'
     end
   end
+
+  def return_date
+    date = Date.today
+    if date = (date + 30).to_s
+      'Book is due to be returned today'
+    elsif date > (date + 30).to_s
+      'Book return is overdue'
+    else
+      'Book can still be used by person'
+    end
+  end
 end
