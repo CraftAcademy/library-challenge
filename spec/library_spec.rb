@@ -91,8 +91,8 @@ describe Library do
     expect(subject.borrow_a_book(list, 'test book not in', 'maggi')).to eq expected_output
   end
 
-  it 'item is nil' do
-    expect(subject.message).to eq 'We dont have that book'
+  it 'the book is not in library list' do
+    expect(subject.borrow_a_book(list, 'no book with this name', 'maggi')).to eq 'We dont have that book'
   end
 
   it 'return a book' do

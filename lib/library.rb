@@ -47,11 +47,9 @@ class Library
 
   def list_books(file)
     file.each do |book|
-      title = book[:item][:title]
-      author = book[:item][:author]
       available = book[:available]
       return_date = book[:return_date]
-      "#{title}, By: #{author}, #{ available ? "available" : return_date}"
+      "#{book[:item][:title]}, By: #{book[:item][:author]}, #{ available ? "available" : return_date}"
     end
   end
 
