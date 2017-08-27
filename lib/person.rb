@@ -18,4 +18,8 @@ class Person
   def list_by_title(library, list, title)
     library.search_by_title(list, title)
   end
+
+  def list_by_author(library, list, title)
+    library.search_by_author(list, title)
+  end
 end

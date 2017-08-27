@@ -5,6 +5,7 @@ describe Person do
 let(:library) { instance_double('Library') }
 let(:list) {double('book_list')}
 let(:title) {double('title')}
+let(:author) {double('author')}
 subject { described_class.new(name: 'maggi')}
 
 
@@ -26,5 +27,10 @@ subject { described_class.new(name: 'maggi')}
   it 'can search by title' do
     allow(library).to receive(:search_by_title).and_return('list of books by title')
     expect(subject.list_by_title(library, list, title)).to eq 'list of books by title'
+  end
+
+  it 'can search by author' do
+    allow(library).to receive(:search_by_author).and_return('list of books by author')
+    expect(subject.list_by_author(library, list, title)).to eq 'list of books by author'
   end
 end
