@@ -2,6 +2,7 @@ require 'yaml'
 require 'pry'
 require 'date'
 require './lib/user.rb'
+require './lib/user_input.rb'
 
 class Library
   attr_accessor :collection, :current_user
@@ -9,6 +10,11 @@ class Library
   def initialize
     system "clear"
     @collection = YAML.load_file('./lib/book_data.yml')
+    @input = User_input.new
+  end
+
+  def set_input_for_test(test_input)
+    @input = test_input
   end
 
   def menu
@@ -18,16 +24,7 @@ class Library
 
       menu_options
       n = gets.chomp.to_i
-
-      case n
-      when 1 then user_name_input
-      when 2 then list_books
-      when 3 then search_author_input
-      when 4 then borrow_menu
-      when 5 then show_borrowed_books
-      when 6 then exit_program
-      else error_message_menu
-      end
+      menu_choices(n)
 
       if @exit == false
         return_to_menu
@@ -36,6 +33,18 @@ class Library
   end
 
   #private
+  def menu_choices(n)
+    case n
+    when 1 then user_name_input
+    when 2 then list_books
+    when 3 then search_author_input
+    when 4 then borrow_menu
+    when 5 then show_borrowed_books
+    when 6 then exit_program
+    else error_message_menu
+    end
+  end
+
   def menu_options
     puts '--- Welcome to the Library of Coming Books. Choose an option. ---
     1. to create an user or log in
@@ -69,7 +78,7 @@ class Library
 
   def search_author_input
     puts 'Which author do you want to search for? Please enter first OR last name.'
-    author = gets.chomp.capitalize
+    author = @input.input_search_author
     search_author(author)
   end
 

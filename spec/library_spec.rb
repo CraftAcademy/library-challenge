@@ -1,6 +1,7 @@
 require './lib/library.rb'
 require 'pry'
 require 'date'
+require './lib/Fake_user_input.rb'
 
 describe Library do
   it 'should have a collection of books' do
@@ -115,27 +116,40 @@ describe Library do
     expect{subject.search_author(author)}.to output("No matching author.\n").to_stdout
   end
 
-  it 'should get input when running search_author_input' do
-    allow($stdin).to receive(:gets).and_return('Martin')
-    author = $stdin.gets
-    expect(author).to eq('Martin')
+  it 'should get user input on search author' do
+    input_fake = Fake_user_input.new
+    input_fake.author = "Martin"
+    subject.set_input_for_test(input_fake)
+    expect{subject.search_author_input}.to output("Which author do you want to search for? Please enter first OR last name.\nThe Winds of Winter by G.R.R. Martin (Fantasy)\n").to_stdout
   end
 
-    # it 'should run through the menu options' do
-    #   n = [1, 2, 3, 4, 5, 6]
-    #   n.each do |option|
-    #     x = option
-    #     expect(subject.menu_choices(x)).to
-    #   end
-    # end
+  # it 'should get input when running search_author_input' do
+  #   allow($stdin).to receive(:gets).and_return('Martin')
+  #   author = $stdin.gets
+  #   expect(author).to eq('Martin')
+  #   expect{subject.search_author_input}.to output("Which author do you want to search for? Please enter first OR last name.\nNo matching author.\n").to_stdout
+  # end
 
-    # it 'should run user_name_input' do
-    #   expect{subject.user_name_input}.to output("Welcome to the library. Who are you?\nWelcome require './lib/library.rb'.\n").to_stdout
-    # end
+  # it 'should be able to take user_name_input' do
+  #   allow($stdin).to receive(:gets).and_return('username')
+  #   expect{subject.user_name_input}.to output("Welcome username.\n").to_stdout
+  # end
 
-    # it 'should run return_to_menu' do
-    #   expect{subject.return_to_menu}.to output("press ENTER to return to menu.\n").to_stdout
-    # end
+  # it 'should run through the menu options' do
+  #   n = [1, 2, 3, 4, 5, 6]
+  #   n.each do |option|
+  #     x = option
+  #     expect(subject.menu_choices(x)).to
+  #   end
+  # end
+
+  # it 'should run user_name_input' do
+  #   expect{subject.user_name_input}.to output("Welcome to the library. Who are you?\nWelcome require './lib/library.rb'.\n").to_stdout
+  # end
+
+  # it 'should run return_to_menu' do
+  #   expect{subject.return_to_menu}.to output("press ENTER to return to menu.\n").to_stdout
+  # end
 
 
   after do
