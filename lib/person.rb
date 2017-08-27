@@ -7,13 +7,15 @@ class Person
     @name = name
   end
 
-  def list_all_books(library)
-    library.list_books
+  def list_all_books(library, list)
+    library.list_books(list)
   end
 
-  def list_available_books(library)
-    library.books_available
+  def list_available_books(library, list)
+    library.books_available(list)
   end
 
-  
+  def list_by_title(library, list, title)
+    library.search_by_title(list, title)
+  end
 end

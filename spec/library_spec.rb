@@ -45,7 +45,7 @@ describe Library do
       :available=> true,
       :return_date=> nil,
       :loanee=> nil}]
-    expect(subject.book_available(list)).to eq expected_output
+    expect(subject.books_available(list)).to eq expected_output
   end
 
   it 'search for all book by author' do
