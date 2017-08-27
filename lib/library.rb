@@ -58,7 +58,7 @@ class Library
   def borrow_a_book(list, book, name)
     borrow_book = list.detect { |obj| obj[:item][:title].include? book}
     if borrow_book == nil
-      "We dont have that book, could you have misspelled it?"
+      message
     elsif borrow_book[:available] == true
       borrow_book[:return_date] = return_date(Date.today)
       borrow_book[:available] = false
