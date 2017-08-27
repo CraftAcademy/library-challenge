@@ -5,6 +5,10 @@ require './lib/person.rb'
 class Library
   attr_accessor :books
 
+  def initialize
+    @books = books
+  end
+
   def list_available
     books.select { |obj| obj[:available] == true }
   end
@@ -14,27 +18,27 @@ class Library
   end
 
   def search_books
-    books.select { |obj| obj[:item][:title] = "Osynligt med Alfons"}
-    is [:available] == false
+    books.select { |obj| obj[:item][:title] == ''}
+    if books.select { |obj| obj[:available] == false}
     raise 'Not available'
-    elsif [:available] == true
-      books[:available] = false
-      books[:return_date] = set_outdate
-      books[:renter] = 'Olof'
+  elsif books.select { |obj| obj[:available] == true}
+      @books[:available] = false
+      @books[:return_date] = set_outdate
+      @books[:renter] = Person
       change_books
     end
   end
 
   def search_books_NA
-    books[index][:available] == false
+    books.select { |obj| obj[:available] = false}
       raise 'Not available'
     end
-  end
+
 
   def check_outdate
-    books.select { |obj| obj[:item][:title]}
-    if [:available] == false
-      return [:return_date]
+    check = books.select{ |obj| obj[:item][:title].include? ''}
+    if check = [:available] == false
+      return set_outdate
     end
   end
 

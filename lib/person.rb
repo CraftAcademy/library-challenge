@@ -2,7 +2,12 @@ require 'yaml'
 require 'date'
 
 class Person
-  attr_accessor :name,
+  attr_accessor :name, :book
+
+  def initialize
+    @name = name
+    @book = []
+  end
 
   def set_renter(obj)
     [:renter] == @name
