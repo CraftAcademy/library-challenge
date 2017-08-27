@@ -123,6 +123,13 @@ describe Library do
     expect{subject.search_author_input}.to output("Which author do you want to search for? Please enter first OR last name.\nThe Winds of Winter by G.R.R. Martin (Fantasy)\n").to_stdout
   end
 
+  it 'should get user input for username' do
+    input_fake = Fake_user_input.new
+    input_fake.username = "username"
+    subject.set_input_for_test(input_fake)
+    expect{subject.user_name_input}.to output("Welcome to the library. Who are you?\nWelcome username.\n").to_stdout
+  end
+
   # it 'should get input when running search_author_input' do
   #   allow($stdin).to receive(:gets).and_return('Martin')
   #   author = $stdin.gets

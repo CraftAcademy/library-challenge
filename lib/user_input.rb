@@ -8,4 +8,7 @@ class User_input
     return gets.chomp.capitalize
   end
 
+  def input_username
+    return gets.chomp.capitalize
+  end
 end

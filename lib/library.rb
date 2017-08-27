@@ -57,7 +57,7 @@ class Library
 
   def user_name_input
     puts 'Welcome to the library. Who are you?'
-    username = gets.chomp
+    username = @input.input_username
     create_user(username)
   end
 
