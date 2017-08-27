@@ -19,7 +19,11 @@ class Person
     library.search_by_title(list, title)
   end
 
-  def list_by_author(library, list, title)
-    library.search_by_author(list, title)
+  def list_by_author(library, list, author)
+    library.search_by_author(list, author)
+  end
+
+  def borrow_book(library, list, title)
+    library.borrow_a_book(list, title, @name)
   end
 end

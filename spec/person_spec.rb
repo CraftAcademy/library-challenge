@@ -33,4 +33,9 @@ subject { described_class.new(name: 'maggi')}
     allow(library).to receive(:search_by_author).and_return('list of books by author')
     expect(subject.list_by_author(library, list, title)).to eq 'list of books by author'
   end
+
+  it 'can borrow a book' do
+    allow(library).to receive(:borrow_a_book).and_return('here is your book')
+    expect(subject.borrow_book(library, list, title)).to eq 'here is your book'
+  end
 end
