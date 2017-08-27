@@ -23,6 +23,13 @@ class Library
     end
   end
 
+  def check_outdate
+    books.select { |obj| obj[:item][:title]}
+    if [:available] == false
+      return [:return_date]
+    end
+  end
+
   def set_outdate
     Date.next_month
   end
