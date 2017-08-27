@@ -14,13 +14,13 @@ class Library
   end
 
   def search_books
-    books.select { |obj| obj[:item][:title]}
+    books.select { |obj| obj[:item][:title] = "Osynligt med Alfons"}
     is [:available] == false
     raise 'Not available'
     elsif [:available] == true
       books[:available] = false
       books[:return_date] = set_outdate
-      books[:renter] != nil
+      books[:renter] = 'Olof'
       change_books
     end
   end
