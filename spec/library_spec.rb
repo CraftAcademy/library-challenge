@@ -101,17 +101,8 @@ describe Library do
     expect{subject.error_message_no_match}.to output("No matching author.\n").to_stdout
   end
 
-  it 'should print out a starting menu' do
+  it 'should print out a starting menu welcome' do
     expect{subject.menu_options}.to output("--- Welcome to the Library of Coming Books. Choose an option. ---\n    1. to create an user or log in\n    2. to list which books are available/unavailable\n    3. to searching for an author\n    4. to borrow an available book\n    5. to show your borrowed books\n    6. to exit\n").to_stdout
-  end
-
-  # it 'should run user_name_input' do
-  #   expect{subject.user_name_input}.to output("Welcome to the library. Who are you?\nWelcome require './lib/library.rb'.\n").to_stdout
-  # end
-
-
-  it 'should be able to navigate menu' do
-
   end
 
   it 'should be able search for an author - has match' do
@@ -123,6 +114,29 @@ describe Library do
     author = 'q'
     expect{subject.search_author(author)}.to output("No matching author.\n").to_stdout
   end
+
+  it 'should get input when running search_author_input' do
+    allow($stdin).to receive(:gets).and_return('Martin')
+    author = $stdin.gets
+    expect(author).to eq('Martin')
+  end
+
+    # it 'should run through the menu options' do
+    #   n = [1, 2, 3, 4, 5, 6]
+    #   n.each do |option|
+    #     x = option
+    #     expect(subject.menu_choices(x)).to
+    #   end
+    # end
+
+    # it 'should run user_name_input' do
+    #   expect{subject.user_name_input}.to output("Welcome to the library. Who are you?\nWelcome require './lib/library.rb'.\n").to_stdout
+    # end
+
+    # it 'should run return_to_menu' do
+    #   expect{subject.return_to_menu}.to output("press ENTER to return to menu.\n").to_stdout
+    # end
+
 
   after do
     collection = YAML.load_file('./lib/book_data.yml')
