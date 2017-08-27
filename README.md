@@ -1,10 +1,10 @@
 # The Library challenge
 -------
-Craft Academys weekend challenge number 1 is about creating a library and user for the library.
+Craft Academy weekend challenge number 1 is about creating a library and user for the library.
 
 ## Getting Started
 -------
-Prerequisities
+Prerequisites
 You'll need to install
 
 * *Ruby*
@@ -21,7 +21,7 @@ library.load_yaml
 list = library.book_list
 ```
 The Person class takes one parameter, the name of the user  
-libray class takes no parameters  
+library class takes no parameters  
 If you want to use your own library list, give `library.load_yaml` one parameter with the location of your book list.  
 
 With the Person class you can use these methods  
@@ -49,11 +49,11 @@ With the Library class you can use these methods
 10. add_book(title, author)
 11. delete_book(list, title)
 ```
-Load_yaml and write_to_yaml have a default file, so you dont need to add those parameter to the methods unless you want your own list of books. The list needs to be in the format of YAML file and entry for every book should be like this.  
+Methods load_yaml and write_to_yaml have a default file, so you dont need to add those parameter to the methods unless you want your own list of books. The list needs to be in the format of YAML file and entry for every book should be like this.  
 ```
 - :item:
-    :title: Test book in
-    :author: Magnus
+    :title: Title of book
+    :author: Magnus Thor
   :available: true
   :return_date:
   :loanee:
