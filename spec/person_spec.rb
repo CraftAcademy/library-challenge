@@ -38,4 +38,14 @@ subject { described_class.new(name: 'maggi')}
     allow(library).to receive(:borrow_a_book).and_return('here is your book')
     expect(subject.borrow_book(library, list, title)).to eq 'here is your book'
   end
+
+  it 'can return a book' do
+    allow(library).to receive(:return_a_book).and_return('thank you')
+    expect(subject.return_book(library, list, title)).to eq 'thank you'
+  end
+
+  it 'can see when books are to be returned' do
+    allow(library).to receive(:my_books_on_loan).and_return('you have these books')
+    expect(subject.books_on_loan(library, list)).to eq 'you have these books'
+  end
 end

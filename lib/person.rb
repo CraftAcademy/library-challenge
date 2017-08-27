@@ -26,4 +26,12 @@ class Person
   def borrow_book(library, list, title)
     library.borrow_a_book(list, title, @name)
   end
+
+  def return_book(library, list, title)
+    library.return_a_book(list, title)
+  end
+
+  def books_on_loan(library, list)
+    library.my_books_on_loan(list, @name)
+  end
 end
