@@ -1,13 +1,13 @@
 ---
 - :item:
-    :title: test book in
-    :author: magnus
+    :title: Test book in
+    :author: Magnus
   :available: true
   :return_date: 
   :loanee: 
 - :item:
     :title: test book not in
-    :author: magnus
+    :author: Magnus
   :available: false
   :return_date: '2017-09-20'
   :loanee: maggi

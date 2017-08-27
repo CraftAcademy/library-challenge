@@ -3,29 +3,29 @@
     :title: The Colour of Magic
     :author: Terry Pratchett
   :available: false
-  :return_date: 2017-09-26
+  :return_date: '2017-09-26'
   :loanee: maggi
 - :item:
     :title: Small Gods
     :author: Terry Pratchett
-  :available: true
-  :return_date:
-  :loanee:
+  :available: false
+  :return_date: '2017-09-27'
+  :loanee: magnus
 - :item:
     :title: The Dark Elf Trilogy
     :author: R.A. Salvatore
   :available: true
-  :return_date:
-  :loanee:
+  :return_date: 
+  :loanee: 
 - :item:
     :title: The Icewind Dale Trilogy
     :author: R.A. Salvatore
   :available: true
   :return_date: 
-  :loanee:
+  :loanee: 
 - :item:
     :title: Wizard's First Rule
     :author: Terry Goodkind
   :available: true
-  :return_date:
-  :loanee:
+  :return_date: 
+  :loanee: 

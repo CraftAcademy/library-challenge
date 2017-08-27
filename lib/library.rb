@@ -8,10 +8,6 @@ class Library
     @book_list = load_yaml
   end
 
-  def return_date(date)
-    date.next_month
-  end
-
   def load_yaml(file = './lib/collection.yml')
     YAML.load_file(file)
   end
@@ -31,17 +27,21 @@ class Library
   end
 
   def search_by_author(list, author)
-    books = list.select { |obj| obj[:item][:author].include? author }
+    author.downcase!
+    books = list.select { |obj| obj[:item][:author].downcase.include? author }
     list_books(books)
   end
 
   def search_by_title(list, title)
-    books = list.select { |obj| obj[:item][:title].include? title }
+    title.downcase!
+    books = list.select { |obj| obj[:item][:title].downcase.include? title }
     list_books(books)
   end
 
   def my_books_on_loan(list, name)
+    name.downcase!
     my_books = list.select { |obj| obj[:loanee] == name }
+
     list_books(my_books)
   end
 
@@ -57,7 +57,9 @@ class Library
 
   def borrow_a_book(list, book, name)
     borrow_book = list.detect { |obj| obj[:item][:title].include? book}
-    if borrow_book[:available] == true
+    if borrow_book == nil
+      "We dont have that book, could you have misspelled it?"
+    elsif borrow_book[:available] == true
       borrow_book[:return_date] = return_date(Date.today)
       borrow_book[:available] = false
       borrow_book[:loanee] = name
@@ -69,8 +71,8 @@ class Library
 
   def return_a_book(list, book)
     return_book = list.detect { |obj| obj[:item][:title].include? book}
-    if return_book[:available] == true
-      "That book was not borrowed from here"
+    if return_book == nil
+      message
     else
       return_book[:available] = true
       if return_book[:return_date] >= Date.today.to_s
@@ -87,12 +89,20 @@ class Library
 
   def edit_list(list, title, new_title)
     edit = list.select { |obj| obj[:item][:title] == title }
-    edit[0][:item][:title] = new_title
+    if edit == nil
+      message
+    else
+      edit[0][:item][:title] = new_title
+    end
   end
 
   def edit_author(list, title, new_author)
     edit = list.select { |obj| obj[:item][:title] == title }
-    edit[0][:item][:author] = new_author
+    if edit == nil
+      message
+    else
+      edit[0][:item][:author] = new_author
+    end
   end
 
   def add_book(title, author)
@@ -102,5 +112,13 @@ class Library
   def delete_book(list, book)
     delete = list.detect { |obj| obj[:item][:title].include? book}
     list.delete(delete)
+  end
+
+  def return_date(date)
+    date.next_month.to_s
+  end
+
+  def message
+    "We dont have that book"
   end
 end
