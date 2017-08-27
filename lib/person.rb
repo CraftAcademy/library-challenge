@@ -15,7 +15,7 @@ class Person
 
   def search_my_books
     books.select { |obj| obj[:item][:renter]}
-    return [:return_date]
+    return :return_date
   end
 
 end

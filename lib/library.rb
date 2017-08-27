@@ -14,7 +14,7 @@ class Library
   end
 
   def list_all
-    books.select { |obj| obj[:item] }
+    YAML.load_file('./lib/books.yml')
   end
 
   def search_books
@@ -32,7 +32,7 @@ class Library
   def check_outdate
     check = books.select{ |obj| obj[:item][:title].include? ''}
     if check = [:available] == false
-      return set_outdate
+      return Date.today.next_month
     end
   end
 
