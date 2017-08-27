@@ -13,22 +13,23 @@ class Library
     books.select { |obj| obj[:item] }
   end
 
-  def loan_books
-    books[2][:available] = false
-    books[2][:return_date] = set_outdate
-    books[2][:renter] = Person
-    File.open('./lib/books.yml', 'w') { |f| f.write books.to_yaml }
-  end
-
-  def search_books_NA
-    books[2][:available] == false
-      raise 'Not available'
+  def search_books
+    books.select { |obj| obj[:item][:title]}
+    is [:available] == false
+    raise 'Not available'
+    elsif [:available] == true
+      books[:available] = false
+      books[:return_date] = set_outdate
+      books[:renter] != nil
+      change_books
     end
   end
 
-
-
-
+  def search_books_NA
+    books[index][:available] == false
+      raise 'Not available'
+    end
+  end
 
   def check_outdate
     books.select { |obj| obj[:item][:title]}
@@ -50,4 +51,3 @@ private
   def change_books
     File.open('./lib/books.yml', 'w') { |f| f.write books.to_yaml }
   end
-end
