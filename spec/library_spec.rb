@@ -1,7 +1,7 @@
 require './lib/library.rb'
 require 'pry'
 require 'date'
-require './lib/Fake_user_input.rb'
+require './lib/fake_user_input.rb'
 
 describe Library do
   it 'should have a collection of books' do
