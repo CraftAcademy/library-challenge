@@ -19,6 +19,7 @@ class Library
     elsif [:available] == true
       look_up1[:available] = false
       look_up1[:return_date] = set_outdate
+      look_up1[:renter] != nil
       change_books
     end
   end
@@ -29,6 +30,8 @@ class Library
       return [:return_date]
     end
   end
+
+private
 
   def set_outdate
     Date.next_month

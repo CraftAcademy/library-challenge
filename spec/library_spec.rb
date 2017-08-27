@@ -53,8 +53,9 @@ describe Library do
      expect(subject.search_books).to eq expected_output
    end
 
-    it 'can check when the return_date is on the books' do
-      expected_output = (subject.check_outdate)
-      expect(subject.search_books).to eq expected_output
-    end
+  it 'can check when the return date is on the books' do
+    expected_output = (subject.check_outdate)
+    expect(subject.search_books).to eq expected_output
+  end
+  
 end
