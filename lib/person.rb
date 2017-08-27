@@ -1,7 +1,7 @@
-# require './lib/library.rb'
+require './lib/library.rb'
 class Person
 
-  attr_reader :name, :choice
+  attr_reader :name
 
   def initialize(name)
     @name = name

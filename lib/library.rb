@@ -40,8 +40,8 @@ class Library
     list_books(books)
   end
 
-  def my_books_on_loan(list, _name)
-    my_books = list.select { |obj| obj[:loanee] }
+  def my_books_on_loan(list, name)
+    my_books = list.select { |obj| obj[:loanee] == name }
     list_books(my_books)
   end
 
@@ -51,7 +51,7 @@ class Library
       author = book[:item][:author]
       available = book[:available]
       return_date = book[:return_date]
-      puts "#{title} #{author} #{ available ? "available" : return_date}"
+      "#{title}, By: #{author}, #{ available ? "available" : return_date}"
     end
   end
 
@@ -99,8 +99,8 @@ class Library
     @book_list << [{:item=>{ :title=> title, :author=> author} , :available=> true, :return_date=> nil, :loanee=> nil}]
   end
 
-  def delete_book(book)
-    delete = @book_list.detect { |obj| obj[:item][:title].include? book}
-    @book_list.delete(delete)
+  def delete_book(list, book)
+    delete = list.detect { |obj| obj[:item][:title].include? book}
+    list.delete(delete)
   end
 end

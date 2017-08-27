@@ -1,14 +1,13 @@
 require './lib/person.rb'
+require 'yaml'
 
 describe Person do
 
-let(:library) { instance_double('Library') }
-let(:list) {double('book_list')}
-let(:title) {double('title')}
-let(:author) {double('author')}
-subject { described_class.new(name: 'maggi')}
-
-
+  let(:library) { instance_double('Library') }
+  let(:list) {double('book_list')}
+  let(:title) {double('title')}
+  let(:author) {double('author')}
+  subject { described_class.new(name: 'maggi')}
 
   it 'has name on initialize' do
     expect(subject.name).not_to be nil

@@ -113,7 +113,7 @@ describe Library do
       :author=> 'magnus'},
       :available=> false,
       :return_date=> '2017-09-20',
-      loanee: 'maggi'}]
+      :loanee=> 'maggi'}]
     expect(subject.my_books_on_loan(list, 'maggi')).to eq expected_output
   end
 
@@ -143,7 +143,7 @@ describe Library do
       :return_date=> nil,
       :loanee=> nil}]
       subject.load_yaml('./lib/testYaml.yml')
-      subject.delete_book('test book in')
+      subject.delete_book(list, 'test book in')
       expect(subject.book_list).not_to include(expected_output)
   end
 
