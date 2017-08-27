@@ -155,29 +155,35 @@ describe Library do
     expect{subject.borrow_menu}.to output("Which book do you want to borrow? Enter the corresponding number.\n1. AVAILABLE: The Winds of Winter by G.R.R. Martin (Fantasy)\n2. AVAILABLE: The Thorn of Emberlain by Scott Lynch (Fantasy)\n3. AVAILABLE: Doors of Stone by Patrick Rothfuss (Fantasy)\n4. AVAILABLE: Oathbringer by Brandon Sanderson (Fantasy)\n5. AVAILABLE: Tower of Dawn by Sarah J. Maas (Fantasy)\n6. AVAILABLE: The Bastards and the Knives by Scott Lynch (Fantasy)\n7. AVAILABLE: Provenance by Ann Leckie (Science Fiction)\n8. AVAILABLE: The Girl in the Tower by Katherine Arden (Fantasy)\n9. AVAILABLE: The Night Masquerade by Nnedi Okorafor (Science Fiction)\n10. AVAILABLE: Tortall - a Spy's Guide by Tamora Pierce (Fantasy)\n11. AVAILABLE: Sorcerer Royal by Zen Cho (Fantasy)\n12. AVAILABLE: Grey Sister by Mark Lawrence (Fantasy)\n13. AVAILABLE: Poor Relations by Jo Walton (Science Fiction)\nChoose correct menu number, please.\n").to_stdout
   end
 
-    it 'should take user input for return_to_menu' do
-      input_fake = Fake_user_input.new
-      input_fake.menu_return = 1
-      subject.set_input_for_test(input_fake)
-      expect{subject.return_to_menu}.to output("press ENTER to return to menu.\n").to_stdout
-    end
+  it 'should take user input for return_to_menu' do
+    input_fake = Fake_user_input.new
+    input_fake.menu_return = 1
+    subject.set_input_for_test(input_fake)
+    expect{subject.return_to_menu}.to output("press ENTER to return to menu.\n").to_stdout
+  end
 
-    it 'should take an input in start menu' do
-      input_fake = Fake_user_input.new
-      input_fake.menu_start_input = 6
-      subject.set_input_for_test(input_fake)
-      expect{subject.menu}.to output("--- Welcome to the Library of Coming Books. Choose an option. ---\n    1. to create an user or log in\n    2. to list which books are available/unavailable\n    3. to searching for an author\n    4. to borrow an available book\n    5. to show your borrowed books\n    6. to exit\nCome back soon, there's lots to read here!\n").to_stdout
-    end
+  it 'should take an input in start menu' do
+    input_fake = Fake_user_input.new
+    input_fake.menu_start_input = 6
+    subject.set_input_for_test(input_fake)
+    expect{subject.menu}.to output("--- Welcome to the Library of Coming Books. Choose an option. ---\n    1. to create an user or log in\n    2. to list which books are available/unavailable\n    3. to searching for an author\n    4. to borrow an available book\n    5. to show your borrowed books\n    6. to exit\nCome back soon, there's lots to read here!\n").to_stdout
+  end
+
+  it 'should return to menu if exit = false' do
+    input_fake = Fake_user_input.new
+    input_fake.menu_start_input = 1
+    subject.set_input_for_test(input_fake)
+    expect{subject.menu}.to output("--- Welcome to the Library of Coming Books. Choose an option. ---\n    1. to create an user or log in\n    2. to list which books are available/unavailable\n    3. to searching for an author\n    4. to borrow an available book\n    5. to show your borrowed books\n    6. to exit\nWelcome to the library. Who are you?\nWelcome .\npress ENTER to return to menu.\n--- Welcome to the Library of Coming Books. Choose an option. ---\n    1. to create an user or log in\n    2. to list which books are available/unavailable\n    3. to searching for an author\n    4. to borrow an available book\n    5. to show your borrowed books\n    6. to exit\nCome back soon, there's lots to read here!\n").to_stdout
+  end
 
 
-  # it 'should run through the menu options' do
-  #   n = [1, 2, 3, 4, 5, 6]
-  #   n.each do |option|
-  #     x = option
-  #     expect(subject.menu_choices(x)).to
-  #   end
-  # end
+  it 'should run through the menu option 1' do
+      expect{subject.menu_choices(1)}.to output("Welcome to the library. Who are you?\nWelcome Require './lib/library.rb'.\n").to_stdout
+  end
 
+  it 'should run through the menu option 2' do
+      expect{subject.menu_choices(2)}.to output("AVAILABLE: The Winds of Winter by G.R.R. Martin (Fantasy)\nAVAILABLE: The Thorn of Emberlain by Scott Lynch (Fantasy)\nAVAILABLE: Doors of Stone by Patrick Rothfuss (Fantasy)\nAVAILABLE: Oathbringer by Brandon Sanderson (Fantasy)\nAVAILABLE: Tower of Dawn by Sarah J. Maas (Fantasy)\nAVAILABLE: The Bastards and the Knives by Scott Lynch (Fantasy)\nAVAILABLE: Provenance by Ann Leckie (Science Fiction)\nAVAILABLE: The Girl in the Tower by Katherine Arden (Fantasy)\nAVAILABLE: The Night Masquerade by Nnedi Okorafor (Science Fiction)\nAVAILABLE: Tortall - a Spy's Guide by Tamora Pierce (Fantasy)\nAVAILABLE: Sorcerer Royal by Zen Cho (Fantasy)\nAVAILABLE: Grey Sister by Mark Lawrence (Fantasy)\nAVAILABLE: Poor Relations by Jo Walton (Science Fiction)\n").to_stdout
+  end
 
   after do
     collection = YAML.load_file('./lib/book_data.yml')
@@ -185,5 +191,4 @@ describe Library do
     collection.each { |obj| obj[:return_date] = nil }
     File.open('./lib/book_data.yml', 'w') { |f| f.write collection.to_yaml }
   end
-
 end
