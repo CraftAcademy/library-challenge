@@ -178,11 +178,14 @@ describe Library do
 
 
   it 'should run through the menu option 1' do
-      expect{subject.menu_choices(1)}.to output("Welcome to the library. Who are you?\nWelcome Require './lib/library.rb'.\n").to_stdout
+    input_fake = Fake_user_input.new
+    input_fake.username = "username"
+    subject.set_input_for_test(input_fake)
+    expect{subject.menu_choices(1)}.to output("Welcome to the library. Who are you?\nWelcome username.\n").to_stdout
   end
 
   it 'should run through the menu option 2' do
-      expect{subject.menu_choices(2)}.to output("AVAILABLE: The Winds of Winter by G.R.R. Martin (Fantasy)\nAVAILABLE: The Thorn of Emberlain by Scott Lynch (Fantasy)\nAVAILABLE: Doors of Stone by Patrick Rothfuss (Fantasy)\nAVAILABLE: Oathbringer by Brandon Sanderson (Fantasy)\nAVAILABLE: Tower of Dawn by Sarah J. Maas (Fantasy)\nAVAILABLE: The Bastards and the Knives by Scott Lynch (Fantasy)\nAVAILABLE: Provenance by Ann Leckie (Science Fiction)\nAVAILABLE: The Girl in the Tower by Katherine Arden (Fantasy)\nAVAILABLE: The Night Masquerade by Nnedi Okorafor (Science Fiction)\nAVAILABLE: Tortall - a Spy's Guide by Tamora Pierce (Fantasy)\nAVAILABLE: Sorcerer Royal by Zen Cho (Fantasy)\nAVAILABLE: Grey Sister by Mark Lawrence (Fantasy)\nAVAILABLE: Poor Relations by Jo Walton (Science Fiction)\n").to_stdout
+    expect{subject.menu_choices(2)}.to output("AVAILABLE: The Winds of Winter by G.R.R. Martin (Fantasy)\nAVAILABLE: The Thorn of Emberlain by Scott Lynch (Fantasy)\nAVAILABLE: Doors of Stone by Patrick Rothfuss (Fantasy)\nAVAILABLE: Oathbringer by Brandon Sanderson (Fantasy)\nAVAILABLE: Tower of Dawn by Sarah J. Maas (Fantasy)\nAVAILABLE: The Bastards and the Knives by Scott Lynch (Fantasy)\nAVAILABLE: Provenance by Ann Leckie (Science Fiction)\nAVAILABLE: The Girl in the Tower by Katherine Arden (Fantasy)\nAVAILABLE: The Night Masquerade by Nnedi Okorafor (Science Fiction)\nAVAILABLE: Tortall - a Spy's Guide by Tamora Pierce (Fantasy)\nAVAILABLE: Sorcerer Royal by Zen Cho (Fantasy)\nAVAILABLE: Grey Sister by Mark Lawrence (Fantasy)\nAVAILABLE: Poor Relations by Jo Walton (Science Fiction)\n").to_stdout
   end
 
   after do
