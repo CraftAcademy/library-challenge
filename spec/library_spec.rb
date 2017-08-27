@@ -189,7 +189,10 @@ describe Library do
   end
 
   it 'should run through menu option 3' do
-    expect{subject.menu_choices(3)}.to output("Which author do you want to search for? Please enter first OR last name.\nNo matching author.\n").to_stdout
+    input_fake = Fake_user_input.new
+    input_fake.author = "Martin"
+    subject.set_input_for_test(input_fake)
+    expect{subject.menu_choices(3)}.to output("Which author do you want to search for? Please enter first OR last name.\nThe Winds of Winter by G.R.R. Martin (Fantasy)\n").to_stdout
   end
 
   it 'should run through meny option 4' do
