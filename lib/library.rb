@@ -164,7 +164,7 @@ end
 
   def return_to_menu
     puts 'press ENTER to return to menu.'
-    x = gets.chomp
+    x = @input.input_return_to_menu
     system "clear"
   end
 

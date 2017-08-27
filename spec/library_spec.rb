@@ -139,17 +139,27 @@ describe Library do
     expect{subject.borrow_menu}.to output("Which book do you want to borrow? Enter the corresponding number.\n1. AVAILABLE: The Winds of Winter by G.R.R. Martin (Fantasy)\n2. AVAILABLE: The Thorn of Emberlain by Scott Lynch (Fantasy)\n3. AVAILABLE: Doors of Stone by Patrick Rothfuss (Fantasy)\n4. AVAILABLE: Oathbringer by Brandon Sanderson (Fantasy)\n5. AVAILABLE: Tower of Dawn by Sarah J. Maas (Fantasy)\n6. AVAILABLE: The Bastards and the Knives by Scott Lynch (Fantasy)\n7. AVAILABLE: Provenance by Ann Leckie (Science Fiction)\n8. AVAILABLE: The Girl in the Tower by Katherine Arden (Fantasy)\n9. AVAILABLE: The Night Masquerade by Nnedi Okorafor (Science Fiction)\n10. AVAILABLE: Tortall - a Spy's Guide by Tamora Pierce (Fantasy)\n11. AVAILABLE: Sorcerer Royal by Zen Cho (Fantasy)\n12. AVAILABLE: Grey Sister by Mark Lawrence (Fantasy)\n13. AVAILABLE: Poor Relations by Jo Walton (Science Fiction)\nYou borrowed: The Winds of Winter by G.R.R. Martin. Return by: 27/09/17!\n").to_stdout
   end
 
-  # it 'should get input when running search_author_input' do
-  #   allow($stdin).to receive(:gets).and_return('Martin')
-  #   author = $stdin.gets
-  #   expect(author).to eq('Martin')
-  #   expect{subject.search_author_input}.to output("Which author do you want to search for? Please enter first OR last name.\nNo matching author.\n").to_stdout
-  # end
+  it 'should get error message if no created user tries to use borrow_menu' do
+    input_fake = Fake_user_input.new
+    input_fake.menu_choice = 1
+    subject.set_input_for_test(input_fake)
+    expect{subject.borrow_menu}.to output("Create an user or log in first!\n").to_stdout
+  end
 
-  # it 'should be able to take user_name_input' do
-  #   allow($stdin).to receive(:gets).and_return('username')
-  #   expect{subject.user_name_input}.to output("Welcome username.\n").to_stdout
-  # end
+  it 'should get error message if wrong menu choice in borrow_menu' do
+    input_fake = Fake_user_input.new
+    subject.create_user('Fake Amanda')
+    input_fake.menu_choice = 112
+    subject.set_input_for_test(input_fake)
+    expect{subject.borrow_menu}.to output("Which book do you want to borrow? Enter the corresponding number.\n1. AVAILABLE: The Winds of Winter by G.R.R. Martin (Fantasy)\n2. AVAILABLE: The Thorn of Emberlain by Scott Lynch (Fantasy)\n3. AVAILABLE: Doors of Stone by Patrick Rothfuss (Fantasy)\n4. AVAILABLE: Oathbringer by Brandon Sanderson (Fantasy)\n5. AVAILABLE: Tower of Dawn by Sarah J. Maas (Fantasy)\n6. AVAILABLE: The Bastards and the Knives by Scott Lynch (Fantasy)\n7. AVAILABLE: Provenance by Ann Leckie (Science Fiction)\n8. AVAILABLE: The Girl in the Tower by Katherine Arden (Fantasy)\n9. AVAILABLE: The Night Masquerade by Nnedi Okorafor (Science Fiction)\n10. AVAILABLE: Tortall - a Spy's Guide by Tamora Pierce (Fantasy)\n11. AVAILABLE: Sorcerer Royal by Zen Cho (Fantasy)\n12. AVAILABLE: Grey Sister by Mark Lawrence (Fantasy)\n13. AVAILABLE: Poor Relations by Jo Walton (Science Fiction)\nChoose correct menu number, please.\n").to_stdout
+  end
+
+    it 'should take user input for return_to_menu' do
+      input_fake = Fake_user_input.new
+      input_fake.menu_return = 1
+      subject.set_input_for_test(input_fake)
+      expect{subject.return_to_menu}.to output("press ENTER to return to menu.\n").to_stdout
+    end
 
   # it 'should run through the menu options' do
   #   n = [1, 2, 3, 4, 5, 6]
@@ -157,14 +167,6 @@ describe Library do
   #     x = option
   #     expect(subject.menu_choices(x)).to
   #   end
-  # end
-
-  # it 'should run user_name_input' do
-  #   expect{subject.user_name_input}.to output("Welcome to the library. Who are you?\nWelcome require './lib/library.rb'.\n").to_stdout
-  # end
-
-  # it 'should run return_to_menu' do
-  #   expect{subject.return_to_menu}.to output("press ENTER to return to menu.\n").to_stdout
   # end
 
 

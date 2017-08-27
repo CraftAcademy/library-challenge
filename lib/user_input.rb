@@ -15,4 +15,8 @@ class User_input
   def input_borrow_menu
     return gets.chomp.to_i
   end
+
+  def input_return_to_menu
+    return gets.chomp
+  end
 end
