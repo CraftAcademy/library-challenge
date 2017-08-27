@@ -13,7 +13,10 @@ describe Library do
   end
 
   it 'allows to check out a book' do
-    expected_output = { message: "Successfully booked an item" }
+    expected_output = { message: "Successfully booked an item",
+                        title: "Alfons och soldatpappan",
+                        author: "Gunilla Bergström",
+                        return_date: Date.today.next_month(1).strftime("%d,%m,%y") }
     expect(subject.book_checkout("Alfons och soldatpappan", "Gunilla Bergström")).to eq expected_output
   end
 

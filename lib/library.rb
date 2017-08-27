@@ -20,7 +20,10 @@ class Library
 
   def book_checkout(title, author)
     if available?(title, author)
-      { message: "Successfully booked an item" }
+      { message: "Successfully booked an item",
+        title: title,
+        author: author,
+        return_date: return_date }
     else
       { message: "Book not available" }
     end
