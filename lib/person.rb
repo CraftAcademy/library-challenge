@@ -1,10 +1,15 @@
 require 'yaml'
 require 'date'
+require './lib/library.rb'
+
+def books
+  YAML.load_file('./lib/books.yml')
+end
 
 class Person
   attr_accessor :name, :book
 
-  def initialize
+  def initialize(name)
     @name = name
     @book = []
   end
@@ -20,7 +25,6 @@ class Person
 
 end
 
-private
   def books
     YAML.load_file('./lib/books.yml')
   end

@@ -3,10 +3,16 @@ require 'date'
 require './lib/person.rb'
 
 class Library
-  attr_accessor :books
+  attr_accessor :books, :title, :available, :renter, :return_date
 
-  def initialize
+  def initialize(books, title, available, renter, return_date)
     @books = books
+    @title = title
+    @available = available
+    @renter = name
+    @return_date = date.today.next_month
+
+
   end
 
   def list_available
@@ -18,21 +24,28 @@ class Library
   end
 
   def search_books
-    books.select { |obj| obj[:item][:title] == ''}
-    if books.select { |obj| obj[:available] == false}
-    raise 'Not available'
-  elsif books.select { |obj| obj[:available] == true}
-      @books[:available] = false
-      @books[:return_date] = set_outdate
-      @books[:renter] = Person
-      change_books
-    end
+    def search_books(title)
+  book = books.select { |obj| obj[:item][:title] == title}
+  if book[:available] == false
+    'Not available'
+  else
+    book
   end
+end
+
+def book
+  books.select { |obj| obj[:available] == true}
+  @books[:available] = false
+  @books[:return_date]= @return_date
+  @books[:renter] = name
+  change_books
+end
+
 
   def check_outdate
     check = books.select{ |obj| obj[:item][:title].include? ''}
     if check = [:available] == false
-      return Date.today.next_month
+      return @return_date
     end
   end
 
@@ -47,4 +60,5 @@ class Library
   def change_books
     File.open('./lib/books.yml', 'w') { |f| f.write books.to_yaml }
   end
+end
 end

@@ -36,20 +36,14 @@ describe Library do
       expect(subject.list_all).to eq expected_output
     end
 
-      it 'Raises an error when books are not available' do
-        if :available == false
-          then
-        expect(subject.search_books_).to raise_error(RuntimeError, 'No account present')
-      end
+    it 'Raises an error when books are not available' do
+      if :available == false
+      expect(subject.search_books_).to raise_error(RuntimeError, 'No account present')
     end
-
-     it 'librarian loans out book' do
-       expect(subject.search_books).to eq expected_output
-       expected_output = [{:item=>{:title=>"Osynligt med Alfons", :author=>"Gunilla Bergström"}, :available=>false, :return_date=>'2017-09-27', :renter=>'Olof'}]
-     end
 
     it 'can check when the return date is on the books' do
       expected_output = Date.today.next_month
       expect(subject.check_outdate).to eq expected_output
     end
   end
+end
