@@ -3,7 +3,7 @@
     :title: Deep Work
     :author: Cal Newport
   :available: false
-  :return_date:
+  :return_date: 
 - :item:
     :title: The Selfish Gene
     :author: Richard Dawkins
@@ -13,14 +13,14 @@
     :title: The one thing
     :author: Gary Keller
   :available: true
-  :return_date:
+  :return_date: 
 - :item:
     :title: Wisdom of insecurity
     :author: Alan Watts
-  :available: true
-  :return_date:
+  :available: false
+  :return_date: 
 - :item:
     :title: Vagabonding
     :author: Rolf Potts
   :available: true
-  :return_date:
+  :return_date: 
