@@ -4,16 +4,21 @@ require 'date'
 
 describe Library do
 
-  it "Has an availale list of books" do
-    expect(:books).not_to be_empty
+  it "has an availale list of books" do
+    expect(subject.collection).to be_an_instance_of(Array)
   end
 
-  it "Checks that a book is available" do
+  it "checks that a book is available" do
     expect(subject.available?("Alfons och soldatpappan", "Gunilla Bergström")).to be true
   end
 
-  it 'is expected to have a return date' do
-    expected_date = Date.today.next_month(1).strftime("%m,%y")
+  it 'allows to check out a book' do
+    expected_output = { message: "Successfully booked an item" }
+    expect(subject.book_checkout("Alfons och soldatpappan", "Gunilla Bergström")).to eq expected_output
+  end
+
+  it 'is expected to have a return date of one month after checkout' do
+    expected_date = Date.today.next_month(1).strftime("%d,%m,%y")
     expect(subject.return_date).to eq expected_date
   end
 end

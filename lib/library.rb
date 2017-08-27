@@ -1,25 +1,33 @@
 require 'yaml'
+require 'date'
+require './lib/patron.rb'
 
 class Library
-  attr_accessor :books
+  attr_accessor :collection
 
   def initialize
-    @books = YAML.load_file('./lib/data.yml')
+    @collection = YAML.load_file('./lib/data.yml')
   end
 
   def available?(title, author)
-    book_id = get_book(title, author)
-      return false unless book_id
+    book_id = @collection.detect { |obj| obj[:item][:title] == title && obj[:item][:author] == author }
+    if book_id == nil
+      false
+    else
       book_id[:available]
+    end
+  end
+
+  def book_checkout(title, author)
+    if available?(title, author)
+      { message: "Successfully booked an item" }
+    else
+      { message: "Book not available" }
+    end
   end
 
   def return_date
-    Date.today.next_month(1).strftime("%m,%y")
+    Date.today.next_month(1).strftime("%d,%m,%y")
   end
 
-  private
-
-  def get_book(title, author)
-    books.detect { |obj| obj[:item][:title] == title && obj[:item][:author] == author }
-  end
 end
