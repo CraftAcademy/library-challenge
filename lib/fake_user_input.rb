@@ -1,6 +1,6 @@
 class Fake_user_input
 
-  attr_accessor :author, :username
+  attr_accessor :author, :username, :menu_choice
 
   def initialize
   end
@@ -11,6 +11,10 @@ class Fake_user_input
 
   def input_username
     return username
+  end
+
+  def input_borrow_menu
+    return menu_choice
   end
 
 end

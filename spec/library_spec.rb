@@ -130,6 +130,15 @@ describe Library do
     expect{subject.user_name_input}.to output("Welcome to the library. Who are you?\nWelcome username.\n").to_stdout
   end
 
+  it 'should get user input for borrow menu' do
+    expected_date = Date.today.next_month.strftime("%d/%m/%y")
+    subject.create_user('Fake Amanda')
+    input_fake = Fake_user_input.new
+    input_fake.menu_choice = 1
+    subject.set_input_for_test(input_fake)
+    expect{subject.borrow_menu}.to output("Which book do you want to borrow? Enter the corresponding number.\n1. AVAILABLE: The Winds of Winter by G.R.R. Martin (Fantasy)\n2. AVAILABLE: The Thorn of Emberlain by Scott Lynch (Fantasy)\n3. AVAILABLE: Doors of Stone by Patrick Rothfuss (Fantasy)\n4. AVAILABLE: Oathbringer by Brandon Sanderson (Fantasy)\n5. AVAILABLE: Tower of Dawn by Sarah J. Maas (Fantasy)\n6. AVAILABLE: The Bastards and the Knives by Scott Lynch (Fantasy)\n7. AVAILABLE: Provenance by Ann Leckie (Science Fiction)\n8. AVAILABLE: The Girl in the Tower by Katherine Arden (Fantasy)\n9. AVAILABLE: The Night Masquerade by Nnedi Okorafor (Science Fiction)\n10. AVAILABLE: Tortall - a Spy's Guide by Tamora Pierce (Fantasy)\n11. AVAILABLE: Sorcerer Royal by Zen Cho (Fantasy)\n12. AVAILABLE: Grey Sister by Mark Lawrence (Fantasy)\n13. AVAILABLE: Poor Relations by Jo Walton (Science Fiction)\nYou borrowed: The Winds of Winter by G.R.R. Martin. Return by: 27/09/17!\n").to_stdout
+  end
+
   # it 'should get input when running search_author_input' do
   #   allow($stdin).to receive(:gets).and_return('Martin')
   #   author = $stdin.gets

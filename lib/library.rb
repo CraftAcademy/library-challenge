@@ -95,7 +95,7 @@ class Library
   def borrow_menu
    if @current_user != nil
     show_books_menu
-    index = gets.chomp.to_i - 1
+    index = @input.input_borrow_menu - 1
       if index < 0 || index >= @collection.length
         error_message_menu
       else

@@ -11,4 +11,8 @@ class User_input
   def input_username
     return gets.chomp.capitalize
   end
+
+  def input_borrow_menu
+    return gets.chomp.to_i
+  end
 end
