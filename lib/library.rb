@@ -29,12 +29,6 @@ class Library
     end
   end
 
-  def search_books_NA
-    books.select { |obj| obj[:available] = false}
-      raise 'Not available'
-    end
-
-
   def check_outdate
     check = books.select{ |obj| obj[:item][:title].include? ''}
     if check = [:available] == false
@@ -42,10 +36,8 @@ class Library
     end
   end
 
-private
-
   def set_outdate
-    Date.next_month
+    Date.today.next_month
   end
 
   def books
@@ -55,3 +47,4 @@ private
   def change_books
     File.open('./lib/books.yml', 'w') { |f| f.write books.to_yaml }
   end
+end

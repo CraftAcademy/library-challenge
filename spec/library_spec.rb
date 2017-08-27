@@ -1,15 +1,16 @@
 require './lib/library.rb'
 require './lib/person.rb'
+require 'date'
 
 describe Library do
-  let(:person) {instance_double('Person',{:item=>{:title=>"Osynligt med Alfons", :author=>"Gunilla Bergström"}, :available=>false, :return_date=>'2017-09-27', :renter=>'Olof'})
+  let(:person) {instance_double('Person',{:item=>{:title=>"Osynligt med Alfons", :author=>"Gunilla Bergström"}, :available=>false, :return_date=>'2017-09-27', :renter=>'Olof'})}
 before do
   books = YAML.load_file('./lib/books.yml')
 end
   after do
     books = YAML.load_file('./lib/books.yml')
     books.each { |obj| obj[:available] = true }
-    File.open('./lib/books.yml', 'w') { |f| f.write collection.to_yaml }
+    File.open('./lib/books.yml', 'w') { |f| f.write books.to_yaml }
   end
 
     it 'lists available books, and displays the other and the title' do
@@ -36,7 +37,10 @@ end
     end
 
       it 'Raises an error when books are not available' do
-        expect(subject.search_books_NA).to raise_error 'Not available'
+        if :available == false
+          then
+        expect(subject.search_books_).to raise_error(RuntimeError, 'No account present')
+      end
     end
 
      it 'librarian loans out book' do
@@ -45,7 +49,7 @@ end
      end
 
     it 'can check when the return date is on the books' do
-      expected_output = [:return_date] => '2017-09-27'
+      expected_output = Date.today.next_month
       expect(subject.check_outdate).to eq expected_output
     end
   end
