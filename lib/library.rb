@@ -106,14 +106,6 @@ class Library
     end
   end
 
-  def borrow_book(index)
-    if @collection[index][:available] == true
-      book_is_available(index)
-    else
-      book_is_unavailable(index)
-    end
-  end
-
   def show_books_menu
     puts 'Which book do you want to borrow? Enter the corresponding number.'
     @collection.each_with_index do |title, index|
@@ -126,11 +118,29 @@ class Library
   end
 end
 
+def borrow_book(index)
+  if @collection[index][:available] == true
+    book_is_available(index)
+  else
+    book_is_unavailable(index)
+  end
+end
+
   def book_is_available(index)
     return_date(index)
     change_status(index)
     puts "You borrowed: #{@collection[index][:item][:title]} by #{@collection[index][:item][:author]}. Return by: #{@collection[index][:return_date]}!"
     @current_user.books << "#{@collection[index][:item][:title]} by #{@collection[index][:item][:author]} (return by #{@collection[index][:return_date]})"
+  end
+
+  def change_status(index)
+    @collection[index][:available] = false
+    File.open('./lib/book_data.yml', 'w') {|f| f.write @collection.to_yaml}
+  end
+
+  def return_date(index)
+    @collection[index][:return_date] = Date.today.next_month.strftime("%d/%m/%y")
+    File.open('./lib/book_data.yml', 'w') {|f| f.write @collection.to_yaml}
   end
 
   def book_is_unavailable(index)
@@ -150,16 +160,6 @@ end
   def exit_program
     @exit = true
     puts 'Come back soon, there\'s lots to read here!'
-  end
-
-  def change_status(index)
-    @collection[index][:available] = false
-    File.open('./lib/book_data.yml', 'w') {|f| f.write @collection.to_yaml}
-  end
-
-  def return_date(index)
-    @collection[index][:return_date] = Date.today.next_month.strftime("%d/%m/%y")
-    File.open('./lib/book_data.yml', 'w') {|f| f.write @collection.to_yaml}
   end
 
   def return_to_menu
