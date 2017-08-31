@@ -3,7 +3,7 @@ require './lib/patron.rb'
 require 'date'
 
 describe Library do
-
+  
   it "has an availale list of books" do
     expect(subject.collection).to be_an_instance_of(Array)
   end

@@ -36,5 +36,4 @@ class Library
   def available_books
     list = @collection.select { |item| item[:available] == true }
   end
-
 end
