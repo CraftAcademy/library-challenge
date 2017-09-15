@@ -27,14 +27,12 @@ class Library
   end
 
   def search_by_author(list, author)
-    author.downcase!
-    books = list.select { |obj| obj[:item][:author].downcase.include? author }
+    books = list.select { |obj| obj[:item][:author].downcase.include? author.downcase }
     list_books(books)
   end
 
   def search_by_title(list, title)
-    title.downcase!
-    books = list.select { |obj| obj[:item][:title].downcase.include? title }
+    books = list.select { |obj| obj[:item][:title].downcase.include? title.downcase }
     list_books(books)
   end
 
@@ -53,7 +51,7 @@ class Library
   end
 
   def borrow_a_book(list, book, name)
-    borrow_book = sort_book(list, book)
+    borrow_book = sort_book(list, book, :title)
     if borrow_book == nil
       message
     elsif borrow_book[:available] == true
@@ -66,12 +64,12 @@ class Library
     end
   end
 
-  def sort_book(list, book)
-    list.detect { |obj| obj[:item][:title].include? book}
+  def sort_book(list, book, item)
+    list.detect { |obj| obj[:item][item].downcase.include? book.downcase}
   end
 
   def return_a_book(list, book)
-    return_book = sort_book(list, book)
+    return_book = sort_book(list, book, :title)
     if return_book == nil
       message
     else
@@ -89,12 +87,12 @@ class Library
   end
 
   def edit_list(list, title, new_title)
-    edit = sort_book(list, title)
+    edit = sort_book(list, title, :title)
     edit == nil ? message : edit[:item][:title] = new_title
   end
 
   def edit_author(list, title, new_author)
-    edit = sort_book(list, title)
+    edit = sort_book(list, title, :title)
     edit == nil ? message : edit[:item][:author] = new_author
   end
 
@@ -103,7 +101,7 @@ class Library
   end
 
   def delete_book(list, book)
-    delete = sort_book(list, book)
+    delete = sort_book(list, book, :title)
     list.delete(delete)
   end
 
