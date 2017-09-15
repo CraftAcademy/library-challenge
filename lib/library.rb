@@ -84,15 +84,18 @@ class Library
     else
       return_book[:available] = true
       if return_book[:return_date] >= Date.today.to_s
-        return_book[:return_date] = nil
-        return_book[:loanee] = nil
+        returned(return_book)
         "Thank you for returning the book"
       else
-        return_book[:return_date] = nil
-        return_book[:loanee] = nil
+        returned(return_book)
         "There is a 100kr fine for returning the book to late"
       end
     end
+  end
+
+  def returned(return_book)
+    return_book[:return_date] = nil
+    return_book[:loanee] = nil
   end
 
   def edit_list(list, title, new_title)
