@@ -17,29 +17,38 @@ class Library
   end
 
   def books_available(list)
-    yes = list.select { |obj| obj[:available]}
+    yes = select_book(list, :available, true)
     list_books(yes)
   end
 
-  def books_out(list)
-    yes = list.select { |obj| obj[:available] == false}
-    list_books(yes)
-  end
 
   def search_by_author(list, author)
-    books = list.select { |obj| obj[:item][:author].downcase.include? author.downcase }
+    books = search(list, author, :author)
     list_books(books)
   end
 
   def search_by_title(list, title)
-    books = list.select { |obj| obj[:item][:title].downcase.include? title.downcase }
+    books = search(list, title, :title)
     list_books(books)
+  end
+
+  def search(list, item, var)
+    list.select { |obj| obj[:item][var].downcase.include? item.downcase }
+  end
+
+  def books_out(list)
+    yes = select_book(list, :available, false)
+    list_books(yes)
   end
 
   def my_books_on_loan(list, name)
     name.downcase!
-    my_books = list.select { |obj| obj[:loanee] == name }
+    my_books = select_book(list, :loanee, name)
     list_books(my_books)
+  end
+
+  def select_book(list, variable, item = "")
+    list.select { |obj| obj[variable] == item }
   end
 
   def list_books(file)
@@ -75,8 +84,8 @@ class Library
     else
       return_book[:available] = true
       if return_book[:return_date] >= Date.today.to_s
-        return_book[:loanee] = nil
         return_book[:return_date] = nil
+        return_book[:loanee] = nil
         "Thank you for returning the book"
       else
         return_book[:return_date] = nil
@@ -97,7 +106,7 @@ class Library
   end
 
   def add_book(title, author)
-    @book_list << [{ item: { title: title, author: author}, available: true, return_date: nil, loanee: nil }]
+    @book_list << [{ item: { title: title, author: author }, available: true, return_date: nil, loanee: nil }]
   end
 
   def delete_book(list, book)
