@@ -5,12 +5,11 @@ require './lib/person.rb'
 class Library
   attr_accessor :books, :title, :available, :renter, :return_date
 
-  def initialize(books, title, available, renter, return_date)
+  def initialize
     @books = books
     @title = title
     @available = available
-    @renter = name
-    @return_date = date.today.next_month
+    # @return_date = set_outdate
 
 
   end
