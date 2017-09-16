@@ -9,13 +9,11 @@ class Library
     @books = books
     @title = title
     @available = available
-    # @return_date = set_outdate
-
-
+    @return_date = Date.today.next_month
   end
 
   def list_available
-    books.select { |obj| obj[:available] == true }
+    YAML.load_file('./lib/books.yml').select { |obj| obj[:available] == true }
   end
 
   def list_all
@@ -24,15 +22,15 @@ class Library
 
   def search_books
     def search_books(title)
-  book = books.select { |obj| obj[:item][:title] == title}
-  if book[:available] == false
+      YAML.load_file('./lib/books.yml').select { |obj| obj[:item][:title] == title}
+  if books[:available] == false
     'Not available'
   else
-    book
+    loan_book
   end
 end
 
-def book
+def loan_book
   books.select { |obj| obj[:available] == true}
   @books[:available] = false
   @books[:return_date]= @return_date
@@ -41,12 +39,12 @@ def book
 end
 
 
-  def check_outdate
-    check = books.select{ |obj| obj[:item][:title].include? ''}
-    if check = [:available] == false
-      return @return_date
-    end
+def check_outdate
+  check = books.select{ |obj| obj[:item][:title].include?}
+  if check = [:available] == false
+    return @return_date
   end
+end
 
   def set_outdate
     Date.today.next_month
