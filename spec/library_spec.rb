@@ -16,11 +16,11 @@ describe Library do
       :available=> false,
       :return_date=> '2017-09-20',
       :loanee=> 'maggi'}]
-    @answer2 = [{:item=> {:title=> 'test book not in',
-      :author=> 'Magnus'},
-      :available=> false,
-      :return_date=> '2017-09-20',
-      :loanee=> 'maggi'}]
+  @answer2 = [{:item=> {:title=> 'test book not in',
+    :author=> 'Magnus'},
+    :available=> false,
+    :return_date=> '2017-09-20',
+    :loanee=> 'maggi'}]
   end
 
   it 'properly setup YAML file should load correctly' do
