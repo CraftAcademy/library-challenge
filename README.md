@@ -1,88 +1,65 @@
-##Library Challenge
-###Week 1 Ruby challenge
-
-Instructions
+# The Library challenge
 -------
-Read this entire README carefully and follow all instructions.
+Craft Academy weekend challenge number 1 is about creating a library and user for the library.
 
-* Challenge time: this weekend, until Monday 9am
-* Feel free to use Google, Stack Overflow, your notes, previously written code, books, etc. but work on your own
-* If you refer to or have in whole or partially used the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution to GitHub and create a Pull Request**
-* You must submit a Pull Request to this repository with your code by 9.30am Monday morning - before the stand-up
+## Getting Started
+-------
+Prerequisites
+You'll need to install
 
+* *Ruby*
 
-###Learning objective
-----
-#####Write a Library program with the following user stories:
+## Usage
+-------
+Start up `irb` in command line  
+load up the program `load './lib/person.rb'`
+next you will need to create a user, library, load the library with books and create a library list for the user.  
+```
+person = Person.new('name')
+library = Library.new
+library.load_yaml
+list = library.book_list
+```
+The Person class takes one parameter, the name of the user  
+library class takes no parameters  
+If you want to use your own library list, give `library.load_yaml` one parameter with the location of your book list.  
 
+With the Person class you can use these methods  
 ```
-As an individual
-In order to get my hands on a good book
-I would like to see a list of books currently available in the library
-with information about the title and author
-```
-
-```
-As a library
-In order to have good books to offer to the public
-I would like to be able to have a collection of books
-```
-
-```
-As a library
-In order to have good books to offer to the public
-I would like to be able to allow individuals to check out a book
-```
-
-```
-As a library
-In order to make the books available to many individuals
-I would like to set a return date on every check out
-and I would like that date to be 1 month from checkout date
+1. list_all_books(library, list)
+2. list_available_books(library, list)
+3. list_by_title(library, list, title)
+4. list_by_author(library, list, author)
+5. books_on_loan(library, list)
+6. borrow_book(library, list, title)
+7. return_book(library, list, title)
 ```
 
+With the Library class you can use these methods  
 ```
-As an individual
-In order to avoid awkward moments at the library
-I would like to know when my book is supposed to be returned
+1. load_yaml(file)
+2. write_to_yaml(list, file)
+3. books_available(list)
+4. books_out(list)
+5. search_by_author(list, author)
+6. search_by_title(list, author)
+7. list_books(list)
+8. edit_list(list, title, new_title)
+9. edit_author(list, title, new_author)
+10. add_book(title, author)
+11. delete_book(list, title)
 ```
+Methods load_yaml and write_to_yaml have a default file, so you dont need to add those parameter to the methods unless you want your own list of books. The list needs to be in the format of YAML file and entry for every book should be like this.  
+```
+- :item:
+    :title: Title of book
+    :author: Magnus Thor
+  :available: true
+  :return_date:
+  :loanee:
+```
+-------
 
-###Tasks
-----
-
-* Fork the challenge repo: https://github.com/CraftAcademy/library-challenge
-* Run the command `bundle install` in the project directory to ensure you have all the gems
-* Write your specs and implementation
-* Be smart about using Git: commit and push often. Use feature branches.
-* Create a Pull Request as soon as possible
-* Read the comments from Hound and fix any issues that the service points out.
-
-###Tips
-----
-
-#####Some hints:
-  * A Person needs to have a list of books that he currently has in his possession. That list needs to include the return date.
-  * The return date can be calculated using the `Date` object. Out of the box, there are methods you can use to add days to the current date.
-  * Make use of `doubles` when writing your specs
-  * Follow the [naming conventions/standards](https://craftacademy.gitbooks.io/coding-as-a-craft/content/extras/naming_standards.html) for methods and variables
-
-###What we are looking for
-----
-#####I'm hoping to see that:
-* You can take a problem set and write a well tested implementation on your own.
-* You understand how to define Ruby Classes and work with objects.
-* You understand how classes can interact with each other.
-* You know how to make use of arrays, hashes, and associated methods to create dynamic lists.
-* You know how to write specs and use them as a blueprint in your development.
-* I can track your work by following you commit history - so please commit as soon you are done with a feature or when you have made a test pass.
-
-#####In your Pull Request, I'm hoping to see:
-* That you are testing the right thing in the right spec file.
-* That all tests passing - green is good!
-* High test coverage (above 95% is accepted)
-* The code is easy to follow: every class has a clear responsibility, methods are short, code is nicely formatted, etc.
-* The `README.md` includes information on how to use your solution with command examples in `irb`. (Feel free to remove this text)
-
-
-**Happy coding!**
+## Author
+Magnús Þór Ársælsson
+--------
