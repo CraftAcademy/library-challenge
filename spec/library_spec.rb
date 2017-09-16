@@ -36,7 +36,7 @@ describe Library do
       expect(subject.list_all).to eq expected_output
     end
 
-    let 'Raises an error when books are not available' do
+    it 'Raises an error when books are not available' do
       if :available == false
       expect(subject.search_books_).to raise_error(RuntimeError, 'No account present')
     end

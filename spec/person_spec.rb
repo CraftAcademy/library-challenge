@@ -12,7 +12,7 @@ describe Person do
   # end
 
   it 'can check the return date on books they have rented' do
-    expected_output = Date.today.next_month
+    expected_output = :return_date
     expect(subject.search_my_books).to eq expected_output
   end
   it 'can check renter of books' do

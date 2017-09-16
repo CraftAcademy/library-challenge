@@ -9,12 +9,12 @@ end
 class Person
   attr_accessor :name, :book
 
-  def initialize(name)
+  def initialize
     @name = name
     @book = []
   end
 
-  def set_renter(obj)
+  def set_renter
     [:renter] == @name
   end
 
