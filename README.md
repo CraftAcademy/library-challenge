@@ -27,8 +27,8 @@ with information about the title and author
 As a library
 In order to have good books to offer to the public
 I would like to be able to have a collection of books
-```
-
+``` -->
+<!--
 ```
 As a library
 In order to have good books to offer to the public
