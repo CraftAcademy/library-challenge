@@ -39,7 +39,6 @@ class Library
     loan_book
   end
 
-
 def loan_book
   books.select { |obj| obj[:available] == true}
   @books[:available] = false
