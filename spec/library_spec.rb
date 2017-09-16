@@ -5,18 +5,26 @@ require 'yaml'
 describe Library do
   let(:list) { subject.load_yaml('./lib/testYaml.yml') }
 
-  it 'properly setup YAML file should load correctly' do
-    expected_output = [{:item=>{:title=> 'Test book in',
+  before(:all) do
+  @answer1 = [{:item=>{:title=> 'Test book in',
+    :author=> 'Magnus'},
+    :available=> true,
+    :return_date=> nil,
+    :loanee=> nil},
+    {:item=>{:title=> 'test book not in',
       :author=> 'Magnus'},
-      :available=> true,
-      :return_date=> nil,
-      :loanee=> nil},
-      {:item=>{:title=> 'test book not in',
-        :author=> 'Magnus'},
-        :available=> false,
-        :return_date=> '2017-09-20',
-        :loanee=> 'maggi'}]
-    expect(subject.load_yaml('./lib/testYaml.yml')).to eq expected_output
+      :available=> false,
+      :return_date=> '2017-09-20',
+      :loanee=> 'maggi'}]
+    @answer2 = [{:item=> {:title=> 'test book not in',
+      :author=> 'Magnus'},
+      :available=> false,
+      :return_date=> '2017-09-20',
+      :loanee=> 'maggi'}]
+  end
+
+  it 'properly setup YAML file should load correctly' do
+    expect(subject.load_yaml('./lib/testYaml.yml')).to eq @answer1
   end
 
   it 'checks the return date' do
@@ -26,17 +34,7 @@ describe Library do
   end
 
   it 'print out a list of books' do
-    expected_output = [{:item=> {:title=> 'Test book in',
-      :author=> 'Magnus'},
-      :available=> true,
-      :return_date=> nil,
-      :loanee=> nil},
-      {:item=> {:title=> 'test book not in',
-        :author=> 'Magnus'},
-        :available=> false,
-        :return_date=> '2017-09-20',
-        :loanee=> 'maggi'}]
-    expect(subject.list_books(list)).to eq expected_output
+    expect(subject.list_books(list)).to eq @answer1
   end
 
   it 'only print available books' do
@@ -49,35 +47,15 @@ describe Library do
   end
 
   it 'search for all book by author' do
-    expected_output = [{:item=> {:title=> 'Test book in',
-      :author=> 'Magnus'},
-      :available=> true,
-      :return_date=> nil,
-      :loanee=> nil},
-      {:item=> {:title=> 'test book not in',
-        :author=> 'Magnus'},
-        :available=> false,
-        :return_date=> '2017-09-20',
-        :loanee=> 'maggi'}]
-    expect(subject.search_by_author(list, 'magnus')).to eq expected_output
+    expect(subject.search_by_author(list, 'magnus')).to eq @answer1
   end
 
   it 'search by title' do
-    expected_output = [{:item=> {:title=> 'test book not in',
-      :author=> 'Magnus'},
-      :available=> false,
-      :return_date=> '2017-09-20',
-      :loanee=> 'maggi'}]
-    expect(subject.search_by_title(list, 'not')).to eq expected_output
+    expect(subject.search_by_title(list, 'not')).to eq @answer2
   end
 
   it 'when are the books due to return' do
-    expected_output = [{:item=> {:title=> 'test book not in',
-      :author=> 'Magnus'},
-      :available=> false,
-      :return_date=> '2017-09-20',
-      :loanee=> 'maggi'}]
-    expect(subject.books_out(list)).to eq expected_output
+    expect(subject.books_out(list)).to eq @answer2
   end
 
   it 'can borrow a book and the return date is correct' do
@@ -113,12 +91,7 @@ describe Library do
   end
 
   it 'checks when my books are due' do
-    expected_output = [{:item=> {:title=> 'test book not in',
-      :author=> 'Magnus'},
-      :available=> false,
-      :return_date=> '2017-09-20',
-      :loanee=> 'maggi'}]
-    expect(subject.my_books_on_loan(list, 'maggi')).to eq expected_output
+    expect(subject.my_books_on_loan(list, 'maggi')).to eq @answer2
   end
 
   it 'change books in the list' do
