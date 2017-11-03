@@ -7,8 +7,11 @@ class Library
 
   def book_selection
     @book_list
-    book_list.each do |title, author|
-      puts "{[:item][:title]}, {[:item][:author]} "
+  end
+
+  def show_books
+    @book_list.each do |book|
+      puts "{[:item][:title]}"
     end
   end
 
