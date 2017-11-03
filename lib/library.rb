@@ -12,4 +12,13 @@ class Library
     end
     return available_books
   end
+
+  def checkout(title, person)
+    @collection.select do |obj|
+      if obj[:item][:title].include? title
+        person.books << {title: obj[:item][:title]}
+      end
+
+    end
+  end
 end
