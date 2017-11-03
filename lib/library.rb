@@ -1,4 +1,5 @@
 require 'yaml'
+require 'date'
 class Library
   attr_accessor :collection
   def initialize
@@ -16,10 +17,17 @@ class Library
   def checkout(title, person)
     @collection.select do |obj|
       if obj[:item][:title].include? title
-        person.books << {title: obj[:item][:title]}
+        person.books << { title: obj[:item][:title], author: obj[:item][:author] }
         obj[:available] = false
+        obj[:return_date] = Date.today.next_month(1).strftime('%d/%m/%y')
       end
 
     end
+  end
+
+  private
+
+  def update_collection
+    File.open('./data.yml', 'w') { |f| f.write collection.to_yaml }
   end
 end
