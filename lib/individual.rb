@@ -1,7 +1,11 @@
+=begin
 class Individual
-  attr_accessor :books
+  attr_accessor :name, :books
 
-    def initialize
+
+    def initialize(name)
+      @name = name
       @books = book_list[]
     end
 end
+=end
