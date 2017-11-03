@@ -1,6 +1,4 @@
-notifications:
-  email: false
 language: ruby
 rvm:
   2.3.1
-script: bundle exec rspec spec
+script: bundle exec rspec
