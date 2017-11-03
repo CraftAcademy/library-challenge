@@ -18,6 +18,9 @@ describe Library do
      it 'the right book has been checked out' do
        expect(person.books[0]).to eq title: 'Osynligt med Alfons'
      end
+     it 'and the availability in the library collection is set to false' do
+       expect(subject.collection[2][:available]).to eq false
+     end
    end
 
 end

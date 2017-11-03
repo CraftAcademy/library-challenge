@@ -17,6 +17,7 @@ class Library
     @collection.select do |obj|
       if obj[:item][:title].include? title
         person.books << {title: obj[:item][:title]}
+        obj[:available] = false
       end
 
     end
