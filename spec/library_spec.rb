@@ -29,5 +29,15 @@ describe Library do
        expect(person.books[0]).to include return_date: Date.today.next_month(1).strftime('%d/%m/%y')
      end
    end
+   describe "person can't checkout book if he owns book that is expired" do
+     before do
+       subject.checkout('Alfons och soldatpappan', person)
+       person.books[0][:return_date] = '03/12/16'
+     end
+     it 'and gets a warning message' do
+       expected_output = 'You have a book with an expired return date. Please return it first.'
+       expect(subject.checkout('Pippi Långstrump går ombord', person )).to eq expected_output
+     end
+   end
 
 end
