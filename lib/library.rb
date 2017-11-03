@@ -17,7 +17,7 @@ class Library
   def checkout(title, person)
     @collection.select do |obj|
       if obj[:item][:title].include? title
-        person.books << { title: obj[:item][:title], author: obj[:item][:author] }
+        person.books << { title: obj[:item][:title], author: obj[:item][:author], return_date: Date.today.next_month(1).strftime('%d/%m/%y') }
         obj[:available] = false
         obj[:return_date] = Date.today.next_month(1).strftime('%d/%m/%y')
       end
