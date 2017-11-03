@@ -10,10 +10,14 @@ describe Library do
    it 'person can see a list of available books' do
      expect(subject.booklist).to be_kind_of(Array)
    end
-
-   it 'person can check out a book' do
-     subject.checkout('Osynligt med Alfons', person)
-     expect(person.books[0]).not_to be nil
+   describe 'person can checkout a book' do
+     before { subject.checkout('Osynligt med Alfons', person) }
+     it "and persons book array isn't empty" do
+       expect(person.books[0]).not_to be nil
+     end
+     it 'the right book has been checked out' do
+       expect(person.books[0]).to eq title: 'Osynligt med Alfons'
+     end
    end
 
 end
