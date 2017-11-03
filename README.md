@@ -1,9 +1,9 @@
-##Alfreds Library Challenge
-###Craft Academy Week 1
+## Alfreds Library Challenge
+### Craft Academy Week 1
 
 This is my solution to the Library Challenge.
 
-####Gems Used
+#### Gems Used
 *Rspec
 *Travis
 *Rake
