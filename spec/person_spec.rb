@@ -7,4 +7,7 @@ describe Person do
   it 'has a name on initialize' do
     expect(subject.name).to eq 'Alfred'
   end
+  it 'has an empty book array on initialize' do
+    expect(subject.books).to eq []
+  end
 end
