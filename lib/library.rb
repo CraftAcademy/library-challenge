@@ -9,7 +9,7 @@ class Library
   def booklist
     available_books = []
     @collection.each do |item|
-      available_books << "#{item[:item][:title]} av #{item[:item][:author]}" if item[:available] == true
+      available_books << "#{item[:item][:title]} of #{item[:item][:author]}" if item[:available] == true
     end
     return available_books
   end
