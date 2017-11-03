@@ -11,7 +11,7 @@ class Library
 
   def show_books
     @book_list.each do |book|
-      puts "{[:item][:title]}"
+      puts "#{book[:item][:title]}"
     end
   end
 
