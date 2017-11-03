@@ -20,6 +20,7 @@ class Library
         person.books << { title: obj[:item][:title], author: obj[:item][:author], return_date: Date.today.next_month(1).strftime('%d/%m/%y') }
         obj[:available] = false
         obj[:return_date] = Date.today.next_month(1).strftime('%d/%m/%y')
+        update_collection
       end
 
     end
