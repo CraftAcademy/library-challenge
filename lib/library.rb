@@ -29,6 +29,6 @@ class Library
   private
 
   def update_collection
-    File.open('./data.yml', 'w') { |f| f.write collection.to_yaml }
+    File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
   end
 end
