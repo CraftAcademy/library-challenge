@@ -20,7 +20,7 @@ class Person
 #  end
 
   def list_of_books
-    @books = 
+    @books 
   #  @books = YAML.load_file(".lib/data.yml")
   end
 
