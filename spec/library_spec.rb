@@ -1,8 +1,7 @@
 require './lib/library'
 
 describe Library do
-  it 'has book list on initalize' do
-    expect(subject.book_list).not_to be nil
+  it 'has a collection of books on intialize' do
+    expect(subject.collection).not_to be nil
   end
-
 end

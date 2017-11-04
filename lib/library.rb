@@ -1,9 +1,10 @@
 require 'yaml'
 
 class Library
-  attr_accessor :book_list
+  attr_accessor :collection
 
   def initialize
-    @book_list = YAML.load_file('./lib/book_collection.yml')
+    @collection = YAML.load_file('./lib/book_collection.yml')
   end
+
 end
