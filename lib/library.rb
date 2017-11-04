@@ -10,9 +10,10 @@ class Library
 
   def record_available_books
   #  record_available_books
-    books.each {|key, value| }
-    available: true
-    print books[:author] + [:title]
+    available_books = collection.select { |obj| obj[:available] == true }
+  #  books.each { |item| }
+  #  if item[:available] == true
+    available_books[:author] + ", " + available_books[:title]
   end
 
   def checkout(book_id, person)
