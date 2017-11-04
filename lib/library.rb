@@ -1,13 +1,10 @@
-require './lib/libary'
-require './lib/person'
-require 'yaml'
+require "yaml"
 
-describe Library do
+class Library
 
-  let(:person) { instance_double('Person', name: 'Lisa' )}
-  subject { described class.new(name: 'Lisa') }
+  attr_accessor :books
 
-  it 'is expected to have a record of books on initialize' do
-    expect(subject.books).not_to be_empty
+  def initialize
+    @books = YAML.load_file(".lib/data.yml")
   end
 end
