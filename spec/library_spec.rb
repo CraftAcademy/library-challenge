@@ -3,7 +3,8 @@ require 'date'
 
 describe Library do
    let(:person) { instance_double('Person', name: 'Alfred', books: []) }
-
+   before(:all) { @fake = YAML.load_file('./lib/data.yml') }
+   before(:each) { File.open('./lib/data.yml', 'w') { |f| f.write @fake.to_yaml } }
    it 'has a collection of books on initialize' do
      expect(subject.collection).not_to be nil
    end
@@ -28,8 +29,12 @@ describe Library do
      it 'a return date is set to persons books' do
        expect(person.books[0]).to include return_date: Date.today.next_month(1).strftime('%d/%m/%y')
      end
+     it "and can't check out book if book is already checked out" do
+       expected_output = 'That book is already checked out'
+       expect(subject.checkout('Osynligt med Alfons', person)).to eq expected_output
+     end
    end
-   describe "person can't checkout book if he owns book that is expired" do
+   describe "person can't check out book if he owns book that is expired" do
      before do
        subject.checkout('Alfons och soldatpappan', person)
        person.books[0][:return_date] = '03/12/16'
@@ -38,6 +43,7 @@ describe Library do
        expected_output = 'You have a book with an expired return date. Please return it first.'
        expect(subject.checkout('Pippi Långstrump går ombord', person )).to eq expected_output
      end
-   end
 
+   end
+   after(:all) { File.open('./lib/data.yml', 'w') { |f| f.write @fake.to_yaml } }
 end

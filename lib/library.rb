@@ -9,7 +9,7 @@ class Library
   def booklist
     available_books = []
     @collection.each do |item|
-      available_books << "#{item[:item][:title]} of #{item[:item][:author]}" if item[:available] == true
+      available_books << "#{item[:item][:title]} by #{item[:item][:author]}" if item[:available] == true
     end
     return available_books
   end
@@ -18,6 +18,8 @@ class Library
     @collection.select do |obj|
       if expired_book?(person)
         return 'You have a book with an expired return date. Please return it first.'
+      elsif obj[:available] == false
+        return 'That book is already checked out'
       elsif obj[:item][:title].include? title
         person.books << { title: obj[:item][:title], author: obj[:item][:author], return_date: Date.today.next_month(1).strftime('%d/%m/%y') }
         obj[:available] = false
@@ -32,7 +34,7 @@ class Library
 
   def expired_book?(person)
     person.books.detect do |book|
-      return true if book[:return_date] > Date.today.strftime('%d/%m/%y')
+      return true if book[:return_date] < Date.today.strftime('%d/%m/%y')
     end
   end
 
