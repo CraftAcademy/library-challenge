@@ -7,7 +7,7 @@ describe Library do
   end
 
   it 'is expected to display a list of books currently available' do
-    expect(subject.books).to include
+    expect(subject.books).to be_an(Array)
   end
 
 end
