@@ -2,10 +2,19 @@ class Library
 
 attr_accessor :books
 
-def initialize
+  def initialize
+    @books = YAML.load_file('./book_list.yml')
+  end
 
-@books = YAML.load_file('./book_list.yml')
+  def books_available
+    @books.select { |obj| obj[:book][:available] = true }
+  end
 
-end
+
+  # private
+
+  # def book_is_available?(title)
+  #   :available == true
+  # end
 
 end
