@@ -19,13 +19,21 @@ describe Person do
   end
 
   it 'is expected to set library to nil on initialize' do
-    expect(subject.library).to eq nil
+    expect(subject.library).to be nil
   end
 
   describe 'can create a library' do
-    before { subject.enter_library }
+    before do
+      subject.enter_library
+    end
     it 'of Library class' do
       expect(subject.library).to be_an_instance_of Library
     end
+
+    it 'can view books of Library class' do
+      expect(subject.library.books).to eq YAML.load_file('./lib/data.yml')
+    end
   end
+
+  
 end
