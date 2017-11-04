@@ -4,10 +4,30 @@ require 'yaml'
 
 describe Library do
 
-#  let(:person) { instance_double('Person', name: 'Lisa', books: :item [0] ) }
+  let(:person) { instance_double('Person', name: 'Lisa') }
 #  subject { described_class.new(name: 'Lisa' )}
 
   it 'is expected to have a record of books on initialize' do
     expect(subject.books).not_to be nil
   end
+
+  xit 'is expected that a record of all books is available' do
+    expect(subject.books).to eq expected output
+  end
+
+=begin
+  xit 'is expected a user can check out books' do
+    expect(subject.loan_books(books)).to eq expected output
+  end
+
+  xit 'is expected that a book can be checked out for 1 month' do
+    expected_date = Date.today.next_month(1).strftime("%m/%y")
+    expect(subject.exp_date).to eq expected_date
+  end
+
+  xit 'is expected that a user infers a fee if not returning book after 1 month' do
+    expected_date = Date.today.next_month(1).strftime("%m/%y")
+    expect(subject.exp_date).to eq expected_date
+  end
+end
 end
