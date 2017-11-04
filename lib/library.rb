@@ -15,4 +15,11 @@ class Library
        end
      end
    end
+
+   private
+
+   def set_today
+     Date.today.strftime('%m/%y')
+   end
+
 end
