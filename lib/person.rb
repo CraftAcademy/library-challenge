@@ -11,16 +11,11 @@ class Person
   end
 
   def set_name(obj)
-    #obj == nil ?  missing_name :
     @name = obj
   end
 
-#  def missing_name
-#    raise "A name is required"
-#  end
-
   def list_of_books
-    @books 
+    @books
   #  @books = YAML.load_file(".lib/data.yml")
   end
 
