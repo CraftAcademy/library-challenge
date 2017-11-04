@@ -1,5 +1,5 @@
 #require './lib/data.yml'
-#require "yaml"
+require "yaml"
 
 class Person
 
@@ -11,16 +11,18 @@ class Person
   end
 
   def set_name(obj)
-    obj == nil ?  missing_name : @name = obj
+    #obj == nil ?  missing_name :
+    @name = obj
   end
 
-  def missing_name
-    raise "A name is required"
-  end
-
-#  def list_of_books(obj)
-#    @books
+#  def missing_name
+#    raise "A name is required"
 #  end
+
+  def list_of_books
+    @books = 
+  #  @books = YAML.load_file(".lib/data.yml")
+  end
 
 #  def loan_books(books)
 #    @account == nil ? no_account : @account.balance += books
