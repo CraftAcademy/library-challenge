@@ -1,11 +1,17 @@
-# require './library.rb'
-#
+require './lib/library'
+
 class Person
-  attr_reader :books, :library
+  attr_reader :name
+  attr_accessor :library, :books
+
   def initialize(args = {})
     @name = set_name(args[:name])
     @books = []
     @library = nil
+  end
+
+  def enter_library
+    @library = Library.new
   end
 
   private
