@@ -5,4 +5,8 @@ class Person
     @name = name
   end
 
+  def get_book_list(library, collection)
+    library.book_list(collection)
+  end
+
 end
