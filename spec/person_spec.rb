@@ -8,8 +8,8 @@ describe 'Person' do
     expect(subject).to respond_to(:name)
   end
 
-  it 'should have a :books attribute with value of nil upon initialize' do
-    expect(subject.books).to eq nil
+  it 'should have a :books attribute with a collection of books upon initialize' do
+    expect(subject.books).not_to be_empty 
   end
 
 =begin
