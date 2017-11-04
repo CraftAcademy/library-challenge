@@ -6,14 +6,17 @@ class Library
 
   def initialize
     @books = YAML.load_file("./lib/data.yml")
-    checkout_duration
   end
 
-  def record
-    record
+  def record_available_books
+  #  record_available_books
+    books.each {|key, value| }
+    available: true
+    print books[:author] + [:title]
   end
 
-  def checkout_duration(book_id, checkout_time)
+  def checkout(book_id, person)
+
   end
 
 

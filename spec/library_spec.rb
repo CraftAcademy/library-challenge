@@ -12,9 +12,9 @@ describe Library do
   end
 
   xit 'is expected that a record of all books is available stored in a file' do
-    expect(subject.record_of_books).to eq expected output
+    expect(subject.record).to eq expected output
   end
-
+=begin
   xit 'is expected a person can check out books' do
     expect(subject.loan_books(books)).to eq expected output
   end
@@ -28,4 +28,5 @@ describe Library do
     expected_date = Date.today.next_month(1).strftime("%m/%y")
     expect(subject.exp_date).to eq expected_date
   end
+=end
 end
