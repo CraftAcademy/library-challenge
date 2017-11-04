@@ -19,7 +19,7 @@ class Library
    private
 
    def set_today
-     Date.today.strftime('%m/%y')
+     Date.today.strftime('%F')
    end
 
 end
