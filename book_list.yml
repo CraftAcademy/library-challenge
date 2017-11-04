@@ -1,0 +1,26 @@
+---
+- :book:
+    :title: The Client
+    :author: John Grisham
+  :available: true
+  :return_date:
+- :book:
+    :title: The Pelican Brief
+    :author: John Grisham
+  :available: true
+  :return_date:
+- :book:
+    :title: The Alchemist
+    :author: Paulo Coelho
+  :available: true
+  :return_date:
+- :book:
+    :title: The Firm
+    :author: John Grisham
+  :available: true
+  :return_date:
+- :book:
+    :title: By the river Piedra I sat down and wept
+    :author: Paulo Coelho
+  :available: true
+  :return_date:
