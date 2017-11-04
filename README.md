@@ -10,3 +10,8 @@ This is my solution to the Library Challenge.
 * rubocop
 * rspec
 * coveralls
+
+### How to use the program
+
+1. Open a a ruby shell of your choice, such as irb.
+2. Load the person.rb file. `load './lib/person.rb'`
