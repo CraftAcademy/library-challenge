@@ -22,4 +22,8 @@ class Library
      Date.today.strftime('%F')
    end
 
+   def return_date
+     Date.today.next_month.strftime('%F%')
+   end
+
 end
