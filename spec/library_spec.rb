@@ -5,6 +5,6 @@ describe Library do
     expect(subject.collection).not_to be nil
   end
   it 'individual checks book list' do
-    expect(subject.book_list).to eq @collection.detect { |obj| obj[:item]}
+    expect(subject.book_list).to throw_symbol(:symbol, 'value')
   end
 end
