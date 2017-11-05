@@ -20,7 +20,8 @@ class Person
     books.push(book)
   end
 
-  def return_book
+  def return_book(book)
+    books.delete(book)
   end
 
 end

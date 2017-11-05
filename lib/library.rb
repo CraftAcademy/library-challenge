@@ -36,4 +36,13 @@ class Library
     end
   end
 
+  def select_books_to_return(book, user)
+    detect_books = books.detect { |obj| obj[:item][:title] == book }
+      detect_books[:return_date] = nil
+      detect_books[:available] = true
+      File.open('./lib/data.yml', 'w') { |f| f.write books.to_yaml }
+      user.return_book(detect_books)
+      puts book + " has been returned"
+  end
+
 end

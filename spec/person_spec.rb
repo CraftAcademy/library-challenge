@@ -13,4 +13,8 @@ describe Person do
     expect(subject.add_book("Alfons och soldatpappan")).to be_kind_of(Array)
   end
 
+  it 'is expected that person can return checked out books' do
+    expect(subject.return_book("Alfons och soldatpappan")).to be nil
+  end
+
 end
