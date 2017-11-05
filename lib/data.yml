@@ -13,12 +13,12 @@
     :title: The Hunger Games
     :author: Suzanne Collins
   :available: true
-  :return_date:
+  :return_date: 
 - :item:
     :title: The Lord Of The Rings
     :author: J.R.R Tolkien
   :available: true
-  :return_date: 
+  :return_date:
 - :item:
     :title: Of Mice And Men
     :author: John Steinbeck

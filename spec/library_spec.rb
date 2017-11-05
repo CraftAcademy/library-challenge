@@ -59,22 +59,29 @@ describe Library do
     end
 
     describe '#checkout' do
-      before { subject.checkout("The Lord Of The Rings", person) }
-      it 'is expected to add book to person\'s my books with a return date on checkout' do
+
+      before do
+        subject.checkout("The Hunger Games", person)
+      end
+      it 'is expected to add book to person\'s my books and to not let person checkout again' do
+        expect(subject.checkout("The Lord Of The Rings", person)).to eq "You still need to return The Hunger Games"
         expect(person.my_books).to eq [{:item=>
-          {:title=>"The Lord Of The Rings", :author=>"J.R.R Tolkien"},
+          {:title=>"The Hunger Games", :author=>"Suzanne Collins"},
           :return_date=>"2017-12-05"}]
       end
+
+
+
       it 'is expected to modify book\'s available to false on checkout' do
-        expect(subject.books[3][:available]).to eq false
+        expect(subject.books[2][:available]).to eq false
       end
 
       it 'is expected to modify book\'s return date on checkout' do
-        expect(subject.books[3][:return_date]).to eq "2017-12-05"
+        expect(subject.books[2][:return_date]).to eq "2017-12-05"
       end
 
       it 'is expected to now allow checkout of unavailable book' do
-        expect(subject.checkout("The Lord Of The Rings", person)).to eq "The Lord Of The Rings is currently not available"
+        expect(subject.checkout("The Hunger Games", person)).to eq "The Hunger Games is currently not available"
       end
     end
   end

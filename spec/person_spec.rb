@@ -3,8 +3,8 @@ require './lib/person.rb'
 
 describe Person do
 
-  # let(:library) { instance_double('Library', books: YAML.load_file('./lib/data.yml'))}
-  # subject { described_class.new(name: 'Scott')}
+  let(:library) { instance_double('Library', books: YAML.load_file('./lib/data.yml'))}
+  subject { described_class.new(name: 'Scott')}
 
   it 'is expected to raise error if no name is filled in on initialize' do
     expect { described_class.new }.to raise_error 'Name is required'

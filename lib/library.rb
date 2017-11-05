@@ -27,13 +27,19 @@ class Library
 
   def perform_checkout(title, person)
     @books.each do |book|
-      if book[:item][:title] == title && !book_unavailable(book)
+      if book[:item][:title] == title && book_checker?(book, person)
         change_status(book)
         person.my_books << book.reject{|key| key == :available}
       elsif book[:item][:title] == title && book_unavailable(book)
-        return error(book)
+        return error_unavailable(book)
+      elsif book[:item][:title] == title && book_checker?(book, person) == false
+        return error_limit(person)
       end
     end
+  end
+
+  def book_checker?(book, person)
+    !book_unavailable(book) && person.my_books.length == 0
   end
 
   def change_status(book)
@@ -42,11 +48,15 @@ class Library
     File.open('./lib/data.yml', 'w') { |f| f.write @books.to_yaml }
   end
 
+  def error_limit(person)
+    "You still need to return #{person.my_books[0][:item][:title]}"
+  end
+
   def book_unavailable(book)
     book[:available] == false
   end
 
-  def error(title)
+  def error_unavailable(title)
     "#{title[:item][:title]} is currently not available"
   end
 
