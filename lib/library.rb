@@ -33,4 +33,11 @@ end
    def return_date
      Date.today.next_month.strftime('%F')
    end
+
+   def update_collection(obj)
+     obj[:available] = false
+     obj[:return_date] = Date.today.next_month.strftime('%F')
+     File.open('./lib/data.yml', 'w') { |f| f.write book_collection.to_yaml }
+   end
+
 end
