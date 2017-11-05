@@ -4,7 +4,8 @@ require 'yaml'
 
 describe Library do
 
-  let(:person) { instance_double('Person', name: 'Lisa') }
+  let(:person) { instance_double('Person', name: 'Lisa', books: "Alfons och soldatpappan" ) }
+#  subject { described_class.new(name: 'Lisa', books: [{:item=>{:title=>"Alfons och soldatpappan"}}] ) }
 
   it 'is expected to have a record of books on initialize' do
     expect(subject.books).not_to be nil
@@ -19,8 +20,9 @@ describe Library do
     expect(subject.return_date).to eq expected_date
   end
 
-  it 'is expected that a person can search and borrow books' do
-    expect(subject.select_books).to be_kind_of(Array)
+  it 'is expected that a person can borrow books' do
+    expected_output = "The book is not available"
+    expect(subject.select_books_to_borrow("Alfons och soldatpappan", person)).to eq expected_output
   end
 
 end
