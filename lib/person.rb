@@ -1,7 +1,7 @@
 class Person
 
-  attr_accessor :name
-  attr_reader :books
+  attr_accessor :name, :books
+# attr_reader :books
 
   def initialize(name)
     @name = set_name(name)
@@ -20,4 +20,7 @@ class Person
     books.delete(book)
   end
 
+  def read_borrowed_books
+    books
+  end
 end

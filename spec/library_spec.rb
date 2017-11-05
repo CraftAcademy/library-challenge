@@ -1,11 +1,11 @@
 require './lib/library'
-# require './lib/person'
+#require './lib/person'
 require 'yaml'
 
 describe Library do
 
   let(:person) { instance_double('Person', name: 'Lisa', books: [] ) }
-#  subject { described_class.new(name: 'Lisa', books: [{:item=>{:title=>"Alfons och soldatpappan"}}] ) }
+  #subject { described_class.new() }
 
   it 'is expected to have a record of books on initialize' do
     expect(subject.books).not_to be nil
