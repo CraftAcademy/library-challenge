@@ -10,4 +10,7 @@ describe Library do
   it 'searches book title' do
     expect(subject.search_title).to be_truthy
   end
+  it 'sets a date when book is checked out' do
+    expect(subject.check_out).not_to be nil
+  end
 end
