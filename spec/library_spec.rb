@@ -11,8 +11,8 @@ describe Library do
     expect(subject.books).not_to be nil
   end
 
-  xit 'is expected that a record of all books is available stored in a file' do
-    expect(subject.record).to eq expected output
+  it 'is expected that the availability of books is presented' do
+    expect { (subject.record_available_books).is_expected.to include(true) }
   end
 =begin
   xit 'is expected a person can check out books' do
