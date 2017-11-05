@@ -1,4 +1,4 @@
-
+require './lib/library.rb'
 
 describe Library do
   let(:person) { instance_double('Person') }
