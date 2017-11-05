@@ -4,4 +4,8 @@ class Library
     @collection = YAML.load_file('./lib/data.yml')
   end
 
+  def checkout_book(book, person)
+    book[:available] = false
+    person.books << book[:item]
+  end
 end

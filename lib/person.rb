@@ -2,7 +2,7 @@ class Person
 attr_reader :name
 
   def initialize
-    @name = 'Oliver'
+    @name = name
   end
 
 end
