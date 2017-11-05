@@ -16,8 +16,12 @@ describe Library do
   end
 
   it 'is expected that a book can be checked out for 1 month' do
-    expected_date = Date.today.next_month(1).strftime("%d/%m%y")
+    expected_date = Date.today.next_month(1).strftime("%d/%m/%y")
     expect(subject.return_date).to eq expected_date
+  end
+
+  it 'is expected that a person can search for books' do
+    expect { (subject.select_books).to eq exected }
   end
 
 end
