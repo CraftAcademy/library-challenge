@@ -1,17 +1,18 @@
 require 'yaml'
+require 'person'
 
 class Library
-  attr_accessor :collection, :available
+  STANDARD_VALIDITY_MONTH = 1
+  attr_accessor :collection, :my_books
 
   def initialize
     @collection = YAML.load_file('./lib/data.yml')
   end
 
-  def books
-    @collection = []
+  def my_list
+    book_list = []
+    book_list = @collection.select { |obj| obj[:available] == true }
   end
 
-  def books_available
-    @collection.select { |obj| obj[:available] == true }
-  end
+  
 end
