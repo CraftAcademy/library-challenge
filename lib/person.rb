@@ -14,8 +14,7 @@ class Person
     @name = obj
   end
 
-  def list_of_books
-    @books
+  def loan_books
   #  @books = YAML.load_file(".lib/data.yml")
   end
 

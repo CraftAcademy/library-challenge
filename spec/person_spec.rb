@@ -9,8 +9,8 @@ describe Person do
     expect(subject.name).not_to be nil
   end
 
-  xit 'should have a :books attribute with a collection of books upon initialize' do
-    expect(subject.books).not_to be_empty
+  it 'is expected a person can select books to loan' do
+    expect(subject.loan_books(books)).to eq expected output
   end
 
 =begin
