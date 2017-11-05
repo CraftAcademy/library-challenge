@@ -22,10 +22,9 @@ describe Person do
     expect(subject.library).to be nil
   end
 
-  describe 'can create a library' do
-    before do
-      subject.enter_library
-    end
+  describe 'can enter a library' do
+    before { subject.enter_library }
+
     it 'of Library class' do
       expect(subject.library).to be_an_instance_of Library
     end
@@ -35,5 +34,12 @@ describe Person do
     end
   end
 
-  
+  #   it 'can search search for books in library' do
+  #     expect(subject.search(title: 'Dia')).to be_truthy
+  #   end
+  # end
+  #
+  #   it 'can not search for books if not in library' do
+  #     expect(subject.search(title: 'Dia')).to eq "Not in library!"
+  #   end
 end

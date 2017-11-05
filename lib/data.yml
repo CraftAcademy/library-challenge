@@ -1,26 +1,26 @@
 ---
 - :item:
-    :title: Alfons och soldatpappan
-    :author: Gunilla Bergström
-  :available: false
-  :return_date: 
-- :item:
-    :title: Skratta lagom! Sa pappa Åberg
-    :author: Gunilla Bergström
+    :title: Diary of a Wimpy Kid
+    :author: Jeff Kinney
   :available: true
-  :return_date: 
+  :return_date:
 - :item:
-    :title: Osynligt med Alfons
-    :author: Gunilla Bergström
+    :title: Harry Potter and the Chamber of Secrets
+    :author: J.K. Rowling
   :available: true
-  :return_date: 
+  :return_date:
 - :item:
-    :title: Pippi Långstrump
-    :author: Astrid Lindgren
+    :title: The Hunger Games
+    :author: Suzanne Collins
   :available: true
-  :return_date: 
+  :return_date:
 - :item:
-    :title: Pippi Långstrump går ombord
-    :author: Astrid Lindgren
+    :title: The Lord Of The Rings
+    :author: J.R.R Tolkien
+  :available: true
+  :return_date:
+- :item:
+    :title: Of Mice And Men
+    :author: John Steinbeck
   :available: true
   :return_date: 
