@@ -15,7 +15,7 @@ describe Person do
   end
 
   it 'is expected to set books to empty array on initialize' do
-    expect(subject.books).to eq []
+    expect(subject.my_books).to eq []
   end
 
   it 'is expected to set library to nil on initialize' do

@@ -65,7 +65,5 @@ class Library
   def set_return_date
     Date.today.next_month(1).strftime('20%y-%m-%d')
   end
-  # def book_unavailable?(book)
-  #   @books[book_num][:available] == false
-  # end
+
 end

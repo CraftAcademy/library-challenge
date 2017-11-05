@@ -14,9 +14,6 @@ class Person
     @library = Library.new
   end
 
-  # def checkout(args = {})
-  #   @library.checkout(args[:title]) if @library != nil
-  # end
 
   private
 
