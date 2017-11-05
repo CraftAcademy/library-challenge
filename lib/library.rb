@@ -24,7 +24,14 @@ class Library
         person.books << { title: obj[:item][:title], author: obj[:item][:author], return_date: Date.today.next_month(1).strftime('%d/%m/%y') }
         update_collection(obj)
       end
+    end
+  end
 
+  def return(title, person)
+    person.books.detect do |obj|
+      if obj[:title].include? title
+        person.books.delete(obj)
+      end
     end
   end
 

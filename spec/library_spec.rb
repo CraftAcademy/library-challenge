@@ -43,7 +43,15 @@ describe Library do
        expected_output = 'You have a book with an expired return date. Please return it first.'
        expect(subject.checkout('Pippi Långstrump går ombord', person )).to eq expected_output
      end
-
+   end
+   describe 'person can return a book' do
+     before do
+       subject.checkout('Osynligt med Alfons', person)
+       subject.return('Osynligt med Alfons', person)
+     end
+     it 'and the book is removed from persons books' do
+       expect(person.books[0]).to eq nil
+     end
    end
    after(:all) { File.open('./lib/data.yml', 'w') { |f| f.write @fake.to_yaml } }
 end
