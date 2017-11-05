@@ -31,7 +31,7 @@ class Library
         change_status(book)
         person.my_books << book.reject{|key| key == :available}
       elsif book[:item][:title] == title && book_unavailable(book)
-        puts error(book)
+        return error(book)
       end
     end
   end
@@ -42,8 +42,8 @@ class Library
     File.open('./lib/data.yml', 'w') { |f| f.write @books.to_yaml }
   end
 
-  def book_unavailable(title)
-    title[:available] == false
+  def book_unavailable(book)
+    book[:available] == false
   end
 
   def error(title)
