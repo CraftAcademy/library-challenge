@@ -27,7 +27,7 @@ describe Library do
   #  expect(subject.select_books_to_borrow("Alfons och soldatpappan", person)).to eq expected_output
   end
 
-  it 'is expected that a person can borrow books' do
+  xit 'is expected that a person can borrow books' do
     expected_output = "The book is not available"
     expect(subject.select_books_to_borrow("Alfons och soldatpappan", person)).to eq expected_output
   end

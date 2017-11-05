@@ -27,7 +27,7 @@ class Library
     if detect_books[:available] == true
       detect_books[:available] = false
       detect_books[:return_date] = self.set_return_date
-      user.add_book(detect_books)
+      user.add_book(:title=>detect_books[:item][:title],:return_date=>detect_books[:return_date])
       File.open('./lib/data.yml', 'w') { |f| f.write books.to_yaml }
       book + " has been borrowed and is due " + detect_books[:return_date]
     else
