@@ -9,12 +9,18 @@ class Person
   def initialize(name)
     @name = set_name(name)
 #    @books = read_available_books
-    @books = books
+    @books = []
   end
 
   def set_name(obj)
     @name = obj
   end
 
+  def add_book(book)
+    books.push(book)
+  end
+
+  def return_book
+  end
 
 end
