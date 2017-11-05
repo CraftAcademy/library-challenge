@@ -12,7 +12,8 @@ describe Person do
     expect{ described_class.new }.to raise_error 'You need an account to rent books'
   end
 
-  xit 'needs to show the individual a list of books' do
-    expect(subject)
+  it 'has an empty array books on initialize' do
+    expect(subject.books).to eq []
   end
+
 end

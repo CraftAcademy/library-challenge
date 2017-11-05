@@ -1,9 +1,10 @@
 class Person
 
-  attr_accessor :name
+  attr_accessor :name, :books
 
   def initialize(attrs = {})
     @name = username(attrs[:name])
+    @books = []
   end
 
   def username(name)
