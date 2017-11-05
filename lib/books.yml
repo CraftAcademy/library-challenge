@@ -1,26 +1,26 @@
 ---
-- :item
-      :title 
-      :author
-  :available
-  :return_date
-- :item
-      :title
-      :author
-  :available
-  :return_date
-  - :item
-        :title
-        :author
-    :available
-    :return_date
-- :item
-      :title
-      :author
-  :available
-  :return_date
-- :item
-      :title
-      :author
-  :available
-  :return_date
+- :item:
+      :title: Factotum
+      :author: Charles Bukowski
+  :available: true
+  :return_date:
+- :item:
+      :title: Harry Potter and the philosopher's stone
+      :author: J.K Rowling
+  :available: false
+  :return_date: '2017-11-25'
+- :item:
+      :title: It
+      :author: Stephen King
+  :available: true
+  :return_date:
+- :item:
+      :title: Return of the King
+      :author: J.R.R Tolkien
+  :available: True
+  :return_date:
+- :item:
+      :title: Sophie's choice
+      :author: William Styron
+  :available: true
+  :return_date:
