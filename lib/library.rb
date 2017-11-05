@@ -1,4 +1,5 @@
 require 'yaml'
+require 'date'
 
 class Library
   attr_accessor :collection
@@ -17,19 +18,19 @@ class Library
   end
 
   def search_title
-    @collection.each do |title|
-      puts "#{title[:item][:title]}"
-    end
+  result = @collection.select { |obj| obj[:item][:title].include? "Androids" }
+  result.each do |book|
+    puts "#{book[:item][:title]} author: #{book[:item][:author]}"
+  end
+end
+
+  private
+
+  def set_today
+    Date.today.strftime('%F')
   end
 
-   private
-
-   def set_today
-     Date.today.strftime('%F')
-   end
-
    def return_date
-     Date.today.next_month.strftime('%F%')
+     Date.today.next_month.strftime('%F')
    end
-
 end
