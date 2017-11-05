@@ -27,13 +27,13 @@ describe Library do
   #  expect(subject.select_books_to_borrow("Alfons och soldatpappan", person)).to eq expected_output
   end
 
-  xit 'is expected that a person can borrow books' do
+  it 'is expected that a person cannot borrow a checked out books' do
     expected_output = "The book is not available"
     expect(subject.select_books_to_borrow("Alfons och soldatpappan", person)).to eq expected_output
   end
 
-  xit 'is expected that a person can return books' do
+  it 'is expected that a person can return books' do
     subject.select_books_to_return("Alfons och soldatpappan", person)
-    expect(person.books).to be nil
+    expect(person.books).to eq []
   end
 end
