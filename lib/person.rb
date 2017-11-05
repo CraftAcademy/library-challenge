@@ -9,4 +9,8 @@ class Person
     library.book_list
   end
 
+  def get_search_title(library, list)
+    library.search_title
+  end
+
 end
