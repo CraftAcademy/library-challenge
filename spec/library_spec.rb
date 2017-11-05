@@ -15,14 +15,15 @@ describe Library do
   end
 
   describe '#checkout_book' do
+    let(:expected_return_date) { Date.today.next_month.strftime('%Y-%m-%d') }
+
     before do
       @book_to_checkout = subject.collection[0]
-      #person withdraws a book
       subject.checkout_book(@book_to_checkout, oliver)
     end
+
     it 'changes availability of checked out book to false' do
-      #if he withdraws a book then the book should be unavailable
-      expect(subject.collection[0][:available]).to eq false
+      expect(@book_to_checkout[:available]).to eq false
     end
 
     it 'adds one book to persons book collection' do
@@ -30,7 +31,16 @@ describe Library do
     end
 
     it 'adds the checked out book to persons book collection' do
-      expect(oliver.books).to include @book_to_checkout[:item]
+      expected_content = @book_to_checkout[:item].merge({return_date: expected_return_date})
+      expect(oliver.books).to include expected_content
+    end
+
+    it 'sets return date one month from now in librarys collection' do
+      expect(@book_to_checkout[:return_date]).to eq expected_return_date
+    end
+
+    it 'sets return date one month from now in persons book collection' do
+      expect(oliver.books.first[:return_date]).to eq expected_return_date
     end
   end
 end

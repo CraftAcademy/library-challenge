@@ -5,7 +5,9 @@ class Library
   end
 
   def checkout_book(book, person)
+    return_date = Date.today.next_month.strftime('%Y-%m-%d')
     book[:available] = false
-    person.books << book[:item]
+    book[:return_date] = return_date
+    person.books << book[:item].merge({return_date: return_date})
   end
 end
