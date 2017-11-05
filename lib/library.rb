@@ -12,8 +12,6 @@ class Library
     @return_date = set_return_date
   end
 
-#private
-
   def record_available_books
     available_books = books.select { |obj| obj[:available] == true }
     available_books.each { |obj| puts obj[:item][:title] + ", " + obj[:item][:author] }
@@ -30,9 +28,9 @@ class Library
       detect_books[:return_date] = self.set_return_date
       File.open('./lib/data.yml', 'w') { |f| f.write books.to_yaml }
       user.add_book(detect_books)
-      puts book + " has been borrowed and is due " + detect_books[:return_date]
+      book + " has been borrowed and is due " + detect_books[:return_date]
     else
-      puts "The book is not available"
+      "The book is not available"
     end
   end
 
@@ -42,7 +40,6 @@ class Library
       detect_books[:available] = true
       File.open('./lib/data.yml', 'w') { |f| f.write books.to_yaml }
       user.return_book(detect_books)
-      puts book + " has been returned"
+      book + " has been returned"
   end
-
 end
