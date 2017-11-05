@@ -14,15 +14,23 @@ describe Library do
     expect(subject.collection).to be_kind_of Array
   end
 
-  it 'expects to be able to let individuals to check out a book from the collection' do
-    book_to_checkout = subject.collection[0]
-    #person withdraws a book
-    subject.checkout_book(book_to_checkout, oliver)
-    #if he withdraws a book then the book should be unavailable
-    binding.pry
-    expect(subject.collection[0][:available]).to eq false
-    expect(oliver.books.size).to eq 1
-    expect(oliver.books).to include book_to_checkout[:item]
-  end
+  describe '#checkout_book' do
+    before do
+      @book_to_checkout = subject.collection[0]
+      #person withdraws a book
+      subject.checkout_book(@book_to_checkout, oliver)
+    end
+    it 'changes availability of checked out book to false' do
+      #if he withdraws a book then the book should be unavailable
+      expect(subject.collection[0][:available]).to eq false
+    end
 
+    it 'adds one book to persons book collection' do
+      expect(oliver.books.size).to eq 1
+    end
+
+    it 'adds the checked out book to persons book collection' do
+      expect(oliver.books).to include @book_to_checkout[:item]
+    end
+  end
 end
