@@ -14,7 +14,13 @@ class Library
          puts "LOANED #{book[:item][:title]} author: #{book[:item][:author]}"
        end
      end
-   end
+  end
+
+  def search_title
+    @collection.each do |title|
+      puts "#{title[:item][:title]}"
+    end
+  end
 
    private
 

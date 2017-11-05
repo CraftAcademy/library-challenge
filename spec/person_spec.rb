@@ -14,4 +14,7 @@ describe Person do
     allow(library).to receive(:book_list).and_return('book list')
     expect(subject.get_book_list(library, list)).to eq 'book list'
   end
+  it 'makes ' do
+
+  end
 end
