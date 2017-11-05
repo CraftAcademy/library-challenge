@@ -25,3 +25,5 @@ This is my solution to the Library Challenge.
 `=> [{:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, :available=>false, :return_date=>"05/12/17"}]`
 7. To see what books are in persons collection, type `person.books`  
 ` => [{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström", :return_date=>"05/12/17"}] `
+8. To return a book, type `library.return('Alfons och soldatpappan', person)`  
+` => {:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström", :return_date=>"05/12/17"}`
