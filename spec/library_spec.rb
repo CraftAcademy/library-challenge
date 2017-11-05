@@ -52,6 +52,12 @@ describe Library do
      it 'and the book is removed from persons books' do
        expect(person.books[0]).to eq nil
      end
+     it 'the available is in library collection is set to true' do
+       expect(subject.collection[2][:available]).to eq true
+     end
+     it 'and the return date is removed' do
+       expect(subject.collection[2][:return_date]).to eq nil
+     end
    end
    after(:all) { File.open('./lib/data.yml', 'w') { |f| f.write @fake.to_yaml } }
 end

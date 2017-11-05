@@ -22,7 +22,7 @@ class Library
         return 'That book is already checked out'
       elsif obj[:item][:title].include? title
         person.books << { title: obj[:item][:title], author: obj[:item][:author], return_date: Date.today.next_month(1).strftime('%d/%m/%y') }
-        update_collection(obj)
+        update_collection_checkout(obj)
       end
     end
   end
@@ -31,6 +31,7 @@ class Library
     person.books.detect do |obj|
       if obj[:title].include? title
         person.books.delete(obj)
+        update_collection_return(title)
       end
     end
   end
@@ -43,9 +44,23 @@ class Library
     end
   end
 
-  def update_collection(obj)
+  def update_collection_checkout(obj)
     obj[:available] = false
     obj[:return_date] = Date.today.next_month(1).strftime('%d/%m/%y')
+    update_yaml
+  end
+
+  def update_collection_return(title)
+    @collection.detect do |obj|
+      if obj[:item][:title].include? title
+        obj[:available] = true
+        obj[:return_date] = nil
+        update_yaml
+      end
+    end
+  end
+
+  def update_yaml
     File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
   end
 end
