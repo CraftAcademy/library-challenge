@@ -1,4 +1,5 @@
 require "yaml"
+require "date"
 
 class Library
 
@@ -11,17 +12,15 @@ class Library
     @return_date = set_return_date
   end
 
-private
+#private
 
   def record_available_books
-    available_books = collection.select { |obj| obj[:available] == true }
-    available_books
-  #  available_books[:author].to_s + ", " + available_books[:title]
+    available_books = books.select { |obj| obj[:available] == true }
+    available_books.each { |obj| puts obj[:item][:title] + ", " + obj[:item][:author] }
   end
 
   def set_return_date
-    Date.today.next_month(CHECKOUT_DURATION).strftime('%d/%m')
+    Date.today.next_month(CHECKOUT_DURATION).strftime('%d/%m%y')
   end
-
 
 end
