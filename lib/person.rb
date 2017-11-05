@@ -7,7 +7,11 @@ class Person
   end
 
   def username(name)
-    @name = name
-    #name == nil ? no_account : @name = name
+    name == nil ? no_name : @name == name
   end
+
+  def no_name
+    raise 'You need an account to rent books'
+  end
+
 end
