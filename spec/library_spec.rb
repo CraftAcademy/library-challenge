@@ -20,8 +20,8 @@ describe Library do
     expect(subject.return_date).to eq expected_date
   end
 
-  it 'is expected that a person can search for books' do
-    expect { (subject.select_books).to eq exected }
+  it 'is expected that a person can search and borrow books' do
+    expect(subject.select_books).to be_kind_of(Array)
   end
 
 end

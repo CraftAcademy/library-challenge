@@ -12,8 +12,8 @@
 - :item:
     :title: Osynligt med Alfons
     :author: Gunilla Bergström
-  :available: true
-  :return_date: 
+  :available: false
+  :return_date: 05/12/17
 - :item:
     :title: Pippi Långstrump
     :author: Astrid Lindgren
@@ -22,5 +22,5 @@
 - :item:
     :title: Pippi Långstrump går ombord
     :author: Astrid Lindgren
-  :available: true
-  :return_date: 
+  :available: false
+  :return_date: 05/12/17
