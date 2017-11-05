@@ -1,8 +1,10 @@
 class Person
-attr_reader :name
+  attr_reader :name
+  attr_accessor :books
 
-  def initialize
+  def initialize(name)
     @name = name
+    @books = Array.new
   end
 
 end
