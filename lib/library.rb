@@ -6,6 +6,7 @@ class Library
   CHECKOUT_DURATION = 1
 
   attr_accessor :books, :return_date
+  attr_reader :person
 
   def initialize
     @books = YAML.load_file("./lib/data.yml")
@@ -26,8 +27,8 @@ class Library
     if detect_books[:available] == true
       detect_books[:available] = false
       detect_books[:return_date] = self.set_return_date
-      File.open('./lib/data.yml', 'w') { |f| f.write books.to_yaml }
       user.add_book(detect_books)
+      File.open('./lib/data.yml', 'w') { |f| f.write books.to_yaml }
       book + " has been borrowed and is due " + detect_books[:return_date]
     else
       "The book is not available"

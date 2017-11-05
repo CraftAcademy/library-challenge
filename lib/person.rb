@@ -1,3 +1,5 @@
+require '.lib/library'
+
 class Person
 
   attr_accessor :name
