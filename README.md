@@ -1,88 +1,53 @@
-##Library Challenge
-###Week 1 Ruby challenge
+# library-challenge
 
-Instructions
--------
-Read this entire README carefully and follow all instructions.
+## Brief Description
+Will Post Soon.
 
-* Challenge time: this weekend, until Monday 9am
-* Feel free to use Google, Stack Overflow, your notes, previously written code, books, etc. but work on your own
-* If you refer to or have in whole or partially used the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution to GitHub and create a Pull Request**
-* You must submit a Pull Request to this repository with your code by 9.30am Monday morning - before the stand-up
+## Attention
+Some of the should get messages written below might not match the ones exactly that you'll receive in irb or pry
 
+## Getting Started
+1. In terminal type irb or pry (Will need to install pry as gem first)
+2. Load the files
+* Type `load './lib/person.rb'`
+* Should get: `=> true`
+* Type `load './lib/library.rb'`
+* Should get: `=> true`
 
-###Learning objective
-----
-#####Write a Library program with the following user stories:
+## Become a Person
+1. Make a new instance/copy of the Person class
+* Type: `me = Person.new(name: 'Scott')`
+* Should get: `=> #<Person:0x007fe16a0e4d38 @name="Bo", @my_books=[], @library=nil>`
+2. Enter the library
+* Type `library = me.enter_library`
+* Should get: `=> #<Library:0x007fe16a89dcf0 @books=[{:item=>{:title=>"Diary of a Wimpy Kid", :author=>"Jeff Kinney"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"Harry Potter and the Chamber of Secrets", :author=>"J.K. Rowling"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"The Hunger Games", :author=>"Suzanne Collins"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"The Lord Of The Rings", :author=>"J.R.R Tolkien"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"Of Mice And Men", :author=>"John Steinbeck"}, :available=>true, :return_date=>nil}]> `
 
-```
-As an individual
-In order to get my hands on a good book
-I would like to see a list of books currently available in the library
-with information about the title and author
-```
+## How To Search
+1. Run the following search command
+* Type: `library.search(title: "The Hunger")`
+* Should get: ` => [{:item=>{:title=>"The Hunger Games", :author=>"Suzanne Collins"}, :available=>true, :return_date=>nil}]`
+2. Can be handy to search via available books
+* Type: `library.search(available: true)`
+* Should get: `=> [{:item=>{:title=>"Diary of a Wimpy Kid", :author=>"Jeff Kinney"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"Harry Potter and the Chamber of Secrets", :author=>"J.K. Rowling"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"The Hunger Games", :author=>"Suzanne Collins"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"The Lord Of The Rings", :author=>"J.R.R Tolkien"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"Of Mice And Men", :author=>"John Steinbeck"}, :available=>true, :return_date=>nil}] `
+3. Can be more specific, search by title and author might be best
+* Type: `library.search(title: 'The', author: 'J.R')`
+* Should get: ` => [{:item=>{:title=>"The Lord Of The Rings", :author=>"J.R.R Tolkien"}, :available=>true, :return_date=>nil}]`
+4. Forgot the book title? Search by author!
+* Type: `library.search(author: 'Suzanne Collins')`
+* Should get: ` => [{:item=>{:title=>"The Hunger Games", :author=>"Suzanne Collins"}, :available=>true, :return_date=>nil}] `
 
-```
-As a library
-In order to have good books to offer to the public
-I would like to be able to have a collection of books
-```
+## How To Checkout
+1. Run the following checkout command
+* Type: `library.checkout("The Hunger Games", me)`
+* Should get: `=> [{:item=>{:title=>"Diary of a Wimpy Kid", :author=>"Jeff Kinney"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"Harry Potter and the Chamber of Secrets", :author=>"J.K. Rowling"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"The Hunger Games", :author=>"Suzanne Collins"}, :available=>false, :return_date=>"2017-12-06"}, {:item=>{:title=>"The Lord Of The Rings", :author=>"J.R.R Tolkien"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"Of Mice And Men", :author=>"John Steinbeck"}, :available=>true, :return_date=>nil}]`
+* Type `me.my_books`
+* Should get: ` => [{:item=>{:title=>"The Hunger Games", :author=>"Suzanne Collins"}, :return_date=>"2017-12-06"}]`
+2. Make sure to return the book before you checkout a new book!
 
-```
-As a library
-In order to have good books to offer to the public
-I would like to be able to allow individuals to check out a book
-```
-
-```
-As a library
-In order to make the books available to many individuals
-I would like to set a return date on every check out
-and I would like that date to be 1 month from checkout date
-```
-
-```
-As an individual
-In order to avoid awkward moments at the library
-I would like to know when my book is supposed to be returned
-```
-
-###Tasks
-----
-
-* Fork the challenge repo: https://github.com/CraftAcademy/library-challenge
-* Run the command `bundle install` in the project directory to ensure you have all the gems
-* Write your specs and implementation
-* Be smart about using Git: commit and push often. Use feature branches.
-* Create a Pull Request as soon as possible
-* Read the comments from Hound and fix any issues that the service points out.
-
-###Tips
-----
-
-#####Some hints:
-  * A Person needs to have a list of books that he currently has in his possession. That list needs to include the return date.
-  * The return date can be calculated using the `Date` object. Out of the box, there are methods you can use to add days to the current date.
-  * Make use of `doubles` when writing your specs
-  * Follow the [naming conventions/standards](https://craftacademy.gitbooks.io/coding-as-a-craft/content/extras/naming_standards.html) for methods and variables
-
-###What we are looking for
-----
-#####I'm hoping to see that:
-* You can take a problem set and write a well tested implementation on your own.
-* You understand how to define Ruby Classes and work with objects.
-* You understand how classes can interact with each other.
-* You know how to make use of arrays, hashes, and associated methods to create dynamic lists.
-* You know how to write specs and use them as a blueprint in your development.
-* I can track your work by following you commit history - so please commit as soon you are done with a feature or when you have made a test pass.
-
-#####In your Pull Request, I'm hoping to see:
-* That you are testing the right thing in the right spec file.
-* That all tests passing - green is good!
-* High test coverage (above 95% is accepted)
-* The code is easy to follow: every class has a clear responsibility, methods are short, code is nicely formatted, etc.
-* The `README.md` includes information on how to use your solution with command examples in `irb`. (Feel free to remove this text)
-
-
-**Happy coding!**
+## How to Return
+1. Run the following return command
+* Type: `library.return(me)`
+* Should get: `=> {:item=>{:title=>"The Hunger Games", :author=>"Suzanne Collins"}, :return_date=>"2017-12-06"}`
+2. You may now checkout another book and type the following to see the library's books status updated
+* Type: `library.books`
+* Should get: ` => [{:item=>{:title=>"Diary of a Wimpy Kid", :author=>"Jeff Kinney"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"Harry Potter and the Chamber of Secrets", :author=>"J.K. Rowling"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"The Hunger Games", :author=>"Suzanne Collins"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"The Lord Of The Rings", :author=>"J.R.R Tolkien"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"Of Mice And Men", :author=>"John Steinbeck"}, :available=>true, :return_date=>nil}] `
