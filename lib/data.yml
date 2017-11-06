@@ -3,12 +3,12 @@
     :title: Diary of a Wimpy Kid
     :author: Jeff Kinney
   :available: true
-  :return_date:
+  :return_date: 
 - :item:
     :title: Harry Potter and the Chamber of Secrets
     :author: J.K. Rowling
   :available: true
-  :return_date:
+  :return_date: 
 - :item:
     :title: The Hunger Games
     :author: Suzanne Collins
@@ -18,9 +18,9 @@
     :title: The Lord Of The Rings
     :author: J.R.R Tolkien
   :available: true
-  :return_date:
+  :return_date: 
 - :item:
     :title: Of Mice And Men
     :author: John Steinbeck
   :available: true
-  :return_date:
+  :return_date: 
