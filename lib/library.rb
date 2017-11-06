@@ -23,6 +23,21 @@ class Library
    perform_checkout(title, person)
   end
 
+  def return(person)
+    if person.my_books.length == 1
+      @books.each do |book|
+        if person.my_books[0][:item][:title] == book[:item][:title]
+        book[:available] = true
+        book[:return_date] = nil
+        File.open('./lib/data.yml', 'w') { |f| f.write @books.to_yaml }
+      end
+    end
+      person.my_books.delete_at(0)
+    else
+      "You have no books to return"
+    end
+  end
+
   private
 
   def perform_checkout(title, person)
