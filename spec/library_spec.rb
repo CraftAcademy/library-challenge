@@ -7,4 +7,7 @@ describe Library do
     expect(subject.collection).not_to be nil
   end
 
+  it 'person can see list of books' do
+    expect()
+  end
 end
