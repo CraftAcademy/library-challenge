@@ -1,0 +1,26 @@
+---
+- :item:
+    :title: A Scanner Darkly
+    :author: Philip K. Dick
+  :available: true
+  :return_date:
+- :item:
+    :title: Do Androids Dream of Electric Sheep?
+    :author: Philip K. Dick
+  :available: false
+  :return_date: '2017-12-02'
+- :item:
+    :title: The Hobbit
+    :author: J. R. R. Tolkien
+  :available: true
+  :return_date:
+- :item:
+    :title: Christine
+    :author: Stephen King
+  :available: true
+  :return_date:
+- :item:
+    :title: Misery
+    :author: Stephen King
+  :available: true
+  :return_date:
