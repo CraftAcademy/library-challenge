@@ -8,3 +8,4 @@ gem 'pry'
 gem 'pry-byebug'
 gem 'coveralls', require: false
 gem 'rubocop'
+gem 'guard-rspec'
