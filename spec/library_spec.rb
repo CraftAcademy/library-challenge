@@ -18,9 +18,13 @@ describe Library do
     expect(subject).to respond_to(:books)
   end
 
-  it 'can print a list of books' do
+  it 'can print a list of books from YAML-file' do
     expected_output = YAML::load_file(File.join(__dir__, '../lib/data.yml'))
     expect(subject.list_books).to eq expected_output
+  end
+
+  it 'prints only available books' do
+    expect(subject.list_available_books).to eq 
   end
 
 end

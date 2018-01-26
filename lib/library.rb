@@ -14,7 +14,16 @@ class Library
       author = items[:item][:author]
       available = items[:available]
       return_date = items[:return_date]
-      message = "Book: #{book}, Author: #{author}"
+
+      #Checks parameter "available"
+      if items[:available] != true
+        status = 'Utlånad'
+      else
+        status = 'Tillgänglig'
+      end
+
+      puts "Book: #{book}, Author: #{author}, Available: #{status}"
+
     end
   end
 
