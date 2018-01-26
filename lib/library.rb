@@ -9,10 +9,14 @@ class Library
   end
 
   def list_books
-    @books
+    @books.each do |items|
+      book = items[:item][:title]
+      author = items[:item][:author]
+      available = items[:available]
+      return_date = items[:return_date]
+      puts "Book: #{book}, Author: #{author}"
+    end
   end
-
-
 
 end
 
