@@ -1,4 +1,5 @@
 require './lib/library.rb'
+require 'yaml'
 
 =begin
 “As a Library,
@@ -15,6 +16,11 @@ describe Library do
 
   it 'responds to "books"' do
     expect(subject).to respond_to(:books)
+  end
+
+  it 'can print a list of books' do
+    expected_output = YAML::load_file(File.join(__dir__, '../lib/data.yml'))
+    expect(subject.list_books).to eq expected_output
   end
 
 end
