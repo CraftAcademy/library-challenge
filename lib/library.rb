@@ -14,7 +14,7 @@ class Library
       author = items[:item][:author]
       available = items[:available]
       return_date = items[:return_date]
-      puts "Book: #{book}, Author: #{author}"
+      message = "Book: #{book}, Author: #{author}"
     end
   end
 
