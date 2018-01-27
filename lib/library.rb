@@ -32,4 +32,8 @@ class Library
   def return_date
     Date.today.next_month(1).strftime("%m/%Y")
   end
+
+  def method_name
+
+  end
 end
