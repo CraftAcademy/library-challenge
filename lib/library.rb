@@ -21,9 +21,11 @@ class Library
   end
 
   def checkout(title)
-    book = collection.detect { |obj| obj[:item][:title].include? title  }
+    book = @collection.detect { |obj| obj[:item][:title].include? title  }
+    index = @collection.index(book)
+    @collection[index][:available] = false
     @client.add_book(book)
-    # book[:available] = false
+
     # add return date
   end
 end

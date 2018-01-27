@@ -11,4 +11,6 @@ describe Client do
     subject.add_book('book')
     expect(subject.bookshelf).to eq ['book']
   end
+
+  
 end

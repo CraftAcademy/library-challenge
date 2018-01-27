@@ -28,4 +28,12 @@ describe Library do
     expect(subject.available_titles).to eq expected_output
   end
 
+  it 'should change the availability to false' do
+    expected_output = [{:item=>{:title=>"Alfons och soldatpappan",
+                        :author=>"Gunilla Bergström"},
+                        :available=>false,
+                        :return_date=>nil}]
+    expect(subject.checkout("Alfons och soldatpappan")).to eq expected_output
+  end
+
 end
