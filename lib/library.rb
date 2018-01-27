@@ -14,17 +14,17 @@ class Library
       author = items[:item][:author]
       available = items[:available]
       return_date = items[:return_date]
-
       #Checks parameter "available"
-      if items[:available] != true
-        status = 'Utlånad'
-      else
-        status = 'Tillgänglig'
-      end
-
+      items[:available] ? status = 'Utlånad' : status = 'Tillgänglig'
+      #Returns a string with books
       puts "Book: #{book}, Author: #{author}, Available: #{status}"
+      #puts "Book: #{book}, Author: #{author}, Available: #{status}"
 
     end
+  end
+
+  def list_available_books
+
   end
 
 end

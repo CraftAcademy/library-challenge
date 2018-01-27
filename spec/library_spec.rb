@@ -24,7 +24,7 @@ describe Library do
   end
 
   #Not implementet yet
-  it 'prints only available books' do
+  xit 'prints only available books' do
     expect(subject.list_available_books).to eq
   end
 
