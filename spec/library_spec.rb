@@ -23,13 +23,6 @@ describe Library do
     expect(subject.list_books).to eq expected_output
   end
 
-<<<<<<< HEAD
-  #Not implementet yet  
-  it 'prints only available books' do
-    expect(subject.list_available_books).to eq
-  end
-
-=======
   #Not implementet yet
   xit 'prints only available books' do
     expect(subject.list_available_books).to eq
@@ -47,5 +40,4 @@ describe Library do
     expect(subject.search_books('Åberg', false)).not_to be_nil
   end
 
->>>>>>> list_books
 end
