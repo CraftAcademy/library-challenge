@@ -7,7 +7,12 @@ describe Person do
   end
 
   it 'can checkout a book' do
-    expect(subject.checkout('Alfons och soldatpappan')).not_to be_nil
+    book = 'Osynligt med Alfons'
+    expect(subject.checkout(book)).to eq book
+  end
+
+  xit 'sets a books status to false if checked out' do
+    expect(subject.set_book_availability(book)).to eq book
   end
 
 end

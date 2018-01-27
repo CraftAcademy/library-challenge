@@ -17,9 +17,9 @@ class Library
       return_date = items[:return_date]
 
       #Checks parameter "available"
-      items[:available] ? status = 'checked out' : status = 'available'
+      items[:available] ? status = 'Available' : status = 'Checked out'
       #Returns a string with books
-      puts "Book: #{book}, Author: #{author}, Available: #{status}"
+      puts "Book: #{book}, Author: #{author}, Is: #{status}"
       #puts "Book: #{book}, Author: #{author}, Available: #{status}"
 
     end
@@ -28,7 +28,7 @@ class Library
   #SEARCH BOOKS
   def search_books(search_word, available)
     results = []
-    search_result = @books.select { |items| items[:item][:title].include? search_word  }
+    search_result = @books.select { |items| items[:item][:title].include? search_word }
     search_result.each do |book|
       if available == book[:available]
       #puts "Book: #{book}"
@@ -42,7 +42,7 @@ class Library
 
   #CHECKOUT BOOK
   def checkout_book(book)
-    
+  end
 
 end
 
