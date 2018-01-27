@@ -10,6 +10,11 @@ describe Library do
   it "allows to check that a book is available" do
     expect(subject.availability("Alfons och soldatpappan", "Gunilla Bergström")).to be true
   end
+
+  it "sets a return date of 1 month from check out date" do
+    expected_date = Date.today.next_month(1).strftime("%m/%Y")
+    expect(subject.return_date).to eq expected_date
+  end
 end
 =begin
 
