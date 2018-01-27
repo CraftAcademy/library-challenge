@@ -2,10 +2,10 @@
 This program builds a virtual library that allows users to search for books, check them out, and hold books in their own bookshelf. It is written using Ruby and checked with RSpec.
 
 ### Learning objectives
-Taking a problem set and write a well tested implementation on your own.
-Understanding how to define Ruby Classes and work with objects, and how it all interacts.
-You know how to make use of arrays, hashes, and associated methods to create dynamic lists.
-You know how to write specs and use them as a blueprint in your development.
+- Taking a problem set and write a well tested implementation on your own.
+- Understanding how to define Ruby Classes and work with objects, and how it all interacts.
+- You know how to make use of arrays, hashes, and associated methods to create dynamic lists.
+- You know how to write specs and use them as a blueprint in your development.
 
 ### Usage
 
