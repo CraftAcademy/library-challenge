@@ -28,10 +28,4 @@ describe Library do
     expect(subject.available_titles).to eq expected_output
   end
 
-  it 'adds checked out book to client\'s bookshelf' do
-    subject.checkout('Alfons och soldatpappan')
-    expect(client.bookshelf).to eq nil
-  end
-
-
 end

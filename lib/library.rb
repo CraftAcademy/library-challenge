@@ -5,7 +5,7 @@ require './lib/client.rb'
 
 class Library
 
-  attr_accessor :collection
+  attr_accessor :collection, :client
 
   def initialize
     @collection = YAML.load_file('./lib/data.yml')
@@ -22,7 +22,7 @@ class Library
 
   def checkout(title)
     book = collection.detect { |obj| obj[:item][:title].include? title  }
-    @client.add_book('book')
+    @client.add_book(book)
     # book[:available] = false
     # add return date
   end
