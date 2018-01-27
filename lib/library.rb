@@ -8,6 +8,7 @@ class Library
     @books = YAML::load_file(File.join(__dir__, 'data.yml'))
   end
 
+  #LIST BOOKS
   def list_books
     @books.each do |items|
       book = items[:item][:title]
@@ -24,16 +25,24 @@ class Library
     end
   end
 
+  #SEARCH BOOKS
   def search_books(search_word, available)
+    results = []
     search_result = @books.select { |items| items[:item][:title].include? search_word  }
     search_result.each do |book|
       if available == book[:available]
-        puts "Book: #{book}"
+      #puts "Book: #{book}"
+      results << book
       elsif available == 'All'
-        puts "Book: #{book}"
+      results << book
       end
+      puts results
     end
   end
+
+  #CHECKOUT BOOK
+  def checkout_book(book)
+    
 
 end
 
