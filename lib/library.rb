@@ -1,9 +1,31 @@
 require 'date'
 require 'yaml'
 require 'pry'
+require './lib/client.rb'
 
 class Library
 
+  attr_accessor :collection
+
+  def initialize
+    @collection = YAML.load_file('./lib/data.yml')
+    @client = Client.new
+  end
+
+  def display_library
+    @collection
+  end
+
+  def available_titles
+    @collection.select { |obj| obj[:item][:available] == true  }
+  end
+
+  def checkout(title)
+    book = collection.detect { |obj| obj[:item][:title].include? title  }
+    @client.add_book('book')
+    # book[:available] = false
+    # add return date
+  end
 end
 
 =begin
