@@ -45,6 +45,3 @@ class Library
   end
 
 end
-
-#books = YAML::load_file(File.join(__dir__, 'data.yml'))
-#puts @books[0][title]
