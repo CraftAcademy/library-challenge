@@ -23,8 +23,9 @@ describe Library do
     expect(subject.list_books).to eq expected_output
   end
 
+  #Not implementet yet
   it 'prints only available books' do
-    expect(subject.list_available_books).to eq 
+    expect(subject.list_available_books).to eq
   end
 
 end
