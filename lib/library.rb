@@ -16,7 +16,7 @@ class Library
       return_date = items[:return_date]
 
       #Checks parameter "available"
-      items[:available] ? status = 'Utlånad' : status = 'Tillgänglig'
+      items[:available] ? status = 'checked out' : status = 'available'
       #Returns a string with books
       puts "Book: #{book}, Author: #{author}, Available: #{status}"
       #puts "Book: #{book}, Author: #{author}, Available: #{status}"
