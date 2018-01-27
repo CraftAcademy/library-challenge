@@ -12,7 +12,7 @@ describe Library do
 
 
     it 'gives a return date of one month from checkout'
-      expected_date = Date.today.to_time.advance(:month => 1).to_date
+      expected_date = Date.today.next_month(1).strftime('%d/%m/%y')
       expect(subject.return_date).to eq expected_date
     end
 
