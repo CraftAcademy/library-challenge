@@ -13,4 +13,8 @@ class Client
     return @bookshelf
   end
 
+  def display_bookshelf
+    @bookshelf
+  end
+
 end

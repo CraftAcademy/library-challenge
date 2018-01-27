@@ -2,8 +2,8 @@
 - :item:
     :title: Alfons och soldatpappan
     :author: Gunilla Bergström
-  :available: true
-  :return_date:
+  :available: false
+  :return_date: 02/18
 - :item:
     :title: Skratta lagom! Sa pappa Åberg
     :author: Gunilla Bergström
@@ -13,14 +13,14 @@
     :title: Osynligt med Alfons
     :author: Gunilla Bergström
   :available: false
-  :return_date:
+  :return_date: 
 - :item:
     :title: Pippi Långstrump
     :author: Astrid Lindgren
   :available: false
-  :return_date:
+  :return_date: 
 - :item:
     :title: Pippi Långstrump går ombord
     :author: Astrid Lindgren
   :available: false
-  :return_date:
+  :return_date: 

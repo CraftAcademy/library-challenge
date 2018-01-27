@@ -7,6 +7,8 @@ class Library
 
   attr_accessor :collection, :client
 
+  STANDARD_BORROW_TIME = 1 #month
+
   def initialize
     @collection = YAML.load_file('./lib/data.yml')
     @client = Client.new
@@ -17,16 +19,37 @@ class Library
   end
 
   def available_titles
-    @collection.select { |obj| obj[:item][:available] == true  }
+    @collection.select do |obj|
+      obj[:available] == true
+    end
   end
 
   def checkout(title)
-    book = @collection.detect { |obj| obj[:item][:title].include? title  }
+    book = @collection.detect { |obj| obj[:item][:title].include? title }
     index = @collection.index(book)
     @collection[index][:available] = false
+    @collection[index][:return_date] = Date.today.next_month(STANDARD_BORROW_TIME).strftime('%m/%y')
     @client.add_book(book)
+    update_database
+    return book
+  end
 
-    # add return date
+  def update_database
+    File.open('./lib/data.yml', 'w') { |f| f.write @collection.to_yaml }
+  end
+
+  def search(data)
+    title =  @collection.select { |obj| obj[:item][:title].include? data }
+    author =  @collection.select { |obj| obj[:item][:author].include? data }
+    if !title[0].nil? && !author[0].nil?
+      return [title, author]
+    elsif title[0].nil?
+      return author
+    elsif author[0].nil?
+      return title
+    else
+      return 'No matches found'
+    end
   end
 end
 
