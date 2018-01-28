@@ -14,7 +14,8 @@ describe Library do
     end
 
 
-    it 'gives a return date of one month from checkout'
+    it 'gives a return date of one month from checkout' do
       expected_date = Date.today.next_month(1).strftime('%d/%m/%y')
       expect(subject.return_date).to eq expected_date
+    end
 end
