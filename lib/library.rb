@@ -10,20 +10,12 @@ class Library
   end
 
   #LIST BOOKS
-  def list_books
-    @books.each do |items|
-      book = items[:item][:title]
-      author = items[:item][:author]
-      available = items[:available]
-      return_date = items[:return_date]
+  def list_available_books
+    @books.select {|book| book[:available] == true }
+  end
 
-      #Checks parameter "available"
-      items[:available] ? status = 'Available' : status = 'Checked out'
-      #Returns a string with books
-      "Book: #{book}, Author: #{author}, Is: #{status}"
-      #puts "Book: #{book}, Author: #{author}, Available: #{status}"
-
-    end
+  def list_checked_out_books
+    @books.select {|book| book[:available] == false }
   end
 
   #SEARCH BOOKS
@@ -42,18 +34,18 @@ class Library
   end
 
   #CHECKOUT BOOK
-  def checkout_book(book, visitor)
+  def checkout_book(book, person)
     # is the book available?
     # does the person have overdue books on the bookshelf?
     selection = @books.select { |items| items[:item][:title].include? book }
     if selection[0][:available] == true #&& visitor.has_overdue_books == false
       "hejsan"
-    else "sorry"
+    else "Sorry, book is already checked out"
     end
 
   end
 
-  def checkout(book,visitor)
+  def checkout(book,person)
     my_choice = @books.select { |obj| obj[:item][:title].include? book }
     #binding.pry
     my_choice[0][:available] = false
@@ -74,3 +66,22 @@ class Library
   end
 
 end
+
+
+#
+# #LIST BOOKS
+# def list_books
+#   @books.each do |items|
+#     book = items[:item][:title]
+#     author = items[:item][:author]
+#     available = items[:available]
+#     return_date = items[:return_date]
+#
+#     #Checks parameter "available"
+#     items[:available] ? status = 'Available' : status = 'Checked out'
+#     #Returns a string with books
+#     "Book: #{book}, Author: #{author}, Is: #{status}"
+#     #puts "Book: #{book}, Author: #{author}, Available: #{status}"
+#
+#   end
+# end

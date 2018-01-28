@@ -2,17 +2,17 @@ require './lib/person.rb'
 
 describe Person do
 
-  let(:person) {instance_double('Person', name: 'David')}
+  #let(:person) {instance_double('Person', name: 'David')}
   subject { described_class.new }
 
   it 'person should have bookshelf' do
       expect(subject).to respond_to(:bookshelf)
   end
 
-  it 'can checkout a book' do
-    book = 'Osynligt med Alfons'
-    expect(subject.checkout(book)).to eq book
-  end
+  # it 'can checkout a book' do
+  #   book = 'Osynligt med Alfons'
+  #   expect(subject.checkout(book)).to eq book
+  # end
 
 =begin
 
