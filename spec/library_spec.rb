@@ -92,6 +92,7 @@ describe '#checkout_book' do
   end
 
   it 'cant checkout a book thats already checked out' do
+    person = 'david'
     book = 'Alfons och soldatpappan'
     expect(subject.checkout_book(book, person))
     .to eq "Sorry, book is already checked out"
