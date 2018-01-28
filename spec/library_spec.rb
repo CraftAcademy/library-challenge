@@ -6,7 +6,7 @@ describe Library do
 
   let(:library_books) { YAML::load_file(File.join(__dir__, '../lib/data.yml')) }
   #let(:person) {has_overdue_books = true }
-  let(:person) {instance_double('Person', :bookshelf => [])}
+  let(:person) {instance_double('Person', :has_overdue_books => false, :bookshelf => [])}
 
   before do
     # store yaml file's original state
@@ -29,7 +29,7 @@ describe 'testing YAML-load and reset' do
       expected_output = [{:item=>{:title=>"Alfons och soldatpappan",
                                   :author=>"Gunilla Bergström"},
                                   :available=>false,
-                                  :return_date=>"2018-02-05"},
+                                  :return_date=>'2018-02-05'},
                          {:item=>{:title=>"Skratta lagom! Sa pappa Åberg",
                                   :author=>"Gunilla Bergström"},
                                   :available=>true,
@@ -70,13 +70,14 @@ describe 'lists books' do
                                 :author=>"Gunilla Bergström"},
                                 :available=>true,
                                 :return_date=>nil},
-                        {:item=>{:title=>"Pippi Långstrump",
+                       {:item=>{:title=>"Pippi Långstrump",
                                  :author=>"Astrid Lindgren"},
                                  :available=>true,
                                  :return_date=>nil},
-                        {:item=>{:title=>"Pippi Långstrump går ombord",
+                       {:item=>{:title=>"Pippi Långstrump går ombord",
                                  :author=>"Astrid Lindgren"},
-                                 :available=>true, :return_date=>nil}]
+                                 :available=>true,
+                                 :return_date=>nil}]
     expect(subject.list_available_books).to eq expected_output
   end
 
@@ -110,7 +111,8 @@ describe 'searches books' do
                                 :return_date=>nil},
                        {:item=>{:title=>"Pippi Långstrump går ombord",
                                 :author=>"Astrid Lindgren"},
-                                :available=>true, :return_date=>nil}]
+                                :available=>true,
+                                :return_date=>nil}]
     expect(subject.search_books_by_author('Astrid')).to eq expected_output
   end
 
@@ -125,8 +127,13 @@ describe 'checks out books' do
 
    it 'cant checkout a book thats already checked out' do
      book = 'Alfons och soldatpappan'
-     expect(subject.checkout(book, person)).to eq 'Alfons och soldatpappan'
+     expect(subject.checkout(book, person)).to eq nil
    end
+
+   #it 'can\'t check out a book if has_overdue_books' do
+     #book = 'Alfons och soldatpappan'
+     #expect(subject.checkout(book, person)).to eq nil
+   #end
 
  end
 end
