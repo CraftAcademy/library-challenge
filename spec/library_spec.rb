@@ -3,8 +3,14 @@ require 'date'
 
 describe Library do
 
-  it "has a list of books available" do
+  it "has a list of books" do
     expect(subject.collection).to be_an_instance_of(Array)
+  end
+
+  it "allows to search for all available books" do
+    subject.available_books do |book|
+      expect(book[:available]).to be_truthy
+    end
   end
 
   it "allows to check that a book is available" do
@@ -33,7 +39,7 @@ describe Library do
     subject.check_out("Alfons och soldatpappan", "Gunilla Bergström")
     expect(subject.check_out("Alfons och soldatpappan", "Gunilla Bergström")).to eq("This book is not available.")
   end
-  
+
   it "sets a return date of 1 month from check out date" do
     expected_date = Date.today.next_month(1).strftime("%m/%Y")
     expect(subject.return_date).to eq expected_date

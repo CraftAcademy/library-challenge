@@ -14,6 +14,10 @@ class Library
     @collection.detect { |book| book[:item][:title] == title and book[:item][:author] == author }
   end
 
+  def available_books
+    @collection.detect { |book| book[:item][:available] == true }
+  end
+
   def check_out(title, author)
       #define a variable
       book = search(title, author)
