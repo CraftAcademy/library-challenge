@@ -25,7 +25,7 @@ attr_accessor :bookshelf
         items[:return_date] = Date.today >> 1
       end
     end
-    
+
     # Opens and writes to our Yaml-file
     File.open('./lib/data.yml', 'w') { |f| f.write library.to_yaml }
     my_choice[0][:item][:title]
