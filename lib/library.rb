@@ -1,4 +1,5 @@
 require 'yaml'
+require 'date'
 
 class Library
 
@@ -41,9 +42,35 @@ class Library
   end
 
   #CHECKOUT BOOK
-  def checkout_book(book)
+  def checkout_book(book, visitor)
     # is the book available?
-    # does the person have overdue books on the bookshelf? 
+    # does the person have overdue books on the bookshelf?
+    selection = @books.select { |items| items[:item][:title].include? book }
+    if selection[0][:available] == true #&& visitor.has_overdue_books == false
+      "hejsan"
+    else "sorry"
+    end
+
+  end
+
+  def checkout(book,visitor)
+    my_choice = @books.select { |obj| obj[:item][:title].include? book }
+    #binding.pry
+    my_choice[0][:available] = false
+    my_choice[0][:return_date] = Date.today >> 1
+    visitor.bookshelf << my_choice
+
+    # Goes through the books and only updates the one we checked out
+    @books.each do |items|
+      if items[:item][:title] == my_choice[0][:item][:title]
+        items[:available] = false
+        items[:return_date] = Date.today >> 1
+      end
+    end
+
+    # Opens and writes to our Yaml-file
+    File.open('./lib/data.yml', 'w') { |f| f.write @books.to_yaml }
+    my_choice[0][:item][:title]
   end
 
 end
