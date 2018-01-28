@@ -6,7 +6,7 @@ class Library
 
     attr_accessor :books
 
-    def initalize
+    def initialize
       @books = YAML.load_file('./lib/data.yml')
     end
 end
@@ -16,12 +16,16 @@ def books_available
     @books.select{ |obj| obj[:available] == true }.map{|obj| obj[:item]}
   end
 
+=begin
 # To search for a book
 def book_search
 end
-
+=end
 
 # To get a return date when checking out a book
 def return_date
 Date.today.next_month
 end
+
+# define checkout
+# define checkin
