@@ -45,6 +45,8 @@ class Library
 def check_out(search_word)
       check_out_book = @collection.select { |book| book [:item][:title].include? search_word }
      if check_out_book.select {|book| book["available"] == true }
+       check_out_book.select {|book| book["available"] = false }
+       File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
        "Book checked out, Please return book by: #{return_date}"
     else
        "Book is not available "
