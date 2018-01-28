@@ -29,12 +29,11 @@ class Library
     selection = @books.detect { |obj| obj[:item][:title] == book }
 
     if selection[0][:available] == true && person.has_overdue_books == false
+      selection[:available] = false
+      selection[:return_date] = "#{Date.today >> 1}"
+      File.open('./lib/data.yml', 'w') { |f| f.write @books.to_yaml }
+      @books
     end
-
-    selection[:available] = false
-    selection[:return_date] = "#{Date.today >> 1}"
-    File.open('./lib/data.yml', 'w') { |f| f.write @books.to_yaml }
-    @books
   end
 
 
