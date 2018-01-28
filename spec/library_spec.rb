@@ -14,10 +14,43 @@ describe Library do
     @collection = YAML::load_file(File.join(__dir__, '../lib/data.yml'))
   end
 
-  # after do
-  #   # put yaml file in original state
-  #   File.open('./lib/data.yml', 'w') { |f| f.write @collection.to_yaml }
-  # end
+  after do
+    # put yaml file in original state
+    File.open('./lib/data.yml', 'w') { |f| f.write @collection.to_yaml }
+  end
+
+describe 'testing YAML-load and reset' do
+
+    it 'YAML is loaded' do
+      expect(subject.books).to eq YAML::load_file(File.join(__dir__, '../lib/data.yml'))
+    end
+
+    it 'sets a due-date for a book' do
+      book = 'Pippi Långstrump'
+      expected_output = [{:item=>{:title=>"Alfons och soldatpappan",
+                                  :author=>"Gunilla Bergström"},
+                                  :available=>false,
+                                  :return_date=>"2018-02-05"},
+                         {:item=>{:title=>"Skratta lagom! Sa pappa Åberg",
+                                  :author=>"Gunilla Bergström"},
+                                  :available=>true,
+                                  :return_date=>nil},
+                          {:item=>{:title=>"Osynligt med Alfons",
+                                   :author=>"Gunilla Bergström"},
+                                   :available=>true,
+                                   :return_date=>nil},
+                          {:item=>{:title=>"Pippi Långstrump",
+                                   :author=>"Astrid Lindgren"},
+                                   :available=>false,
+                                   :return_date=>"2018-02-28"},
+                          {:item=>{:title=>"Pippi Långstrump går ombord",
+                                   :author=>"Astrid Lindgren"},
+                                   :available=>true,
+                                   :return_date=>nil}]
+      expect(subject.set_due_date(book)).to eq expected_output
+    end
+end
+
 
   it 'responds to "books"' do
     expect(subject).to respond_to(:books)

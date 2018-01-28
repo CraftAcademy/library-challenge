@@ -9,6 +9,15 @@ class Library
     @books = YAML::load_file(File.join(__dir__, 'data.yml'))
   end
 
+  #SET DUE DATE TEST
+  def set_due_date(book)
+    selection = @books.detect { |obj| obj[:item][:title] == book }
+    selection[:available] = false
+    selection[:return_date] = "#{Date.today >> 1}"
+    File.open('./lib/data.yml', 'w') { |f| f.write @books.to_yaml }
+    @books
+  end
+
   #LIST BOOKS
   def list_available_books
     @books.select {|book| book[:available] == true }
