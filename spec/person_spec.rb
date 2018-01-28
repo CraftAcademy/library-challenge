@@ -2,22 +2,16 @@ require './lib/person.rb'
 
 describe Person do
 
-<<<<<<< HEAD
-  before(:each) do
-    @person = Person.new
-  end
-=======
   let(:person) {instance_double('Person', name: 'David')}
   subject { described_class.new }
->>>>>>> master
 
   it 'person should have bookshelf' do
-      expect(@person).to respond_to(:bookshelf)
+      expect(subject).to respond_to(:bookshelf)
   end
 
   it 'can checkout a book' do
     book = 'Osynligt med Alfons'
-    expect(@person.checkout(book)).to eq book
+    expect(subject.checkout(book)).to eq book
   end
 
 =begin
