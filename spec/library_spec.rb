@@ -1,6 +1,7 @@
 require 'yaml'
 require './lib/library.rb'
 require 'date'
+require './lib/person.rb'
 
 describe Library do
 
@@ -18,4 +19,5 @@ describe Library do
       expected_date = Date.today.next_month(1).strftime('%d/%m/%y')
       expect(subject.return_date).to eq expected_date
     end
+    
 end
