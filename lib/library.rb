@@ -4,7 +4,7 @@ require 'person'
 
 class Library
 
-  attr_accessor :collection
+  attr_accessor :collection, :title, :author, :available
 
   def initialize
     @collection = YAML.load_file('./lib/data.yml')
@@ -32,4 +32,22 @@ class Library
   def return_date
     Date.today.next_month(1).strftime("%m/%Y")
   end
-end
+
+
+#  def items
+#    @collection.each do |items|
+#    title = items[:item][:title]
+#    author = items [:item][:author]
+#    available = items[:item][:available]
+#  end
+#end
+
+def check_out(search_word)
+      check_out_book = @collection.select { |book| book [:item][:title].include? search_word }
+     if check_out_book.select {|book| book["available"] == true }
+       "Book checked out, Please return book by: #{return_date}"
+    else
+       "Book is not available "
+     end
+     end
+   end

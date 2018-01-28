@@ -15,6 +15,13 @@ describe Library do
     expected_date = Date.today.next_month(1).strftime("%m/%Y")
     expect(subject.return_date).to eq expected_date
   end
+
+ it "cheks out books that are available" do
+   expected_date = Date.today.next_month(1).strftime("%m/%Y")
+   expected_output = "Book checked out, Please return book by: #{expected_date}"
+   expect(subject.check_out("Alfons och soldatpappan")).to eq expected_output
+end
+
 end
 =begin
 
