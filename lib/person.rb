@@ -18,8 +18,13 @@ attr_accessor :bookshelf, :has_overdue_books
   def check_overdue_books
     date = Date.today.strftime
     overdue_book = @bookshelf.detect { |obj| obj[:return_date] != nil }
-    overdue_book[:return_date] > date ?
-    @has_overdue_books = false : @has_overdue_books = true
+    if overdue_book.nil?
+      @has_overdue_books = false
+    elsif overdue_book[:return_date] > date
+      @has_overdue_books = false
+    elsif overdue_book[:return_date] < date
+      @has_overdue_books = true
+    end
   end
 
   def return_book(book)

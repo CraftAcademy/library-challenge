@@ -43,6 +43,11 @@ describe Person do
     expect(subject.check_overdue_books).to eq false
   end
 
+  it 'should set state to false if has no books at all' do
+    subject.bookshelf = []
+    expect(subject.check_overdue_books).to eq false
+  end
+
   it 'A person should be able to return a book' do
     subject.bookshelf = YAML::load_file(File.join(__dir__, '../lib/data.yml'))
     book = 'Skratta lagom! Sa pappa Åberg'
