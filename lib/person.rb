@@ -29,17 +29,16 @@ attr_accessor :bookshelf, :has_overdue_books
 
   def return_book(book)
     @bookshelf.delete_if { |item| book.include?(item[:item][:title]) }
-    #@bookshelf.delete_if { |item| item[:item][:title] == book }
-    # Goes through the books and only updates the one we returneds
-    @bookshelf.each do |items|
+    collection = YAML.load_file('./lib/data.yml')
+    # Goes through the library and only updates the one we returnes
+    collection.each do |items|
       if items[:item][:title] == book
         items[:available] = true
         items[:return_date] = nil
       end
     end
-
     # Opens and writes to our Yaml-file
-    File.open('./lib/data.yml', 'w') { |f| f.write @bookshelf.to_yaml }
+    File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
     book
   end
 
