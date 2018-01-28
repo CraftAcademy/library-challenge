@@ -10,30 +10,38 @@ class Library
     @collection = YAML.load_file('./lib/data.yml')
   end
 
-  def booklist
-    list = @collection
-    list.each do |x|
-      x.each do |y|
-        puts y
-    end
-  end
+  def search(title, author)
+    @collection.detect { |book| book[:item][:title] == title and book[:item][:author] == author }
   end
 
-  def availability(title, author)
-    #The find method returns the first element for which block is not false:
-    book_info = @collection.find { |obj| obj[:item][:title] == title and obj[:item][:author] == author }
-      if book_info == nil
-        false
+  def check_out(title, author)
+      #define a variable
+      book = search(title, author)
+      if does_not_exists?(book)
+        return "This book is not in our catalogue."
+      elsif is_not_available?(book)
+        return "This book is not available."
       else
-        book_info[:available]
+        check_out_book(book)
+        return "Item successfully booked."
       end
+  end
+
+  def does_not_exists?(book)
+    book == nil
+  end
+
+  def is_not_available?(book)
+    book[:available] == false
+  end
+
+  def check_out_book(book)
+    book[:available] = false
+    book[:return_date] = return_date
   end
 
   def return_date
     Date.today.next_month(1).strftime("%m/%Y")
   end
 
-  def method_name
-
-  end
 end

@@ -1,5 +1,12 @@
 require './lib/library.rb'
 
+describe Person do
+
+  it "allows to check that a book is available" do
+    expect(subject.availability("Alfons och soldatpappan", "Gunilla Bergström")).to be true
+  end
+end
+
 =begin
 As an individual
 In order to get my hands on a good book

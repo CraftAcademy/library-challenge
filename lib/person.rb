@@ -2,6 +2,17 @@ require 'yaml'
 require 'date'
 require 'library'
 
+class Person
+
+  attr_accessor :booklist
+
+  def initialize
+    @booklist = :booklist
+  end
+
+
+end
+
 =begin
 As an individual
 In order to get my hands on a good book
