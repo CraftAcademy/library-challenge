@@ -138,21 +138,21 @@ describe '#search_books' do
 
 end
 
-describe '#checkout_book' do
-
-  it 'can checkout a book thats available' do
-    person = 'david'
-    book = 'Osynligt med Alfons'
-    expect(subject.checkout_book(book, person)).to eq "hejsan"
-  end
-
-  it 'cant checkout a book thats already checked out' do
-    person = 'david'
-    book = 'Alfons och soldatpappan'
-    expect(subject.checkout_book(book, person))
-    .to eq "Sorry, book is already checked out"
-  end
-
-end
+# describe '#checkout_book' do
+#
+#   it 'can checkout a book thats available' do
+#     person = 'david'
+#     book = 'Osynligt med Alfons'
+#     expect(subject.checkout_book(book, person)).to eq "hejsan"
+#   end
+#
+#   it 'cant checkout a book thats already checked out' do
+#     person = 'david'
+#     book = 'Alfons och soldatpappan'
+#     expect(subject.checkout_book(book, person))
+#     .to eq "Sorry, book is already checked out"
+#   end
+#
+# end
 
 end
