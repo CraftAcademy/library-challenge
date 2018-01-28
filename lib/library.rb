@@ -19,29 +19,31 @@ class Library
       #Checks parameter "available"
       items[:available] ? status = 'Available' : status = 'Checked out'
       #Returns a string with books
-      puts "Book: #{book}, Author: #{author}, Is: #{status}"
+      "Book: #{book}, Author: #{author}, Is: #{status}"
       #puts "Book: #{book}, Author: #{author}, Available: #{status}"
 
     end
   end
 
   #SEARCH BOOKS
-  def search_books(search_word, available)
+  # search for book dependent on their state
+  def search_books_by_title(query, state)
     results = []
-    search_result = @books.select { |items| items[:item][:title].include? search_word }
+    search_result = @books.select { |items| items[:item][:title].include? query }
     search_result.each do |book|
-      if available == book[:available]
-      #puts "Book: #{book}"
-      results << book
-      elsif available == 'All'
-      results << book
+      if state == book[:available]
+        results << book
+      elsif state == 'All'
+        results << book
       end
-      puts results
+      results
     end
   end
 
   #CHECKOUT BOOK
   def checkout_book(book)
+    # is the book available?
+    # does the person have overdue books on the bookshelf? 
   end
 
 end
