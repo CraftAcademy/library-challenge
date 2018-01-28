@@ -2,13 +2,17 @@ require './lib/person.rb'
 
 describe Person do
 
+  before(:each) do
+    @person = Person.new
+  end
+
   it 'person should have bookshelf' do
-      expect(subject).to respond_to(:bookshelf)
+      expect(@person).to respond_to(:bookshelf)
   end
 
   it 'can checkout a book' do
     book = 'Osynligt med Alfons'
-    expect(subject.checkout(book)).to eq book
+    expect(@person.checkout(book)).to eq book
   end
 
   xit 'sets a books status to false if checked out' do
