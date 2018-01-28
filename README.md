@@ -86,3 +86,7 @@ I would like to know when my book is supposed to be returned
 
 
 **Happy coding!**
+
+
+###About our code:
+* Got inspired from all of the students at CraftAcademy to some of our library.rb file.
