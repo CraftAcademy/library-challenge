@@ -1,4 +1,4 @@
-require 'data.yml'
+require 'yaml'
 require './lib/library.rb'
 require 'date'
 

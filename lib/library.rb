@@ -1,4 +1,4 @@
-require 'data.yml'
+
 require './lib/library.rb'
 require 'date'
 
@@ -17,7 +17,7 @@ def show_library
 end
 
 def checkout
-    
+
 end
 
 
