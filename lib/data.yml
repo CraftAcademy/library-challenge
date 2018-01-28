@@ -5,6 +5,11 @@
   :available: true
   :return_date:
 - :item:
+    :title: IT
+    :author: Stephen King
+  :available: true
+  :return_date:
+- :item:
     :title: Skratta lagom! Sa pappa Åberg
     :author: Gunilla Bergström
   :available: false

@@ -28,7 +28,11 @@ describe Library do
   end
 
   it "return success message if item is booked" do
-    expect(subject.check_out("Alfons och soldatpappan", "Gunilla Bergström")).to eq("Item successfully booked.")
+    expected_output = { title: "Alfons och soldatpappan",
+                        author: "Gunilla Bergström",
+                        message: "Item successfully booked.",
+                        return_date: Date.today.next_month(1).strftime("%m/%Y") }
+    expect(subject.check_out("Alfons och soldatpappan", "Gunilla Bergström")).to eq(expected_output)
   end
 
   it "return error message if item is not existant" do
