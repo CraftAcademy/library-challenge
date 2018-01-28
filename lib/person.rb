@@ -14,4 +14,8 @@ attr_accessor :bookshelf
     @bookshelf = []
   end
 
+  def has_overdue_books
+
+  end
+
 end

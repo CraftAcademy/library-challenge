@@ -1,6 +1,5 @@
 require './lib/library.rb'
 require 'yaml'
-require 'date'
 
 describe Library do
   subject {described_class.new}
@@ -91,28 +90,51 @@ describe do
 
 end
 
-describe '#search_books_by_title' do
+describe '#search_books' do
 
-  it 'returns search-results from search' do
-    expected_output = [{:item=>{:title=>"Alfons och soldatpappan",
-                                :author=>"Gunilla Bergström"},
-                                :available=>false,
-                                :return_date=>'2018-02-05'},
-                       {:item=>{:title=>"Osynligt med Alfons",
-                                :author=>"Gunilla Bergström"},
+  it 'searches title' do
+    expected_output = [{:item=>{:title=>"Pippi Långstrump",
+                                :author=>"Astrid Lindgren"},
                                 :available=>true,
-                                :return_date=>nil}]
-    expect(subject.search_books_by_title('Alfons', true))
-      .to eq expected_output
+                                :return_date=>nil},
+                       {:item=>{:title=>"Pippi Långstrump går ombord",
+                                :author=>"Astrid Lindgren"},
+                                :available=>true, :return_date=>nil}]
+    expect(subject.search_books_by_title('Pippi')).to eq expected_output
   end
 
-  it 'returns available books from search' do
-    expect(subject.search_books_by_title('Alfons', true)).not_to be_nil
+  it 'searches author' do
+    expected_output = [{:item=>{:title=>"Pippi Långstrump",
+                                :author=>"Astrid Lindgren"},
+                                :available=>true,
+                                :return_date=>nil},
+                       {:item=>{:title=>"Pippi Långstrump går ombord",
+                                :author=>"Astrid Lindgren"},
+                                :available=>true, :return_date=>nil}]
+    expect(subject.search_books_by_author('Astrid')).to eq expected_output
   end
 
-  it 'returns unavailable books from search' do
-    expect(subject.search_books_by_title('Åberg', false)).not_to be_nil
-  end
+
+  # it 'returns search-results from search' do
+  #   expected_output = [{:item=>{:title=>"Alfons och soldatpappan",
+  #                               :author=>"Gunilla Bergström"},
+  #                               :available=>false,
+  #                               :return_date=>'2018-02-05'},
+  #                      {:item=>{:title=>"Osynligt med Alfons",
+  #                               :author=>"Gunilla Bergström"},
+  #                               :available=>true,
+  #                               :return_date=>nil}]
+  #   expect(subject.search_books_by_title('Alfons', true))
+  #     .to eq expected_output
+  # end
+  #
+  # it 'returns available books from search' do
+  #   expect(subject.search_books_by_title('Alfons', true)).not_to be_nil
+  # end
+  #
+  # it 'returns unavailable books from search' do
+  #   expect(subject.search_books_by_title('Åberg', false)).not_to be_nil
+  # end
 
 end
 
