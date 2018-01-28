@@ -8,19 +8,26 @@ class Library
 
     def initialize
       @books = YAML.load_file('./lib/data.yml')
+      # Person class
     end
 end
+
+def show_library
+    @books
+end
+
+
 
 # Checks if books are available
 def books_available
     @books.select{ |obj| obj[:available] == true }.map{|obj| obj[:item]}
-  end
+end
 
-=begin
+
 # To search for a book
 def book_search
+
 end
-=end
 
 # To get a return date when checking out a book
 def return_date
