@@ -16,6 +16,9 @@ def show_library
     @books
 end
 
+def checkout
+    
+end
 
 
 # Checks if books are available
@@ -34,5 +37,5 @@ def return_date
 Date.today.next_month
 end
 
-# define checkout
+
 # define checkin
