@@ -6,7 +6,7 @@ describe Library do
 
   let(:library_books) { YAML::load_file(File.join(__dir__, '../lib/data.yml')) }
   #let(:person) {has_overdue_books = true }
-  let(:person) {instance_double('Person', has_overdue_books: true)}
+  let(:person) {instance_double('Person', :bookshelf => [])}
 
   before do
     # store yaml file's original state
@@ -114,45 +114,21 @@ describe '#search_books' do
     expect(subject.search_books_by_author('Astrid')).to eq expected_output
   end
 
-
-  # it 'returns search-results from search' do
-  #   expected_output = [{:item=>{:title=>"Alfons och soldatpappan",
-  #                               :author=>"Gunilla Bergström"},
-  #                               :available=>false,
-  #                               :return_date=>'2018-02-05'},
-  #                      {:item=>{:title=>"Osynligt med Alfons",
-  #                               :author=>"Gunilla Bergström"},
-  #                               :available=>true,
-  #                               :return_date=>nil}]
-  #   expect(subject.search_books_by_title('Alfons', true))
-  #     .to eq expected_output
-  # end
-  #
-  # it 'returns available books from search' do
-  #   expect(subject.search_books_by_title('Alfons', true)).not_to be_nil
-  # end
-  #
-  # it 'returns unavailable books from search' do
-  #   expect(subject.search_books_by_title('Åberg', false)).not_to be_nil
-  # end
-
 end
 
-# describe '#checkout_book' do
-#
-#   it 'can checkout a book thats available' do
-#     person = 'david'
-#     book = 'Osynligt med Alfons'
-#     expect(subject.checkout_book(book, person)).to eq "hejsan"
-#   end
-#
-#   it 'cant checkout a book thats already checked out' do
-#     person = 'david'
-#     book = 'Alfons och soldatpappan'
-#     expect(subject.checkout_book(book, person))
-#     .to eq "Sorry, book is already checked out"
-#   end
-#
-# end
+describe '#checkout_book' do
+
+   it 'can checkout a book thats available' do
+     book = 'Osynligt med Alfons'
+     expect(subject.checkout(book, person)).to eq "Osynligt med Alfons"
+   end
+
+   #it 'cant checkout a book thats already checked out' do
+    # book = 'Alfons och soldatpappan'
+     #expect(subject.checkout_book(book, person))
+     #.to eq "Sorry, book is already checked out"
+   #end
+
+ end
 
 end
