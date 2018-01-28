@@ -1,7 +1,7 @@
 require 'coveralls'
 Coveralls.wear!
 require 'pry'
-require '   yaml'
+require 'yaml'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
