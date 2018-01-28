@@ -1,6 +1,6 @@
 require 'yaml'
 require 'date'
-require 'person.rb'
+require './lib/person.rb'
 
 class Library
 

@@ -16,12 +16,15 @@ attr_accessor :bookshelf, :has_overdue_books
   end
 
   def check_overdue_books
-    @bookshelf.detect { |obj| obj[:return_date] < Date.today.strftime }
-    @has_overdue_books = true
+    date = Date.today.strftime
+    overdue_book = @bookshelf.detect { |obj| obj[:return_date] != nil }
+    overdue_book[:return_date] > date ?
+    @has_overdue_books = false : @has_overdue_books = true
   end
 
   def return_book(book)
-    @bookshelf.delete_if { |book| book[:item][:title] == book }
+    @bookshelf.delete_if { |item| book.include?(item[:item][:title]) }
+    #@bookshelf.delete_if { |item| item[:item][:title] == book }
     # Goes through the books and only updates the one we returneds
     @bookshelf.each do |items|
       if items[:item][:title] == book

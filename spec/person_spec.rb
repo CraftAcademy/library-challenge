@@ -28,7 +28,19 @@ describe Person do
   end
 
   it 'should set state to true if has overdue books' do
+    subject.bookshelf = [{:item=>{:title=>"Alfons och soldatpappan",
+                                  :author=>"Gunilla Bergström"},
+                                  :available=>false,
+                                  :return_date=>'2013-07-04'}]
     expect(subject.check_overdue_books).to eq true
+  end
+
+  it 'should set state to false if has no overdue books' do
+    subject.bookshelf = [{:item=>{:title=>"Alfons och soldatpappan",
+                                  :author=>"Gunilla Bergström"},
+                                  :available=>false,
+                                  :return_date=>'2018-07-04'}]
+    expect(subject.check_overdue_books).to eq false
   end
 
   it 'A person should be able to return a book' do
