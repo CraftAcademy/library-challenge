@@ -33,7 +33,7 @@ describe Library do
     expect(subject.checkout("Alfons och soldatpappan")).to eq expected_output
   end
 
-  it 'returns books if found' do
+  it 'returns books if found on title search' do
     expected_output = [{:item=>{:title=>"Pippi Långstrump",
                                   :author=>"Astrid Lindgren"},
                                   :available=>false,
@@ -43,6 +43,17 @@ describe Library do
                                    :available=>false,
                                    :return_date=>nil}]
     expect(subject.search('Pippi')).to eq expected_output
+  end
+  it 'returns books if found on author search' do
+    expected_output = [{:item=>{:title=>"Pippi Långstrump",
+                                  :author=>"Astrid Lindgren"},
+                                  :available=>false,
+                                  :return_date=>nil},
+                                {:item=>{:title=>"Pippi Långstrump går ombord",
+                                   :author=>"Astrid Lindgren"},
+                                   :available=>false,
+                                   :return_date=>nil}]
+    expect(subject.search('Astrid')).to eq expected_output
   end
 
 end
