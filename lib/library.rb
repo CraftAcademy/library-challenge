@@ -5,33 +5,52 @@ require './lib/client.rb'
 
 class Library
 
-  attr_accessor :collection, :client
+  attr_accessor :collection
 
   STANDARD_BORROW_TIME = 1 #month
 
   def initialize
     @collection = YAML.load_file('./lib/data.yml')
-    @client = Client.new
   end
 
   def display_library
     @collection
   end
 
-  def available_titles
-    @collection.select do |obj|
-      obj[:available] == true
+  def display_available_titles
+    @collection.select { |obj| obj[:available] == true }
+  end
+
+  def checkout(title, client)
+    unless overdue_check(client)
+      book = @collection.detect { |obj| obj[:item][:title].include? title }
+      index = @collection.index(book)
+      @collection[index][:available] = false
+      @collection[index][:return_date] = Date.today.next_month(STANDARD_BORROW_TIME).strftime('%m/%y')
+      client.bookshelf.push(book)
+      update_database
+      return book
     end
   end
 
-  def checkout(title)
+  def overdue_check(client)
+    client_book = client.bookshelf.detect { |obj| obj[:return_date] < Date.today.strftime('%m/%y') }
+    if client_book != nil
+      'You have overdue books'
+    else
+      return
+    end
+  end
+
+  def checkin(title, client)
     book = @collection.detect { |obj| obj[:item][:title].include? title }
     index = @collection.index(book)
-    @collection[index][:available] = false
-    @collection[index][:return_date] = Date.today.next_month(STANDARD_BORROW_TIME).strftime('%m/%y')
-    @client.add_book(book)
+    @collection[index][:available] = true
+    @collection[index][:return_date] = nil
     update_database
-    return book
+    client_book = client.bookshelf.detect { |obj| obj[:item][:title].include? title }
+    client_index = client.bookshelf.index(book)
+    client.bookshelf.delete_at(index)
   end
 
   def update_database

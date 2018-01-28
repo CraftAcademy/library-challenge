@@ -7,14 +7,4 @@ class Client
   def initialize
     @bookshelf = []
   end
-
-  def add_book(book)
-    @bookshelf << book
-    return @bookshelf
-  end
-
-  def display_bookshelf
-    @bookshelf
-  end
-
 end
