@@ -34,11 +34,9 @@ class Library
   end
 
   def overdue_check(client)
-    client_book = client.bookshelf.detect { |obj| obj[:return_date] < Date.today.strftime('%m/%y') }
+    client_book = client.bookshelf.detect { |obj| obj[:return_date] < Date.today.strftime('%F') }
     if client_book != nil
       'You have overdue books'
-    else
-      return
     end
   end
 

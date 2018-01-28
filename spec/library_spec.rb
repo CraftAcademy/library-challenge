@@ -38,7 +38,7 @@ describe Library do
     expected_output = [{:item => {:title=>"Pippi Långstrump",
                       :author=>"Astrid Lindgren"},
                       :available=>false,
-                      :return_date=>Date.today.prev_month.strftime('%m/%y')}]
+                      :return_date=>Date.today.prev_month.strftime('%F')}]
     allow(client).to receive(:bookshelf).and_return(expected_output)
     response = 'You have overdue books'
     expect(subject.overdue_check(client)).to eq response
