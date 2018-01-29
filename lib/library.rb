@@ -20,7 +20,6 @@ class Library
   end
 
   def availability(title, author)
-    #The find method returns the first element for which block is not false:
     book_info = @collection.find { |obj| obj[:item][:title] == title and obj[:item][:author] == author }
       if book_info == nil
         false
@@ -34,13 +33,6 @@ class Library
   end
 
 
-#  def items
-#    @collection.each do |items|
-#    title = items[:item][:title]
-#    author = items [:item][:author]
-#    available = items[:item][:available]
-#  end
-#end
 
 def check_out(search_word)
       check_out_book = @collection.select { |book| book [:item][:title].include? search_word }

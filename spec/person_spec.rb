@@ -1,5 +1,12 @@
 require './lib/library.rb'
 
+describe Person do
+
+   it 'expected person to be in library' do
+       expect(subject.person).to_not be nil
+   end
+
+end
 =begin
 As an individual
 In order to get my hands on a good book

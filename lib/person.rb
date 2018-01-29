@@ -2,8 +2,12 @@ require 'yaml'
 require 'date'
 require 'library'
 
-Class Person
+ class Person
+     attr_accessor :person
 
+     def initialize
+         @person = 'Lara'
+     end
 end
 
 
