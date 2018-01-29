@@ -1,6 +1,6 @@
 </a><img src="https://travis-ci.org/CraftAcademy/library-challenge.svg?branch=master">
 
-#ibrary Challenge#
+# Library Challenge
 
 A program that allows a user to interact with a virtual library
 
