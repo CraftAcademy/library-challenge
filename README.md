@@ -1,7 +1,9 @@
-##Library Challenge
-###Week 1 Ruby challenge
+</a><img src="https://travis-ci.org/CraftAcademy/library-challenge.svg?branch=master">
 
-A program that allows a user to interact with a virtual
+#ibrary Challenge#
+
+A program that allows a user to interact with a virtual library
+
 ### Synopsis
 
 This project is app that allows a user to checkout and return books through a provided database. We are learning Ruby and using RSpec for testing, and our pushes go via Travis and Coveralls to see if everything is working as it should.
@@ -9,6 +11,10 @@ This project is app that allows a user to checkout and return books through a pr
 ### Motivation
 
 We are learning Ruby and RSpec, this exercise made sense to implement and practice the skills we've learned so far. This exercise was chosen to show the true importance behind TTD (test driven development), and pair programming.
+
+### Acknowledgements
+
+We'd like to give a shout-out to our our coaches <a href="https://github.com/tochman">@tochman</a>, <a href="https://github.com/diraulo">@diraulo</a> and <a href="https://github.com/faraznaeem">@faraznaeem</a> for amazing support, we couldn't have done this without you <3
 
 ## Getting Started
 
@@ -48,18 +54,18 @@ library = Library.new
 
 ### How to use
 
-**See all books**
+**See availble books**
 
-Ask the Library to list all books.
+Ask the library to list all the books it has that are available to be checked out.
 
 ```irb
 library.list_available_books
 =>(books)
 ```
 
-**See all available books**
+**See all checked out books**
 
-Ask the library to list all the books it has that are available to be checked out.
+Ask the library to list all the books it has beed checked out.
 
 ```irb
 library.list_available_books
@@ -71,7 +77,7 @@ library.list_available_books
 Ask the library to list all books by an author.
 
 ```irb
-library.search_books_by_author 'author name'
+library.search_books_by_author('author name')
 => (books by author)
 ```
 
@@ -80,15 +86,15 @@ library.search_books_by_author 'author name'
 Ask the library to list a book title.
 
 ```irb
-library.search_books_by_title 'book title'
+library.search_books_by_title('book title')
 => (book title)
 ```
 **Checkout a book**
 
-Checkouts a book from the library and makes it unavailable to be checkout out until returned.
+Checkouts a book from the library and makes it unavailable to be checkout out until returned. Pass in the book and the person who is checking the book out.
 
 ```irb
-library.checkout ('book title' person)
+library.checkout('book title' person)
 => ['book title']
 ```
 
@@ -106,6 +112,7 @@ person.check_overdue_books
 Returns a previously checked out book to the library and makes it available to be checkout again.
 
 ```irb
-person.return_book ('book title')
+person.return_book('book title')
 => 'book title'
 ```
+
