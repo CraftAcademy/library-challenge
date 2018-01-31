@@ -3,7 +3,6 @@ require './lib/person.rb'
 require 'date'
 
 describe Person do
-
   it "has a list on initialize" do
     expect(subject.booklist).to be_an_instance_of(Array)
   end
