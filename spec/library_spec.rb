@@ -11,7 +11,7 @@ describe Library do
   end
 
   it 'allow check_out of book' do
-    expected_output = { status: true, message: 'check_out complete', book_id: 1234, date: Time.now.strftime('%Y-%m-%d_%H-%M-%S') }
+    expected_output = { status: true, message: 'check_out complete', book_id: 1234, date: Date.today, return_date: Date.today.next_month }
     expect(subject.perform_check_out(1234)).to eq expected_output
   end
 
@@ -20,5 +20,10 @@ describe Library do
 
     expected_output = {status: false, message: 'book unavailable', book_id: 1234}
     expect(subject.perform_check_out(1234)).to eq expected_output
+  end
+
+  it 'return date should be 30 days in future when on check out' do
+    subject.perform_check_out(1234)
+    expected_output = {status: true, return_date: Date.today.next_month }
   end
 end

@@ -16,24 +16,24 @@ class Library
   def perform_check_out(book_id)
     book = @book_list.find {|b| b[:book_id] == book_id}
     if book[:checked_out] == true
-      return {status: false, message: 'book unavailable', book_id: 1234}
+      return {status: false, message: 'book unavailable', book_id: book_id}
     else
       book[:checked_out] = true
-      return { status: true, message: 'check_out complete', book_id: 1234, date: Time.now.strftime('%Y-%m-%d_%H-%M-%S') }
+      return { status: true, message: 'check_out complete', book_id: book_id, date: Date.today, return_date: Date.today.next_month }
     end
   end
 
-  def perform_check_out_old(book_id)
-    @book_list.each do |book|
-      if book[:book_id] == book_id
-        if book[:checked_out] == true
-          return {status: false, message: 'book unavailable', book_id: 1234}
-
-        else
-          book[:checked_out] = true
-          return { status: true, message: 'check_out complete', book_id: 1234, date: Time.now.strftime('%Y-%m-%d_%H-%M-%S') }
-        end
-      end
-    end
-  end
+  # def perform_check_out_old(book_id)
+  #   @book_list.each do |book|
+  #     if book[:book_id] == book_id
+  #       if book[:checked_out] == true
+  #         return {status: false, message: 'book unavailable', book_id: book_id}
+  #
+  #       else
+  #         book[:checked_out] = true
+  #         return { status: true, message: 'check_out complete', book_id: book_id, date: Time.now }
+  #       end
+  #     end
+  #   end
+  # end
 end
