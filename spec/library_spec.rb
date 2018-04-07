@@ -32,4 +32,10 @@ describe Library do
      expected_output = {status: true, book_id: 1234, return_date: Date.today, message: "book returned"}
      expect(subject.perform_return(1234)).to eq expected_output
   end
+
+  it 'can see when book is going to be returned' do
+    subject.perform_check_out(1234)
+    book = subject.book_list.find {|b| b[:book_id] == 1234}
+    expect(book[:return_date]).to eq Date.today.next_month
+  end
 end

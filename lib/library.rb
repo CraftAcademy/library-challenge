@@ -5,11 +5,11 @@ class Library
 
   def initialize
     @book_list = [
-      {name: "little women", author: "Jane Austen", book_id: 1234, checked_out: false},
-      {name: "The Hunger Games", author: "Suzanne Collins", book_id: 1235, checked_out: false},
-      {name: "Crushing It", author: "Gary Vaynerchuk", book_id: 1236, checked_out: false},
-      {name: "The Startup Way", author: "Eric Ries", book_id: 1237, checked_out: false},
-      {name: "INSPIRED", author: "Marty Cagan", book_id: 1238, checked_out: false}
+      {name: "little women", author: "Jane Austen", book_id: 1234, checked_out: false, return_date: nil },
+      {name: "The Hunger Games", author: "Suzanne Collins", book_id: 1235, checked_out: false, return_date: nil},
+      {name: "Crushing It", author: "Gary Vaynerchuk", book_id: 1236, checked_out: false, return_date: nil},
+      {name: "The Startup Way", author: "Eric Ries", book_id: 1237, checked_out: false, return_date: nil},
+      {name: "INSPIRED", author: "Marty Cagan", book_id: 1238, checked_out: false, return_date: nil}
     ]
   end
 
@@ -19,6 +19,7 @@ class Library
       return {status: false, message: 'book unavailable', book_id: book_id}
     else
       book[:checked_out] = true
+      book[:return_date] = Date.today.next_month
       return { status: true, message: 'check_out complete', book_id: book_id, date: Date.today, return_date: Date.today.next_month }
     end
   end
@@ -43,6 +44,7 @@ class Library
       return {status: false, message: 'book available, can not return', book_id: book_id}
     else
       book[:checked_out] = false
+      book[:return_date] = nil
       return { status: true, message: 'book returned', book_id: book_id, return_date: Date.today }
     end
   end
