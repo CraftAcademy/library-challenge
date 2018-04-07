@@ -10,4 +10,9 @@ describe Library do
     expect(subject.book_list.length).to be > 0
   end
 
+  it 'allow check_out of book' do
+    expected_output = { status: true, message: 'check_out complete', book_id: 1234, date: Time.now.strftime('%Y-%m-%d_%H-%M-%S') }
+    expect(subject.perform_check_out).to eq expected_output
+  end
+
 end
