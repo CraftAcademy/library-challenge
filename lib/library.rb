@@ -23,5 +23,4 @@ class Library
       "Book not available"
     end
   end
-
 end
