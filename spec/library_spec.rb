@@ -12,7 +12,13 @@ describe Library do
 
   it 'allow check_out of book' do
     expected_output = { status: true, message: 'check_out complete', book_id: 1234, date: Time.now.strftime('%Y-%m-%d_%H-%M-%S') }
-    expect(subject.perform_check_out).to eq expected_output
+    expect(subject.perform_check_out(1234)).to eq expected_output
   end
 
+  it 'reject check_out of book if the book not avaialble' do
+    subject.perform_check_out(1234)
+
+    expected_output = {status: false, message: 'book unavailable', book_id: 1234}
+    expect(subject.perform_check_out(1234)).to eq expected_output
+  end
 end
