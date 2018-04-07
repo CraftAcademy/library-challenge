@@ -18,8 +18,9 @@ class Library
       @books[index][:available] = false
       @books[index][:person] = person
       @books[index][:return_date] = Date.today.next_day(30).strftime('%Y-%m-%d')
+      @books[index][:item][:title] + ' checked out successfully, please return on ' + @books[index][:return_date]
     else
-      puts "Book not available"
+      "Book not available"
     end
   end
 
