@@ -6,3 +6,4 @@
 ```so that we can see what books we have and loaned out books.```
 ```be able to access information about the books```
 ```for example to see if the books are availabe, if not, when will the be returned.```
+```be able to look up titles and authors from list.```
