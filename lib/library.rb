@@ -1,4 +1,5 @@
 require 'yaml'
+require 'date'
 
 class Library
   attr_accessor :books
@@ -12,7 +13,14 @@ class Library
   end
 
   def checkout(id, person)
-    @books.detect { |x| x[:id] == id } =
+    index = @books.index {|x| x[:item][:id] === id }
+    if @books[index][:available] == true
+      @books[index][:available] = false
+      @books[index][:person] = person
+      @books[index][:return_date] = Date.today.next_day(30).strftime('%Y-%m-%d')
+    else
+      puts "Book not available"
+    end
   end
 
 end
