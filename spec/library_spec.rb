@@ -12,12 +12,17 @@ describe Library do
   end
 
   it 'searches for a book by title' do
-    expect(subject.search_title('Alfons och soldatpappan')).to eq [{:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}}]
+    expect(subject.search_title('Someone To Watch Over Me')).to eq [{:item=>{:title=>"Someone To Watch Over Me", :author=>"Yrsa Sigurdardottir"}, :available=>true, :return_date=>nil}]
   end
 
   it 'searches for a book by author' do
-    expect(subject.search_author('Astrid Lindgren')).to eq [{:item=>{:title=>"Pippi Långstrump", :author=>"Astrid Lindgren"}},
-      {:item=>{:title=>"Pippi Långstrump går ombord", :author=>"Astrid Lindgren"}}]
+    expect(subject.search_author('Stephen King')).to eq [{:item=>{:title=>"Joyland", :author=>"Stephen King"}, :available=>false, :return_date=>'2018-05-06'},
+      {:item=>{:title=>"The Shining", :author=>"Stephen King"}, :available=>true, :return_date=>nil}]
   end
 
+  it 'search for available books' do
+    expect(subject.availabe_books('Yrsa Sigurdardottir')).to eq [{:item=>{:title=>"I Remember You", :author=>"Yrsa Sigurdardottir"}, :available=>true, :return_date=>nil},
+      {:item=>{:title=>"Someone To Watch Over Me", :author=>"Yrsa Sigurdardottir"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"The Shining", :author=>"Stephen King"}, :available=>true, :return_date=>nil},
+      {:item=>{:title=>"Häxan", :author=>"Camilla Läckberg"}, :available=>true, :return_date=>nil}]
+  end
 end

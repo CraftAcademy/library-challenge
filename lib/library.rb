@@ -14,4 +14,7 @@ class Library
     @list.select {|obj| obj[:item][:author] == author}
   end
 
+  def availabe_books(available)
+      @list.detect { |obj| obj[:available] == true  }
+  end
 end

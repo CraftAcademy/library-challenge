@@ -1,21 +1,30 @@
 ---
 - :item:
-    :title: Alfons och soldatpappan
-    :author: Gunilla Bergström
+    :title: Someone To Watch Over Me
+    :author: Yrsa Sigurdardottir
+  :available: true
+  :return_date:
 
 - :item:
-    :title: Skratta lagom! Sa pappa Åberg
-    :author: Gunilla Bergström
+    :title: I Remember You
+    :author: Yrsa Sigurdardottir
+  :available: true
+  :return_date:
 
 - :item:
-    :title: Osynligt med Alfons
-    :author: Gunilla Bergström
+    :title: Joyland
+    :author: Stephen King
+  :available: false
+  :return_date: '2018-05-06'
 
 - :item:
-    :title: Pippi Långstrump
-    :author: Astrid Lindgren
+    :title: Häxan
+    :author: Camilla Läckberg
+  :available: true
+  :return_date:
 
 - :item:
-    :title: Pippi Långstrump går ombord
-    :author: Astrid Lindgren
-  
+    :title: The Shining
+    :author: Stephen King
+  :available: true
+  :return_date:
