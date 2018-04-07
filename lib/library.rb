@@ -36,4 +36,14 @@ class Library
   #     end
   #   end
   # end
+
+  def perform_return(book_id)
+    book = @book_list.find {|b| b[:book_id] == book_id}
+    if book[:checked_out] == false
+      return {status: false, message: 'book available, can not return', book_id: book_id}
+    else
+      book[:checked_out] = false
+      return { status: true, message: 'book returned', book_id: book_id, return_date: Date.today }
+    end
+  end
 end

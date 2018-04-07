@@ -23,7 +23,13 @@ describe Library do
   end
 
   it 'return date should be 30 days in future when on check out' do
-    subject.perform_check_out(1234)
-    expected_output = {status: true, return_date: Date.today.next_month }
+    expected_output = {status: true, message: 'check_out complete', book_id: 1234, date: Date.today, return_date: Date.today.next_month }
+    expect(subject.perform_check_out(1234)).to eq expected_output
+  end
+
+  it 'allow me to return a book' do
+     subject.perform_check_out(1234)
+     expected_output = {status: true, book_id: 1234, return_date: Date.today, message: "book returned"}
+     expect(subject.perform_return(1234)).to eq expected_output
   end
 end
