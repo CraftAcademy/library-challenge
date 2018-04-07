@@ -13,7 +13,7 @@ class Library
   end
 
   def checkout(id, person)
-    index = @books.index {|x| x[:item][:id] === id }
+    index = find_index(id)
     if @books[index][:available] == true
       @books[index][:available] = false
       @books[index][:person] = person
@@ -22,5 +22,23 @@ class Library
     else
       "Book not available"
     end
+  end
+
+  def return_date(id)
+      index = find_index(id)
+      @books[index][:return_date]
+    end
+
+  def return(id)
+    index = find_index(id)
+    @books[index][:available] = true
+    @books[index][:person] = nil
+    @books[index][:return_date] = nil
+    'Thanks for returning ' + @books[index][:item][:title]
+  end
+
+  private
+  def find_index(id)
+    @books.index { |x| x[:item][:id] === id }
   end
 end

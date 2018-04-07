@@ -33,9 +33,9 @@ end
 
 it 'set book availability to true, return date and name to nil when returned back' do
   subject.return(2)
-  expect(subject.book[1][:available]).to eq true
-  expect(subject.book[1][:person]).to eq nil
-  expect(subject.book[1][:return_date]).to eq nil
+  expect(subject.books[1][:available]).to eq true
+  expect(subject.books[1][:person]).to eq nil
+  expect(subject.books[1][:return_date]).to eq nil
 end
 
 end
