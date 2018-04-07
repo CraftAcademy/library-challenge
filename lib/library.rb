@@ -25,9 +25,9 @@ class Library
   end
 
   def return_date(id)
-      index = find_index(id)
-      @books[index][:return_date]
-    end
+    index = find_index(id)
+    @books[index][:return_date]
+  end
 
   def return(id)
     index = find_index(id)
@@ -38,6 +38,7 @@ class Library
   end
 
   private
+  
   def find_index(id)
     @books.index { |x| x[:item][:id] === id }
   end
