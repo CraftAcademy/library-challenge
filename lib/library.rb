@@ -1,4 +1,5 @@
  require 'yaml'
+ require 'date'
 
 class Library
   attr_reader :list, :title
@@ -14,7 +15,24 @@ class Library
     @list.select {|obj| obj[:item][:author] == author}
   end
 
-  def availabe_books(available)
-      @list.detect { |obj| obj[:available] == true  }
+  def available_books
+    @list.select { |obj| obj[:available] == true  }
   end
+
+  def return_date
+    Date.today.next_month.to_s
+  end
+
+  def lends_book(title)
+    book = search_title(title)
+    
+   if book.first[:available] == true
+    book.first[:return_date] = return_date
+    book.first[:available] = false
+    "This book is available and should be returned before #{book.first[:return_date]}"
+
+    end
+   end
+
+
 end
