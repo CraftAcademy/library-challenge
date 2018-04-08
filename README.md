@@ -1,112 +1,56 @@
 ## Library Challenge
 ### Week 1 Ruby challenge
 
+Introduction
+-------
+The code creates a Library class that contains a list of books read from an (.yml) file. The Library includes functions to add new books, checkout and return books.
+
 Instructions
 -------
-Read this entire README carefully and follow all instructions.
-
-* Challenge time: this weekend, until Monday 9am
-* Feel free to use Google, Stack Overflow, your notes, previously written code, books, etc. but work on your own
-* If you refer to or have in whole or partially used the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution to GitHub and create a Pull Request**
-* You must submit a Pull Request to this repository with your code by 9.30am Monday morning - before the stand-up
-
-
-### Learning objective
-----
-##### Write a Library program with the following user stories:
-
+* Start irb
+* create a new library, add the library name as argument:
 ```
-As an individual
-In order to get my hands on a good book
-I would like to see a list of books currently available in the library
-with information about the title and author
+ library1 = Library.new('library_name')
+ ```
+ this will create the file _library_name_data.yml_ in the main folder. And will initiate the library with five basic books.
+* * The library books can be listed any time using the command:
 ```
-
+puts library1.books
 ```
-As an individual
-In order to avoid awkward moments at the library
-I would like to know when my book is supposed to be returned
+the result is array is an array of books, where each book is a hash that contains the book ID, title, author. In addition information about if it is available (available), the name of person whom checked it out (person) and the date it should be returned (return_date).
+* create a new person, add name (string) and personnummer (integer) as arguments:
 ```
-
+person1 = Person.new(name, personnummer)
 ```
-As a individual
-In order to not have delayed books on my account
-I would like to return my book and have my account clear
+the person will have a name, a personnummer and the list of books borrowed form a library. When a new person is created the books are an empty array.
+* The person books can be listed any time using the command:
 ```
-
+puts person1.books
 ```
-As a library
-In order to have good books to offer to the public
-I would like to be able to have a collection of books
+the list shows the books titles, authors and return dates.
+* A person can check the list of available books in library using:
 ```
-
+puts library1.books_available
+````
+this will lest the books available only
+* A person can check out a book from library by calling the Library method `.checkout` and passing argument of book ID (integer) and person (object) borrowing the book:
 ```
-As a library
-In order to have good books to offer to the public
-I would like to be able to allow individuals to check out a book
+library1.checkout(id, person)
 ```
-
+this will set a return date of 30 days from today, and then update the books in the library and the person objects.
+* A person can return a book to library in similar method to checkout:
 ```
-As a library
-In order to have good books to offer to the public
-I would like to be able to allow individuals to return a book
+library1.return(id, person)
 ```
-
+this will update both library and person objects.
+* A person can check the return date of unavailable book by ID using the method `.return_date`
 ```
-As a library
-In order to make the books available to many individuals
-I would like to set a return date on every check out
-and I would like that date to be 1 month from checkout date
+library1.return_date(id)
 ```
-
+* A librarian can add books to the library collection using the method `.add_book` by passing the arguments of the new book name (string) and author (string)
 ```
-As a library
-In order to maintain record of books
-when a book is returned, the library dataset gets updated
+library1.add_book(boo_name, book_author)
 ```
-
-```
-As a library
-In order to provide a new record of books
-books can be added to the library collection and saved in a file
-```
-
-### Tasks
-----
-
-* Fork the challenge repo: https://github.com/CraftAcademy/library-challenge
-* Run the command `bundle install` in the project directory to ensure you have all the gems
-* Write your specs and implementation
-* Be smart about using Git: commit and push often. Use feature branches.
-* Create a Pull Request as soon as possible
-* Read the comments from Hound and fix any issues that the service points out.
-
-### Tips
-----
-
-##### Some hints:
-  * A Person needs to have a list of books that he currently has in his possession. That list needs to include the return date.
-  * The return date can be calculated using the `Date` object. Out of the box, there are methods you can use to add days to the current date.
-  * Make use of `doubles` when writing your specs
-  * Follow the [naming conventions/standards](https://craftacademy.gitbooks.io/coding-as-a-craft/content/extras/naming_standards.html) for methods and variables
-
-### What we are looking for
-----
-##### I'm hoping to see that:
-* You can take a problem set and write a well tested implementation on your own.
-* You understand how to define Ruby Classes and work with objects.
-* You understand how classes can interact with each other.
-* You know how to make use of arrays, hashes, and associated methods to create dynamic lists.
-* You know how to write specs and use them as a blueprint in your development.
-* I can track your work by following you commit history - so please commit as soon you are done with a feature or when you have made a test pass.
-
-##### In your Pull Request, I'm hoping to see:
-* That you are testing the right thing in the right spec file.
-* That all tests passing - green is good!
-* High test coverage (above 95% is accepted)
-* The code is easy to follow: every class has a clear responsibility, methods are short, code is nicely formatted, etc.
-* The `README.md` includes information on how to use your solution with command examples in `irb`. (Feel free to remove this text)
-
-
-**Happy coding!**
+this will automatically create and ID for the book and add it to the collection and write it to the yml file.
+* Error messages show in cases where a person try return an already returned book, or checkout an unavailable book, etc...
+* Please note that the second book in the initial books (ID = 2) is unavailable for test purposes.
