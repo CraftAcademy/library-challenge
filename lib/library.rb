@@ -17,8 +17,9 @@ class Library
     if @books[index][:available] == true
       @books[index][:available] = false
       @books[index][:person] = person.name
-      person.books << @books[index][:item]
       @books[index][:item][:return_date] = Date.today.next_day(30).strftime('%Y-%m-%d')
+      person.books << @books[index][:item]
+      write_to_yaml
       @books[index][:item][:title] + ' checked out successfully, please return on ' + @books[index][:item][:return_date]
     else
       "Book not available"
@@ -41,6 +42,7 @@ class Library
     @books[index][:person] = nil
     @books[index][:item][:return_date] = nil
     person.books.reject! { |x| x[:id] === id }
+    write_to_yaml
     'Thanks for returning ' + @books[index][:item][:title]
     end
   end
@@ -49,5 +51,9 @@ class Library
 
   def find_index(id)
     @books.index { |x| x[:item][:id] === id }
+  end
+
+  def write_to_yaml
+    File.open('./lib/data.yml', 'w') { |f| f.write @books.to_yaml }
   end
 end
