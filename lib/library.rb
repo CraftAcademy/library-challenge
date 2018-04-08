@@ -1,24 +1,19 @@
-
+require 'yaml'
 class Library
+
 
   attr_accessor :book_list
 
   def initialize
-    @book_list = [
-      {name: "little women", author: "Jane Austen", book_id: 1234, checked_out: false, return_date: nil },
-      {name: "The Hunger Games", author: "Suzanne Collins", book_id: 1235, checked_out: false, return_date: nil},
-      {name: "Crushing It", author: "Gary Vaynerchuk", book_id: 1236, checked_out: false, return_date: nil},
-      {name: "The Startup Way", author: "Eric Ries", book_id: 1237, checked_out: false, return_date: nil},
-      {name: "INSPIRED", author: "Marty Cagan", book_id: 1238, checked_out: false, return_date: nil}
-    ]
+    @book_list = YAML.load_file('./lib/data.yml')
   end
 
   def perform_check_out(book_id)
     book = @book_list.find {|b| b[:book_id] == book_id}
-    if book[:checked_out] == true
+    if book[:available] == false
       return {status: false, message: 'book unavailable', book_id: book_id}
     else
-      book[:checked_out] = true
+      book[:available] = false
       book[:return_date] = Date.today.next_month
       return { status: true, message: 'check_out complete', book_id: book_id, date: Date.today, return_date: Date.today.next_month }
     end
@@ -40,10 +35,10 @@ class Library
 
   def perform_return(book_id)
     book = @book_list.find {|b| b[:book_id] == book_id}
-    if book[:checked_out] == false
+    if book[:available] == true
       return {status: false, message: 'book available, can not return', book_id: book_id}
     else
-      book[:checked_out] = false
+      book[:available] = true
       book[:return_date] = nil
       return { status: true, message: 'book returned', book_id: book_id, return_date: Date.today }
     end
