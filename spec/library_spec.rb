@@ -48,4 +48,9 @@ it 'gives an error when returning a book already checked out by another person' 
   expect(subject.return(2, person)).to eq 'This book has been checked out by a different person'
 end
 
+it 'adds a new book to library' do
+  subject.add_book('The Green Forest', 'Hilda Svenningsson')
+  expect(subject.books.size).to eq 6
+end
+
 end

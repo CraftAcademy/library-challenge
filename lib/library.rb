@@ -47,6 +47,13 @@ class Library
     end
   end
 
+  def add_book(title, author)
+    id = @books.size + 1
+    new_book = {item: {id: id, title: title, author: author, return_date: nil}, available: true, person: nil}
+    @books << new_book
+    write_to_yaml
+  end
+
   private
 
   def find_index(id)
