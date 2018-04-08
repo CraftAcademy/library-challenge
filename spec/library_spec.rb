@@ -1,7 +1,7 @@
 require './lib/library.rb'
 
 describe Library do
-
+let(:person) { instance_double('Person', name: 'Michael', personnummer: 9012241677, books: [] )}
 expected_date = Date.today.next_day(30).strftime('%Y-%m-%d')
 list_of_books = YAML.load_file('./lib/data.yml')
 
@@ -11,16 +11,16 @@ end
 
 it 'gives success message if a book is available' do
   expected_output = 'Alfons och soldatpappan checked out successfully, please return on ' + expected_date
-  expect(subject.checkout(1, 'Michael')).to eq expected_output
+  expect(subject.checkout(1, person)).to eq expected_output
 end
 
 it 'sets the return date 30 days from today' do
-subject.checkout(1,'Michael')
-expect(subject.books[0][:return_date]).to eq expected_date
+subject.checkout(1, person)
+expect(subject.books[0][:item][:return_date]).to eq expected_date
 end
 
 it 'gives an error message if book is not available' do
-  expect(subject.checkout(2, 'Stefan')).to eq 'Book not available'
+  expect(subject.checkout(2, person)).to eq 'Book not available'
 end
 
 it 'shows the list of available books' do
