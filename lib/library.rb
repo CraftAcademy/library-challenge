@@ -2,10 +2,12 @@ require 'yaml'
 require 'date'
 
 class Library
-  attr_accessor :books
+  attr_accessor :books, :file_name
 
-  def initialize
+  def initialize(file_name)
     @books = YAML.load_file('./lib/data.yml')
+    @file_name = file_name + '_data.yml'
+    write_to_yaml
   end
 
   def books_available
@@ -61,6 +63,6 @@ class Library
   end
 
   def write_to_yaml
-    File.open('./lib/data.yml', 'w') { |f| f.write @books.to_yaml }
+    File.open('./lib/' + @file_name , 'w') { |f| f.write @books.to_yaml }
   end
 end

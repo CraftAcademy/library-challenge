@@ -4,6 +4,7 @@ describe Library do
 let(:person) { instance_double('Person', name: 'Peter Johansson', personnummer: 9012241677, books: [] )}
 expected_date = Date.today.next_day(30).strftime('%Y-%m-%d')
 list_of_books = YAML.load_file('./lib/data.yml')
+subject = Library.new('rspec')
 
 it 'displays the list of books' do
     expect(subject.books).to eq list_of_books
