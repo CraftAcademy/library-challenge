@@ -3,22 +3,22 @@
 
 Introduction
 -------
-The code creates a Library class that contains a list of books read from an (.yml) file. The Library includes functions to add new books, checkout and return books.
+The code creates a Library class that contains a list of books read from an `.yml` file. The Library includes functions to add new books, checkout and return books.
 
 Instructions
 -------
-* Start irb
-* create a new library, add the library name as argument:
+* Start `irb` in the terminal and load `./lib/library.rb` and `./lib/person.rb`
+* create a new library, add the library `name` as an argument:
 ```
  library1 = Library.new('library_name')
  ```
  this will create the file _library_name_data.yml_ in the main folder. And will initiate the library with five basic books.
-* * The library books can be listed any time using the command:
+* The library books can be listed any time using the command:
 ```
 puts library1.books
 ```
-the result is array is an array of books, where each book is a hash that contains the book ID, title, author. In addition information about if it is available (available), the name of person whom checked it out (person) and the date it should be returned (return_date).
-* create a new person, add name (string) and personnummer (integer) as arguments:
+the result is an array of books, where each book is a hash that contains the book `ID`, `title`, `author`. In addition information about the availability of the book `available`, the name of person whom checked it out `person` and the date it should be returned `return_date`.
+* create a new person, add `name (string)` and `personnummer (integer)` as arguments:
 ```
 person1 = Person.new(name, personnummer)
 ```
@@ -33,7 +33,7 @@ the list shows the books titles, authors and return dates.
 puts library1.books_available
 ````
 this will lest the books available only
-* A person can check out a book from library by calling the Library method `.checkout` and passing argument of book ID (integer) and person (object) borrowing the book:
+* A person can check out a book from library by calling the Library method `.checkout` and passing argument of book `id (integer)` and `person (object)` borrowing the book:
 ```
 library1.checkout(id, person)
 ```
@@ -47,10 +47,10 @@ this will update both library and person objects.
 ```
 library1.return_date(id)
 ```
-* A librarian can add books to the library collection using the method `.add_book` by passing the arguments of the new book name (string) and author (string)
+* A librarian can add books to the library collection using the method `.add_book` by passing the arguments of the new book `title (string)` and `author (string)` as follow:
 ```
-library1.add_book(boo_name, book_author)
+library1.add_book(boo_title, book_author)
 ```
-this will automatically create and ID for the book and add it to the collection and write it to the yml file.
+this will automatically create and ID for the book and add it to the collection and write it to the `.yml` file.
 * Error messages show in cases where a person try return an already returned book, or checkout an unavailable book, etc...
-* Please note that the second book in the initial books (ID = 2) is unavailable for test purposes.
+* Please note thats the second book in the initial books `ID = 2` is already borrowed `available = false` for test purpose.
