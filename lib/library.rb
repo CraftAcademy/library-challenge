@@ -30,12 +30,19 @@ class Library
     @books[index][:item][:return_date]
   end
 
-  def return(id)
+  def return(id,person)
     index = find_index(id)
+    if @books[index][:available] == true
+      'This book has already been returned'
+    elsif person.name != @books[index][:person]
+      'This book has been checked out by a different person'
+    else
     @books[index][:available] = true
     @books[index][:person] = nil
     @books[index][:item][:return_date] = nil
+    person.books.reject! { |x| x[:id] === id }
     'Thanks for returning ' + @books[index][:item][:title]
+    end
   end
 
   private

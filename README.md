@@ -59,7 +59,11 @@ In order to make the books available to many individuals
 I would like to set a return date on every check out
 and I would like that date to be 1 month from checkout date
 ```
-
+```
+As a library
+In order to maintain record of books
+when a book is returned, the library dataset gets updated
+```
 
 
 ### Tasks

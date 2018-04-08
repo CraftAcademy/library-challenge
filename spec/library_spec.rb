@@ -1,7 +1,8 @@
 require './lib/library.rb'
 
 describe Library do
-let(:person) { instance_double('Person', name: 'Michael', personnummer: 9012241677, books: [] )}
+book2 = [{:id=>2, :title=>"Skratta lagom! Sa pappa Åberg", :author=>"Gunilla Bergström", :return_date=>"2016-05-25"}]
+let(:person) { instance_double('Person', name: 'Bert Andersson', personnummer: 9012241677, books: book2 )}
 expected_date = Date.today.next_day(30).strftime('%Y-%m-%d')
 list_of_books = YAML.load_file('./lib/data.yml')
 
@@ -15,8 +16,7 @@ it 'gives success message if a book is available' do
 end
 
 it 'sets the return date 30 days from today' do
-subject.checkout(1, person)
-expect(subject.books[0][:item][:return_date]).to eq expected_date
+  expect(subject.books[0][:item][:return_date]).to eq expected_date
 end
 
 it 'gives an error message if book is not available' do
@@ -29,13 +29,21 @@ end
 
 it 'shows return date of unavailable book' do
   expect(subject.return_date(2)).to eq '2016-05-25'
+    puts person.books
 end
 
 it 'set book availability to true, return date and name to nil when returned back' do
-  subject.return(2)
+  subject.return(2,person)
   expect(subject.books[1][:available]).to eq true
   expect(subject.books[1][:person]).to eq nil
   expect(subject.books[1][:return_date]).to eq nil
+    puts person.books
+end
+
+it 'clears book from account when returning borrowed book' do
+  subject.return(1,person)
+  expect(person.books).to eq []
+        puts person.books
 end
 
 end

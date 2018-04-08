@@ -7,7 +7,4 @@ attr_accessor :books, :name, :personnummer
     @books = []
   end
 
-  def return(id)
-    @books.reject! { |x| x[:id] === id }
-  end
 end
