@@ -30,11 +30,9 @@ describe Library do
     date = Date.today.next_month
     book = subject.list.select.first { |book| book[:item][:title] == 'I Remember You' }
     expect(book[:return_date]).to eq nil
-
-
-expected_output = "This book is available and should be returned before #{date}"
-expect(subject.lends_book('I Remember You')).to eq expected_output
-
+    expected_output = "This book is available and should be returned before #{date}"
+    expect(subject.lends_book('I Remember You')).to eq expected_output
   end
 
+  
 end
