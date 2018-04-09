@@ -1,0 +1,30 @@
+---
+- :item:
+    :title: Someone To Watch Over Me
+    :author: Yrsa Sigurdardottir
+  :available: true
+  :return_date:
+
+- :item:
+    :title: I Remember You
+    :author: Yrsa Sigurdardottir
+  :available: true
+  :return_date:
+
+- :item:
+    :title: Joyland
+    :author: Stephen King
+  :available: false
+  :return_date: '2018-05-06'
+
+- :item:
+    :title: Häxan
+    :author: Camilla Läckberg
+  :available: true
+  :return_date:
+
+- :item:
+    :title: The Shining
+    :author: Stephen King
+  :available: true
+  :return_date:
