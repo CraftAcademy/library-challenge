@@ -1,5 +1,5 @@
 ##Library Challenge
-###Week 1 Ruby challenge
+### This is fun
 
 Instructions
 -------
