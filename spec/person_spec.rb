@@ -1,4 +1,5 @@
-require 'date'
+# require '.lib/data.yml'
+require './lib/person.rb'
 
 describe Person do
 
@@ -6,7 +7,9 @@ describe Person do
         expect(subject.books).to eq true
     end
 
-
     
+
+
+
 end
 

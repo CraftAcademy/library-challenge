@@ -1,3 +1,4 @@
+require 'yaml'
 require 'library.rb'
 
 class Person
@@ -9,8 +10,8 @@ class Person
     end
 
     def list_of_books
-    collection = YAML.load_file('.lib/data.yml')
-    {status: true, message: 'There is books in the library' } 
+        collection = YAML.load_file('./lib/data.yml')
+        collection = true
     end
 
 
