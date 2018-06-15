@@ -2,16 +2,18 @@
 require './lib/person.rb'
 
 describe Person do
+#let(:library) { instance_double('Library') }
+
+    #subject { described_class.new(name: 'Thomas') }
+
+    #before do
+        #allow(library).to receive(:collection=)
+        #end
+
     
-let(:library) { instance_double('Person', collection: )}
-
-
-    it 'is expected to be books on initialize' do
-        expect(subject.books).to eq true
-    end
-
-    it 'is expected that a Person has books' do
-    expect(subject.loaned).to be true
+    it 'is expected that a Person has a collection of books' do
+    expected_output = { status: true, message: 'Person have books loaned from the library' }
+        expect(subject.collection.detect).to eq expected_output
     end
 
 

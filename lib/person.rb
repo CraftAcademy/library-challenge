@@ -3,12 +3,13 @@ require 'library.rb'
 
 class Person
     
-    attr_accessor :books, :loaned, :collection
+    attr_accessor :books, :loaned, :collection, :return_date
 
     def initialize
         @books = list_of_books
-        @loaned = loaned_books
+        @loaned = person_has_books?
         @collection
+        
     end
 
     def list_of_books
@@ -16,8 +17,9 @@ class Person
         collection = true
     end
 
-    def loaned_books 
-        collection[0][:available] = false
+    def person_has_books?
+        
+    
     end
 
 

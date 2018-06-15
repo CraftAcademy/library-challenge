@@ -1,8 +1,19 @@
 require 'yaml'
-# require 'data.yml'
 require 'date'
 
-#collection = YAML.load_file('./lib/data.yml')
+class Library
 
-#collection[0][:available] = false
-#File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
+    attr_accessor :books
+    @books
+
+    def initialize
+        @books = list_of_books
+    end
+
+        def list_of_books
+        collection = YAML.load_file('./lib/data.yml')
+        collection = true
+        end
+
+
+end
