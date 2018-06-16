@@ -1,7 +1,11 @@
+require 'yaml'
 require 'date'
 require './lib/person.rb'
 
-describe
-    it 'there is a list of books on initialize' do
-        expect(subject.books).to eq true
+describe Person do
+
+    it 'initializes a instance of Person without books' do
+    expect(subject.books).to eq nil
     end
+
+end
