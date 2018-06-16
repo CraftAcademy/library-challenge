@@ -1,6 +1,9 @@
 require 'yaml'
 require 'library.rb'
 
+collection = data["deploy"][0]["username"]
+
+
 class Person
     
     attr_accessor :books, :loaned, :collection, :return_date
@@ -8,8 +11,11 @@ class Person
     def initialize
         @books = list_of_books
         @loaned = person_has_books?
-        @collection
-        
+        @collection = collection_of_person
+    end
+
+    def collection    
+        collection = YAML.load_file('./lib/data.yml')
     end
 
     def list_of_books
@@ -18,9 +24,10 @@ class Person
     end
 
     def person_has_books?
-        
-    
     end
 
+    def collection_of_person
+    collection[1]
+    end
 
 end
