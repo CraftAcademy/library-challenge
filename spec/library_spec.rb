@@ -11,4 +11,12 @@ describe Library do
         expect(subject.find_book(args={})).to eq true
     end
 
+    it ' write to the database so it can set availablity, return date add new books' do
+
+    end
+
+    it 'tell person if book is over due' do
+    
+    end
+
 end
