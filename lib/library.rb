@@ -8,8 +8,12 @@ class Library
         @inventory = YAML.load_file('./lib/data.yml')
     end
 
-    def find_book(args={})
-        @inventory.select { |obj| obj[:item][:title].include? args }
+    def find_book_title(search)
+        @inventory.select { |obj| obj[:item][:title].include? search }
+    end
+
+    def find_book_author(search)
+        @inventory.select { |obj| obj[:item][:author].include? search }
     end
 
 end
