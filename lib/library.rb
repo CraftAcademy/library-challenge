@@ -20,6 +20,10 @@ class Library
         @inventory[0][:available] = false
     end
 
+    def set_return_date
+        Date.today.next_month.strftime('%F')
+    end
+
 
 end
 

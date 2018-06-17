@@ -1,5 +1,6 @@
 require 'yaml'
 require './lib/library'
+require 'date'
 
 describe Library do
 
@@ -26,7 +27,9 @@ describe Library do
         expect(subject.set_available).to eq false
     end
 
-    xit 'tell person if book is over due' do
+    it 'set the return date 30 days from today' do
+        return_date = Date.today.next_month.strftime('%F')
+        expect(subject.set_return_date).to eq return_date
     
     end
 
