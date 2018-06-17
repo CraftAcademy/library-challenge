@@ -34,6 +34,7 @@ describe Library do
     end
 
     it 'create new array with books person loaned' do
+        expect(person.loan_book(0)).to eq inventory[0]
     end
 
 end

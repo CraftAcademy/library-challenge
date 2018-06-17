@@ -28,7 +28,9 @@ class Library
         File.open('./lib/data.yml', 'w') { |f|h f.write inventory.to_yaml }
     end
 
+    def loan_book(item, person)
+        person.books_person.push inventory[item]
+    end
     
-
 end
 
