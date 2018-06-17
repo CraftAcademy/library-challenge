@@ -24,6 +24,11 @@ class Library
         Date.today.next_month.strftime('%F')
     end
 
+    def update_data
+        File.open('./lib/data.yml', 'w') { |f|h f.write inventory.to_yaml }
+    end
+
+    
 
 end
 

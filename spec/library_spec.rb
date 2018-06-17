@@ -3,6 +3,7 @@ require './lib/library'
 require 'date'
 
 describe Library do
+    let(:person) { instance_double('Person') }
 
     it 'make a Library with books' do
         expect(subject).to be_an_instance_of Library
@@ -27,10 +28,12 @@ describe Library do
         expect(subject.set_available).to eq false
     end
 
-    it 'set the return date 30 days from today' do
+    it 'set the return date one month from loan date' do
         return_date = Date.today.next_month.strftime('%F')
         expect(subject.set_return_date).to eq return_date
-    
+    end
+
+    it 'create new array with books person loaned' do
     end
 
 end
