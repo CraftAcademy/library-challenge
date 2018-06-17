@@ -16,5 +16,10 @@ class Library
         @inventory.select { |obj| obj[:item][:author].include? search }
     end
 
+    def set_available
+        @inventory[0][:available] = false
+    end
+
+
 end
 
