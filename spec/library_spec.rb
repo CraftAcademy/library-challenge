@@ -8,14 +8,16 @@ describe Library do
     end
 
     it 'search for books in the inventory' do
-        expect(subject.find_book(args={})).to eq true
+        expected_array = [{:item=>{:title=>"Pippi Långstrump", :author=>"Astrid Lindgren"}, :available=>true, :return_date=>nil}, 
+        {:item=>{:title=>"Pippi Långstrump går ombord", :author=>"Astrid Lindgren"}, :available=>true, :return_date=>nil}]
+        expect(subject.find_book('Pippi')).to eq(expected_array)
     end
 
-    it ' write to the database so it can set availablity, return date add new books' do
+    xit ' write to the database so it can set availablity, return date add new books' do
 
     end
 
-    it 'tell person if book is over due' do
+    xit 'tell person if book is over due' do
     
     end
 

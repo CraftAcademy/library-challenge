@@ -9,7 +9,7 @@ class Library
     end
 
     def find_book(args={})
-        @inventory.detect { |obj| obj[:item][:title].include? args }
+        @inventory.select { |obj| obj[:item][:title].include? args }
     end
 
 end
