@@ -29,13 +29,13 @@ class Library
 
     private
 
-    #def todays_date
-    #Date.strftime.now('%d/%m')
-    #end
+    def todays_date
+    Date.strftime.now('%d/%m')
+    end
 
-    #def new_return_date
-    #Datetime.now + 30.days
-    #end
+    def new_return_date
+    Datetime.now + 30.days
+    end
 
    def yaml_update
     File.open('./lib/data.yml', 'w') { |f| f.write items.to_yaml }

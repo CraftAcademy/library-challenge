@@ -15,19 +15,19 @@ describe Library do
         expect(subject.check_out).to eq expected_output
     end
 
-    #it 'rejects check out if the person has books that has not been returned in time' do
-    #end
+    xit 'rejects check out if the person has books that has not been returned in time' do
+    end
 
-    #it 'performs check out if book is available' do
-    #expect(subject.items).to eq check_out_yes
-    #end
+    xit 'performs check out if book is available' do
+    expect(subject.items).to eq check_out_yes
+    end
 
-    #it 'has todays date' do
-    #today_date = Date.strftime.now('%d/%m')
-    #end
+    xit 'has todays date' do
+    today_date = Date.strftime.now('%d/%m')
+    end
 
 
-    #it 'is expected that the :available status chenages when a book is checked out' do
-    #expect(subject.item).to change(:available).from(true).to false
-    #end
+    xit 'is expected that the :available status chenages when a book is checked out' do
+    expect(subject.item).to change(:available).from(true).to false
+    end
 end
