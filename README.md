@@ -42,9 +42,9 @@ The purpose of this challenge is to create a prototype application to allow a ne
 
   *User story:*
   ```
-  As a library
+  As a librarian
   In order to know what books we are able to lend to visitors
-  I would like to be able to have a collection of books
+  I would like to be able to be able to see the availability of books in the collection
   ```
 
 * **Requirement #3:** 
@@ -53,8 +53,8 @@ The purpose of this challenge is to create a prototype application to allow a ne
 
   *User story:*
   ```
-  As a library
-  In order to know what books we are able to lend to visitors
+  As a librarian
+  In order to update the availability of books in the collection
   I would like to be able to allow individuals to check out a book
   ```
 
@@ -64,14 +64,13 @@ The purpose of this challenge is to create a prototype application to allow a ne
 
   *User stories:*
   ```
-  As a library
+  As a librarian
   In order to make the books available to other visitors in a timely manner
-  I would like to set a return date on every check out
-  and I would like that date to be 1 month from checkout date
+  I would like to set a return date 1 month from checkout date
   ```
 
   ```
-  As an individual
+  As an visitor
   In order to avoid unwanted fines, and to generally do the right thing
   I would like to know when my book is supposed to be returned
   ```
