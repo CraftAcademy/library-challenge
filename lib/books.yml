@@ -1,0 +1,21 @@
+---
+  - :item:
+      :title: One day
+      :author: David Nichols
+    :available: true
+    :return_date: 
+ - :item:
+      :title: Gone Girl
+      :author: Gillian Flynn
+    :available: false
+    :return_date: '2018-05-01'
+- :item:
+      :title: The Notebook
+      :author: Nicholas Sparks
+  :available: true
+  :return_date: 
+- :item:
+      :title: Me before you
+      :author: Jojo Moyes
+  :available: true
+  :return_date:
