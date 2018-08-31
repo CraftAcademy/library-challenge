@@ -1,8 +1,6 @@
 ##Library Challenge
 ###Week 1 Ruby challenge
 
-###Learning objective
-----
 #####Write a Library program with the following user stories:
 
 ```
@@ -75,3 +73,4 @@ I would like to know when my book is supposed to be returned
 
 
 **Happy coding!**
+Thanks!
