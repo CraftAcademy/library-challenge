@@ -1,7 +1,7 @@
 ##Library Challenge
 ### This is fun
-super duper fun!
-once again fter the fuckup
+
+Adds some user stories
 
 Instructions
 -------
