@@ -7,15 +7,18 @@ Forked repository from https://github.com/CraftAcademy/library-challenge.
 
 Installed gemfiles including RSPEC and PRY for testing. Bundle installed gems.
 
+
 ### Built With
 -------
 * [Ruby](https://www.ruby-lang.org/en/) - The web framework used
 * [RSPEC](http://rspec.info/) - Testing framework
 * [YAML](http://yaml.org/) - Data serialization
 
+
 ### **Overview**
 -------
 The purpose of this challenge is to create a prototype application to allow a newly built library to keep track of its books.
+
 
 ### **Library Requirements and User Stories**
 -------
@@ -73,10 +76,12 @@ The purpose of this challenge is to create a prototype application to allow a ne
   I would like to know when my book is supposed to be returned
   ```
 
+
 ### **Example irb/PRY commands**
 -------
+* #### **[WIP]**
 
 
 ### **Authors**
-
+-------
 * **Rupert Lion, Shirmen Chen**
