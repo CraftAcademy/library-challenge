@@ -1,5 +1,7 @@
 ##Library Challenge
-###Week 1 Ruby challenge
+### This is fun
+
+Adds some user stories
 
 Instructions
 -------
