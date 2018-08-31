@@ -1,0 +1,26 @@
+---
+- :item:
+    :title: Bravo Two Zero
+    :author: Andy McNab
+  :available: true
+  :return_date: 
+- :item:
+    :title: To kill a mockingbird
+    :author: Harper Lee
+  :available: true
+  :return_date: 
+- :item:
+    :title: Pride and Predjudice
+    :author: Jane Austen
+  :available: true
+  :return_date: 
+- :item:
+    :title: The Da Vinci Code
+    :author: Dan Brown
+  :available: false
+  :return_date: '2018-09-15'
+- :item:
+    :title: Tinker, Tailor, Soldier, Sailor
+    :author: John Le Carre
+  :available: true
+  :return_date: 
