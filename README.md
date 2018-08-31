@@ -1,5 +1,6 @@
 ##Library Challenge
 ### This is fun
+super duper fun!
 
 Instructions
 -------
