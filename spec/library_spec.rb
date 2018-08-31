@@ -1,5 +1,13 @@
 require './lib/library.rb'
 
+describe Library do
+
+    it '' do
+        
+    end
+
+end
+
 # As a library
 # In order to have good books to offer to the public
 # I would like to be able to have a collection of books

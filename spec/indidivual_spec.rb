@@ -1,5 +1,13 @@
 require './lib/individual.rb'
 
+describe Individual do
+
+    it '' do
+        
+    end
+
+end
+
 # As an individual
 # In order to get my hands on a good book
 # I would like to see a list of books currently available in the library
