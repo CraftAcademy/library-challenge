@@ -5,14 +5,15 @@ class Library
     
     STANDARD_RETURN_PERIOD_MONTHS = 1
 
-    attr_accessor :collection
+    attr_accessor :collection, :visitor_bookshelf
     
     def initialize(attrs = {})
         @collection = YAML.load_file('./lib/data.yml')
+        @visitor_bookshelf = []
     end
 
     # def create_visitor(name)
-    #     @visitor = Visitor.new(name: name)
+    #     @visitor = Visitor.new(name)
     # end
 
     def collection_list
@@ -40,8 +41,7 @@ class Library
         else
             update_availability(title)
             update_return_date(title)
-            visitor_bookshelf = []
-            visitor_bookshelf << @collection.detect { |av| av[:item][:title].include? title }
+            @visitor_bookshelf << @collection.detect { |av| av[:item][:title].include? title }
             {title: title, message: 'Book now checked out', date_of_return: Date.today.next_month(1).strftime('%d/%m/%y')}
         end
     end 
