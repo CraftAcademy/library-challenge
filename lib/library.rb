@@ -9,8 +9,8 @@ class Library
     end
 
 
-    def books_available
-        collection.select { |book| book[:available] = true }
+    def book_available (name)
+        collection.select { |key,value| key[:item][:title] == name }[0][:available]
     end
 end 
 
