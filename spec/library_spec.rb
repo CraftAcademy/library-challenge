@@ -21,11 +21,14 @@ describe Library do
         expect(subject.check_availability).to eq expected_output
     end
 
-    # it 'can see the TITLE and AUTHOR of all AVAILABLE books' do
-    #     all_books = YAML.load_file('./lib/data.yml')
-    #     available_book_list = all_books.select { |obj| obj[:available] == true  }
-    #     expected_output = available_book_list.map {|book| book.values[0]}
-    #     subject.check_availability
+    it 'is expected to gives books a return date 1 month from checkout' do
+        exp_return_date = Date.today.next_month(1).strftime('%d/%m/%y')
+        expect(subject.set_return_date).to eq exp_return_date
+    end
+
+    # it 'can check out a book when requested' do
+    #     expected_output = {title: 'Bravo Two Zero', message: 'Book checked out', date_of_return: Date.today.next_month(1).strftime('%d/%m/%y')}
+    #     subject.checkout(title)
     #     expect(subject.check_available_titles).to eq expected_output
     # end
 end

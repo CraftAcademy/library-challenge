@@ -1,6 +1,9 @@
 require 'yaml'
 
 class Library
+    
+    STANDARD_RETURN_PERIOD_MONTHS = 1
+
     attr_accessor :collection, :available_books, :available_titles
     
     def initialize(attrs = {})
@@ -15,6 +18,10 @@ class Library
 
     def check_availability
         available_books = @collection.select { |obj| obj[:available] == true  }
+    end
+
+    def set_return_date
+        return_date = Date.today.next_month(STANDARD_RETURN_PERIOD_MONTHS).strftime('%d/%m/%y')
     end
 
 end
