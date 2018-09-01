@@ -18,6 +18,19 @@ class Library
         @return_date = Date.today.next_month.strftime('%d/%m/%y')
     end
 
+
+    def checkout_a_book
+    
+        if book_available != true
+            to raise('the chosen book is unavailable')
+        else checkout_book [:available] == true
+            checkout_book [:return_date] == return_date
+            checkout_book [:available] == false
+            "thank you for checking out, please return by #{return_date}" 
+        end
+    end
+end
+
     # def checkout(args)
     #     args[:library] == nil 
     #     name = @name
@@ -27,7 +40,7 @@ class Library
     #     response[:status] == true 
     # end
 
-end 
+ 
 
 #Need method for return date
 # The flow of checking out an item could be:
