@@ -27,12 +27,8 @@ describe Visitor do
        
     end
 
-    # it 'can see the return date of books on its bookshelf' do
+    it 'can see the return date of books on its bookshelf' do
 
-    # end
+    end
 
 end
-
-# As an visitor
-# In order to avoid unwanted fines, and to generally do the right thing
-# I would like to know when my book is supposed to be returned
