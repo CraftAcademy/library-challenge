@@ -1,4 +1,4 @@
-require './lib/books.yml'
+require 'yaml'
 require 'date'
 
 class Library
@@ -8,13 +8,11 @@ class Library
         @collection = YAML.load_file('./lib/books.yml')
     end
 
-    def book_collection(collection)
-    @collection = collection
-    end 
-end
 
-
-
+    def books_available
+        collection.select { |book| book[:available] = true }
+    end
+end 
 
 #Need method for return date
 # The flow of checking out an item could be:
