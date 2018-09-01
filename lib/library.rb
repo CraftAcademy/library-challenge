@@ -7,4 +7,9 @@ class Library
         @collection = YAML.load_file('./lib/data.yml')
     end
 
+    def books_available
+        collection.select { |book| book[:available] = true }
+    end
+
+    
 end
