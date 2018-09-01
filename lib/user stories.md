@@ -35,14 +35,13 @@ As a library
 In order to get our books back
 I want the visitor to know when to return our book
 
+Class Library
+method list all books 
+method list all available books
+method search 
+method checkout book
+method return date
 
 
-
-
-
-
-
-
-As a <stakeholder>            
-In order to <requirement>            
-I want <result>
+Class Visitor
+method give return date
