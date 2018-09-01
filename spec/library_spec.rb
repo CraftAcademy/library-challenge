@@ -10,11 +10,11 @@ describe Library do
         expect(subject.collection).to eq expected_output
     end
 
-    # it 'can see a list of all AVAILABLE books in the library collection' do
-    #     all_books = YAML.load_file('./lib/data.yml')
-    #     expected_output = all_books.select { |obj| obj[:available] == true  }
-    #     expect(subject.check_availability).to eq expected_output
-    # end
+    it 'can see a list of all AVAILABLE books in the library collection' do
+        all_books = YAML.load_file('./lib/data.yml')
+        expected_output = all_books.select { |obj| obj[:available] == true  }
+        expect(subject.check_availability).to eq expected_output
+    end
 
     # it 'can see the TITLE and AUTHOR of all AVAILABLE books' do
     #     all_books = YAML.load_file('./lib/data.yml')
