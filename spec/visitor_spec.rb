@@ -22,7 +22,7 @@ describe Visitor do
 
     it 'can see a list of all AVAILABLE books in the library collection' do
         all_books = YAML.load_file('./lib/data.yml')
-        expected_output = all_books.detect { |obj| obj[:available] == true  }
+        expected_output = all_books.select { |obj| obj[:available] == true  }
         expect(subject.available_books).to eq expected_output
     end
 
