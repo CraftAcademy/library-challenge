@@ -4,12 +4,10 @@ class Library
     
     STANDARD_RETURN_PERIOD_MONTHS = 1
 
-    attr_accessor :collection, :available_books, :available_titles
+    attr_accessor :collection, :available_titles
     
     def initialize(attrs = {})
         @collection = YAML.load_file('./lib/data.yml')
-        @available_books = []
-        @available_titles = []
     end
 
     def collection_list
@@ -17,14 +15,43 @@ class Library
     end
 
     def check_availability
-        available_books = @collection.select { |obj| obj[:available] == true  }
+        @collection.select { |obj| obj[:available] == true  }
     end
 
     def set_return_date
         return_date = Date.today.next_month(STANDARD_RETURN_PERIOD_MONTHS).strftime('%d/%m/%y')
     end
 
-end
+    def checkout(title)
+        case
+        when title_available?(title)
+            {title: title, message: 'Book checked out', date_of_return: Date.today.next_month(1).strftime('%d/%m/%y')}
+        # NA, return, bookshelf
+        else
+            title_unavailable(title)  
+        end
+    end 
+
+    private
+
+    def perform_checkout(title)
+        {title: title, message: 'Book checked out', date_of_return: Date.today.next_month(1).strftime('%d/%m/%y')}
+    end  
+
+    def title_unavailable(title)
+        raise RuntimeError, "#{title} is currently not available"
+    end
+
+    def title_available?(title)
+        @collection.any? { |obj| obj[:item][:title] == title && obj[:available] == true}
+    end  
+
+end 
+
+# def title_availabilty
+#     title_info[:available] == true ? available_book(title_info[:item][:title]) : unavailable_book(title_info[:item][:title])
+# end
+
 
 # testing ground at the moment
 
@@ -33,9 +60,7 @@ end
     #     title_info = collection.detect { |av| av[:item][:title].include? search_term }
     # end
 
-    # def title_availabilty
-    #     title_info[:available] == true ? available_book(title_info[:item][:title]) : unavailable_book(title_info[:item][:title])
-    # end
+
 
     # def available_book(avail_title)
     #     puts "#{avail_title} is available!"

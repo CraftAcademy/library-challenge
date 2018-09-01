@@ -26,11 +26,12 @@ describe Library do
         expect(subject.set_return_date).to eq exp_return_date
     end
 
-    # it 'can check out a book when requested' do
-    #     expected_output = {title: 'Bravo Two Zero', message: 'Book checked out', date_of_return: Date.today.next_month(1).strftime('%d/%m/%y')}
-    #     subject.checkout(title)
-    #     expect(subject.check_available_titles).to eq expected_output
-    # end
+    it 'can check out a book when requested and provide receipt' do  
+       subject.check_availability
+        expected_output = {title: 'Bravo Two Zero', message: 'Book checked out', date_of_return: Date.today.next_month(1).strftime('%d/%m/%y')}
+        expect(subject.checkout('Bravo Two Zero')).to eq expected_output
+    end
+
 end
 
 # As a librarian
