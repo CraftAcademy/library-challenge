@@ -11,4 +11,11 @@ class Library
     def get_books
         @books = YAML.load_file('./lib/books_database.yml')
     end
+
+    def available_books
+        @books.select do |book|
+            book[:available] == true
+        end        
+    end       
+
 end
