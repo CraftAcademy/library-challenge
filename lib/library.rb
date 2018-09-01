@@ -4,7 +4,7 @@ class Library
     
     STANDARD_RETURN_PERIOD_MONTHS = 1
 
-    attr_accessor :collection, :available_titles
+    attr_accessor :collection
     
     def initialize(attrs = {})
         @collection = YAML.load_file('./lib/data.yml')
@@ -14,10 +14,14 @@ class Library
         collection = @collection
     end
 
-    def check_availability
+    def list_availability
         @collection.select { |obj| obj[:available] == true  }
     end
-
+    
+    def check_availability(title)
+        title_available?(title)
+    end
+    
     def set_return_date
         return_date = Date.today.next_month(STANDARD_RETURN_PERIOD_MONTHS).strftime('%d/%m/%y')
     end
@@ -27,6 +31,7 @@ class Library
         when title_available?(title)
             {title: title, message: 'Book checked out', date_of_return: Date.today.next_month(1).strftime('%d/%m/%y')}
         # NA, return, bookshelf
+            
         else
             title_unavailable(title)  
         end
@@ -34,6 +39,10 @@ class Library
 
     private
 
+    def title_available?(title)
+        @collection.any? { |obj| obj[:item][:title] == title && obj[:available] == true}
+    end  
+    
     def perform_checkout(title)
         {title: title, message: 'Book checked out', date_of_return: Date.today.next_month(1).strftime('%d/%m/%y')}
     end  
@@ -41,10 +50,6 @@ class Library
     def title_unavailable(title)
         raise RuntimeError, "#{title} is currently not available"
     end
-
-    def title_available?(title)
-        @collection.any? { |obj| obj[:item][:title] == title && obj[:available] == true}
-    end  
 
 end 
 
