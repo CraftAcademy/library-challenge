@@ -4,7 +4,7 @@ require 'date'
 class Library
     attr_accessor :collection 
 
-    def initialise
+    def initialize 
         @collection = YAML.load_file('./lib/books.yml')
     end
 

@@ -1,13 +1,11 @@
 require './lib/library.rb'
-# require './lib/books.yml'
+# require '../lib/books.yml'
 require 'date'
 
 describe Library do
- 
-
 
     it 'person can view books in collection on initialise' do
-        expect(subject.collection).not_to be_Nil 
+        expect(subject.collection).not_to be_nil 
     end
 end
 
