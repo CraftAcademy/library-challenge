@@ -1,0 +1,25 @@
+- :item:
+    :title: Hot Night
+    :author: Sexy Mcsexton
+  :available: true
+  :return_date:
+- :item:
+    :title: Chicken Run
+    :author: Mother Clucker
+  :available: false
+  :return_date:
+- :item:
+    :title: Jessie James
+    :author: James Jessie
+  :available: true
+  :return_date:
+- :item:
+    :title: Three Body Problem
+    :author: Cixin Liu
+  :available: true
+  :return_date:
+- :item:
+    :title: Iron Gold
+    :author: Arthur Pierce
+  :available: true
+  :return_date:
