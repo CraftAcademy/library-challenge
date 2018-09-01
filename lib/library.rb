@@ -1,19 +1,16 @@
-require 'yaml'
+require './lib/books.yml'
 require 'date'
 
-
 class Library
-
-attr_accessor :collection
+    attr_accessor :collection 
 
     def initialise
-        @collection = YAML.load_file('./lib/data.yml')
-        # @return_date = Date.today + 1.month 
-end
+        @collection = YAML.load_file('./lib/books.yml')
+    end
 
-def book_collection(collection)
-    @collection
-end 
+    def book_collection(collection)
+    @collection = collection
+    end 
 end
 
 

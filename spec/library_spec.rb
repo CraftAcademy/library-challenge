@@ -1,26 +1,17 @@
-# 1As a library
-# 2In order to have  good  books to offer to thepublic
-# 3I would  like to be able to have a collection  of books  stored  in a file
-
-# 1As a library
-# 2In order to have  good  books to offer to thepublic
-# 3I would  like to be able to allow  individuals  to check  out a book
-
-# 1As a library
-# 2In order to make  the  books  available  to many  individuals
-# 3I would  like to set areturndate on every  check  out
-# 4and I would  like  that  date to be 1 month  from  checkout  date
 require './lib/library.rb'
+require './lib/books.yml'
+require 'date'
 
 describe library do
-    let(:person) {instance_double('Person', name: 'Bob')}
+    let(:library) {instance_double(collection: YAML.load_file('./lib/books.yml') )}
+    subject {describe class.new({library: collection})}
     
-    # before do
-    #     allow(person).to receive(:collection)
-    # end
+    before do
+        allow(library).to receive(collection)
+    end
 
     it 'person can view books in collection on initialise' do
-        expect(:collection).to be true 
+        expect(subject.collection).to be @collection
     end
 end
 
