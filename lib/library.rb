@@ -1,4 +1,5 @@
 require 'yaml'
+# require './lib/visitor.rb'
 
 class Library
     
@@ -9,6 +10,10 @@ class Library
     def initialize(attrs = {})
         @collection = YAML.load_file('./lib/data.yml')
     end
+
+    # def create_visitor(name)
+    #     @visitor = Visitor.new(name: name)
+    # end
 
     def collection_list
         collection = @collection
@@ -35,12 +40,11 @@ class Library
         else
             update_availability(title)
             update_return_date(title)
+            visitor_bookshelf = []
+            visitor_bookshelf << @collection.detect { |av| av[:item][:title].include? title }
             {title: title, message: 'Book now checked out', date_of_return: Date.today.next_month(1).strftime('%d/%m/%y')}
-            # bookshelf
         end
     end 
-
-
 
     private
 

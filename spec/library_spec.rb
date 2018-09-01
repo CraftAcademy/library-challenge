@@ -3,7 +3,7 @@ require 'yaml'
 
 describe Library do
 
-    let(:visitor) { instance_double('Visitor', name: 'Rupert') }
+    let(:visitor) { instance_double('Visitor', name: 'Rupert', bookshelf: []) }
  
     it 'has a collection of books in the library on initialize' do
         expected_output = YAML.load_file('./lib/data.yml')
@@ -37,10 +37,10 @@ describe Library do
         expect(subject.checkout('Bravo Two Zero')).to eq expected_output
     end
 
-    # it 'can update availability for a book at checkout' do  
-    #     subject.checkout('Bravo Two Zero') 
-    #     expect(subject.check_availability('Bravo Two Zero')).to eq false
-    # end
+    it 'can update availability for a book at checkout' do  
+        subject.checkout('Bravo Two Zero') 
+        expect(subject.check_availability('Bravo Two Zero')).to eq false
+    end
 
 end
 
