@@ -15,13 +15,12 @@ describe Visitor do
         expect { described_class.new }.to raise_error 'A name is required'
     end
     
-    # it 'can see the TITLE and AUTHOR of all AVAILABLE books' do
-    #     all_books = YAML.load_file('./lib/data.yml')
-    #     available_book_list = all_books.select { |obj| obj[:available] == true  }
-    #     expected_output = available_book_list.map {|book| book.values[0]}
-    #     subject.check_availability
-    #     expect(subject.check_available_titles).to eq expected_output
-    # end
+    it 'can see the TITLE and AUTHOR of all AVAILABLE books' do
+        all_books = YAML.load_file('./lib/data.yml')
+        available_book_list = all_books.select { |obj| obj[:available] == true  }
+        expected_output = available_book_list.map {|book| book.values[0]}
+        expect(subject.list_availability).to eq expected_output
+    end
 
 end
 

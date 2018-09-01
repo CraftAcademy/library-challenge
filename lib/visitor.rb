@@ -1,5 +1,6 @@
 require 'date'
 require 'yaml'
+require './lib/library.rb'
     
 class Visitor
     attr_accessor :name, :bookshelf
@@ -13,10 +14,11 @@ class Visitor
     #     @collection = YAML.load_file('./lib/data.yml')
     # end
 
-    # def check_availability
-    #     @collection = YAML.load_file('./lib/data.yml')
-    #     @available_books = @collection.select { |obj| obj[:available] == true  }
-    # end
+    def list_availability
+        @collection = YAML.load_file('./lib/data.yml')
+        @available_books = @collection.select { |obj| obj[:available] == true  }
+        @available_books.map {|book| book.values[0]}
+    end
 
     # def check_available_titles
     #     @available_titles = self.available_books.map {|book| book.values[0]}
