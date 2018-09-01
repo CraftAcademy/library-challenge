@@ -17,19 +17,22 @@ describe Visitor do
 
     it 'can see a list of all books in the library collection' do
         expected_output = YAML.load_file('./lib/data.yml')
-        expect(subject.booklist).to eq expected_output
+        expect(subject.check_collection).to eq expected_output
     end
 
     it 'can see a list of all AVAILABLE books in the library collection' do
         all_books = YAML.load_file('./lib/data.yml')
         expected_output = all_books.select { |obj| obj[:available] == true  }
-        expect(subject.available_books).to eq expected_output
+        expect(subject.check_availability).to eq expected_output
     end
 
-    # it 'can see a list of books available in the library' do
-    #     expected_output = collection
-    #     expect(subject.booklist).to eq collection
-    # end
+    it 'can see the TITLE and AUTHOR of all AVAILABLE books' do
+        all_books = YAML.load_file('./lib/data.yml')
+        available_book_list = all_books.select { |obj| obj[:available] == true  }
+        expected_output = available_book_list.map {|book| book.values[0]}
+        subject.check_availability
+        expect(subject.check_available_titles).to eq expected_output
+    end
 end
 
 # As a visitor
