@@ -9,6 +9,10 @@ class Library
         @available_titles = []
     end
 
+    def collection_list
+        collection = @collection
+    end
+
     def check_availability
         available_books = @collection.select { |obj| obj[:available] == true  }
     end
