@@ -15,9 +15,15 @@ describe Visitor do
         expect { described_class.new }.to raise_error 'A name is required'
     end
 
-    it 'can see a list of all books in the library' do
+    it 'can see a list of all books in the library collection' do
         expected_output = YAML.load_file('./lib/data.yml')
-        expect(subject.booklist).to eq @collection
+        expect(subject.booklist).to eq expected_output
+    end
+
+    it 'can see a list of all AVAILABLE books in the library collection' do
+        all_books = YAML.load_file('./lib/data.yml')
+        expected_output = all_books.detect { |obj| obj[:available] == true  }
+        expect(subject.available_books).to eq expected_output
     end
 
     # it 'can see a list of books available in the library' do

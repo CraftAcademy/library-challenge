@@ -11,7 +11,11 @@ class Visitor
 
     def booklist
         @collection = YAML.load_file('./lib/data.yml')
-        puts @collection
+    end
+
+    def available_books
+        @collection = YAML.load_file('./lib/data.yml')
+        @collection.detect { |obj| obj[:available] == true  }
     end
 
 end
