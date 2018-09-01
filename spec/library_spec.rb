@@ -10,7 +10,6 @@ describe Library do
 
 
     it 'check if book is available' do
-        binding.pry
         expect(subject.book_available("Hot Night")).to be true
     end 
 
@@ -18,6 +17,9 @@ describe Library do
         expect(subject.book_available("Bible")).to be false
     end
 
+    it 'checkout book' do
+    expect(subject.available.checkout(book)).to receive book shelf
+    end
 end
 
 

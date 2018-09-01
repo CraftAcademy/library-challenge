@@ -12,6 +12,14 @@ class Library
         @collection.any? { |object| object[:item][:title] == title && object[:available] ==true }
     end
 
+    def checkout(args)
+        args[:library] == nil ? missing_atm : atm = args[:atm]
+        name = @name
+        book = @title
+        return_date = Date.today + 
+        response = person.book_shelf[]
+        response[:status] == true ? increase_cash(response) : response
+
 
 
 
