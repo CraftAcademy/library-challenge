@@ -31,7 +31,8 @@ class Library
         when title_available?(title)
             {title: title, message: 'Book checked out', date_of_return: Date.today.next_month(1).strftime('%d/%m/%y')}
         # NA, return, bookshelf
-            
+            #need to write to collection - access the correct title and write to the availability and return date
+            # update_availability(title)
         else
             title_unavailable(title)  
         end
@@ -48,7 +49,12 @@ class Library
     end  
 
     def title_unavailable(title)
-        raise RuntimeError, "#{title} is currently not available"
+        raise "#{title} is currently not available"
+    end
+
+    def update_availability(title)
+        @collection.find{|h| h[:item][:title] == title}[:available] = false
+        # File.open('./lib/data.yml', 'w') { |f| f.write @collection.to_yaml }
     end
 
 end 
