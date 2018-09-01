@@ -12,6 +12,11 @@ class Library
         collection.select { |book| book[:available] = true }
     end
 
+    def search(book)
+        collection.select { |book| book[:item][:title].include? "Pippi Långstrump" }
+    end
+
+
     
 
 end

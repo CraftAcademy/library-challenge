@@ -1,5 +1,6 @@
 require './lib/visitor.rb'
 require './lib/library.rb'
+require 'yaml'
 require 'Date'
 
 describe Visitor do

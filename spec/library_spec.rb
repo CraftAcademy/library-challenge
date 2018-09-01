@@ -12,8 +12,12 @@ describe Library do
         expect(subject.books_available).to eq expected_output
     end
 
-    it "sets book to unavailable" do
-        expected_output = 
+    it "allows to search specific book" do
+        expected_output = [{:item=>{:title=>"Pippi Långstrump", :author=>"Astrid Lindgren"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"Pippi Långstrump går ombord", :author=>"Astrid Lindgren"}, :available=>true, :return_date=>nil}]
+        expect(subject.search('Pippi Långstrump')).to eq expected_output
     end
+   # it "sets book to unavailable" do
+   #     expected_outpu
+   # end
 
 end

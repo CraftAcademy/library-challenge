@@ -2,15 +2,17 @@
  require './lib/library.rb'
  
  class Visitor
-  attr_accessor :collection, :visitor_books_available
+  attr_accessor :name
 
 
-  def initialize()
-    @collection = YAML.load_file('./lib/data.yml')
+  def initialize
+    print 'What is your name'
+    @name = gets.chomp
   end
 
-def visitor_books_available()
-  @collection.select { |book| book[:available] = true }
+def visitor_books_available
+  collection = Library.new
+  collection.books_available
 end
 
  end
