@@ -6,7 +6,7 @@
 
 
   def initialize
-    print 'What is your name'
+    print 'What is your name: '
     @name = gets.chomp
   end
 

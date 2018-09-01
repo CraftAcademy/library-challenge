@@ -16,8 +16,16 @@ describe Library do
         expected_output = [{:item=>{:title=>"Pippi Långstrump", :author=>"Astrid Lindgren"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"Pippi Långstrump går ombord", :author=>"Astrid Lindgren"}, :available=>true, :return_date=>nil}]
         expect(subject.search('Pippi Långstrump')).to eq expected_output
     end
-   # it "sets book to unavailable" do
-   #     expected_outpu
-   # end
+
+    it "successfully lend out a book" do
+        expect(subject.check_out("Pippi Långstrump")).to eq expected_output
+        expected_output = [{:item=>{:title=>"Pippi Långstrump", :author=>"Astrid Lindgren"}, :available=>false, :return_date=>nil}]
+    end
+
+    it "book not available to lend out" do
+        expect(subject.check_out).to eq expected_output
+        expected_output = [{:item=>{:title=>"Pippi Långstrump", :author=>"Astrid Lindgren"}, :available=>false, :return_date=>nil}]
+    end
+    
 
 end
