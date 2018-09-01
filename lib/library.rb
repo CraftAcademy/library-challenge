@@ -9,9 +9,13 @@ class Library
     end
 
 
-    def book_available (name)
-        collection.select { |key,value| key[:item][:title] == name }[0][:available]
+    def book_available(title)
+        @collection.any? { |object| object[:item][:title] == title && object[:available] ==true }
     end
+
+
+
+
 end 
 
 #Need method for return date
