@@ -1,4 +1,5 @@
 require './lib/library.rb'
+require './lib/borrower.rb'
 require 'date'
 require 'awesome_print'
 require 'yaml'

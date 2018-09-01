@@ -19,8 +19,7 @@ class Library
     end
 
     def available_books
-        ap response = @books.select { |book| book[:available] == true }
-        return response                     
+        @books.select { |book| book[:available] == true }        
     end
 
     def list_available_books
@@ -31,7 +30,7 @@ class Library
         book_to_checkout = available_books.select {|book| book[:item][:title] == title}
         book_not_found if book_to_checkout.empty?
         lend_book_to_borrower(title, borrower)
-        update_database(book_to_checkout)
+        update_database(book_to_checkout)        
         puts "#{title} has been handaded over to #{borrower.name}. Plese return it before #{one_month_from_now}".green
     end
 

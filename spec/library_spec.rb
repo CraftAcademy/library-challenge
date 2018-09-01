@@ -6,7 +6,10 @@ describe Library do
 
     let(:borrower) {instance_double('Borrower', name: 'Robin', borrowed_books: {})}
     before do
-        allow(borrower).to receive(:borrowed_books=)
+        allow(borrower).to receive(:borrowed_books=)        
+    end
+
+    after do
         db = YAML.load_file('./lib/default.yml')
         File.open('./lib/books_database.yml', 'w') { |f| f.write db.to_yaml}
     end           
