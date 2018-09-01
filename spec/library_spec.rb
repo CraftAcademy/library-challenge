@@ -61,7 +61,7 @@ describe Library do
         expected_output = {title: "Pippi Långstrump", return_date: Date.today.next_month.strftime("%y-%m-%d")}
         subject.checkout("Pippi Långstrump", borrower)
         expect(borrower.borrowed_books).to eq expected_output
-    end
+    end 
 
 end
 

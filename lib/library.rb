@@ -14,13 +14,17 @@ class Library
         get_books
         filtered_list = available.nil? ? @books : available_books
         puts "Searching for#{" available books with" unless available.nil?} #{type}s that includes '#{search_string}'...".yellow
-        response = search_books(filtered_list, type.downcase, search_string)
+        ap response = search_books(filtered_list, type.downcase, search_string)
+        return response
     end
 
     def available_books
-        response = @books.select do |book|
-            book[:available] == true
-        end        
+        ap response = @books.select { |book| book[:available] == true }
+        return response                     
+    end
+
+    def list_available_books
+        ap available_books
     end
 
     def checkout(title, borrower)        
@@ -30,7 +34,6 @@ class Library
         update_database(book_to_checkout)
         puts "#{title} has been handaded over to #{borrower.name}. Plese return it before #{one_month_from_now}".green
     end
-
 
     private
 
