@@ -8,7 +8,6 @@ class Library
         @collection = YAML.load_file('./lib/books.yml')
     end
 
-
     def book_available(title)
         @collection.any? { |object| object[:item][:title] == title && object[:available] ==true }
     end
