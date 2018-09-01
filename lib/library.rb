@@ -1,27 +1,31 @@
 require 'yaml'
 require 'date'
+STANDARD_RETURN_PERIOD_MONTH = 1
 
 class Library
-    attr_accessor :collection 
+    attr_accessor :collection, :title, :name, :return_date
 
     def initialize 
         @collection = YAML.load_file('./lib/books.yml')
+        @return_date = Date.today
     end
 
     def book_available(title)
         @collection.any? { |object| object[:item][:title] == title && object[:available] ==true }
     end
 
-    def checkout(args)
-        args[:library] == nil ? missing_atm : atm = args[:atm]
-        name = @name
-        book = @title
-        return_date = Date.today + 
-        response = person.book_shelf[]
-        response[:status] == true ? increase_cash(response) : response
+    def return_date
+        @return_date = Date.today.next_month.strftime('%d/%m/%y')
+    end
 
-
-
+    # def checkout(args)
+    #     args[:library] == nil 
+    #     name = @name
+    #     book = @title
+    #     return_date = Date.today.next_month
+    #     response = person.book_shelf[]
+    #     response[:status] == true 
+    # end
 
 end 
 

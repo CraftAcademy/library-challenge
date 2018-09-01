@@ -17,9 +17,15 @@ describe Library do
         expect(subject.book_available("Bible")).to be false
     end
 
-    it 'checkout book' do
-    expect(subject.available.checkout(book)).to receive book shelf
+    it 'gives a return date of a month' do
+        set_return_date = Date.today.next_month.strftime('%d/%m/%y')
+        expect(subject.return_date).to eq set_return_date
     end
+
+    # it 'checkout book and get return date' do
+    #     return_date = Date.today.next_month(1).strftime('%d/%m/%y')
+    # expect(subject.return_date).to eq return_date
+    # end
 end
 
 
