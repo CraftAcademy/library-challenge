@@ -23,20 +23,24 @@ class Library
     end
     
     def set_return_date
-        return_date = Date.today.next_month(STANDARD_RETURN_PERIOD_MONTHS).strftime('%d/%m/%y')
+        @return_date = Date.today.next_month(STANDARD_RETURN_PERIOD_MONTHS).strftime('%d/%m/%y')
     end
 
     def checkout(title)
         case
-        when title_available?(title)
-            {title: title, message: 'Book checked out', date_of_return: Date.today.next_month(1).strftime('%d/%m/%y')}
-        # NA, return, bookshelf
-            #need to write to collection - access the correct title and write to the availability and return date
-            # update_availability(title)
+        when title_available?(title) == false
+            title_unavailable(title) 
+            
+            return
         else
-            title_unavailable(title)  
+            update_availability(title)
+            update_return_date(title)
+            {title: title, message: 'Book now checked out', date_of_return: Date.today.next_month(1).strftime('%d/%m/%y')}
+            # bookshelf
         end
     end 
+
+
 
     private
 
@@ -53,8 +57,15 @@ class Library
     end
 
     def update_availability(title)
-        @collection.find{|h| h[:item][:title] == title}[:available] = false
-        # File.open('./lib/data.yml', 'w') { |f| f.write @collection.to_yaml }
+        (@collection.detect { |av| av[:item][:title].include? title })[:available] = false
+        File.open('./lib/data.yml', 'w') { |f| f.write @collection.to_yaml }
+        (@collection.detect { |av| av[:item][:title].include? title })[:available]
+    end
+
+    def update_return_date(title)
+        (@collection.detect { |av| av[:item][:title].include? title })[:return_date] = Date.today.next_month(1).strftime('%d/%m/%y')
+        File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
+        (@collection.detect { |av| av[:item][:title].include? title })[:return_date]
     end
 
 end 
