@@ -12,5 +12,8 @@ describe Library do
         expect(subject.books_available).to eq expected_output
     end
 
+    it "sets book to unavailable" do
+        expected_output = 
+    end
 
 end
