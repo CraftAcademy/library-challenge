@@ -2,7 +2,6 @@ require 'date'
 require 'yaml'
     
 class Visitor
-
     attr_accessor :name, :bookshelf
     
     def initialize(attrs = {})
@@ -10,6 +9,10 @@ class Visitor
         @bookshelf = []
     end
 
+    def booklist
+        @collection = YAML.load_file('./lib/data.yml')
+        puts @collection
+    end
 
 end
 
@@ -22,3 +25,4 @@ end
 def missing_name
     raise ArgumentError, "A name is required"
 end
+

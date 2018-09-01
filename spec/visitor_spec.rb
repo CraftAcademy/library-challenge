@@ -1,9 +1,12 @@
 require './lib/visitor.rb'
+require 'yaml'
 
 describe Visitor do
 
     subject { described_class.new(name: 'Rupert') }
 
+    let(:library) { instance_double('Library', collection: nil) }
+ 
     it 'is expected to have a :name on initialize' do
         expect(subject.name).not_to be nil
     end
@@ -12,6 +15,15 @@ describe Visitor do
         expect { described_class.new }.to raise_error 'A name is required'
     end
 
+    it 'can see a list of all books in the library' do
+        expected_output = YAML.load_file('./lib/data.yml')
+        expect(subject.booklist).to eq @collection
+    end
+
+    # it 'can see a list of books available in the library' do
+    #     expected_output = collection
+    #     expect(subject.booklist).to eq collection
+    # end
 end
 
 # As a visitor
