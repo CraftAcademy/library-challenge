@@ -23,12 +23,9 @@ class Library
        then 
             book[:available] = false
             book[:return_date] = returndate
+       return { message: 'successfully booked'} 
        end       
      File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
-    end
-
-    def book_not_available
-        raise RuntimeError, "Book is not available"
     end
 
     def returndate
