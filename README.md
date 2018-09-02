@@ -78,6 +78,8 @@ The purpose of this challenge is to create a prototype application to allow a ne
 
 ### **Example irb/PRY commands**
 -------
+#### **Library commands**
+
 * **Initialise library:** 
 ```
 library = Library.new
@@ -112,6 +114,32 @@ library.visitor_bookshelf
 ```
 library.checkin("Bravo Two Zero")
  => {:title=>"Bravo Two Zero", :message=>"Book now available"}
+```
+
+#### **Visitor commands**
+
+* **Initialise visitor:** 
+```
+visitor = Visitor.new(name: "Rupert")
+ => #<Visitor:0x007fab2b816b08 @name="Rupert", @bookshelf=[], @collection=[{:item=>{:title=>"Bravo Two Zero", :author=>"Andy McNab"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"To kill a mockingbird", :author=>"Harper Lee"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"Pride and Predjudice", :author=>"Jane Austen"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"The Da Vinci Code", :author=>"Dan Brown"}, :available=>false, :return_date=>"02/10/18"}, {:item=>{:title=>"Tinker, Tailor, Soldier, Sailor", :author=>"John Le Carre"}, :available=>true, :return_date=>nil}]> 
+```
+
+* **Check available books:** 
+```
+visitor.list_availability
+ => [{:title=>"Bravo Two Zero", :author=>"Andy McNab"}, {:title=>"To kill a mockingbird", :author=>"Harper Lee"}, {:title=>"Pride and Predjudice", :author=>"Jane Austen"}, {:title=>"Tinker, Tailor, Soldier, Sailor", :author=>"John Le Carre"}]
+```
+
+* **Check available books:** 
+```
+visitor.view_bookshelf
+ => [] 
+```
+
+* **Check return date of specific book:** 
+```
+visitor.check_return_date("The Da Vinci Code")
+ => "02/10/18" 
 ```
 
 ### **Authors**

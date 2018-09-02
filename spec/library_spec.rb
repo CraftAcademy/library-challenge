@@ -4,6 +4,11 @@ require 'yaml'
 describe Library do
 
     let(:visitor) { instance_double('Visitor', name: 'Rupert', bookshelf: []) }
+
+    after do 
+        original_data = YAML.load_file('./lib/original_data.yml')
+        File.open('./lib/data.yml', 'w') { |f| f.write original_data.to_yaml }
+    end
  
     it 'has a collection of books in the library on initialize' do
         expected_output = YAML.load_file('./lib/data.yml')
