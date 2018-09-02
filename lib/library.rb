@@ -42,12 +42,11 @@ class Library
     end  
     
     def title_unavailable(title)
-        raise "#{title} is currently not available"
+        "#{title} is currently not available"
     end
 
     def perform_checkout(title)
-        {title: title, message: 'Book checked out', 
-          date_of_return: Date.today.next_month(1).strftime('%d/%m/%y')}
+        {title: title, message: 'Book checked out', date_of_return: Date.today.next_month(1).strftime('%d/%m/%y')}
     end
 
     def update_availability_checkout(title)

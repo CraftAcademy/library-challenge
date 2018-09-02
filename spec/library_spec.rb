@@ -37,6 +37,12 @@ describe Library do
         expect(subject.checkout('Bravo Two Zero')).to eq expected_output
     end
 
+    it 'can provide error message if book if not available to borrow' do  
+        subject.checkout('Bravo Two Zero')
+        expected_output = "Bravo Two Zero is currently not available"
+        expect(subject.checkout('Bravo Two Zero')).to eq expected_output
+    end
+
     it 'can update availability for a book at checkout' do  
         subject.checkout('Bravo Two Zero') 
         expect(subject.check_availability('Bravo Two Zero')).to eq false
