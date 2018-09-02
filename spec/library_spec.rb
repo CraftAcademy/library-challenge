@@ -1,5 +1,6 @@
 require './lib/library.rb'
 require 'yaml'
+require 'date'
 
 describe Library do
 

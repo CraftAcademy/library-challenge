@@ -1,5 +1,6 @@
 require 'yaml'
 require './lib/visitor.rb'
+require 'date'
 
 class Library
     
@@ -24,6 +25,7 @@ class Library
         else
             update_availability_checkout(title)
             update_return_date_checkout(title)
+            File.open('./lib/data.yml', 'w') { |f| f.write @collection.to_yaml }
             {title: title, message: 'Book now checked out', 
               date_of_return: Date.today.next_month(1).strftime('%d/%m/%y')}
         end
@@ -32,6 +34,7 @@ class Library
     def checkin(title)
         update_availability_checkin(title)
         update_return_date_checkin(title)
+        File.open('./lib/data.yml', 'w') { |f| f.write @collection.to_yaml }
         {title: title, message: 'Book now available'}
     end
 
@@ -47,26 +50,18 @@ class Library
 
     def update_availability_checkout(title)
         (@collection.detect { |av| av[:item][:title].include? title })[:available] = false
-        File.open('./lib/data.yml', 'w') { |f| f.write @collection.to_yaml }
-        (@collection.detect { |av| av[:item][:title].include? title })[:available]
     end
 
     def update_return_date_checkout(title)
         (@collection.detect { |av| av[:item][:title].include? title })[:return_date] = Date.today.next_month(1).strftime('%d/%m/%y')
-        File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
-        (@collection.detect { |av| av[:item][:title].include? title })[:return_date]
     end
 
     def update_availability_checkin(title)
         (@collection.detect { |av| av[:item][:title].include? title })[:available] = true
-        File.open('./lib/data.yml', 'w') { |f| f.write @collection.to_yaml }
-        (@collection.detect { |av| av[:item][:title].include? title })[:available]
     end
 
     def update_return_date_checkin(title)
         (@collection.detect { |av| av[:item][:title].include? title })[:return_date] = nil
-        File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
-        (@collection.detect { |av| av[:item][:title].include? title })[:return_date]
     end
 
 end
