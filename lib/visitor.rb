@@ -2,17 +2,17 @@
  require './lib/library.rb'
  
  class Visitor
-  attr_accessor :name
+  attr_accessor :book_shelf, :visitor_books_available #outchecked books
 
 
   def initialize
-    print 'What is your name: '
-    @name = gets.chomp
+    #@book_shelf = []
   end
 
-def visitor_books_available
-  collection = Library.new
-  collection.books_available
-end
+  def visitor_books_available(library) #try with x instead of library for understanding once test is green
+    library.books_available
+  end
+
+
 
  end
