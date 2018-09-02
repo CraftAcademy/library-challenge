@@ -103,12 +103,6 @@ library.list_availability
  => [{:item=>{:title=>"Bravo Two Zero", :author=>"Andy McNab"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"To kill a mockingbird", :author=>"Harper Lee"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"Pride and Predjudice", :author=>"Jane Austen"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"Tinker, Tailor, Soldier, Sailor", :author=>"John Le Carre"}, :available=>true, :return_date=>nil}] 
 ```
 
-* **Check availability of specific book in library:** 
-```
-library.check_availability("Bravo Two Zero")
- => true 
-```
-
 * **Checkout book from library:** 
 ```
 library.checkout("Bravo Two Zero")
@@ -131,17 +125,14 @@ visitor = Visitor.new(name: "Rupert")
 
 * **Check available books:** 
 ```
-visitor.list_availability
- => [{:title=>"Bravo Two Zero", :author=>"Andy McNab"}, {:title=>"To kill a mockingbird", :author=>"Harper Lee"}, {:title=>"Pride and Predjudice", :author=>"Jane Austen"}, {:title=>"Tinker, Tailor, Soldier, Sailor", :author=>"John Le Carre"}]
+visitor.list_availability(library)
+ => [{:title=>"Bravo Two Zero", :author=>"Andy McNab"}, {:title=>"To kill a mockingbird", :author=>"Harper Lee"}, {:title=>"Pride and Predjudice", :author=>"Jane Austen"}, {:title=>"Tinker, Tailor, Soldier, Sailor", :author=>"John Le Carre"}] 
 ```
 
 * **Check out book and add to bookshelf:** 
 ```
 visitor.request_checkout("Bravo Two Zero", library)
  => [{:item=>{:title=>"Bravo Two Zero", :author=>"Andy McNab"}, :available=>false,:return_date=>"02/10/18"}]
-
-library.check_availability("Bravo Two Zero")
- => false 
 
 visitor.bookshelf
  => [{:item=>{:title=>"Bravo Two Zero", :author=>"Andy McNab"}, :available=>false, :return_date=>"02/10/18"}] 
@@ -151,9 +142,6 @@ visitor.bookshelf
 ```
 visitor.request_checkin("Bravo Two Zero", library)
  => [] 
-
-library.check_availability("Bravo Two Zero")
- => true 
 
 visitor.bookshelf
  => [] 
