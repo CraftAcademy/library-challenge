@@ -2,8 +2,8 @@
 - :item:
     :title: Bravo Two Zero
     :author: Andy McNab
-  :available: false
-  :return_date: 02/10/18
+  :available: true
+  :return_date: 
 - :item:
     :title: To kill a mockingbird
     :author: Harper Lee

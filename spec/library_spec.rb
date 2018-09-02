@@ -36,6 +36,11 @@ describe Library do
         expected_output = {title: 'Bravo Two Zero', message: 'Book now checked out', date_of_return: Date.today.next_month(1).strftime('%d/%m/%y')}
         expect(subject.checkout('Bravo Two Zero')).to eq expected_output
     end
+    
+    it 'can check-in book when returned by visitor' do
+        expected_output = {title: 'Bravo Two Zero', message: 'Book now available'}
+        expect(subject.checkin('Bravo Two Zero')).to eq expected_output
+    end
 
     it 'can update availability for a book at checkout' do  
         subject.checkout('Bravo Two Zero') 

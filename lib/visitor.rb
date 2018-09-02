@@ -22,7 +22,13 @@ class Visitor
         update_bookshelf
     end
 
-    def update_bookshelf
+    def request_checkin(title)
+        #need to call checkin method on title (from library)
+        checkin(title)
+        update_bookshelf
+    end
+
+    def update_bookshelf()
         @bookshelf = @visitor_bookshelf
     end
 

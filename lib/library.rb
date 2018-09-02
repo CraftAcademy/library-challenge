@@ -36,15 +36,21 @@ class Library
         case
         when title_available?(title) == false
             title_unavailable(title) 
-            
             return
         else
-            update_availability(title)
-            update_return_date(title)
+            update_availability_checkout(title)
+            update_return_date_checkout(title)
             @visitor_bookshelf << @collection.detect { |av| av[:item][:title].include? title }
             {title: title, message: 'Book now checked out', date_of_return: Date.today.next_month(1).strftime('%d/%m/%y')}
         end
     end 
+
+    def checkin(title)
+        update_availability_checkin(title)
+        update_return_date_checkin(title)
+        @visitor_bookshelf.delete_if { |h| h[:item][:title] == title }
+        {title: title, message: 'Book now available'}
+    end
 
     private
 
@@ -60,14 +66,26 @@ class Library
         raise "#{title} is currently not available"
     end
 
-    def update_availability(title)
+    def update_availability_checkout(title)
         (@collection.detect { |av| av[:item][:title].include? title })[:available] = false
         File.open('./lib/data.yml', 'w') { |f| f.write @collection.to_yaml }
         (@collection.detect { |av| av[:item][:title].include? title })[:available]
     end
 
-    def update_return_date(title)
+    def update_return_date_checkout(title)
         (@collection.detect { |av| av[:item][:title].include? title })[:return_date] = Date.today.next_month(1).strftime('%d/%m/%y')
+        File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
+        (@collection.detect { |av| av[:item][:title].include? title })[:return_date]
+    end
+
+    def update_availability_checkin(title)
+        (@collection.detect { |av| av[:item][:title].include? title })[:available] = true
+        File.open('./lib/data.yml', 'w') { |f| f.write @collection.to_yaml }
+        (@collection.detect { |av| av[:item][:title].include? title })[:available]
+    end
+
+    def update_return_date_checkin(title)
+        (@collection.detect { |av| av[:item][:title].include? title })[:return_date] = nil
         File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
         (@collection.detect { |av| av[:item][:title].include? title })[:return_date]
     end
