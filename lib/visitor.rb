@@ -11,12 +11,8 @@ class Visitor
     end
 
     def list_availability(library)
-        @available_books = library.collection.select { |obj| obj[:available] == true  }
-        @available_books.map {|book| book.values[0]}
-    end
-
-    def view_bookshelf
-        @bookshelf
+        available_books = library.collection.select { |obj| obj[:available] == true  }
+        available_books.map {|book| book.values[0]}
     end
 
     def request_checkout(title, library)
