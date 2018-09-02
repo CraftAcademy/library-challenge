@@ -23,8 +23,19 @@ describe Visitor do
         expect(subject.list_availability).to eq expected_output
     end
 
-    it 'can request to checkout a book which moves to their bookshelf' do
+    it 'can view books currently on their bookshelf' do
+        expected_output = subject.bookshelf
+        expect(subject.view_bookshelf).to eq expected_output
+    end
+
+    it 'can checkout a book which moves off their bookshelf' do
         subject.request_checkout("Bravo Two Zero")
+        expected_output = @visitor_bookshelf
+        expect(subject.update_bookshelf).to eq expected_output
+    end
+
+    it 'can checkin a book which moves off their bookshelf' do
+        subject.request_checkin("Bravo Two Zero")
         expected_output = @visitor_bookshelf
         expect(subject.update_bookshelf).to eq expected_output
     end

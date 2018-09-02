@@ -16,6 +16,10 @@ class Visitor
         @available_books.map {|book| book.values[0]}
     end
 
+    def view_bookshelf
+        @bookshelf
+    end
+
     def request_checkout(title)
         #need to call checkout method on title (from library)
         checkout(title)
@@ -29,6 +33,7 @@ class Visitor
     end
 
     def update_bookshelf()
+        #need to use method to make these variables equal
         @bookshelf = @visitor_bookshelf
     end
 
