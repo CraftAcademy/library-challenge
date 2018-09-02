@@ -78,8 +78,41 @@ The purpose of this challenge is to create a prototype application to allow a ne
 
 ### **Example irb/PRY commands**
 -------
-* #### **[WIP]**
+* **Initialise library:** 
+```
+library = Library.new
+ => #<Library:0x007fdade9062b0 @collection=[{:item=>{:title=>"Bravo Two Zero", :author=>"Andy McNab"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"To kill a mockingbird", :author=>"Harper Lee"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"Pride and Predjudice", :author=>"Jane Austen"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"The Da Vinci Code", :author=>"Dan Brown"}, :available=>false, :return_date=>"02/10/18"}, {:item=>{:title=>"Tinker, Tailor, Soldier, Sailor", :author=>"John Le Carre"}, :available=>true, :return_date=>nil}], @visitor_bookshelf=[]> 
+ ```
 
+* **List available books in library:** 
+```
+library.list_availability
+ => [{:item=>{:title=>"Bravo Two Zero", :author=>"Andy McNab"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"To kill a mockingbird", :author=>"Harper Lee"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"Pride and Predjudice", :author=>"Jane Austen"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"Tinker, Tailor, Soldier, Sailor", :author=>"John Le Carre"}, :available=>true, :return_date=>nil}] 
+```
+
+* **Check availability of specific book in library:** 
+```
+library.check_availability("Bravo Two Zero")
+ => true 
+```
+
+* **Checkout book from library:** 
+```
+library.checkout("Bravo Two Zero")
+ => {:title=>"Bravo Two Zero", :message=>"Book now checked out", :date_of_return=>"02/10/18"} 
+```
+
+* **Check books checked out and on visitor bookshelf:** 
+```
+library.visitor_bookshelf
+ => [{:item=>{:title=>"Bravo Two Zero", :author=>"Andy McNab"}, :available=>false, :return_date=>"02/10/18"}] 
+```
+
+* **Checkin book to library:** 
+```
+library.checkin("Bravo Two Zero")
+ => {:title=>"Bravo Two Zero", :message=>"Book now available"}
+```
 
 ### **Authors**
 -------
