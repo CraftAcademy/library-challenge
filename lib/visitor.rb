@@ -21,16 +21,12 @@ class Visitor
 
     def request_checkout(title, library)
         library.checkout(title)
-        update_bookshelf(library)
+        @bookshelf << library.collection.detect { |av| av[:item][:title].include? title }
     end
 
     def request_checkin(title, library)
         library.checkin(title)
-        update_bookshelf(library)
-    end
-
-    def update_bookshelf(library)
-        @bookshelf = library.visitor_bookshelf
+        @bookshelf.delete_if { |h| h[:item][:title] == title }
     end
 
     def check_return_date(title)

@@ -1,6 +1,7 @@
 require './lib/visitor.rb'
 require './lib/library.rb'
 require 'yaml'
+require 'date'
 
 describe Visitor do
 
@@ -11,9 +12,10 @@ describe Visitor do
     before do
         expected_checkout_output = {title: 'Bravo Two Zero', message: 'Book now checked out', date_of_return: Date.today.next_month(1).strftime('%d/%m/%y')}
         expected_checkin_output = {title: 'Bravo Two Zero', message: 'Book now available'}
+        # expected_return_date_output = Date.today.next_month(1).strftime('%d/%m/%y')
         allow(library).to receive(:checkout).and_return(expected_checkout_output)
         allow(library).to receive(:checkin).and_return(expected_checkin_output)
-        allow(library).to receive(:visitor_bookshelf).and_return([{:item=>{:title=>"Bravo Two Zero", :author=>"Andy McNab"}, :available=>false, :return_date=>Date.today.next_month(1).strftime('%d/%m/%y')}])
+        # allow(library).to receive(:update_return_date_checkout).and_return(expected_return_date_output)
     end
 
     it 'is expected to have a :name on initialize' do
@@ -38,13 +40,13 @@ describe Visitor do
 
     it 'can checkout a book which moves off their bookshelf' do
         subject.request_checkout("Bravo Two Zero", library)
-        expected_output = library.visitor_bookshelf
+        expected_output = subject.bookshelf
         expect(subject.bookshelf).to eq expected_output
     end
 
     it 'can checkin a book which moves off their bookshelf' do
         subject.request_checkin("Bravo Two Zero", library)
-        expected_output = library.visitor_bookshelf
+        expected_output = subject.bookshelf
         expect(subject.bookshelf).to eq expected_output
     end
 

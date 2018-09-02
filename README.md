@@ -104,12 +104,6 @@ library.checkout("Bravo Two Zero")
  => {:title=>"Bravo Two Zero", :message=>"Book now checked out", :date_of_return=>"02/10/18"} 
 ```
 
-* **Check books checked out and on visitor bookshelf:** 
-```
-library.visitor_bookshelf
- => [{:item=>{:title=>"Bravo Two Zero", :author=>"Andy McNab"}, :available=>false, :return_date=>"02/10/18"}] 
-```
-
 * **Checkin book to library:** 
 ```
 library.checkin("Bravo Two Zero")
@@ -130,15 +124,39 @@ visitor.list_availability
  => [{:title=>"Bravo Two Zero", :author=>"Andy McNab"}, {:title=>"To kill a mockingbird", :author=>"Harper Lee"}, {:title=>"Pride and Predjudice", :author=>"Jane Austen"}, {:title=>"Tinker, Tailor, Soldier, Sailor", :author=>"John Le Carre"}]
 ```
 
-* **Check available books:** 
+* **Check out book and add to bookshelf:** 
 ```
-visitor.view_bookshelf
+visitor.request_checkout("Bravo Two Zero", library)
+ => [{:item=>{:title=>"Bravo Two Zero", :author=>"Andy McNab"}, :available=>false,:return_date=>"02/10/18"}]
+
+library.check_availability("Bravo Two Zero")
+ => false 
+
+visitor.bookshelf
+ => [{:item=>{:title=>"Bravo Two Zero", :author=>"Andy McNab"}, :available=>false, :return_date=>"02/10/18"}] 
+```
+
+* **Check in book and remove from bookshelf:** 
+```
+visitor.request_checkin("Bravo Two Zero", library)
  => [] 
+
+library.check_availability("Bravo Two Zero")
+ => true 
+
+visitor.bookshelf
+ => [] 
+```
+
+* **Check books on bookshelf:** 
+```
+visitor.bookshelf
+ => [{:item=>{:title=>"Bravo Two Zero", :author=>"Andy McNab"}, :available=>false, :return_date=>"02/10/18"}] 
 ```
 
 * **Check return date of specific book:** 
 ```
-visitor.check_return_date("The Da Vinci Code")
+visitor.check_return_date("Bravo Two Zero")
  => "02/10/18" 
 ```
 
