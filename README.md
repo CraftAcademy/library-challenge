@@ -15,6 +15,17 @@ Installed gemfiles including RSPEC and PRY for testing. Bundle installed gems.
 * [YAML](http://yaml.org/) - Data serialization
 
 
+### Support Received On
+-------
+* Advice on creating duplicate data.yml file to enable iterative testing (Thomas)
+* Support on connections of visitor class to library class variables and methods (Thomas)
+
+
+### Other comments
+-------
+One test continues to fail ("can see the return date of books on its bookshelf"). I have tested the functionality of the code in irb many times and its works correctly - I have been unable to understand why the test is failing.
+
+
 ### **Overview**
 -------
 The purpose of this challenge is to create a prototype application to allow a newly built library to keep track of its books.
