@@ -1,12 +1,17 @@
 require './lib/library.rb'
 require 'date'
 require 'yaml'
+require 'pry'
 
 describe Library do
 
-    let(:borrower) {instance_double('Borrower', name: 'Robin', borrowed_books: {})}
+    let(:borrower) {instance_double('Borrower', name: 'Robin', borrowed_books: [], id: nil, status: nil)}
     before do
-        allow(borrower).to receive(:borrowed_books=)        
+        db = YAML.load_file('./lib/default.yml')
+        File.open('./lib/books_database.yml', 'w') { |f| f.write db.to_yaml}
+        allow(borrower).to receive(:borrowed_books=)
+        allow(borrower).to receive(:id=)
+        allow(borrower).to receive(:status=)        
     end
 
     after do
@@ -61,10 +66,28 @@ describe Library do
     end
     
     it 'should place book and return date in visitor instance upon checkout' do
-        expected_output = {title: "Pippi Långstrump", return_date: Date.today.next_month.strftime("%y-%m-%d")}
+        expected_output = [{title: "Pippi Långstrump", return_date: Date.today.next_month.strftime("%y-%m-%d")}]
         subject.checkout("Pippi Långstrump", borrower)
         expect(borrower.borrowed_books).to eq expected_output
     end 
+
+    it 'should have a way of tracking who borrowed which book' do
+        subject.checkout("Pippi Långstrump", borrower)
+        expect(subject.borrower_list).to include borrower
+    end
+
+    it 'should give error if borrower status is false' do
+        allow(borrower).to receive(:id).and_return(999999)
+        allow(borrower).to receive(:status).and_return(false)   
+        expect {subject.checkout("Pippi Långstrump", borrower)}.to raise_error "Status is false. This prevents your from borrowing books. Contact the reception"
+    end
+
+    it 'should give error if borrower has borrowed books and not returned them in time' do
+        allow(borrower).to receive(:id).and_return(999999)
+        allow(borrower).to receive(:status).and_return(true)
+        allow(borrower).to receive(:borrowed_books).and_return([{title: "Skratta lagom! Sa pappa Åberg", return_date: "2017-01-01"}])   
+        expect {subject.checkout("Pippi Långstrump", borrower)}.to raise_error "You have books that haven't been returned on time. Please return them before borrowing another book"
+    end
 
 end
 

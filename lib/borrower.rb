@@ -1,9 +1,11 @@
 class Borrower
-    attr_accessor :name, :borrowed_books 
+    attr_accessor :name, :borrowed_books, :id, :status 
 
     def initialize(name="")
         name.empty? ? provide_name : @name = name
-        @borrowed_books = {}
+        @borrowed_books = []
+        @id = nil
+        @status = nil
     end
 
     private

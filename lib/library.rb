@@ -2,12 +2,14 @@ require 'yaml'
 require 'date'
 require 'colorize'
 require 'awesome_print'
+require 'pry'
 
 class Library
-    attr_reader :books
+    attr_reader :books, :borrower_list
 
     def initialize 
         get_books
+        @borrower_list = []
     end    
 
     def search(search_string, type = "title", available = nil)
@@ -29,12 +31,34 @@ class Library
     def checkout(title, borrower)        
         book_to_checkout = available_books.select {|book| book[:item][:title] == title}
         book_not_found if book_to_checkout.empty?
+        create_borrower_id(borrower) if borrower.id == nil
+        check_borrower_status(borrower)
         lend_book_to_borrower(title, borrower)
         update_database(book_to_checkout)        
-        puts "#{title} has been handaded over to #{borrower.name}. Plese return it before #{one_month_from_now}".green
+        puts "#{title} has been handaded over to #{borrower.name}. Plese return it before #{one_month_from_now}".green        
     end
 
     private
+
+    def check_borrower_status(borrower)
+        case
+        when (borrower.status == false)
+            borrower_status_false_error            
+        when borrower.borrowed_books.empty?
+            puts "Borrower status is ok".green
+        when borrower.borrowed_books.any? {|book| Date.parse(book[:return_date]) < Date.today}
+            borrower.status = false
+            return book_not_returned_on_time_error
+        else
+            puts "Borrower status is ok".green
+        end              
+    end
+
+    def create_borrower_id(borrower)
+        borrower.id = rand(100000..999999)
+        borrower.status = true        
+        @borrower_list << borrower
+    end
 
     def update_database(book_to_checkout)
         database_index = @books.rindex(book_to_checkout[0])
@@ -44,8 +68,8 @@ class Library
     end
 
     def lend_book_to_borrower(title, borrower)
-        borrower.borrowed_books[:title] = title
-        borrower.borrowed_books[:return_date] = one_month_from_now
+        input_hash = {title: title, return_date: one_month_from_now}
+        borrower.borrowed_books << input_hash                
     end
 
     def search_books(filtered_list, type, search_string)
@@ -63,7 +87,15 @@ class Library
     end
     
     def book_not_found
-        raise 'I could not find that book. Did you spell the title correctly?'.red
+        raise "I could not find that book. Did you spell the title correctly?".red
+    end
+
+    def book_not_returned_on_time_error
+        raise "You have books that haven't been returned on time. Please return them before borrowing another book"
+    end
+
+    def borrower_status_false_error
+        raise "Status is false. This prevents your from borrowing books. Contact the reception"
     end
 
 end
