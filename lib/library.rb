@@ -13,55 +13,52 @@ class Library
     def list_availability
         @collection.select { |obj| obj[:available] == true  }
     end
-    
-    def check_availability(title)
-        title_available?(title)
-    end
 
     def checkout(title)
+        book = @collection.detect { |av| av[:item][:title].include? title }
         case
-        when title_available?(title) == false
-            title_unavailable(title) 
+        when title_available?(book) == false
+            title_unavailable(book) 
         else
-            update_availability_checkout(title)
-            update_return_date_checkout(title)
+            update_availability_checkout(book)
+            update_return_date_checkout(book)
             File.open('./lib/data.yml', 'w') { |f| f.write @collection.to_yaml }
-            {title: title, message: 'Book now checked out', 
-              date_of_return: Date.today.next_month(1).strftime('%d/%m/%y')}
+            return book
         end
     end 
 
     def checkin(title)
-        update_availability_checkin(title)
-        update_return_date_checkin(title)
+        book = @collection.detect { |av| av[:item][:title].include? title }
+        update_availability_checkin(book)
+        update_return_date_checkin(book)
         File.open('./lib/data.yml', 'w') { |f| f.write @collection.to_yaml }
         {title: title, message: 'Book now available'}
     end
 
     private
 
-    def title_available?(title)
-        @collection.any? { |obj| obj[:item][:title] == title && obj[:available] == true}
+    def title_available?(book)
+        @collection.any? { |obj| obj[:item][:title] == book[:item][:title] && obj[:available] == true}
     end  
     
-    def title_unavailable(title)
-        "#{title} is currently not available"
+    def title_unavailable(book)
+        "#{book[:item][:title]} is currently not available"
     end
 
-    def update_availability_checkout(title)
-        (@collection.detect { |av| av[:item][:title].include? title })[:available] = false
+    def update_availability_checkout(book)
+        book[:available] = false
     end
 
-    def update_return_date_checkout(title)
-        (@collection.detect { |av| av[:item][:title].include? title })[:return_date] = Date.today.next_month(1).strftime('%d/%m/%y')
+    def update_return_date_checkout(book)
+        book[:return_date] = Date.today.next_month(1).strftime('%d/%m/%y')
     end
 
-    def update_availability_checkin(title)
-        (@collection.detect { |av| av[:item][:title].include? title })[:available] = true
+    def update_availability_checkin(book)
+        book[:available] = true
     end
 
-    def update_return_date_checkin(title)
-        (@collection.detect { |av| av[:item][:title].include? title })[:return_date] = nil
+    def update_return_date_checkin(book)
+        book[:return_date] = nil
     end
 
 end

@@ -10,8 +10,8 @@ describe Visitor do
     let(:library) { instance_double('Library', collection: YAML.load_file('./lib/data.yml')) }
  
     before do
-        expected_checkout_output = {title: 'Bravo Two Zero', message: 'Book now checked out', date_of_return: Date.today.next_month(1).strftime('%d/%m/%y')}
-        expected_checkin_output = {title: 'Bravo Two Zero', message: 'Book now available'}
+        expected_checkout_output = {item: {title: "Bravo Two Zero", author: "Andy McNab"}, available: false, return_date: Date.today.next_month(1).strftime('%d/%m/%y')}
+        expected_checkin_output = {item: {title: "Bravo Two Zero", author: "Andy McNab"}, available: true, return_date: nil}
         allow(library).to receive(:checkout).and_return(expected_checkout_output)
         allow(library).to receive(:checkin).and_return(expected_checkin_output)
     end
@@ -49,6 +49,7 @@ describe Visitor do
     end
 
     it 'can see the return date of books on its bookshelf' do
+      #  binding.pry
         subject.request_checkout("Bravo Two Zero", library)
         expected_output = Date.today.next_month(1).strftime('%d/%m/%y')
         expect(subject.check_return_date("Bravo Two Zero")).to eq expected_output

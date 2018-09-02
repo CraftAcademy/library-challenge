@@ -27,14 +27,8 @@ describe Library do
         expect(subject.list_availability).to eq expected_output
     end
 
-    it 'can see if a specific book is available in the collection' do
-        all_books = YAML.load_file('./lib/data.yml')
-        expected_output = all_books.any? { |obj| obj[:item][:title] == 'Bravo Two Zero' && obj[:available] == true}
-        expect(subject.check_availability('Bravo Two Zero')).to eq expected_output
-    end
-
     it 'can checkout book and create receipt with correct return date 1 month from checkout' do  
-        expected_output = {title: 'Bravo Two Zero', message: 'Book now checked out', date_of_return: Date.today.next_month(1).strftime('%d/%m/%y')}
+        expected_output = {item: {title: "Bravo Two Zero", author: "Andy McNab"}, available: false, return_date: Date.today.next_month(1).strftime('%d/%m/%y')}
         expect(subject.checkout('Bravo Two Zero')).to eq expected_output
     end
 
@@ -42,11 +36,6 @@ describe Library do
         subject.checkout('Bravo Two Zero')
         expected_output = "Bravo Two Zero is currently not available"
         expect(subject.checkout('Bravo Two Zero')).to eq expected_output
-    end
-
-    it 'can update availability for a book at checkout' do  
-        subject.checkout('Bravo Two Zero') 
-        expect(subject.check_availability('Bravo Two Zero')).to eq false
     end
     
     it 'can check-in book when returned by visitor' do

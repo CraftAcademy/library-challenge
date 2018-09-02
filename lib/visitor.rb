@@ -16,8 +16,8 @@ class Visitor
     end
 
     def request_checkout(title, library)
-        library.checkout(title)
-        @bookshelf << library.collection.detect { |av| av[:item][:title].include? title }
+        book = library.checkout(title)
+        @bookshelf << book
     end
 
     def request_checkin(title, library)
