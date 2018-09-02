@@ -20,8 +20,8 @@ I want to see list of available books
 
 >visitor to check out books
 As a library
-In order to keep track of available books
-I want the visitor to check out books
+In order to have good books to offer to the public
+I would like to be able to allow individuals to check out a book
 
 
 >return date is one month after checkout
