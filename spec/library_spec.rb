@@ -24,8 +24,8 @@ describe Library do
     end
 
     it "successfully lend out a book" do
-        expected_output = [{:item=>{:title=>"Osynligt med Alfons", :author=>"Gunilla Bergström"}, :available=>false, :return_date=>nil}]
-        expect(subject.check_out("Osynligt med Alfons")).to eq expected_output
+        expected_output = YAML.load_file('./lib/data.yml').select { |book| book[:item][:title] == book }
+        expect(subject.lend_out_book("Osynligt med Alfons")).to eq expected_output
     end
 
     it "book not available to lend out" do

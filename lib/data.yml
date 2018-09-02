@@ -2,12 +2,12 @@
 - :item:
     :title: Alfons och soldatpappan
     :author: Gunilla Bergström
-  :available: true
+  :available: false
   :return_date: 
 - :item:
     :title: Skratta lagom! Sa pappa Åberg
     :author: Gunilla Bergström
-  :available: true
+  :available: false
   :return_date: '2019-05-25'
 - :item:
     :title: Osynligt med Alfons
