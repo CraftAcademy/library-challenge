@@ -2,6 +2,7 @@ require './lib/borrower'
 require './lib/library.rb'
 require 'date'
 require 'yaml'
+require 'pry'
 
 describe Borrower do
     subject { described_class.new("Robin") }

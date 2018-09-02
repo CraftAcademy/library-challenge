@@ -9,7 +9,7 @@ class Library
 
     def initialize 
         get_books
-        @borrower_list = []
+        load_borrower_list
     end    
 
     def search(search_string, type = "title", available = nil)
@@ -38,6 +38,17 @@ class Library
         puts "#{title} has been handaded over to #{borrower.name}. Plese return it before #{one_month_from_now}".green        
     end
 
+    def load_borrower_list
+        @borrower_list = YAML.load_file('./lib/borrower_list.yml')
+        @borrower_list.delete_at(0) if @borrower_list[0].nil?                
+    end
+
+    
+    def create_borrower_id(borrower)        
+        borrower.status = true
+        borrower.id = rand(100000..999999)                     
+    end
+
     private
 
     def check_borrower_status(borrower)
@@ -54,11 +65,6 @@ class Library
         end              
     end
 
-    def create_borrower_id(borrower)
-        borrower.id = rand(100000..999999)
-        borrower.status = true        
-        @borrower_list << borrower
-    end
 
     def update_database(book_to_checkout)
         database_index = @books.rindex(book_to_checkout[0])
@@ -69,7 +75,18 @@ class Library
 
     def lend_book_to_borrower(title, borrower)
         input_hash = {title: title, return_date: one_month_from_now}
-        borrower.borrowed_books << input_hash                
+        borrower.borrowed_books << input_hash
+        save_borrower_list(borrower)             
+    end
+
+    def save_borrower_list(borrower)
+        borrower_hash = {name: borrower.name, 
+                        id: borrower.id,
+                        status: borrower.status,
+                        borrowed_books: borrower.borrowed_books}                
+        index = @borrower_list.find_index {|element| element[:id] == borrower.id}
+        index == nil ? @borrower_list << borrower_hash : @borrower_list[index][:borrowed_books] = borrower.borrowed_books
+        File.open('./lib/borrower_list.yml', 'w') { |f| f.write @borrower_list.to_yaml }
     end
 
     def search_books(filtered_list, type, search_string)

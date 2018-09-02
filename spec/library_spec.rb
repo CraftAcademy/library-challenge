@@ -5,19 +5,26 @@ require 'pry'
 
 describe Library do
 
+    before do
+        db1 = YAML.load_file('./lib/default.yml')
+        db2 = YAML.load_file('./lib/borrower_default.yml')
+        File.open('./lib/books_database.yml', 'w') { |f| f.write db1.to_yaml}
+        File.open('./lib/borrower_list.yml', 'w') { |f| f.write db2.to_yaml}    
+    end
+    after do
+        db1 = YAML.load_file('./lib/default.yml')
+        db2 = YAML.load_file('./lib/borrower_default.yml')
+        File.open('./lib/books_database.yml', 'w') { |f| f.write db1.to_yaml}
+        File.open('./lib/borrower_list.yml', 'w') { |f| f.write db2.to_yaml} 
+    end  
+    
+
     let(:borrower) {instance_double('Borrower', name: 'Robin', borrowed_books: [], id: nil, status: nil)}
     before do
-        db = YAML.load_file('./lib/default.yml')
-        File.open('./lib/books_database.yml', 'w') { |f| f.write db.to_yaml}
-        allow(borrower).to receive(:borrowed_books=)
         allow(borrower).to receive(:id=)
-        allow(borrower).to receive(:status=)        
-    end
-
-    after do
-        db = YAML.load_file('./lib/default.yml')
-        File.open('./lib/books_database.yml', 'w') { |f| f.write db.to_yaml}
-    end           
+        allow(borrower).to receive(:borrowed_books=)        
+        allow(borrower).to receive(:status=)                
+    end             
 
     it 'has a collection of books' do
         expect(subject.books).not_to be nil
@@ -69,11 +76,18 @@ describe Library do
         expected_output = [{title: "Pippi Långstrump", return_date: Date.today.next_month.strftime("%y-%m-%d")}]
         subject.checkout("Pippi Långstrump", borrower)
         expect(borrower.borrowed_books).to eq expected_output
-    end 
+    end
 
-    it 'should have a way of tracking who borrowed which book' do
+   it 'should have a way of tracking who borrowed which book' do        
         subject.checkout("Pippi Långstrump", borrower)
-        expect(subject.borrower_list).to include borrower
+        expected_output = [{name: "Robin",
+            id: borrower.id,
+            status: borrower.status,
+            borrowed_books: [{
+                title: "Pippi Långstrump",
+                return_date: Date.today.next_month.strftime("%y-%m-%d")}]
+            }]
+        expect(subject.borrower_list).to eq expected_output
     end
 
     it 'should give error if borrower status is false' do
@@ -87,6 +101,12 @@ describe Library do
         allow(borrower).to receive(:status).and_return(true)
         allow(borrower).to receive(:borrowed_books).and_return([{title: "Skratta lagom! Sa pappa Åberg", return_date: "2017-01-01"}])   
         expect {subject.checkout("Pippi Långstrump", borrower)}.to raise_error "You have books that haven't been returned on time. Please return them before borrowing another book"
+    end
+
+    it 'should be able to save the borrowed books list to a database' do
+        subject.checkout("Pippi Långstrump", borrower)
+        db = YAML.load_file('./lib/borrower_list.yml')
+        expect(db[0][:name]).to include("Robin")
     end
 
 end

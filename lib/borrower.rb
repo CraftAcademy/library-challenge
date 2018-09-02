@@ -5,7 +5,7 @@ class Borrower
         name.empty? ? provide_name : @name = name
         @borrowed_books = []
         @id = nil
-        @status = nil
+        @status = nil        
     end
 
     private
