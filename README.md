@@ -3,6 +3,8 @@
 
 #### Instructions
 
+This program allows for searching a database of books by title and by author. To checkout a book one needs to create a "Borrower". When checking out a book the borrower is given a unique ID and that is stored in a tracker database along with which book has been borrowed, and when it should be returned. If the borrower tries to borrow a book again without having returned the book within the required time interval, that borrower will no longer be able to borrow a book until he returns it. The tracker and book databases are stored in separete yaml-files.
+
 Create a library:
 ```
 library = Library.new
@@ -27,7 +29,22 @@ Now checkout a title by passing in the title name and the borrower object:
 ```
 library.checkout(title, borrower)
 ```
-The books database will be updated to reflect that the book is no longer available, and the same book will also be added to a borrowed_books hash in the borrower instance. The book has to be returned within one month.
+The books database will be updated to reflect that the book is no longer available, and the same book will also be added to a borrowed_books list in the borrower instance. The book has to be returned within one month.
+
+If one closes down the session and starts it anew after having borrowed books with a certain borrower one has to recreate that borrower for continuity. The library class will load up the tracker and store it in a "borrower_list". Recreating the instance of the borrower has not yet been automated so for now do the following:
+
+```
+library = Library.new
+library.borrower_list => [{:name=>"Robin", :id=>568760, :status=>true, :borrowed_books=>[{:title=>"Pippi Långstrump", :return_date=>"18-10-02"}, {:title=>"Alfons och soldatpappan", :return_date=>"18-10-02"}]}]
+robin = Borrower.new("Robin")
+robin.id = 568760
+robin.status = true
+robin.borrowed_books = [{:title=>"Pippi Långstrump", :return_date=>"18-10-02"}, {:title=>"Alfons och soldatpappan", :return_date=>"18-10-02"}]}]
+```
+
+One can now start to borrow new books and those will be appended to the borrower_list in the library instance and in the database (yaml-files)
+
+Things to add later: Return function and automatic loading of borrower instances in the borrower list.
 
 #### The following user stories were used to create this program:
 ```
