@@ -49,7 +49,6 @@ describe Visitor do
     end
 
     it 'can see the return date of books on its bookshelf' do
-      #  binding.pry
         subject.request_checkout("Bravo Two Zero", library)
         expected_output = Date.today.next_month(1).strftime('%d/%m/%y')
         expect(subject.check_return_date("Bravo Two Zero")).to eq expected_output
