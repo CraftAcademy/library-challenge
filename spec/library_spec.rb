@@ -13,8 +13,14 @@ describe Library do
         expect(subject.book_available("Hot Night")).to be true
     end 
 
+
     it 'returns false if book is not in collection' do
         expect(subject.book_available("Bible")).to be false
+    end
+
+    it 'returns all books that are available in the library' do
+        available_books = YAML.load_file('./lib/books.yml')
+        expect(subject.available_books).to eq available_books
     end
 
     it 'gives a return date of a month' do

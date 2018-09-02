@@ -13,6 +13,10 @@ class Person
         # @books = title 
 end
 
+def list_available_books(library, list)
+    library.books_available(list)
+end 
+
 
     
    

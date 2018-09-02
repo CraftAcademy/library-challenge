@@ -16,6 +16,10 @@ class Library
         @collection.any? { |object| object[:item][:title] == title && object[:available] == true }
     end
 
+    def available_books
+        @collection.select { |book| book[:available] == true }
+    end
+
     def return_date
         @return_date = Date.today.next_month.strftime('%d/%m/%y')
     end
