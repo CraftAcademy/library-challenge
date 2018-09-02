@@ -19,6 +19,7 @@ Installed gemfiles including RSPEC and PRY for testing. Bundle installed gems.
 -------
 * Advice on creating duplicate data.yml file to enable iterative testing (Thomas)
 * Support on connections of visitor class to library class variables and methods (Thomas)
+* Support on ensuring checkout process wrote to YAML file (Thomas)
 
 
 ### Other comments
