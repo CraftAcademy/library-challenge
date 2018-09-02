@@ -45,10 +45,6 @@ class Library
         "#{title} is currently not available"
     end
 
-    def perform_checkout(title)
-        {title: title, message: 'Book checked out', date_of_return: Date.today.next_month(1).strftime('%d/%m/%y')}
-    end
-
     def update_availability_checkout(title)
         (@collection.detect { |av| av[:item][:title].include? title })[:available] = false
         File.open('./lib/data.yml', 'w') { |f| f.write @collection.to_yaml }
