@@ -1,9 +1,10 @@
 require './lib/person.rb'
+require './lib/library.rb'
 require 'date'
 require 'yaml'
-# require './lib/library.rb'
 
 describe Person do
+    attr_accessor :list_books
 
     let(:library) {instance_double('library', collection: 'list')}
     subject { described_class.new(name: 'Zangoel')}
@@ -12,12 +13,12 @@ describe Person do
         expect(:name).not_to be(nil)
     end
 
-    it 'get a list of all the available books' do
-        allow(library).to receive(list_books).and_return('list')
-        expect(subject.list_books(library, list)).to eq expected_out
-    end
+    it "Is able to see a list of available books in the library" do
+        book_available = subject.book_available
+        expect(subject.book_available).to_be true
+      end
 end
-    
+
     
     #   it 'can search by title' do
     #     allow(library).to receive(:search_by_title).and_return('list of books by title')
