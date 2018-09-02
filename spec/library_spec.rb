@@ -23,8 +23,9 @@ describe Library do
     end
 
     it 'check out book if available' do
-        @return_date =  Date.today.next_month.strftime('%d/%m/%y')
-        expected_output = "You can borrow this book and return it by #{set_return_date} ".to eq expected_output
+        return_date =  Date.today.next_month.strftime('%d/%m/%y')
+        expected_output = "Thank you for checking out, please return by #{return_date}"
+        expect(subject.checkout_a_book('Hot Night')).to eq expected_output
     end
 
     # it 'checkout book and get return date' do

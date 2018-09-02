@@ -11,22 +11,26 @@ class Library
     end
 
     def book_available(title)
-        @collection.any? { |object| object[:item][:title] == title && object[:available] ==true }
+        @collection.any? { |object| object[:item][:title] == title && object[:available] == true }
     end
 
     def return_date
         @return_date = Date.today.next_month.strftime('%d/%m/%y')
     end
 
+    def get_book_by_title(title)
+        @collection.select { |object| object[:item][:title] == title && object[:available] == true }[0]
+    end
 
-    def checkout_a_book
+    def checkout_a_book(title)
     
-        if book_available != true
-            to raise('the chosen book is unavailable')
-        else checkout_book [:available] == true
-            checkout_book [:return_date] == return_date
-            checkout_book [:available] == false
-            "thank you for checking out, please return by #{return_date}" 
+        if book_available(title) != true
+            to raise('The chosen book is unavailable')
+        else 
+            checkout_book = get_book_by_title(title)
+            checkout_book [:return_date] = Date.today.next_month.strftime('%d/%m/%y')
+            checkout_book [:available] = false
+            "Thank you for checking out, please return by #{return_date}" 
         end
     end
 end
