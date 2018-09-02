@@ -1,5 +1,7 @@
 require 'yaml'
 require 'date'
+# require 'lib/person.rb'
+
 STANDARD_RETURN_PERIOD_MONTH = 1
 
 class Library
