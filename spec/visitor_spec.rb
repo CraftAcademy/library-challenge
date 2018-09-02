@@ -24,11 +24,15 @@ describe Visitor do
     end
 
     it 'can request to checkout a book which moves to their bookshelf' do
-       
+        subject.request_checkout("Bravo Two Zero")
+        expected_output = @visitor_bookshelf
+        expect(subject.update_bookshelf).to eq expected_output
     end
 
     it 'can see the return date of books on its bookshelf' do
-
+        subject.request_checkout("Bravo Two Zero")
+        expected_output = Date.today.next_month(1).strftime('%d/%m/%y')
+        expect(subject.check_return_date("Bravo Two Zero")).to eq expected_output
     end
 
 end

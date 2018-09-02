@@ -3,7 +3,7 @@
     :title: Bravo Two Zero
     :author: Andy McNab
   :available: false
-  :return_date: 01/10/18
+  :return_date: 02/10/18
 - :item:
     :title: To kill a mockingbird
     :author: Harper Lee
@@ -18,7 +18,7 @@
     :title: The Da Vinci Code
     :author: Dan Brown
   :available: false
-  :return_date: '2018-09-15'
+  :return_date: 02/10/18
 - :item:
     :title: Tinker, Tailor, Soldier, Sailor
     :author: John Le Carre

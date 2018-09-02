@@ -17,11 +17,17 @@ class Visitor
     end
 
     def request_checkout(title)
-        Library.checkout(title)
+        #need to call checkout method on title (from library)
+        checkout(title)
+        update_bookshelf
     end
 
     def update_bookshelf
-        @bookshelf = library.visitor_bookshelf
+        @bookshelf = @visitor_bookshelf
+    end
+
+    def check_return_date(title)
+        (@collection.detect { |av| av[:item][:title].include? title })[:return_date]
     end
 
     private
