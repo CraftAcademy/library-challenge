@@ -1,6 +1,5 @@
 require 'yaml'
 require 'date'
-# require 'lib/person.rb'
 
 STANDARD_RETURN_PERIOD_MONTH = 1
 
@@ -40,26 +39,3 @@ class Library
         end
     end
 end
-
-    # def checkout(args)
-    #     args[:library] == nil 
-    #     name = @name
-    #     book = @title
-    #     return_date = Date.today.next_month
-    #     response = person.book_shelf[]
-    #     response[:status] == true 
-    # end
-
- 
-
-#Need method for return date
-# The flow of checking out an item could be:
-# 1. Search for the item in library
-# 2. Check out the ite
-
-                # person.rb
-                # checked out books go to book_shelf variable
-# Search for book example
-#  collection.detect { |obj| obj[:item][:title] == "Pippi Långstrump"  
-# detect will return exact match of search
-# #include?. searching for Pippi långström, type only Poppi and get full title

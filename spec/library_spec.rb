@@ -1,5 +1,4 @@
 require './lib/library.rb'
-# require '../lib/books.yml'
 require 'date'
 
 describe Library do
@@ -33,15 +32,4 @@ describe Library do
         expected_output = "Thank you for checking out, please return by #{return_date}"
         expect(subject.checkout_a_book('Hot Night')).to eq expected_output
     end
-
-    # it 'checkout book and get return date' do
-    #     return_date = Date.today.next_month(1).strftime('%d/%m/%y')
-    # expect(subject.return_date).to eq return_date
-    # end
 end
-
-
-
-# it 'check book available in collection' do
-#     book.available = true 
-# end

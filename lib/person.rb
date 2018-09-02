@@ -10,21 +10,10 @@ class Person
         @date = Date.today
         @collection = YAML.load_file('./lib/books.yml')
         @book_shelf = book_shelf
-        # @books = title 
-end
+    end
 
-def list_available_books(library, list)
+    def list_available_books(library, list)
     library.books_available(list)
+    end
 end 
-
-
-    
-   
-
-
-
-
-    # def book_shelf()
-    # end
-end
     
