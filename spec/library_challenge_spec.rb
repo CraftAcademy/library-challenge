@@ -13,7 +13,7 @@ describe Library do
 
     it "searches for available books in the list" do
         expected_list = YAML.load_file('./lib/data.yml') #if all books in that file are marked available
-        expect(subject.available_books).to eq expected_list  
+        expect(subject.available_books).to eq expected_list
     end 
 
 end
