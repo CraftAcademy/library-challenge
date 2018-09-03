@@ -9,7 +9,7 @@
     #@book_shelf = []
   end
 
-  def visitor_books_available(library) #try with x instead of library for understanding once test is green
+  def visitor_books_available(library)
     library.books_available
   end
 

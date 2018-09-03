@@ -2,7 +2,7 @@ require 'yaml'
 require 'Date'
 
 class Library
-    attr_accessor :collection, :books_available, :return_date, :title
+    attr_accessor :collection, :return_date
 
     def initialize(attrs = {})
         @collection = YAML.load_file('./lib/data.yml')
@@ -10,11 +10,11 @@ class Library
     end
 
     def books_available
-        collection.select { |book| book[:available] == true }
+        @collection.select { |book| book[:available] == true }
     end
 
     def search(book)
-        collection.select { |book| book[:item][:title] == book }
+        @collection.select { |book| book[:item][:title] == book }
     end
     
     def lend_out_book(title)
