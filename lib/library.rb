@@ -6,7 +6,6 @@ class Library
 
     def initialize
         @collection = []
-        # @book = {}
     end
 
     def add_book(arg = {})
@@ -16,10 +15,11 @@ class Library
         book[:availability] = 'available'
         book[:return_date] = nil
         @collection.push(book)
+        File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
     end
 end
 
-library = Library.new
-library.add_book(title: 'fjs', author: 'fnr')
-library.add_book(title: 'jtd', author: 'fhrs')
-library.collection
+lib = Library.new
+lib.add_book({title: 'HP', author:'JK'})
+lib.collection
+lib.add_book({title:'WD', author:'CD'})
