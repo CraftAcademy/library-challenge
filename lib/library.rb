@@ -22,6 +22,7 @@ class Library
         @collection.each do |hash|
             if title == hash[:title]
                 hash[:status] = 'checked-out'
+                hash[:return_date] = Date.today + RETURN_DATE
                 File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
             end
         end
@@ -33,3 +34,4 @@ lib.add_book({title: 'HP', author:'JK'})
 lib.collection
 lib.add_book({title:'WD', author:'CD'})
 lib.collection
+lib.checkout_book('HP')
