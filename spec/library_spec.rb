@@ -6,5 +6,7 @@ describe Library do
         expect(subject.books[:title]).to eq 'Harry Potter'
     end
 
+#     it 'allows individual'...
+
 end
 

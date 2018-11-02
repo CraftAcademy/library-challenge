@@ -2,7 +2,7 @@ class Library
     attr_accessor :books
 
     def initialize
-        @books = {title: 'Harry Potter'}
+        @books = {title: 'Harry Potter', author: 'JK Rowling'}
     end
 
     
