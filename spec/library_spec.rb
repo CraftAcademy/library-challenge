@@ -10,6 +10,10 @@ end
         expect(subject.collection).to eq ([{title:'Harry Potter', author: 'JK Rowling', status: 'available', return_date: nil}])
     end
 
+    it'expect to see available books with available_books method' do
+        expect{subject.available_books}.to eq ({title:‘Harry Potter’, author: ‘JK Rowling’})
+    end
+
     describe 'checkout' do
         it 'expect to change status to checked-out' do
             subject.checkout_book("Harry Potter")

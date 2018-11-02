@@ -27,6 +27,14 @@ class Library
             end
         end
     end
+
+    def available_books
+        @collection.each do |hash|
+            if hash[:status] == ‘available’
+                puts "#{hash[:title]} from #{hash[:author]} is available"
+            end
+        end
+    end
 end
 
 lib = Library.new
