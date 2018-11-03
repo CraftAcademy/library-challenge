@@ -50,11 +50,5 @@ class Library
         available_books.uniq!
     end
 
-    
-end
 
-lib = Library.new
-lib.add_book(title:'red', author:'dasdas')
-lib.add_book(title:'blue', author:'dasdas')
-lib.checkout_book('red', 'asdasd')
-lib.available_books
+end
