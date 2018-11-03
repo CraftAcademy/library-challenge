@@ -1,26 +1,26 @@
 ---
-- :item
+- :item:
     :title: Old Tractors and the Men Who Love Them
     :author: Roger Welsch
   :available: true
   :return_date:
-- :item
+- :item:
     :title: He Died With A Falafel in His Hand
     :author: John Birmingham
   :available: false
   :return_date: '2018-11-20'
-- :item
+- :item:
     :title: The Stray Shopping Carts of Easten North America, 
             A Guide To Field Identification
     :author: Julian Montahue
   :available: false
   :return_date: '2018-11-15'
-- :item
+- :item:
     :title: Anybody Can Be Cool ...But Awesome Takes Practice
     :author: Lorraine Peterson
   :available: true
   :return_date:
-- :item
+- :item:
     :title: If God Loves Me, Why Can't I Get My Locker Open?
     :author: Lorraine Peterson
   :available: false
