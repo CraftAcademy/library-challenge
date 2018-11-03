@@ -23,7 +23,12 @@ class Library
     def book_checkout(selected_book,username,pin_code,customer) 
         selected_book[:available] = false
         selected_book[:return_date] = (Date.today + 30).to_s 
+        add_to_customer_reading_list(selected_book,username,pin_code,customer)
         selected_book
+    end
+
+    def add_to_customer_reading_list(selected_book,username,pin_code,customer)
+        customer.reading_list << selected_book
     end
 
 end
