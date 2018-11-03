@@ -4,8 +4,6 @@ require 'date'
 
 describe Individual do
 
-    
-
     it 'see a list of books currently available in the library' do
         expected_output = ['Alfons och soldatpappan', 'Osynligt med Alfons', 'Pippi Långstrump', 'Pippi Långstrump går ombord' ]
         expect(subject.titles_available).to eq expected_output
@@ -17,6 +15,12 @@ describe Individual do
         # library.checkout('Skratta lagom! Sa pappa Åberg')
         expected_output = "The book needs to be returned on 2016-05-25"
         expect(subject.when_to_return_book('Skratta lagom! Sa pappa Åberg')).to eq expected_output
+    end
+
+    it 'shows a list of book that the individual has' do
+        library.checkout('Alfons och soldatpappan')
+        expected_output = ['Alfons och soldatpappan']
+        expect(library.books_in_possession).to eq expected_output
     end
 
 end

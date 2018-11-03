@@ -1,5 +1,5 @@
 class Library
-    attr_accessor :books
+    attr_accessor :books, :books_in_possession
 
     def initialize
         @books = YAML.load_file('./lib/data.yml')
@@ -14,8 +14,12 @@ class Library
     end
     
     def book_is_available
+
+        @books_in_possession = []
+
         @find_book[:available] = false
         @find_book[:return_date] = Date.today.next_month(1)
+        @books_in_possession << @find_book[:title]
         'The book is yours'
     end
 
