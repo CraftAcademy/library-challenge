@@ -46,9 +46,4 @@ class Library
         end
         available_books
     end
-
-    def clear_database
-        @collection = nil
-        File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
-    end
 end

@@ -28,20 +28,21 @@ describe Library do
             subject.update_collection
             expect(subject.collection).to eq ([{title:'Harry Potter', author: 'JK Rowling', status: 'available', checked_out_to: nil, return_date: nil}])
         end
+        describe 'check-out book' do
+            before do
+                subject.checkout_book("Harry Potter", 'Thomas')
+            end
+            it 'expect to change status to checked-out' do
+                expect(subject.collection[0][:status]).to eq 'checked-out'
+            end
 
-        it 'expect to change status to checked-out' do
-            subject.checkout_book("Harry Potter", 'Thomas')
-            expect(subject.collection[0][:status]).to eq 'checked-out'
-        end
+            it 'expect to change the return date to 30 days from now' do
+                expect(subject.collection[0][:return_date]).to eq Date.today + 30
+            end
 
-        it 'expect to change the return date to 30 days from now' do
-            subject.checkout_book("Harry Potter", 'Thomas')
-            expect(subject.collection[0][:return_date]).to eq Date.today + 30
-        end
-
-        it 'expect checked_out_to to be name' do
-            subject.checkout_book("Harry Potter", 'Thomas')
-            expect(subject.collection[0][:checked_out_to]).to eq 'Thomas'
+            it 'expect checked_out_to to be name' do
+                expect(subject.collection[0][:checked_out_to]).to eq 'Thomas'
+            end
         end
     end
 end
