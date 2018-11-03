@@ -1,4 +1,5 @@
 require './lib/library.rb'
+require 'date'
 
 describe Library do
 
@@ -16,6 +17,12 @@ describe Library do
         subject.checkout('Harry Potter')
         expected_output = 'The book is unavailable'
         expect(subject.checkout('Harry Potter')).to eq expected_output
+    end
+
+    it 'sets a 1 month return date on every check out' do
+        subject.checkout('Harry Potter')
+        expected_output = Date.today.next_month(1)
+        expect(subject.return_date?('Harry Potter')).to eq expected_output
     end
 
 end
