@@ -39,6 +39,17 @@ class Library
         display_books
     end
 
+    def search_books(search_string)
+        found_books_with_title = []
+
+        search_books_array = @books.select { |book| book[:title].include? search_string }
+        search_books_array.each do |book| 
+            found_books_with_title << book[:title]
+        end
+       
+        found_books_with_title
+    end
+
 
     
 end

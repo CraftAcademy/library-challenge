@@ -20,7 +20,11 @@ class Individual
         "The book needs to be returned on #{return_date}"
     end
 
-    def books_in_possession
-    end
+    # def books_in_possession
+    # end
+
+    # def search_books(search_string)
+    #     books.select { |book| book[:title].include? search_string }
+    # end
 
 end

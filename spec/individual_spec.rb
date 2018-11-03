@@ -23,4 +23,12 @@ describe Individual do
         expect(library.books_in_possession).to eq expected_output
     end
 
+    it 'allow users to find a book they want to check out' do
+       
+        expected_output = ['Alfons och soldatpappan', 'Osynligt med Alfons']
+        expect(library.search_books('Alfons')).to eq expected_output
+    end
+
+   
+
 end
