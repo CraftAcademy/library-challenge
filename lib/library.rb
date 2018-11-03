@@ -9,6 +9,12 @@ class Library
         @available_books = []
     end
 
+    def update_collection
+        if YAML.load_file('./lib/data.yml') != false
+        @collection = YAML.load_file('./lib/data.yml')
+        end
+    end
+
     def add_book(arg = {})
         book = {}
         book[:title] = arg[:title]
@@ -38,12 +44,9 @@ class Library
         end
         available_books
     end
-end
 
-lib = Library.new
-lib.add_book({title: 'HP', author:'JK'})
-lib.collection
-lib.add_book({title:'WD', author:'CD'})
-lib.collection
-lib.checkout_book('HP')
-lib.check_available_books
+    def clear_database
+        @collection = nil
+        File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
+    end
+end
