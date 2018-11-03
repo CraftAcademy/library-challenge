@@ -2,6 +2,8 @@ require './lib/library.rb'
 
 class Individual
 
+    
+
     def initialize
     end
 
