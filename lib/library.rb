@@ -2,7 +2,7 @@ class Library
     attr_accessor :books
 
     def initialize
-        @books = [{title: 'Harry Potter', author: 'JK Rowling', available: true, return_date: nil}, 
+        @books = [{title: 'Harry Potter', author: 'JK Rowling', available: true, return_date: '2013-10-33'}, 
         {title: 'Potter', author: 'Rowling', available: false},
         {title: 'Gatsby', author: 'Shahin', available: true},
         {title: 'Alien', author: 'Arnold', available: true}]
@@ -25,6 +25,7 @@ class Library
         find_books_return_date = @books.find { |book| book[:title] == title }
         return_date = find_books_return_date[:return_date]
     end
+
 
     
 end
