@@ -20,4 +20,10 @@ class Library
         selected_book << available_collection[0]
     end 
 
+    def book_checkout(selected_book,username,pin_code,customer) 
+        selected_book[:available] = false
+        selected_book[:return_date] = (Date.today + 30).to_s 
+        selected_book
+    end
+
 end
