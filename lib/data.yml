@@ -1,6 +1,11 @@
 ---
-- :title: Harry Potter
-  :author: JK Rowling
+- :title: red
+  :author: blue
   :status: checked-out
-  :checked_out_to: Thomas
+  :checked_out_to: Hanna
+  :return_date: 2018-12-03
+- :title: yellow
+  :author: orange
+  :status: checked-out
+  :checked_out_to: Hanna
   :return_date: 2018-12-03

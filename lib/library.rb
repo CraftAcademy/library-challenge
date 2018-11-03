@@ -33,6 +33,7 @@ class Library
                 hash[:checked_out_to] = name
                 hash[:return_date] = Date.today + RETURN_DATE
                 File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
+                check_available_books
             end
         end
     end
@@ -44,6 +45,5 @@ class Library
                 available_books.push(book)
             end
         end
-        available_books
     end
 end
