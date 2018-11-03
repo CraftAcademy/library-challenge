@@ -12,5 +12,11 @@ describe Library do
         expect(subject.checkout('Harry Potter')).to eq expected_output
     end
 
+    it 'disallows individual to checkout a book if not available' do
+        subject.checkout('Harry Potter')
+        expected_output = 'The book is unavailable'
+        expect(subject.checkout('Harry Potter')).to eq expected_output
+    end
+
 end
 
