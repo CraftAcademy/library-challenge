@@ -2,7 +2,7 @@ require './lib/library.rb'
 
 describe Library do
 
-    let(:customer) { instance_double('Individual', user_id: '73304239878', pin_code: '1234' )}
+    let(:customer) { instance_double('Individual', user_id: '123456', pin_code: '1234' )}
 
     it 'has books' do
         expect(subject.collection).not_to be_empty
@@ -31,7 +31,7 @@ describe Library do
     it 'allows an individual to check out a book' do
         selected_book = {:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, :available=>true, :return_date=>nil}
         expected_output = {:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, :available=>false, :return_date=> '2018-12-03'}
-        expect(subject.book_checkout(selected_book,'73304239878','1234', customer)).to eq expected_output
+        expect(subject.book_checkout(selected_book,'123456','1234', customer)).to eq expected_output
     end
 
 end

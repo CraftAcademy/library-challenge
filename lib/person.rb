@@ -1,9 +1,9 @@
 
 
 class  Person
-    attr_accessor :user_id, :pin_code
+    attr_accessor :user_id, :pin_code, :reading_list
     def initialize(params = {})
-
+        @reading_list = []
         set_user_parameters()
                
     end

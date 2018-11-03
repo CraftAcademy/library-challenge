@@ -7,4 +7,8 @@ describe Person do
         expect(subject.pin_code).not_to be nil
     end
 
+    it 'every customer has empty book list when created' do 
+        expect(subject.reading_list).to be_empty
+    end
+
 end
