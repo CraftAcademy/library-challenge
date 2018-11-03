@@ -5,9 +5,9 @@ class Individual
     def initialize
     end
 
+
     def titles_available
         available_books_titles = []
-
 
         books_available = Library.new.books.select { |book| book[:available] == true }
         books_available.each do |book|
@@ -16,6 +16,9 @@ class Individual
         available_books_titles
     end
 
-   
+    def when_to_return_book(title)
+        return_date =Library.new.return_date?(title)
+        "The book needs to be returned on #{return_date}"
+    end
 
 end
