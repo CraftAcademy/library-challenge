@@ -11,4 +11,10 @@ describe Person do
         expect(subject.reading_list).to be_empty
     end
 
+    it 'every costomer gets a warning when due date has passed' do
+        reading_list =[{:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, :available=>false, :return_date=> '2018-10-03'}]
+        warning = 'Following books are passed due date: Alfons och soldatpappan' 
+        expect(subject.check_due_date(reading_list)).to be warning
+    end
+
 end
