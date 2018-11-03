@@ -41,9 +41,19 @@ class Library
     def check_available_books
         @collection.each do |hash|
             if hash[:status] == 'available'
-                book = {title: hash[:title], author: hash[:author]}
-                available_books.push(book)
+                @available_books.push(hash)
+            else
+                @available_books.delete(hash)
             end
         end
+        available_books.uniq!
     end
+
+    
 end
+
+lib = Library.new
+lib.add_book(title:'red', author:'dasdas')
+lib.add_book(title:'blue', author:'dasdas')
+lib.checkout_book('red', 'asdasd')
+lib.available_books

@@ -1,11 +1,16 @@
 ---
 - :title: red
-  :author: blue
+  :author: dasdas
   :status: checked-out
-  :checked_out_to: Hanna
+  :checked_out_to: asdasd
   :return_date: 2018-12-03
-- :title: yellow
-  :author: orange
+- :title: blue
+  :author: dasdas
   :status: checked-out
-  :checked_out_to: Hanna
+  :checked_out_to: dsadas
+  :return_date: 2018-12-03
+- :title: blue
+  :author: dasdas
+  :status: checked-out
+  :checked_out_to: dsadas
   :return_date: 2018-12-03
