@@ -1,5 +1,5 @@
 require 'date'
-
+require './lib/library.rb'
 class  Person
     attr_accessor :user_id, :pin_code, :reading_list
     def initialize(params = {})
@@ -8,13 +8,14 @@ class  Person
                
     end
 
+    def available_books(library)
+        library.display_available_books(library.collection)
+    end
+
     def reading_list_return_dates(reading_list)
         due_dates = []
         reading_list.each do |book|
-            array = []
-            array << book[:item][:title]
-            array << book[:return_date]
-            due_dates << array
+            due_dates << [book[:item][:title],book[:return_date]]
         end
         due_dates
     end

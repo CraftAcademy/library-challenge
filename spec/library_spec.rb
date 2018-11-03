@@ -12,6 +12,11 @@ describe Library do
         expect(subject.collection).to be_a_kind_of(Array)
     end 
 
+    # it 'can save a list of books' do
+        # collection =[]
+       # expect(subject.save_to_file(collection)).to eq true
+    # end
+
     # As a library
     # In order to have good books to offer to the public
     # I would like to be able to allow individuals to check out a book
