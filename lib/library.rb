@@ -15,4 +15,9 @@ class Library
         return available_collection
     end
 
+    def select_book(available_collection,selection_position)
+        selected_book = []
+        selected_book << available_collection[0]
+    end 
+
 end
