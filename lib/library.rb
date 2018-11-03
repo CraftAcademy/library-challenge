@@ -23,6 +23,7 @@ class Library
         book[:checked_out_to] = nil
         book[:return_date] = nil
         @collection.push(book)
+        check_available_books
         File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
     end
 

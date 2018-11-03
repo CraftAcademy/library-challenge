@@ -33,6 +33,25 @@ class Person
             end
         end
     end
+
+    def return_book(arg = {})
+        lib = arg[:lib]
+        title = arg[:title]
+        find_book(lib, title)
+    end
+
+    def find_book(lib, title)
+        lib.collection.each do |book|
+            if book[:title] == title
+                rented_book = {title: book[:title], author: book[:author], return_date: book[:return_date]}
+                @rented_book.delete(rented_book)
+                book[:status] = 'available'
+                book[:return_date] = nil
+                book[:checked_out_to] = nil
+                lib.check_available_books
+            end
+        end
+    end
 end
 
 person = Person.new(name: 'Hanna')
