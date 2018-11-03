@@ -1,9 +1,5 @@
 ---
-- :title: HP
-  :author: JK
+- :title: Harry Potter
+  :author: JK Rowling
   :status: checked-out
-  :return_date: 2018-12-02
-- :title: WD
-  :author: CD
-  :status: available
-  :return_date: 
+  :return_date: 2018-12-03
