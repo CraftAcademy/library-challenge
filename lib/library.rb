@@ -20,15 +20,17 @@ class Library
         book[:title] = arg[:title]
         book[:author] = arg[:author]
         book[:status] = 'available'
+        book[:checked_out_to] = nil
         book[:return_date] = nil
         @collection.push(book)
         File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
     end
 
-    def checkout_book(title)
+    def checkout_book(title, name)
         @collection.each do |hash|
             if title == hash[:title]
                 hash[:status] = 'checked-out'
+                hash[:checked_out_to] = name
                 hash[:return_date] = Date.today + RETURN_DATE
                 File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
             end
