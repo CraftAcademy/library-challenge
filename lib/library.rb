@@ -24,6 +24,17 @@ class Library
         return_date = find_books_return_date[:return_date]
     end
 
+    def display_books
+        display_books = []
+
+        # books_available = books.select { |book| book[:available] == true }
+        books.each do |book|
+            
+            display_books << book[:title] 
+        end
+        display_books
+    end
+
 
     
 end
