@@ -1,8 +1,7 @@
 require './lib/person.rb'
+require './lib/library.rb'
 
 describe Person do
-
-    let(:book) { instance_double('Library', collection: [] )}
 
     it 'every customer has a user_id and a pin_code' do
         expect(subject.user_id).not_to be nil
@@ -18,9 +17,10 @@ describe Person do
     # I would like to see a list of books currently available in the library
     # with information about the title and author
     it 'shows list of books currently available' do
-        # source = [{:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, :available=>false, :return_date=> '2018-10-03'}]
-        # expected_output = [['Alfons och soldatpappan'‚'Gunilla Bergström']]
-        expect(subject.available_books(book)).to eq book.display_available_books(book.collection)
+        library =Library.new()
+        library.collection = [{:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"Skratta lagom! Sa pappa Åberg", :author=>"Gunilla Bergström"}, :available=>false, :return_date=>"2016-05-25"}]
+        expected_output =[["Alfons och soldatpappan","Gunilla Bergström"]]
+        expect(subject.available_books(library)).to eq expected_output
     end
 
     # As an individual

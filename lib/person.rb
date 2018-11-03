@@ -9,7 +9,11 @@ class  Person
     end
 
     def available_books(library)
-        library.display_available_books(library.collection)
+        available_collection = []
+        library.display_available_books(library.collection).each do |book|
+            available_collection << [book[:item][:title],book[:item][:author]]
+        end
+        available_collection
     end
 
     def reading_list_return_dates(reading_list)
