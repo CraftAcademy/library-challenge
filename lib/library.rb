@@ -14,14 +14,14 @@ class Library
         YAML.load_file(Data_file_path)
     end
 
-    def save_to_file(collection)
-        File.open(Data_file_path, 'w') { |f| f.write collection.to_yaml }
+    def save_to_file()
+        File.open(Data_file_path, 'w') { |f| f.write @collection.to_yaml }
         return true
     end
 
-    def display_available_books(collection)
+    def display_available_books()
         available_collection = []
-        collection.each do |item|
+        @collection.each do |item|
             item[:available] ? available_collection << item : false
         end
         available_collection
@@ -31,11 +31,11 @@ class Library
          available_collection[selection_position - 1]
     end 
 
-    def book_checkout(selected_book,username,pin_code,customer,collection) 
+    def book_checkout(selected_book,username,pin_code,customer) 
         selected_book[:available] = false
         selected_book[:return_date] = (Date.today + 30).to_s 
         add_to_customer_reading_list(selected_book,username,pin_code,customer)
-        update_library_collection(selected_book,collection)
+        update_library_collection(selected_book)
         selected_book
     end
 
@@ -43,11 +43,11 @@ class Library
         customer.reading_list << selected_book
     end
 
-    def update_library_collection(selected_book,collection)
-        collection.each do |book|
+    def update_library_collection(selected_book)
+        @collection.each do |book|
             book[:item][:title] == selected_book[:item][:title] ? book.each{ |key,value| book[key] = selected_book[key]} : false
         end
-        save_to_file(collection)
+        save_to_file()
     end
 
 end

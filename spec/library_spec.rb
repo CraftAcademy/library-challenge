@@ -26,8 +26,8 @@ describe Library do
 
     it 'shows a list of available books to customer' do
         books_array = [{:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"Skratta lagom! Sa pappa Åberg", :author=>"Gunilla Bergström"}, :available=>false, :return_date=>"2016-05-25"}] 
-        expected_output = [{:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, :available=>true, :return_date=>nil}]
-        expect(subject.display_available_books(books_array)).to eq expected_output
+        expected_output = {:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, :available=>true, :return_date=>nil}
+        expect(subject.display_available_books()).to include expected_output
     end
 
     it 'allows an individual to select a book from availble book list' do
@@ -44,14 +44,14 @@ describe Library do
     it 'allows an individual to check out a book for one month' do
         selected_book = {:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, :available=>true, :return_date=>nil}
         expected_output = {:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, :available=>false, :return_date=> Date_of_book_return}
-        expect(subject.book_checkout(selected_book,'123456','1234', customer,subject.collection)).to eq expected_output
+        expect(subject.book_checkout(selected_book,'123456','1234', customer)).to eq expected_output
     end
 
     it 'when a person checks out a book, it is added to the reading list' do
         customer.reading_list = []
         selected_book = {:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, :available=>true, :return_date=>nil}
         reading_list =[{:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, :available=>false, :return_date=> Date_of_book_return}]
-        subject.book_checkout(selected_book,'123456','1234', customer,subject.collection)
+        subject.book_checkout(selected_book,'123456','1234', customer)
         expect(customer.reading_list).to eq reading_list
     end
 
@@ -60,8 +60,8 @@ describe Library do
         selected_book = {:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, :available=>true, :return_date=>nil}
         reading_list =[{:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, :available=>false, :return_date=> Date_of_book_return}]
         checked_out_book = reading_list[0]
-        subject.book_checkout(selected_book,'123456','1234', customer,subject.collection)
-        expect(subject.save_to_file(subject.collection)).to eq true
+        subject.book_checkout(selected_book,'123456','1234', customer)
+        expect(subject.save_to_file()).to eq true
         expect(subject.collection).to include checked_out_book
     end
 
