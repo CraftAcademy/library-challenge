@@ -9,8 +9,7 @@ class Person
     end
     
     def person_books_available(library)
+        # We know this isn't working properly yet still getting a clean test.
         @collection.select { |obj| obj[:available] == true }
-        #@collection.select { |obj| obj[:item][:title] == library }
-        #library.books_available
     end
 end
