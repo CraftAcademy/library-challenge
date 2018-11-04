@@ -1,24 +1,30 @@
 require './lib/library.rb'
+require 'yaml'
+require 'date'
 
 describe Library do
-    let(:person) { instance_double('Person') }
 
-    # As a library
-    # In order to have good books to offer to the public
-    # I would like to be able to have a collection of books
     it 'Initialize collection of books' do
-        expect(subject.collection_books).not_to be nil
+        expect(subject.collection).not_to be_nil
     end
 
-    # As a library
-    # In order to have good books to offer to the public
-    # I would like to be able to allow individuals to check out a book
-    it 'Allows person a list of books' do
-        expect()
+    it 'Allows person a list of available books' do
+        expected_output = YAML.load_file('./lib/data.yml').select { |obj| obj[:available] == true }
+        expect(subject.book_available).to eq expected_output
     end
 
-    # As a library
-    # In order to make the books available to many individuals
-    # I would like to set a return date on every check out
-    # and I would like that date to be 1 month from checkout date
+    it 'Allows person to search for books' do
+        expected_output = YAML.load_file('./lib/data.yml').select { |obj| obj[:item][:title] == obj }
+        expect(subject.book_search('He Died With A Falafel in His Hand')).to eq expected_output
+    end
+
+    it 'Approved lending of books' do
+        expected_output = {:message=>'The book is now approved for lending'}
+        expect(subject.book_lend_out('Old Tractors and the Men Who Love Them')).to eq expected_output
+    end
+
+    after do
+        data = YAML.load_file('./lib/data.yml')
+        File.open('./lib/data.yml', 'w') { |f| f.write data.to_yaml }
+    end
 end

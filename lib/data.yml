@@ -3,15 +3,14 @@
     :title: Old Tractors and the Men Who Love Them
     :author: Roger Welsch
   :available: true
-  :return_date:
+  :return_date: 
 - :item:
     :title: He Died With A Falafel in His Hand
     :author: John Birmingham
   :available: false
   :return_date: '2018-11-20'
 - :item:
-    :title: The Stray Shopping Carts of Easten North America, 
-            A Guide To Field Identification
+    :title: The Stray Shopping Carts of Easten North America, A Guide To Field Identification
     :author: Julian Montahue
   :available: false
   :return_date: '2018-11-15'
@@ -19,7 +18,7 @@
     :title: Anybody Can Be Cool ...But Awesome Takes Practice
     :author: Lorraine Peterson
   :available: true
-  :return_date:
+  :return_date: 
 - :item:
     :title: If God Loves Me, Why Can't I Get My Locker Open?
     :author: Lorraine Peterson
