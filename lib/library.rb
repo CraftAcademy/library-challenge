@@ -1,5 +1,7 @@
 require 'yaml'
 require './lib/person.rb'
+require 'pathname'
+Data_file_path = Pathname.new('./lib/data.yml')
 
 class Library
     attr_accessor :collection
@@ -8,12 +10,12 @@ class Library
         @collection = load_file()
     end
 
-    def load_file
-        YAML.load_file('./lib/data.yml')
+    def load_file()
+        YAML.load_file(Data_file_path)
     end
 
     def save_to_file(collection)
-        File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
+        File.open(Data_file_path, 'w') { |f| f.write collection.to_yaml }
         return true
     end
 

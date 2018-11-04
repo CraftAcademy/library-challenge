@@ -1,10 +1,12 @@
 require './lib/library.rb'
 require './lib/person.rb'
 require 'date'
+require 'pathname'
+Data_file_path = Pathname.new('./spec/Test_data.yml')
+
 
 describe Library do
 
-    # let(:customer) { instance_double('Person', user_id: '123456', pin_code: '1234',reading_list: [] )}
     customer = Person.new
     Date_of_book_return = (Date.today + 30).to_s
 
@@ -53,8 +55,7 @@ describe Library do
         expect(customer.reading_list).to eq reading_list
     end
 
-    it 'when a person checks out a book, it is updated in the yaml file' do
-        
+    it 'when a person checks out a book, it is updated in the yaml file' do        
         customer.reading_list = []
         selected_book = {:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, :available=>true, :return_date=>nil}
         reading_list =[{:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, :available=>false, :return_date=> Date_of_book_return}]
