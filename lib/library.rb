@@ -20,8 +20,8 @@ class Library
         obj = @collection.detect { |obj| obj[:item][:title] == title }
         if obj[:available] == true
             then 
-            obj[:available] = false
-            obj[:return_date] = set_return_date
+                obj[:available] = false
+                obj[:return_date] = set_return_date
             return { message: 'The book is now approved for lending' } 
        end       
        File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
@@ -29,18 +29,5 @@ class Library
 
     def set_return_date
         Date.today.next_month
-    end
-end
-
-class Person
-
-    attr_accessor :person_books_available
-
-    def initialize
-        @collection = YAML.load_file('./lib/data.yml')
-    end
-    
-    def person_books_available(library)
-        ()
     end
 end
