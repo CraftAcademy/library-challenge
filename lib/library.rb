@@ -1,34 +1,33 @@
 require 'yaml'
-require 'date'
+require 'Date'
 
 class Library
-    attr_accessor :books
+    attr_accessor :collection, :return_date
 
-    STANDARD_VALIDITY_MONTH = 1
-
-    def initialize
+    def initialize(attrs = {})
         @collection = YAML.load_file('./lib/data.yml')
-        @books = books
     end
 
-    def collection_books(books)
-        books.nil? ? missing_books : books
+    def book_available
+        @collection.select { |obj| obj[:available] == true }
     end
 
-    def list_of_books(title, author)
-        puts collection.inspect
+    def book_search(obj)
+        @collection.select { |obj| obj[:item][:title] == obj }
+    end
+    
+    def book_lend_out(title)
+        obj = @collection.detect { |obj| obj[:item][:title] == title }
+        if obj[:available] == true
+            then 
+            obj[:available] = false
+            obj[:return_date] = set_return_date
+            return { message: 'The book is now approved for lending' } 
+       end       
+       File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
     end
 
-    def due_date
-        Date.today.next_month(STANDARD_VALIDITY_MONTH).strftime('%d/%m')
-    end
-
-    def check_out_books
-        collection.detect { |obj| obj[:item][:title] == 'He Died With A Falafel in His Hand'  }
-        collection.select { |obj| obj[:item][:title] = title  }
-        if books[:available] == true
-        else books[:available] == false
-        return 'kjh'
-        end
+    def set_return_date
+        Date.today.next_month
     end
 end
