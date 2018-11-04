@@ -11,7 +11,8 @@ class Library
 
     def update_collection
         if YAML.load_file('./lib/data.yml') != false
-        @collection = YAML.load_file('./lib/data.yml')
+            @collection = YAML.load_file('./lib/data.yml')
+            check_available_books
         end
     end
 
@@ -28,7 +29,7 @@ class Library
     end
 
     def checkout_book(title, name)
-       if is_book_available?(title) == true
+        if is_book_available?(title) == true
             check_out_book_from_library_database(title,name) 
         else    
             raise 'The book has been checked-out already'
