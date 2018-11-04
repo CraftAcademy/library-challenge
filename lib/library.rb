@@ -28,17 +28,13 @@ class Library
     end
 
     def checkout_book(title, name)
-        @collection.each do |hash|
-            if title == hash[:title]
-                hash[:status] = 'checked-out'
-                hash[:checked_out_to] = name
-                hash[:return_date] = Date.today + RETURN_DATE
-                File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
-                check_available_books
-            end
+       if is_book_available?(title) == true
+            check_out_book_from_library_database(title,name) 
+        else    
+            raise 'The book has been checked-out already'
         end
     end
-
+    
     def check_available_books
         @collection.each do |hash|
             if hash[:status] == 'available'
@@ -50,5 +46,24 @@ class Library
         available_books.uniq!
     end
 
+    def is_book_available?(title)
+        @available_books.each do |hash|
+            if hash[:title] == title
+                return true
+                break
+            end
+        end
+    end
 
+    def check_out_book_from_library_database(title,name)
+        @collection.each do |hash|
+            if title == hash[:title]
+                hash[:status] = 'checked-out'
+                hash[:checked_out_to] = name
+                hash[:return_date] = Date.today + RETURN_DATE
+                File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
+                check_available_books
+            end
+        end
+    end
 end

@@ -43,6 +43,10 @@ describe Library do
             it 'expect checked_out_to to be name' do
                 expect(subject.collection[0][:checked_out_to]).to eq 'Thomas'
             end
+
+            it 'expect to raise error when the book is already checked-out' do 
+                expect {subject.checkout_book("Harry Potter", 'Thomas')}.to raise_error ('The book has been checked-out already')
+            end
         end
     end
 end
