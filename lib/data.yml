@@ -2,8 +2,8 @@
 - :item:
     :title: Old Tractors and the Men Who Love Them
     :author: Roger Welsch
-  :available: true
-  :return_date: 
+  :available: false
+  :return_date: 2018-12-04
 - :item:
     :title: He Died With A Falafel in His Hand
     :author: John Birmingham
@@ -17,7 +17,7 @@
 - :item:
     :title: Anybody Can Be Cool ...But Awesome Takes Practice
     :author: Lorraine Peterson
-  :available: true
+  :available: false
   :return_date: 
 - :item:
     :title: If God Loves Me, Why Can't I Get My Locker Open?
