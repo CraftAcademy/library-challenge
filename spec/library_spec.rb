@@ -5,8 +5,6 @@ describe Library do
 
     it 'has a collection of books' do
         expected_output = ['Alfons och soldatpappan', 'Skratta lagom! Sa pappa Åberg', 'Osynligt med Alfons', 'Pippi Långstrump', 'Pippi Långstrump går ombord' ]
-        
-        # find_title = subject.books.find { |book| book[:title] }[:title]
         expect(subject.display_books).to eq expected_output
     end
 

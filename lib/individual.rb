@@ -20,11 +20,15 @@ class Individual
         "The book needs to be returned on #{return_date}"
     end
 
-    # def books_in_possession
-    # end
+    def books_in_possession    
+        books_at_home = []
 
-    # def search_books(search_string)
-    #     books.select { |book| book[:title].include? search_string }
-    # end
+        search_books_array = Library.new.books.select { |book| book[:return_date] != nil }
+        search_books_array.each do |book| 
+            books_at_home << book[:title]
+        end
+       
+        books_at_home
+    end
 
 end

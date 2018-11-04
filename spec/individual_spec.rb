@@ -12,23 +12,20 @@ describe Individual do
     let(:library) {Library.new}
 
     it 'can see when a book is meant to be returned' do
-        # library.checkout('Skratta lagom! Sa pappa Åberg')
         expected_output = "The book needs to be returned on 2016-05-25"
         expect(subject.when_to_return_book('Skratta lagom! Sa pappa Åberg')).to eq expected_output
     end
 
-    it 'shows a list of book that the individual has' do
-        library.checkout('Alfons och soldatpappan')
-        expected_output = ['Alfons och soldatpappan']
-        expect(library.books_in_possession).to eq expected_output
+    it 'shows a list of books that the individual has' do
+        # library.checkout('Alfons och soldatpappan')
+        expected_output = ['Skratta lagom! Sa pappa Åberg']
+        expect(subject.books_in_possession).to eq expected_output
     end
 
     it 'allow users to find a book they want to check out' do
-       
         expected_output = ['Alfons och soldatpappan', 'Osynligt med Alfons']
         expect(library.search_books('Alfons')).to eq expected_output
     end
 
-   
 
 end
