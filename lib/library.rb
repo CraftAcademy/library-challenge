@@ -16,6 +16,17 @@ class Library
         end
     end
 
+    def check_available_books
+        @collection.each do |hash|
+            if hash[:status] == 'available'
+                @available_books.push(hash)
+            else
+                @available_books.delete(hash)
+            end
+        end
+        available_books.uniq!
+    end
+
     def add_book(arg = {})
         book = {}
         book[:title] = arg[:title]
@@ -34,17 +45,6 @@ class Library
         else    
             raise 'The book has been checked-out already'
         end
-    end
-    
-    def check_available_books
-        @collection.each do |hash|
-            if hash[:status] == 'available'
-                @available_books.push(hash)
-            else
-                @available_books.delete(hash)
-            end
-        end
-        available_books.uniq!
     end
 
     def is_book_available?(title)

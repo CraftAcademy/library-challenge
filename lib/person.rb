@@ -15,23 +15,10 @@ class Person
         name == nil ? missing_name : @name = name
     end
 
-    def missing_name
-        raise 'Missing name'
-    end
-
     def rent_book(arg = {})
         lib = arg[:lib]
         lib.checkout_book(arg[:title], @name)
         add_to_rented_book(lib)
-    end
-
-    def add_to_rented_book(lib)
-        lib.collection.each do |hash|
-            if hash[:checked_out_to] == @name
-                book = {title: hash[:title], author: hash[:author], return_date: hash[:return_date]}
-                @rented_books.push(book)
-            end
-        end
     end
 
     def return_book(arg = {})
@@ -40,6 +27,10 @@ class Person
         find_book(lib, title)
     end
 
+    def missing_name
+        raise 'Missing name'
+    end
+    
     def find_book(lib, title)
         lib.collection.each do |book|
             if book[:title] == title
@@ -49,6 +40,15 @@ class Person
                 book[:return_date] = nil
                 book[:checked_out_to] = nil
                 lib.check_available_books
+            end
+        end
+    end
+
+    def add_to_rented_book(lib)
+        lib.collection.each do |hash|
+            if hash[:checked_out_to] == @name
+                book = {title: hash[:title], author: hash[:author], return_date: hash[:return_date]}
+                @rented_books.push(book)
             end
         end
     end
