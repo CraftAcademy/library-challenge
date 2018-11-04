@@ -6,7 +6,7 @@ describe Individual do
 
     it 'see a list of books currently available in the library' do
         expected_output = ['Alfons och soldatpappan', 'Osynligt med Alfons', 'Pippi Långstrump', 'Pippi Långstrump går ombord' ]
-        expect(subject.titles_available).to eq expected_output
+        expect(subject.books_currently_available).to eq expected_output
     end
     
     let(:library) {Library.new}
@@ -17,9 +17,8 @@ describe Individual do
     end
 
     it 'shows a list of books that the individual has' do
-        # library.checkout('Alfons och soldatpappan')
         expected_output = ['Skratta lagom! Sa pappa Åberg']
-        expect(subject.books_in_possession).to eq expected_output
+        expect(subject.books_borrowed).to eq expected_output
     end
 
     it 'allow users to find a book they want to check out' do
