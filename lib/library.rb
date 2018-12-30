@@ -23,7 +23,7 @@ class Library
                 obj[:available] = false
                 obj[:return_date] = set_return_date
             return { message: 'The book is now approved for lending' } 
-       end       
+        end       
        File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
     end
 

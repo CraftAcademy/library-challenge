@@ -18,9 +18,9 @@ describe Library do
         expect(subject.book_search('He Died With A Falafel in His Hand')).to eq expected_output
     end
 
-    it 'Approved lending of books' do
+    it 'Approves lending of books' do
         expected_output = {:message=>'The book is now approved for lending'}
-        expect(subject.book_lend_out('Old Tractors and the Men Who Love Them')).to eq expected_output
+        expect {subject.book_lend_out('Old Tractors and the Men Who Love Them')}.to eq expected_output
     end
 
     after do
