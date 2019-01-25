@@ -27,12 +27,12 @@ class Library
     end
 
     def check_return_date(title)
-        book = @book_collection.detect { |obj| obj[:item][:title] == title }
+        book = book_pull(title)
         book[:return_date]
     end
 
     def check_out(title)
-        book = @book_collection.detect { |obj| obj[:item][:title] == title }
+        book = book_pull(title)
         case
             when book_unavailable?(book)
             'The book is currently unavailable'
@@ -42,29 +42,42 @@ class Library
         end 
     end     
 
-        def book_unavailable?(book)
-            book[:available] == false
-        end
+    def book_unavailable?(book)
+        book[:available] == false
+    end
 
-        def book_available?(book)
-            book[:available]
-        end 
+    def book_available?(book)
+        book[:available]
+    end 
 
-        def complete_check_out(book)
-            book_index = @book_collection.index {|obj| obj[:item][:title] == book[:item][:title]}
-            @book_collection[book_index][:available] = false
-            @book_collection[book_index][:return_date] = '2018-12-31'
-           ##write_to_YAML
-        end    
-        
-        def return_book(title)
-            book = @book_collection.detect { |obj| obj[:item][:title] == title }
-            book_index = @book_collection.index {|obj| obj[:item][:title] == book[:item][:title]}
-            @book_collection[book_index][:available] = true
-            @book_collection[book_index][:return_date] = nil
-          ##write_to_YAML
-          'Book is Returned'
+    def return_book(title)
+        book = book_pull(title)
+        book_index = index_pull(book)
+        @book_collection[book_index][:available] = true
+        @book_collection[book_index][:return_date] = nil
+       # write_to_YAML
+        'Book is Returned'
+    end
+
+    private  
+
+    def complete_check_out(book)
+        book_index = index_pull(book)
+        @book_collection[book_index][:available] = false
+        @book_collection[book_index][:return_date] = '2018-12-31'
+       # write_to_YAML
+    end    
+
+    def book_pull(title)
+        book = @book_collection.detect { |obj| obj[:item][:title] == title }
+    end
     
-        end
+    def index_pull(book)
+        book_index = @book_collection.index {|obj| obj[:item][:title] == book[:item][:title]}
+    end 
+
+    def write_to_YAML
+        File.open('./lib/data.yml', 'w') { |f| f.write @book_collection.to_yaml }
+    end
         
 end
