@@ -7,8 +7,8 @@
 - :item:
     :title: Skratta lagom! Sa pappa Åberg
     :author: Gunilla Bergström
-  :available: false
-  :return_date: '2016-05-25'
+  :available: true
+  :return_date: 
 - :item:
     :title: Osynligt med Alfons
     :author: Gunilla Bergström
@@ -17,8 +17,8 @@
 - :item:
     :title: Pippi Långstrump
     :author: Astrid Lindgren
-  :available: true
-  :return_date: 
+  :available: false
+  :return_date: 2019/02/25
 - :item:
     :title: Pippi Långstrump går ombord
     :author: Astrid Lindgren

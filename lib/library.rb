@@ -1,9 +1,10 @@
 require 'yaml'
+require './lib/visitor.rb'
 
 class Library
-    attr_accessor :book_collection
+    attr_accessor :book_collection, :library_visitor
 
-    def initialize
+    def initialize(attrs = {})
         @book_collection = YAML.load_file('./lib/data.yml')
     end
 
@@ -31,14 +32,14 @@ class Library
         book[:return_date]
     end
 
-    def check_out(title,visitor)
+    def check_out(title)
         book = book_pull(title)
         case
             when book_unavailable?(book)
-            "We're sorry #{visitor.name} That book is currently unavailable"
+            "We're sorry! That book is currently unavailable"
             when book_available?(book)
             complete_check_out(book)
-            "Thank you #{visitor.name}! Check out complete! Return date: #{Date.today}"
+            "Thank you! Check out complete! Return date: #{Date.today.next_month.strftime('%Y-%m-%d')}"
         end 
     end     
 
@@ -47,26 +48,26 @@ class Library
     end
 
     def book_available?(book)
-        book[:available]
+        book[:available] == true
     end 
-
-    def return_book(title,visitor)
-        book = book_pull(title)
-        book_index = index_pull(book)
-        @book_collection[book_index][:available] = true
-        @book_collection[book_index][:return_date] = nil
-       # write_to_YAML
-       "Thank you #{visitor.name}! The book is Returned"
-    end
-
-    private  
 
     def complete_check_out(book)
         book_index = index_pull(book)
         @book_collection[book_index][:available] = false
-        @book_collection[book_index][:return_date] = Date.today
-       # write_to_YAML
-    end    
+        @book_collection[book_index][:return_date] = Date.today.next_month.strftime('%Y/%m/%d')
+        write_to_YAML
+    end   
+
+    def return_book(title)
+        book = book_pull(title)
+        book_index = index_pull(book)
+        @book_collection[book_index][:available] = true
+        @book_collection[book_index][:return_date] = nil
+        write_to_YAML
+       "Thank you! The book is Returned"
+    end
+
+    private   
 
     def book_pull(title)
         book = @book_collection.detect { |obj| obj[:item][:title] == title }
