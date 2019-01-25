@@ -29,6 +29,31 @@ class Library
     def check_return_date(title)
         book = @book_collection.detect { |obj| obj[:item][:title] == title }
         book[:return_date]
-     end
-     
+    end
+
+    def check_out(title)
+        book = @book_collection.detect { |obj| obj[:item][:title] == title }
+        case
+            when book_unavailable?(book)
+            'The book is currently unavailable'
+            when book_available?(book)
+            complete_check_out(book)
+            'Check out complete'
+        end 
+    end     
+
+        def book_unavailable?(book)
+            book[:available] == false
+        end
+
+        def book_available?(book)
+            book[:available]
+        end 
+
+        def complete_check_out(book)
+            book_index = @book_collection.index {|obj| obj[:item][:title] == book[:item][:title]}
+            @book_collection[book_index][:available] = false
+            @book_collection[book_index][:return_date] = '2018-12-31'
+           ##write_to_YAML
+        end     
 end
