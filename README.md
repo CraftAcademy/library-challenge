@@ -12,11 +12,6 @@ Read this entire README carefully and follow all instructions.
 * You must submit a Pull Request to this repository with your code by 9.30am Monday morning - before the stand-up
 
 
-### Learning objective
-----
-##### User stories:
-
-
 ### Tasks
 ----
 
