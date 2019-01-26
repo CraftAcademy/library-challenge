@@ -20,8 +20,16 @@ class Library
         available_books
     end
 
-    
+    def select_book(title)
 
+        @collection.select { |obj| obj[:item][:title].include? title  }
+        
+        
+    end
+    
+    def checkout_book
+
+    end
 
     def write_to_file
 
