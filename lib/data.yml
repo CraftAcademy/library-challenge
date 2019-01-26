@@ -3,41 +3,41 @@
     :title: Mac vs PC
     :author: Fletcher DeLancey
   :available: false
-  :return_date:
-  :checked_out_by: 
+  :return_date: '2019-02-26'
+  :checked_out_by: Amanda
 - :item:
     :title: Clean Code
     :author: Robert Cecil Martin
   :available: false
-  :return_date:
-  :checked_out_by:
+  :return_date: '2019-02-26'
+  :checked_out_by: Amanda
 - :item:
     :title: Intro to Ruby Programming
     :author: John Elder
-  :available: true
-  :return_date:
-  :checked_out_by:
+  :available: false
+  :return_date: 2019-02-26
+  :checked_out_by: Per
 - :item:
     :title: Star Wars vs Star Trek
     :author: Matt Forbeck
   :available: false
-  :return_date:
-  :checked_out_by: 
+  :return_date: '2019-02-26'
+  :checked_out_by: Amanda
 - :item:
     :title: The truth about HTML5
     :author: Luke Stevens
   :available: true
-  :return_date:
-  :checked_out_by:
+  :return_date: 
+  :checked_out_by: 
 - :item:
     :title: Stunning CSS
     :author: Zoe Gillenwater
   :available: true
-  :return_date:
-  :checked_out_by:
+  :return_date: 
+  :checked_out_by: 
 - :item:
     :title: Eloquent Javascript
     :author: Marijn Haverbeke
   :available: true
-  :return_date:
-  :checked_out_by:
+  :return_date: 
+  :checked_out_by: 
