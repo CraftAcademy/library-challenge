@@ -10,6 +10,9 @@ describe Library do
         expect(subject.collection).to be_instance_of(Array)
     end
     
+    it "displays books' title and author" do
+        expect(subject.display_title_author).to eq ([{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, {:title=>"Skratta lagom! Sa pappa Åberg", :author=>"Gunilla Bergström"}, {:title=>"Osynligt med Alfons", :author=>"Gunilla Bergström"}, {:title=>"Pippi Långstrump", :author=>"Astrid Lindgren"}, {:title=>"Pippi Långstrump går ombord", :author=>"Astrid Lindgren"}])
+    end
 
     it 'is expected to raise error if book is unavailable' do
         allow(books).to receive(:available).and_return(false) 
