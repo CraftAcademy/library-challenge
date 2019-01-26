@@ -1,5 +1,6 @@
 require 'yaml'
 require './lib/books.yml'
+require 'date'
 
 class Library
 
@@ -17,7 +18,7 @@ class Library
 
 
     def title
-        title = :title
+        title = :title #working on how to call this 
     end
 
     # class Book
