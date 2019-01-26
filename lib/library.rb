@@ -1,28 +1,39 @@
 require 'yaml'
+require './lib/books.yml'
 
 class Library
+
+    RETURN_DATE_NEXT_WEEK = 7 #this might work ?
+
     attr_accessor :title, :author, :available, :return_date, :item 
 
     def initialize(available) #or something different?
         @title = 
         @author = 
         @available =
-        @return_date =
+        @return_date = '1 week' # need to fix this. 
         @item = 
     end
 
-    def return_date
-        Date.today = #something 
+
+    def title
+        title = :title
     end
 
     # class Book
     #     attr_accessor 
-    #     def #?
+    #     def something?
     # end
+
     private
 
     def return_date
-        return_date = '%m/%y' # unsure about this part.
+        Date.today.next_week? = # 1 week borrow time?
     end
+
+    # def return_date  #this might work as well.
+    #     now = DateTime.now
+    #     DateTime.new(now.week)
+    # end 
 
 end
