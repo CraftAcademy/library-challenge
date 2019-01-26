@@ -54,9 +54,9 @@ class Library
         name = gets.strip
         @collection[index][:checked_out_by]= name
         @collection[index][:available]= false
-        @collection[index][:return_date]= Date.today.next_month
+        @collection[index][:return_date]= Date.today.next_month.to_s
         File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
-        print "Thank you! Please return within a month"
+        print 'Thank you! Please return' + ' ' + Date.today.next_month.to_s
         end
         
 

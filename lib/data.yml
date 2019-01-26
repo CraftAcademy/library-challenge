@@ -14,9 +14,9 @@
 - :item:
     :title: Intro to Ruby Programming
     :author: John Elder
-  :available: false
-  :return_date: 2019-02-26
-  :checked_out_by: Per
+  :available: true
+  :return_date: 
+  :checked_out_by: 
 - :item:
     :title: Star Wars vs Star Trek
     :author: Matt Forbeck
