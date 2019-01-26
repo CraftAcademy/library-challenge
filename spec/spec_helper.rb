@@ -1,7 +1,7 @@
 require 'coveralls'
 Coveralls.wear!
 require 'pry'
-require './lib/library.rb'
+
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
