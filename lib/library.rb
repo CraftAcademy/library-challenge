@@ -1,9 +1,18 @@
 require 'yaml'
 
 class Library
-    attr_accessor :books
+    attr_accessor :title, :author, :available, :return_date, :item 
 
     def initialize
-        @books = 
+        @title =
+        @author = 
+        @available =
+        @return_date =
+        @item =
     end
+
+    # class Book
+    #     attr_accessor 
+    #     def #?
+    # end
 end
