@@ -11,8 +11,8 @@ As a Library
 In order to easily check if a book is available
 I want each book to be stored in a file 
 
-- Need to create yml file: 
-- Need to make yml available for both Person and Library classes
+- Need to create yml file :done
+- Need to make yml available for both Person and Library (:done) classes
 
 As a User  
 In order to see the available books  
