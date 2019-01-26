@@ -2,8 +2,8 @@ require './lib/library.rb'
 
 describe Library do
     #not sure about this 1
-    it 'have books in stock' do
-        expect(subject.books).to eq #something?
+    it 'book is avalible' do
+        expect(subject.avalible).to eq avalible
     end
 
     
