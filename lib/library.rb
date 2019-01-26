@@ -10,6 +10,23 @@ class Library
     def display_title_author
         @collection.map {|obj| obj[:item]}
     end
+
+    def check_out(name)
+        title_author = @collection.map {|obj| obj[:item]}
+        titles = title_author.map {|obj| obj[:title]}
+        index =titles.index(name)
+        if @collection[index][:available] then
+            @collection[index][:available] = false
+            File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
+            true
+        else
+            false
+        end
+
+
+
+    end
+        
     
 
     def availability

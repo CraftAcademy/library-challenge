@@ -14,6 +14,10 @@ describe Library do
         expect(subject.display_title_author).to eq ([{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, {:title=>"Skratta lagom! Sa pappa Åberg", :author=>"Gunilla Bergström"}, {:title=>"Osynligt med Alfons", :author=>"Gunilla Bergström"}, {:title=>"Pippi Långstrump", :author=>"Astrid Lindgren"}, {:title=>"Pippi Långstrump går ombord", :author=>"Astrid Lindgren"}])
     end
 
+    it 'changes availability to false when book is checked out' do
+        expect(subject.check_out("Alfons och soldatpappan")).to eq true
+    end
+
     it 'is expected to raise error if book is unavailable' do
         allow(books).to receive(:available).and_return(false) 
         expect(subject.availability).to raise_error 'The selected book is not available' 
