@@ -8,7 +8,7 @@ class Library
         @author = 
         @available =
         @return_date =
-        @item =
+        @item = 
     end
 
     # class Book
