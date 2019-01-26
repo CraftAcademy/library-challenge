@@ -9,8 +9,8 @@ class Library
 
     def initialize(available) #or something different?
         @title = 
-        @author = 
-        @available =
+        @author = #depends on title, how to set this?
+        @available = :true
         @return_date = '1 week' # need to fix this. 
         @item = 
     end
