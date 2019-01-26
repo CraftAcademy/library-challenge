@@ -19,8 +19,12 @@ In order to see the available books
 I want to see both title and author of the book
 
 As a Library   
-In order to update the book status   
+In order to update the book status   :done (check_out)
 I want to allow visitors to check out books
+
+As a Library
+In order to update the book status   :done (check_in)
+I want to allow visitors to check in books
 
 As a Library  
 In order to make sure that other visitors can access the same checked out book  

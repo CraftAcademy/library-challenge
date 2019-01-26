@@ -15,13 +15,18 @@ describe Library do
     end
 
     it 'changes availability to false when book is checked out' do
-        expect(subject.check_out("Alfons och soldatpappan")).to eq true
+        subject.check_out("Alfons och soldatpappan")
+        expect(subject.is_available("Alfons och soldatpappan")).to eq false
+    end
+
+    it 'changes availability to true when book is checked in' do
+        subject.check_in("Alfons och soldatpappan")
+        expect(subject.is_available("Alfons och soldatpappan")).to eq true
     end
 
     it 'is expected to raise error if book is unavailable' do
         allow(books).to receive(:available).and_return(false) 
-        expect(subject.availability).to raise_error 'The selected book is not available' 
-        
+        expect(subject.availability).to raise_error 'The selected book is not available'   
     end
 
     it 'sets up a return date when checked out' do
