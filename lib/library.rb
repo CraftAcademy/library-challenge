@@ -4,11 +4,11 @@ class Library
     attr_accessor :title, :author, :available, :return_date, :item
 
     def initialize
-        @title = 
-        @author = 
-        @available = 
-        @return_date = 
-        @item = 
+        @title = 'title'
+        @author = 'author'
+        @available = 'available'
+        @return_date = 'return_date'
+        @item = 'item'
     end
 
 
