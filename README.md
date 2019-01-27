@@ -31,7 +31,28 @@ I want to only loan out books to borrowers who have a library card or account.
 
 ## As a Library
 In order to loan out books 
-I want to only loan out books to persons who are users of the library. 
+I want to only loan out books to persons who have valid library cards or accounts.
+
+## As a Library
+In order to loan out books
+I want users to be able to search for books by keyword.
+
+## As a Borrower
+In order to check out books
+I want to be able to see what books the library has in its collection.
+
+## As a Borrower
+In order to check out books
+I want to be able to see if a book is checked out or available.
+
+## As a Borrower
+In order to check out books
+I want to be able to see when a book that has been checked out will be returned.
+
+## As a Borrower
+In order to check out books
+I want to be able to have a library card or account.
+
 
 
 

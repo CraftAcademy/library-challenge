@@ -1,6 +1,6 @@
 class Library_account
 
-    attr_accessor :account_status, :user
+    attr_accessor :account_status, :borrower
 
     def initialize(attrs = {})
         @account_status = :active

@@ -8,7 +8,7 @@ describe Library do
     #not sure but I think we need to set up user accounts for borrowers?
 
     #not sure about this 1
-    it 'allow checkout if book is available' do
+    it 'allows checkout if book is available' do
         expect_output = {status: true, message: 'checkout', date: Date.today, title: HARRY POTTER AND THE DEATHLY HALLOWS}
         expect(subject:checkout(HARRY POTTER AND THE DEATHLY HALLOWS, 'Christina', account)) to eq expect_output
     end
