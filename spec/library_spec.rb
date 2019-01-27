@@ -3,8 +3,8 @@ require 'date'
 require 'yaml'
 
 describe Library do
-    #let(:books) { instance_double('Book', title: 'I am a title', author: 'AleciaLaura', available: true, return_date: '') }
-    #subject { books.new(available: false) }
+    #let(:book) { instance_double('Book', title: 'I am a title', author: 'AleciaLaura', available: true, return_date: }
+    #subject { book.new(available: false) }
 
     it 'loads data.yml file' do
         expect(subject.collection).to be_instance_of(Array)
@@ -24,15 +24,28 @@ describe Library do
         expect(subject.is_available("Alfons och soldatpappan")).to eq true
     end
 
-    it 'is expected to raise error if book is unavailable' do
-        allow(books).to receive(:available).and_return(false) 
-        expect(subject.availability).to raise_error 'The selected book is not available'   
+    it 'displays return date as 30 days from check out date' do
+        subject.check_out("Alfons och soldatpappan")
+        return_date = Date.today.next_day(30).strftime('%Y/%m/%d')
+        expect(subject.has_return_date("Alfons och soldatpappan")).to eq return_date
     end
 
-    it 'sets up a return date when checked out' do
-        expected_output = { available: false, message: 'success', date: Date.today }
-        expect(subject.set_return_date()).to eq expected_output
-    end
+
+
+    #it 'is expected to raise error if book is unavailable' do
+        #subject.check_out("Alfons och soldatpappan")
+        #expect(subject.unavailable_book).to raise_error 'The selected book is not available'   
+    #end
+    #it 'displays return date as 30 days from check out date' do
+           #allow(book).to receive(:return_date).and_return('27/02/2019')
+            #expected_output = { : false, message: 'card expired', date: Date.today }
+            #expect(subject.withdraw(6, '1234', account)).to eq expected_output
+        #end
+
+    #it 'sets up a return date when checked out' do
+        #expected_output = { available: false, message: 'success', date: Date.today }
+        #expect(subject.set_return_date()).to eq expected_output
+    #end
 end
 
 #it can be false when the book is not available / true if available
