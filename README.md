@@ -6,13 +6,29 @@ These are some code examples of a yaml file in irb, and how to access or change 
 ```ruby
 code snippets will go here once its done
 ```
-## RSpec and pry-byebug
-
+## RSpec 
 Test enviroment is set up and functional.
-we use binding.pry to test specific code areas.
-```ruby
-binding.pry
-```
-# As a programmer 
-i want to work in a test driven enviroment
-thats why rspec is set up so we can test the code.
+
+## As a programmer
+In order to work in a test-driven way
+I want to unit test my code with rspec.
+
+## As a Library
+In order to loan out books 
+I want to be show if books are available or checked out.
+
+## As a Library 
+In order to show if books are available
+I want to show when they will be returned if they are checked out.
+
+## As a Library
+In order to loan out books and keep track of them
+I want to only loan out books to borrowers who have a library card or account.
+
+## As a Library
+In order to loan out books 
+I want to only loan out books to persons who are users of the library. 
+
+
+
+
