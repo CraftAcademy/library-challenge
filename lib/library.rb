@@ -1,7 +1,7 @@
 require 
 
 class Library
-    attr_accessor: books
+    attr_accessor: :books
 
 collection = YAML.load_file "books.yml"
 subject = data["Book_list"]
@@ -20,7 +20,8 @@ def checkout(title, library_account)#we probably need more attributes but am usi
         perform_checkout(title("books.yml"), account)
     end   
     
-private
+    
+
     def unavailable(title, account)    
         available=false
     end    

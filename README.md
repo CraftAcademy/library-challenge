@@ -4,7 +4,11 @@
 
 These are some code examples of a yaml file in irb, and how to access or change some values.
 ```ruby
-code snippets will go here once its done
+2.6.0 :003 > collection = YAML.load_file('./lib/books.yml
+')
+ => [{:item=>{:title=>"Harry Potter The Deathly Hallows", :author=>"J.K Rowling"}, :available=>false, :return_date=>"20.02.2019"}, {:item=>{:title=>"Game of thrones ICE AND FIRE", :author=>"George R.R Martin"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"Harry Potter The Philosopher's Stone", :author=>"J. K. Rowling"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"Harry Potter The Chamber of Secrets", :author=>"J. K. Rowling"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"Harry Potter The Prisoner of Azkaban", :author=>"J. K. Rowling"}, :available=>true, :return_date=>nil}]
+ 2.6.0 :004 > collection[0][:available] = false
+ => false 
 ```
 ## RSpec 
 Test enviroment is set up and functional.
