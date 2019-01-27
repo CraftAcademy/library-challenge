@@ -1,25 +1,27 @@
-require 'yaml'
-require './lib/books.yml'
-require 'date' #not sure if we need these up here?
+require 
 
 class Library
     attr_accessor: books
 
+collection = YAML.load_file "books.yml"
+subject = data["Book_list"]
+
 def initialize
     @books = []
-    @title("books.yml") #not sure how to link to yaml file
+    @title #not sure how to link to yaml file
 end    
 
 def checkout(title, library_account)#we probably need more attributes but am using 2 for now
-    case
-    when unavailable?(title("books,yml"), account)
+    collection.select { |obj| obj[:book][:title].include?"Hallows"}
+    case # do we need case here?
+    when unavailable?(title, account)
         {status:false, message: 'unavailable', date: Date.today}
     else
         perform_checkout(title("books.yml"), account)
     end   
     
 private
-    def unavailable(title"books.yml", account)    
+    def unavailable(title, account)    
         available=false
     end    
 

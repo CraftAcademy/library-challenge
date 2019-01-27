@@ -12,7 +12,7 @@ describe Library_account do
         expect(subject:checkout(HARRY POTTER AND THE DEATHLY HALLOWS, 'Christina', account)) to eq expect_output
     end
 
-    it 'is expected to have an owner who is the borrower' do
+    it 'is expected to have a user who is the borrower' do
         expect(subject.borrower).to eq person
     end
 
