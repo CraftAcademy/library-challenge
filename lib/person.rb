@@ -1,4 +1,5 @@
 require 'yaml'
+require 'date'
 
 class Person
     attr_accessor  :name
@@ -6,7 +7,7 @@ class Person
         @name = 'sb'
     end
 
-    def return_date
+    def return_date()
         Date.today.next_month
     end
 end

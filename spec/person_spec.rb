@@ -15,6 +15,7 @@ describe Person do
     end
 
     it 'person need to get return_date message' do
+        expected_output = {message: 'it is succesful'[:return_date]}
         expect(subject.return_date).to eq Date.today.next_month
     end
 

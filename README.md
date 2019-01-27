@@ -8,7 +8,24 @@ I want to search for a book
 
 For library
 to be able borrow a book to a person
-it must be changed to unavailable
+It must be changed to unavailable
+
+For a person
+to be able to borrow a book
+I must have a name
+
+For a person
+to be able to receive a return date
+the library must send a message to person
+
+Source used: 
+ATM Challenge files completed
+AlbertStjarne library challenge reference
+Google for general pointers
+
+
+
+
 
 
 
