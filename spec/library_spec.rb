@@ -20,7 +20,9 @@ describe Library do
     end
 
     it 'allows person to borrow a book and change status to unavailable ' do
-        expected_output = YAML.load_file('./lib/data.yml').select { |book| book[:item][:available] == true  }
+        expected_output = YAML.load_file('./lib/data.yml').select { |book| book[:item][:available] == true }
         expect(subject.available).to be_truthy
     end
+
+
 end

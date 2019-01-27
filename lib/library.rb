@@ -1,4 +1,5 @@
 require 'yaml'
+require 'date'
 
 class Library
     attr_accessor :list, :available  
@@ -13,7 +14,8 @@ class Library
             return true
         else
             return false
-        end
+    end
+    
 
     def search_title (book)
         @list.select { |book| book[:item][:title].include? 'Pippi'  }
@@ -21,11 +23,13 @@ class Library
 
     def set_unavailable (available)
         @list.detect { |book| book[:item][:title].include? title }
-            if 
-                @available == true
-            then 
-                @available == false
-            end
+        if 
+         @available == true
+        then 
+          @available == false
+          book[:return_date] = Date.today.next_month
+
+        end
     end
    
 end
