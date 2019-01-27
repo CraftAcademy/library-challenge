@@ -1,3 +1,15 @@
+For a library
+to show all of the books to a person
+I want the person to see a list of the books
+
+For a person
+to be able to find a book in the library
+I want to search for a book
+
+
+
+
+
 ## Library Challenge
 ### Week 1 Ruby challenge
 

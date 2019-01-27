@@ -13,8 +13,8 @@ class Library
         else
             return false
         end
-
-    def search_title title
-            @list.detect { |obj| obj[:item][:title] == title  }
-        end
+private
+    def search_title (list)
+        list.select { |book| book[:item][:title].include? book  }
+    end
 end
