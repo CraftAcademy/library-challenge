@@ -21,5 +21,11 @@ describe Library do
     it 'can search for a specific book title' do
         expect(subject.select_book("Clean Code")).not_to eq nil
     end
-    
+
+    describe '#checkout_book' do
+        it 'can checkout a book after searching for its title' do
+            expected_outcome = :available = false
+            expect(subject.collection("Clean Code")).to eq expected_outcome
+        end
+    end
 end
