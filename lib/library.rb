@@ -6,22 +6,24 @@ class Library
     attr_accessor: books
 
 def initialize
-    @books = books.yml #not sure how to show
+    @books = []
+    title("books.yml") #not sure how to link to yaml file
 end    
 
-def checkout(title, account)#we probably need more but am using 2 for now
+def checkout(title, account)#we probably need more attributes but am using 2 for now
     case
-    when unavailable?(title, account)
+    when unavailable?(title("books,yml"), account)
         {status:false, message: 'unavailable', date: Date.today}
     else
-        perform_checkout(title, account)
+        perform_checkout(title("books.yml"), account)
     end   
     
 private
-    def unavailable(title, account)    
+    def unavailable(title"books.yml", account)    
         available=false
     end    
-if test
+
+    if test
        
   
        
@@ -42,7 +44,7 @@ if test
         @author = #depends on title, how to set this?
         @available = :true
         @return_date = '1 month' # need to fix this. didn't it say one month? 
-        @item = 
+        @book = 
     end
 
 
