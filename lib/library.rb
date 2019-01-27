@@ -55,5 +55,16 @@ class Library
             @book_collection[book_index][:available] = false
             @book_collection[book_index][:return_date] = '2018-12-31'
            ##write_to_YAML
-        end     
+        end    
+        
+        def return_book(title)
+            book = @book_collection.detect { |obj| obj[:item][:title] == title }
+            book_index = @book_collection.index {|obj| obj[:item][:title] == book[:item][:title]}
+            @book_collection[book_index][:available] = true
+            @book_collection[book_index][:return_date] = nil
+          ##write_to_YAML
+          'Book is Returned'
+    
+        end
+        
 end
