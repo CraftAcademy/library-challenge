@@ -4,12 +4,12 @@ require 'date' #don't we need this?
 
 describe Library do
     let(:account) {instance_double('Person', name: 'Christina'), account_status: 'active'}
-    subject {described_class.new({owner: person})}
+    subject {described_class.new({borrower: person})}
     #not sure but I think we need to set up user accounts for borrowers?
 
     #not sure about this 1
     it 'allow checkout if book is available' do
-        expect_output = {status: true, message: 'success', date: Date.today, title: HARRY POTTER AND THE DEATHLY HALLOWS}
+        expect_output = {status: true, message: 'checkout', date: Date.today, title: HARRY POTTER AND THE DEATHLY HALLOWS}
         expect(subject:checkout(HARRY POTTER AND THE DEATHLY HALLOWS, 'Christina', account)) to eq expect_output
     end
 

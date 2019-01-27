@@ -7,10 +7,10 @@ class Library
 
 def initialize
     @books = []
-    title("books.yml") #not sure how to link to yaml file
+    @title("books.yml") #not sure how to link to yaml file
 end    
 
-def checkout(title, account)#we probably need more attributes but am using 2 for now
+def checkout(title, library_account)#we probably need more attributes but am using 2 for now
     case
     when unavailable?(title("books,yml"), account)
         {status:false, message: 'unavailable', date: Date.today}
@@ -30,6 +30,7 @@ private
    end
         perform
     rescue => exception
+        #not sure what this is?
         
     else
         
@@ -37,7 +38,7 @@ private
 
     RETURN_DATE_NEXT_MONTH = 30 #this might work ?
 
-    attr_accessor :title, :author, :available, :return_date, :item 
+    attr_accessor :title, :author, :available, :return_date, :book 
 
     def initialize(available) #or something different?
         @title = 
