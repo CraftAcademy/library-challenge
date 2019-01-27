@@ -11,7 +11,7 @@
 - To checkout a book with yaml index: lib.checkout_book("index number here")<br>
 Enter your name to recieve your due date.
 
-- To search for a book: lib.select_book("title or keywords here")<br>
+- To search for a book and see its status, available or unavailable: lib.select_book("title or keywords here")<br>
 
 
 
