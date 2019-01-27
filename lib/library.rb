@@ -13,4 +13,8 @@ class Library
         else
             return false
         end
+
+    def search_title title
+            @list.detect { |obj| obj[:item][:title] == title  }
+        end
 end
