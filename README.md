@@ -1,22 +1,15 @@
-## Library Challenge
-### Week 1 Ruby challenge
+# Accessing and using the Library System
 
-As a user
-In order to check out a book
-I want to know what books are available
+- In order to access our checkout system you'll have to first load the file into irb using: load './lib/library.rb'<br>
 
-As an owner
-In order to maintain my stock
-I need to know what books are unavailable
+- To open access database use: lib = Library.new <br>
 
-As a user
-In order to ckeck out a book
-I want to be able to search for a specific title and know if the book is available
+- To see which books are checked out:  lib.checked_out<br>
 
-As a user 
-In order to return a book
-I need to know when the due date is
+- To see which books are available: lib.available<br>
 
-As a user
-In order to return a book
-I need to know that the system has acepted my return
+- To checkout a book with yaml index: lib.checked_out(index)<br>
+
+- To search for a book: lib.select_book("title or keywords here")<br>
+
+- 

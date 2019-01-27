@@ -8,4 +8,6 @@ describe Library do
     it 'can search a book in the database' do
         expect(subject.select_book("PC")).not_to eq nil)
     end
+
+    
 end
