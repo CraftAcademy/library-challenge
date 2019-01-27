@@ -13,8 +13,9 @@ class Library
         else
             return false
         end
-private
-    def search_title (list)
-        list.select { |book| book[:item][:title].include? book  }
+
+    def search_title (book)
+        @list.select { |book| book[:item][:title].include? 'Pippi'  }
     end
+   
 end

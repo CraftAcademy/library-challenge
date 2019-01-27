@@ -14,9 +14,8 @@ describe Library do
         expect(subject.list).not_to be nil
     end
 
-    it "allows person to search for book title" do   
-            expected_output  = YAML.load_file('./lib/data.yml').select { |book| book[:item][:title].include? 'Pippi'  }
-            expect(subject.search_title('Pippi')).to eq expected_output
-        
+    it "allows to search for specific book" do
+        expected_output = YAML.load_file('./lib/data.yml').select { |book| book[:item][:title].include? 'Pippi' }
+        expect(subject.search_title('Pippi')).to eq expected_output
     end
 end
