@@ -23,4 +23,4 @@ Enter your name to recieve your due date.
 
 *********
 Resources used: 
-Advanced RSpec demo
+Testing with RSpec Demo
