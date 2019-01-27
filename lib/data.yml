@@ -38,6 +38,6 @@
 - :item:
     :title: Eloquent Javascript
     :author: Marijn Haverbeke
-  :available: true
-  :return_date: 
-  :checked_out_by: 
+  :available: false
+  :return_date: '2019-02-27'
+  :checked_out_by: Amanda
