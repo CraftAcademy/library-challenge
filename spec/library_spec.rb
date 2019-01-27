@@ -1,7 +1,9 @@
 require './lib/library.rb'
 
 describe Library do
+    let(:person) {instance_double('Person', name: 'Amanda', book: 'Clean Code')}
 
+    
     it 'have books in library' do
         expect(subject.collection).not_to eq nil
     end

@@ -2,7 +2,6 @@ require 'yaml'
 require 'date'
 
 class Library
- 
     attr_accessor :collection, :checked_out, :available
 
     def initialize
@@ -24,6 +23,7 @@ class Library
         available_books
     end
 
+
     def show_unavailable_books
 
         unavailable_books = []
@@ -35,32 +35,26 @@ class Library
     end
 
 
-    
-
     def select_book(title)
-
-        @collection.select { |obj| obj[:item][:title].include? title  }
-        
+        @collection.select { |obj| obj[:item][:title].include? title  }   
     end
 
-    
     
     def checkout_book(index)
         if
-        @collection[index][:available] == false
-        print "Already checked out"
-        else
-        puts "Whats your name?"
-        name = gets.strip
-        @collection[index][:checked_out_by]= name
-        @collection[index][:available]= false
-        @collection[index][:return_date]= Date.today.next_month.to_s
-        File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
-        print 'Thank you! Please return' + ' ' + Date.today.next_month.to_s
+            @collection[index][:available] == false
+            print "Already checked out"
+            else
+            puts "Whats your name?"
+            name = gets.strip
+            @collection[index][:checked_out_by]= name
+            @collection[index][:available]= false
+            @collection[index][:return_date]= Date.today.next_month.to_s
+            File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
+            print 'Thank you! Please return' + ' ' + Date.today.next_month.to_s
         end
-        
-
     end
+
 
     
 
