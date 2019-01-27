@@ -1,40 +1,40 @@
-"Book_list"
-- :book: #changed from item to book because we use book & books elsewhere
+
+- :item: #changed from item to book because we use book & books elsewhere
     :title: Harry Potter The Deathly Hallows
     :author: J.K Rowling
   :available: false
   :return_date: 20.02.2019
-- :book:
+- :item:
     :title: Game of thrones ICE AND FIRE
     :author: George R.R Martin
   :available: true
   :return_date: nil
-- :book:
+- :item:
     :title: Harry Potter The Philosopher's Stone
     :author: J. K. Rowling
   :available: true
   :return_date: nil
-- :book:
+- :item:
     :title: Harry Potter The Chamber of Secrets
     :author: J. K. Rowling
   :available: true
   :return_date: nil
-- :book:
+- :item:
     :title: Harry Potter The Prisoner of Azkaban
     :author: J. K. Rowling
   :available: true
   :return_date: nil
-    book:
+    item:
     :title: Harry Potter Goblet of Fire
     :author: J. K. Rowling
   :available: true
   :return_date: nil
-    book:
+    item:
     :title: Harry Potter The Order of the Phoenix
     :author: J. K. Rowling
   :available: true
   :return_date: nil
-    book:
+    item:
     :title: Harry Potter The Half-Blood Prince
     :author: J. K. Rowling
   :available: true

@@ -7,12 +7,12 @@ collection = YAML.load_file "books.yml"
 subject = data["Book_list"]
 
 def initialize
-    @books = []
+    @item = []
     @title #not sure how to link to yaml file
 end    
 
 def checkout(title, library_account)#we probably need more attributes but am using 2 for now
-    collection.select { |obj| obj[:book][:title].include?"Hallows"}
+    collection.select { |obj| obj[:item][:title].include?"Hallows"}
     case # do we need case here?
     when unavailable?(title, account)
         {status:false, message: 'unavailable', date: Date.today}
