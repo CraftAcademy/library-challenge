@@ -6,7 +6,9 @@ For a person
 to be able to find a book in the library
 I want to search for a book
 
-
+For library
+to be able borrow a book to a person
+it must be changed to unavailable
 
 
 

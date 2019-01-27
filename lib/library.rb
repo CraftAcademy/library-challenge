@@ -5,6 +5,7 @@ class Library
     def initialize(attrs = {})
         @list = YAML.load_file('./lib/data.yml')
         @available = true
+        
     end
 
     def incorrect_name? (name, actual_name)
@@ -16,6 +17,15 @@ class Library
 
     def search_title (book)
         @list.select { |book| book[:item][:title].include? 'Pippi'  }
+    end
+
+    def set_unavailable (available)
+        @list.detect { |book| book[:item][:title].include? title }
+            if 
+                @available == true
+            then 
+                @available == false
+            end
     end
    
 end
