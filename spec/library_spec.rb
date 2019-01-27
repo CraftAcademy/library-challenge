@@ -3,8 +3,6 @@ require 'date'
 require 'yaml'
 
 describe Library do
-    #let(:book) { instance_double('Book', title: 'I am a title', author: 'AleciaLaura', available: true, return_date: }
-    #subject { book.new(available: false) }
 
     it 'loads data.yml file' do
         expect(subject.collection).to be_instance_of(Array)
@@ -30,6 +28,13 @@ describe Library do
         expect(subject.has_return_date("Alfons och soldatpappan")).to eq return_date
     end
 
+    it 'issues a receipt with return date when book is checked out' do
+        expect(subject.check_out("Osynligt med Alfons")).to be_a_kind_of(Hash)
+    end
+
+    it 'issues a receipt with return date when book is checked in' do
+        expect(subject.check_in("Osynligt med Alfons")).to be_a_kind_of(Hash)
+    end
 
 
     #it 'is expected to raise error if book is unavailable' do

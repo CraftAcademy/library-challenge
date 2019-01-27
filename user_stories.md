@@ -28,14 +28,14 @@ I want to allow visitors to check in books
 
 As a Library  
 In order to make sure that other visitors can access the same checked out book  
-I want the book to be returned within a month
+I want the book to be returned within a month :done (return_date)
 
 As a Library  
 In order to let the visitor know 
 when to return the book  
-I want to issue a receipt with the return date 
+I want to issue a receipt with the return date :done
 
-- Need to set return date 30 days from booking
+- Need to set return date 30 days from booking :done
 
 
 

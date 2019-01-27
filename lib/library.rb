@@ -1,3 +1,5 @@
+require 'date'
+
 class Library
     STANDARD_VALIDITY_DAYS = 30
     attr_accessor :collection, :person
@@ -29,17 +31,19 @@ class Library
         Date.today.next_day(STANDARD_VALIDITY_DAYS).strftime('%Y/%m/%d')
     end
 
-
     def check_out(book_title)
         title_author = @collection.map {|obj| obj[:item]}
         titles = title_author.map {|obj| obj[:title]}
         index =titles.index(book_title)
         if @collection[index][:available] then
             @collection[index][:available] = false
-            @collection[index][:return_date] = return_date
+            date_new = @collection[index][:return_date] = return_date
             File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
-            else
-                false
+            success_hash = {return_date: date_new, status: "borrowed"}
+            title_author[index].merge(success_hash)
+        else
+            failure_hash = {date: Date.today.strftime('%Y/%m/%d'), status: "failed"}
+            title_author[index].merge(failure_hash)
         end
     end
 
@@ -47,19 +51,16 @@ class Library
         title_author = @collection.map {|obj| obj[:item]}
         titles = title_author.map {|obj| obj[:title]}
         index =titles.index(book_title)
-        @collection[index][:available] = true
-        File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
-        true
+        if @collection[index][:available] == false then
+            @collection[index][:available] = true
+            File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
+            success_hash = {date: Date.today.strftime('%Y/%m/%d'), status: "returned"}
+            title_author[index].merge(success_hash)
+        else
+            failure_hash = {date: Date.today.strftime('%Y/%m/%d'), status: "failed"}
+            title_author[index].merge(failure_hash)
+        end
     end
-
-    #def unavailable_book
-        #raise RuntimeError, 'The selected book is not available'
-    #end
-
-    
-    
-
-    
 end
 
 
