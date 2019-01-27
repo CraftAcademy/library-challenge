@@ -8,7 +8,8 @@
 
 - To see which books are available: lib.available<br>
 
-- To checkout a book with yaml index: lib.checked_out("index number here")<br>
+- To checkout a book with yaml index: lib.checkout_book("index number here")<br>
+Enter your name to recieve your due date.
 
 - To search for a book: lib.select_book("title or keywords here")<br>
 
