@@ -4,7 +4,7 @@
     :author: Fletcher DeLancey
   :available: false
   :return_date: '2019-02-26'
-  :checked_out_by: Amanda
+  :checked_out_by: Per
 - :item:
     :title: Clean Code
     :author: Robert Cecil Martin
@@ -20,9 +20,9 @@
 - :item:
     :title: Star Wars vs Star Trek
     :author: Matt Forbeck
-  :available: false
-  :return_date: '2019-02-26'
-  :checked_out_by: Amanda
+  :available: true
+  :return_date: 
+  :checked_out_by: 
 - :item:
     :title: The truth about HTML5
     :author: Luke Stevens
