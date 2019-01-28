@@ -18,5 +18,4 @@ describe Person do
         expected_output = {message: 'it is succesful'[:return_date]}
         expect(subject.return_date).to eq Date.today.next_month
     end
-
 end

@@ -23,6 +23,4 @@ describe Library do
         expected_output = YAML.load_file('./lib/data.yml').select { |book| book[:item][:available] == true }
         expect(subject.available).to be_truthy
     end
-
-
 end

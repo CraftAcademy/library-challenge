@@ -28,8 +28,6 @@ Google for general pointers
 
 
 
-
-
 ## Library Challenge
 ### Week 1 Ruby challenge
 
