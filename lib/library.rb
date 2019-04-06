@@ -16,5 +16,15 @@ class Library
         search = books.select { |book| book[:author].include? author_str }
     end
 
+    def checkout_book (index)
+        books[index][:available] = false
+        books[index][:return_date] = Date.today.next_month.strftime("%d/%m/%y")
+        update_books
+        books[index]
+    end
+
+    def update_books
+        File.open("./lib/books.yml", "w") {|f| f.write books.to_yaml}
+    end
 
 end

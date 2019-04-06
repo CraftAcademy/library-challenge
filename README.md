@@ -20,7 +20,16 @@ I would like a list of all the books in my possession
 * Create an instance variable books for Library class **done**
 * Create a method to search the YAML file by title, the method returns all data **done**
 * Create a method to search the YAML file by author, the method returns all data **done**
-* Create a method to checkout books
+
+```
+As a Library
+In order to serve my visitors efficiently
+I would like to check out books for my visitors.
+```
+
+* Create a method that checks out the book using the index number. It pushes in the "available" and "return_date" values in the YAML file. **done**
+* Create a class double for Visitor class and add the function that pushes "borrowed_by" value into the YAML file.
+
 
 ```
 As a Library
