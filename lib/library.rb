@@ -1,5 +1,4 @@
 
-
 class Library
 
     attr_accessor :collection, :collection_books, :collection_available
