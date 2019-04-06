@@ -1,13 +1,18 @@
-require './person.rb'
+
 
 class Library
 
-    attr_accessor :collection
+    attr_accessor :collection, :collection_books, :collection_available
 
-    def initialize
+    def initialize     
         @collection = YAML.load_file('./lib/data.yml')
     end
 
-    def
+    def books
+        @collection_books
+        @collection_available 
+    end
+
+end
     
 

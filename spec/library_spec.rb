@@ -1,9 +1,12 @@
+require './lib/library.rb'
 
-
-describe 'library' do
+describe Library do
 
     it 'Whole collection of books in library' do
-        expect(subject.collection.books).to eq 5
+        expect(subject.collection).not_to eq nil
     end
+
+
+
 end
 
