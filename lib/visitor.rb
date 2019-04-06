@@ -1,11 +1,13 @@
-require './operator.rb'
+require './library.rb'
 
-class Person
+class Visitor
 
     attr_accessor 
 
     def initialize
 
     end
+
+    
     
         
