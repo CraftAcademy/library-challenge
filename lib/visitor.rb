@@ -15,6 +15,11 @@ def view_books
     end
 end
 
+def search_by_title(title_str)
+    list = view_books
+    list.select { |book| book[:title].include? title_str }
+end
+
 
 
 end

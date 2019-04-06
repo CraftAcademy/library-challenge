@@ -9,11 +9,11 @@ class Library
     end
 
     def search_by_title(title_str)
-        search = books.select { |book| book[:title].include? title_str }
+        books.select { |book| book[:title].include? title_str }
     end
 
     def search_by_author(author_str)
-        search = books.select { |book| book[:author].include? author_str }
+        books.select { |book| book[:author].include? author_str }
     end
 
     def checkout_book (index)
