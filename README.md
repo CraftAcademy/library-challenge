@@ -16,10 +16,10 @@ I would like a list of all the books in my possession
 
 
 * Create the YAML file (unique code for every book, name of who we give it) **done**
-* Create Library Class (nothing on initialize) **done**
-* Create method to read the YAML file with all data available **done**
+* Create Library Class **done**
+* Create an instance variable books for Library class **done**
 * Create a method to search the YAML file by title, the method returns all data **done**
-* Create a method to search the YAML file by author, the method returns all data
+* Create a method to search the YAML file by author, the method returns all data **done**
 * Create a method to checkout books
 
 ```
