@@ -28,7 +28,7 @@ I would like to check out books for my visitors.
 ```
 
 * Create a method that checks out the book using the index number. It pushes in the "available" and "return_date" values in the YAML file. **done**
-* Create a class double for Visitor class and add the function that pushes "borrowed_by" value into the YAML file.
+* Create a class double for Visitor class and add the function that pushes "borrowed_by" value into the YAML file. **done**
 
 
 ```

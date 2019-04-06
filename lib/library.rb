@@ -16,9 +16,10 @@ class Library
         books.select { |book| book[:author].include? author_str }
     end
 
-    def checkout_book (index)
+    def checkout_book (index, name)
         books[index][:available] = false
         books[index][:return_date] = Date.today.next_month.strftime("%d/%m/%y")
+        books[index][:borrowed_by] = name 
         update_books
         books[index]
     end
