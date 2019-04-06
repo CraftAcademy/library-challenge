@@ -1,3 +1,7 @@
 
+instance_double [{ name: 'Noel'}]
 
-instance_double
+
+
+
+
