@@ -15,7 +15,7 @@ we would like to be have a database for all books in our possession
 ```
 As a library,
 in order to be able to check what books are currently available to checkout for a customer,
-we would like to be able to search what books we have available and which ones are not availble
+we would like to be able to search what books we have available and which ones are not available
 ````
 - Create Person class instance double (to be able to search)
 - Make "search" method for library, for all books in database - by returning title, author, availability
@@ -61,13 +61,12 @@ As a library,
 in order to keep track of what books are available and not,
 we would like that when a book is checked-out by a customer, it is no longer available for others
 ```
-
 - Set so that on checkout by Customer, the availability of the book is changed
 
 ```
 As a library,
-in order to keep track of when non-avaialble books are planned to be returned,
-we would like that when a book is checked-out by a customer, a correct return date is added
+in order to keep track of when non-available books are planned to be returned,
+we would like that when a book is checked-out by a customer, a correct return date is added to the database
 ```
 - Set CONSTANT for standard "validity"/standard lending time
 - Ensure that return date is added on checkout
@@ -79,3 +78,11 @@ in order to know when I should return the book I checked out,
 I would like to get a message for which date I should return the book after check-out
 ```
 - Add return date to "success" message after checkout
+
+Optional:
+```
+As a library,
+in order to keep track of what customer has cheked-out what books,
+we would like so that when a book is checked-out by a customer, the customer is added to the database
+```
+- Add new field to the YAML file for Customer??!
