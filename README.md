@@ -54,18 +54,10 @@ I would like to be able to search the list of books
 ```
 As a Visitor
 In order not to wait in the line
-I would like to be able to checkout a book by myself
+I would like to be able to checkout a book by myself and know when to return it
 ```
+* Create a method that lets a visitor checkout the book and prints a message with the return date **done** 
 
-* Give access to the same checkout method from the Library Class
-
-```
-As a Library
-In order for more people to be able to access knowledge
-I would like the the checked out books to be returned in one month's time
-```
-
-* The checkout method should provide the Visitor with a receipt in a form of hash that provides the return date (one month from the checkout)
 
 
 

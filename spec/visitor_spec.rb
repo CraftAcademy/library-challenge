@@ -23,4 +23,11 @@ describe Visitor do
         expect(subject.search_by_author("Lindgren")).to eq expected_output
     end
 
+    it "can check out a book" do
+        expected_output = "You have borrowed the book 'Pippi Långstrump' by 'Astrid Lindgren'. Please return it by #{Date.today.next_month.strftime("%d/%m/%y")}."
+        expect(subject.checkout_book(3)).to eq expected_output
+    end
+
+
+
 end

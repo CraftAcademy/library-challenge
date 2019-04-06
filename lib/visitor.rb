@@ -25,4 +25,15 @@ def search_by_author(author_str)
     list.select { |book| book[:author].include? author_str }
 end
 
+def checkout_book (index)
+    books = YAML.load_file("./lib/books.yml")
+    books[index][:available] = false
+    books[index][:return_date] = Date.today.next_month.strftime("%d/%m/%y")
+    books[index][:borrowed_by] = @name 
+
+    File.open("./lib/books.yml", "w") {|f| f.write books.to_yaml}
+
+    return "You have borrowed the book '#{books[index][:title]}' by '#{books[index][:author]}'. Please return it by #{books[index][:return_date]}."
+end
+
 end
