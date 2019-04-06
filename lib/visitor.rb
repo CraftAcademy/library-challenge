@@ -20,6 +20,9 @@ def search_by_title(title_str)
     list.select { |book| book[:title].include? title_str }
 end
 
-
+def search_by_author(author_str)
+    list = view_books
+    list.select { |book| book[:author].include? author_str }
+end
 
 end

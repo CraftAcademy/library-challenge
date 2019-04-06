@@ -48,8 +48,8 @@ I would like to be able to search the list of books
 
 * Create Visitor Class (attribute name) **done**
 * Create a method to read the YAML file (no name access)**done**
-* Create a method to search the YAML file by title (no name access)
-* Create a method to search the YAML file by author (no name access)
+* Create a method to search the YAML file by title (no name access)**done**
+* Create a method to search the YAML file by author (no name access) **done** 
 
 ```
 As a Visitor

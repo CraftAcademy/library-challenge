@@ -18,5 +18,9 @@ describe Visitor do
         expect(subject.search_by_title("Pippi")).to eq expected_output
     end
 
+    it "can search the list of books by the author of the book" do
+        expected_output = [{:index=>3, :title=>"Pippi Långstrump", :author=>"Astrid Lindgren", :available=>true, :return_date=>nil}, {:index=>4, :title=>"Pippi Långstrump går ombord", :author=>"Astrid Lindgren", :available=>true, :return_date=>nil}]
+        expect(subject.search_by_author("Lindgren")).to eq expected_output
+    end
 
 end
