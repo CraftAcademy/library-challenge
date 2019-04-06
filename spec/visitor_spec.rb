@@ -2,15 +2,13 @@ require './lib/visitor.rb'
 require './lib/library.rb'
 
 describe Visitor do
-
-    subject { described_class.new(name: 'Noel') }
+ 
+    #let(:person) {instance_double('Visitor', name: 'Thomas', password: '1234')}
+   # subject { described_class.new({owner: person}) }
 
     it 'Should create a Visitor' do
-    expect(subject.new).not_to eq nil
+    expect(Visitor.new("Noel", "Ryan")).not_to eq nil
     end
-
-
-
 
 end
 

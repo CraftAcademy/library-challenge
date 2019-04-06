@@ -7,7 +7,7 @@ class Visitor
     def initialize(name, password)
     @name = name
     @password = password
-    @id = 15
+    @id =  44
     end
 
 end
