@@ -27,4 +27,19 @@ class Library
         File.open("./lib/books.yml", "w") {|f| f.write books.to_yaml}
     end
 
+    def add_new_book (title, author)
+        books.push ({
+            :index=>books.length, 
+            :title=>title, 
+            :author=>author, 
+            :available=>true, 
+            :return_date=>nil, 
+            :borrowed_by=>nil
+            })
+        update_books
+        books
+    end
+    
+
+
 end

@@ -4,6 +4,11 @@ require "./lib/library.rb"
 
 
 describe Library do
+
+    after do
+    reset = YAML.load_file("./lib/reset.yml")
+    File.open("./lib/books.yml", "w") {|f| f.write reset.to_yaml}
+    end
     
     it "can read the YAML file with all the books" do
         expected_output = YAML.load_file("./lib/books.yml")
@@ -25,6 +30,12 @@ describe Library do
         expect(subject.checkout_book(3)).to eq expected_output
     end
 
+    it "can add a new book into the YAML file" do
+        expected_output = [{:index=>0, :title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström", :available=>true, :return_date=>nil, :borrowed_by=>nil}, {:index=>1, :title=>"Skratta lagom! Sa pappa Åberg", :author=>"Gunilla Bergström", :available=>true, :return_date=>nil, :borrowed_by=>nil}, {:index=>2, :title=>"Osynligt med Alfons", :author=>"Gunilla Bergström", :available=>true, :return_date=>nil, :borrowed_by=>nil}, {:index=>3, :title=>"Pippi Långstrump", :author=>"Astrid Lindgren", :available=>true, :return_date=>nil, :borrowed_by=>nil}, {:index=>4, :title=>"Pippi Långstrump går ombord", :author=>"Astrid Lindgren", :available=>true, :return_date=>nil, :borrowed_by=>nil}, {:index=>5, :title=>"Dandelion wine", :author=>"Ray Bradbury", :available=>true, :return_date=>nil, :borrowed_by=>nil}]
+        expect(subject.add_new_book("Dandelion wine", "Ray Bradbury")).to eq expected_output
+    end
 
-
+    
 end
+
+
