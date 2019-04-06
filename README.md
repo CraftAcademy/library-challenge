@@ -37,7 +37,7 @@ In order to make new books accesible to public
 I would like to be able to add new books to the system.
 ```
 
-* Create a method to add new entries to the YAML file
+* Create a method to add new entries to the YAML file **done**
 
 
 ```
@@ -46,8 +46,8 @@ In order to be able to choose
 I would like to be able to search the list of books
 ```
 
-* Create Visitor Class (attribute name)
-* Give access to the same method from the Library to read the YAML file (no name access)
+* Create Visitor Class (attribute name) **done**
+* Give access to the same method from the Library to read the YAML file (no name access)**done**
 * Give access to the same method from the Library to search the YAML file by title (no name access)
 * Give access to the same method from the Library to search the YAML file by author (no name access)
 
