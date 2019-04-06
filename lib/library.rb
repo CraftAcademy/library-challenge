@@ -9,4 +9,9 @@ class Library
         YAML.load_file("./lib/books.yml")
     end
 
+    def search_by_title(title_str)
+        books = access_books
+        search = books.select { |book| book[:title].include? title_str }
+        
+    end
 end
