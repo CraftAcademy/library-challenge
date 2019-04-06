@@ -1,52 +1,61 @@
-## Library Challenge
-### Week 1 Ruby challenge
+As a Library (Operator)
+In order to work????
+I want a list of the hole collection of the books
 
-Instructions
--------
-Read this entire README carefully and follow all instructions.
+As an Library (Operator)
+In order to know what books we have in storage
+I want the collection to include titles and author
 
-* Challenge time: this weekend, until Monday 9am
-* Feel free to use Google, Stack Overflow, your notes, previously written code, books, etc. but work on your own
-* If you refer to or have in whole or partially used the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution to GitHub and create a Pull Request**
-* You must submit a Pull Request to this repository with your code by 9.30am Monday morning - before the stand-up
+As a Library (Operator)
+#koppla samman med As a person
+In order to keep track of what we have in storage
+I want a method that gives an update of the collection of books after check-out
 
+#vilka böcker som gfinns i hela sortimentet
+och vilka som finns tillgängliga
+eller utlånade
 
-### Tasks
-----
-
-* Fork the challenge repo: https://github.com/CraftAcademy/library-challenge
-* Run the command `bundle install` in the project directory to ensure you have all the gems
-* Write your specs and implementation
-* Be smart about using Git: commit and push often. Use feature branches.
-* Create a Pull Request as soon as possible
-* Read the comments from Hound and fix any issues that the service points out.
-
-### Tips
-----
-
-##### Some hints:
-  * A Person needs to have a list of books that he currently has in his possession. That list needs to include the return date.
-  * The return date can be calculated using the `Date` object. Out of the box, there are methods you can use to add days to the current date.
-  * Make use of `doubles` when writing your specs
-  * Follow the [naming conventions/standards](https://craftacademy.gitbooks.io/coding-as-a-craft/content/extras/naming_standards.html) for methods and variables
-
-### What we are looking for
-----
-##### I'm hoping to see that:
-* You can take a problem set and write a well tested implementation on your own.
-* You understand how to define Ruby Classes and work with objects.
-* You understand how classes can interact with each other.
-* You know how to make use of arrays, hashes, and associated methods to create dynamic lists.
-* You know how to write specs and use them as a blueprint in your development.
-* I can track your work by following you commit history - so please commit as soon you are done with a feature or when you have made a test pass.
-
-##### In your Pull Request, I'm hoping to see:
-* That you are testing the right thing in the right spec file.
-* That all tests passing - green is good!
-* High test coverage (above 95% is accepted)
-* The code is easy to follow: every class has a clear responsibility, methods are short, code is nicely formatted, etc.
-* The `README.md` includes information on how to use your solution with command examples in `irb`. (Feel free to remove this text)
+vem har lånat den
+när person lånat den + 30 dagar(för då vet vi om den är sen med inlämning)
 
 
-**Happy coding!**
+
+
+_________________________________________________________________________
+
+As a Person
+In order to borrow books
+I would need to have an account
+
+As a Person
+In order to keep track of my borrowed books
+I want a list of the books and return dates
+(((As a Person
+In order to know when to return my borrowed books
+I want a list that has return dates(connected to me as a Person)(we can use Date object here and find a method to add days to current date)
+)))
+
+
+
+
+As a Person
+In order to know if we have a book in the system
+I want a search function for Title/Author
+
+- create a method for a search function of author or title
+
+
+
+
+
+As a Collection
+I need
+
+
+
+
+I need to know which books are availbable
+
+
+
+------
