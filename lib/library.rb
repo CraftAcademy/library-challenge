@@ -10,12 +10,12 @@ def show_available_books
     available_books = @collection.select { |obj| obj[:available] == true }
 end
 
-def show_books_with_return_dates
-    available_books = @collection.select { |obj| obj[:return_date] }
+def show_non_available_books
+    non_available_books = @collection.select { |obj| obj[:return_date] }
 end
 
-private
-def due_date
+def select_book(title)
+    @selected_book = @collection.select { |obj| obj[:item][:title] == title }
 end
-    
+
 end
