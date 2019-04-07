@@ -58,6 +58,22 @@ I would like to be able to checkout a book by myself and know when to return it
 ```
 * Create a method that lets a visitor checkout the book and prints a message with the return date **done** 
 
+```
+As a Library
+In order to have my book list updated at all times
+I would like to have a feature for returning books.
+```
+
+* Create a checkin_book method
+
+```
+As a Visitor
+In order to know what books I am borrowing at the moment
+I would like to have a feature to provide me a list of books and return dates.
+```
+
+* Create my_books method
+
 
 
 

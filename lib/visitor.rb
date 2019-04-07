@@ -36,4 +36,22 @@ def checkout_book (index)
     return "You have borrowed the book '#{books[index][:title]}' by '#{books[index][:author]}'. Please return it by #{books[index][:return_date]}."
 end
 
+def my_books
+    
+    books = YAML.load_file("./lib/books.yml")
+    search = books.find_all {|book| book[:borrowed_by] == "#{name}"}
+    if search == []
+        return "You have not borrowed any books"
+    else p "You have borrowed:"
+        search.each do |book_search|
+        p "'#{book_search[:title]}' by #{book_search[:author]}, return date: #{book_search[:return_date]}"
+    end
+    "Happy reading!"
+    end
+    
+    
+end
+
+
+
 end
