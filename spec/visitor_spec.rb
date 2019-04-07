@@ -32,5 +32,9 @@ describe Visitor do
         expect(subject.my_books).to eq "You have not borrowed any books"
     end
 
+    it "can find out what books they have borrowed" do
+        subject.checkout_book(1)
+        expect(subject.my_books).to eq "Happy reading!"
+    end
 
 end
