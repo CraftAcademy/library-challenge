@@ -3,7 +3,7 @@ require './lib/library.rb'
 
 describe Visitor do
  
-    #let(:person) {instance_double('Visitor', name: 'Thomas', password: '1234')}
+    #let(:visitor) {instance_double('Visitor', name: 'Thomas', password: '1234')}
    # subject { described_class.new({owner: person}) }
 
     it 'Should create a Visitor' do

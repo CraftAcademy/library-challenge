@@ -7,19 +7,19 @@ In order to inform visitors about available books
 I want a list of the availble books to include titles and author
 
 As a Library
-In order to have the correct avilibilty/storage of books
+In order to have the correct availabilty of books
 I want the list of books to be updated after a checkout
 
 As a Library
 In order to inform visitors about the returning date of books
-I want the returning date on a specifik book
+I want the returning date on a specific book
 
 As a Library
-In order to have the correct avilibilty/storage of books
+In order to have the correct availabilty of books
 I want the list of books to be updated after a check-in
 
 As a Library
-In order to know who has checkouted a specifik book
+In order to know who has checkouted a specific book
 I want checkouted books to be connected to a specific visitor by name
 
 
