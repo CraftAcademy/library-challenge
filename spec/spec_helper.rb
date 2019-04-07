@@ -1,5 +1,5 @@
 require 'coveralls'
-Coveralls.wear!
+Coveralls.wear! 
 require 'pry'
 
 RSpec.configure do |config|
