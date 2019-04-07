@@ -40,6 +40,14 @@ class Library
         update_books
         books
     end
+
+    def return_book (index)
+        books[index][:available] = true
+        books[index][:return_date] = nil
+        books[index][:borrowed_by] = nil
+        update_books
+        return "Book succsessfully returned!"
+    end
     
 
 

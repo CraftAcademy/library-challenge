@@ -64,7 +64,7 @@ In order to have my book list updated at all times
 I would like to have a feature for returning books.
 ```
 
-* Create a checkin_book method
+* Create a return_book method **done** 
 
 ```
 As a Visitor
@@ -72,7 +72,7 @@ In order to know what books I am borrowing at the moment
 I would like to have a feature to provide me a list of books and return dates.
 ```
 
-* Create my_books method
+* Create my_books method **done** 
 
 
 

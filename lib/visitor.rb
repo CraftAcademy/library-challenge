@@ -33,7 +33,7 @@ def checkout_book (index)
 
     File.open("./lib/books.yml", "w") {|f| f.write books.to_yaml}
 
-    return "You have borrowed the book '#{books[index][:title]}' by '#{books[index][:author]}'. Please return it by #{books[index][:return_date]}."
+    return "You have successfully borrowed the book '#{books[index][:title]}' by '#{books[index][:author]}'. Please return it by #{books[index][:return_date]}."
 end
 
 def my_books

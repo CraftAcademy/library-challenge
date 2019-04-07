@@ -35,6 +35,12 @@ describe Library do
         expect(subject.add_new_book("Dandelion wine", "Ray Bradbury")).to eq expected_output
     end
 
+    it "can check in the book into the YAML file when it is returned by the visitor" do
+        subject.checkout_book(3, "Giorgos")
+        expect(subject.return_book(3)).to eq "Book succsessfully returned!"
+    end
+
+
     
 end
 
