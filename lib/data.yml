@@ -26,6 +26,6 @@
 - :item: 4
   :title: Pippi Långstrump går ombord
   :author: Astrid Lindgren
-  :available: false
-  :return_date: '2019-05-07'
-  :borrowed_by: Boa
+  :available: true
+  :return_date: 
+  :borrowed_by: 

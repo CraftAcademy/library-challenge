@@ -44,4 +44,13 @@ describe Person do
         expect(subject.checkout_book(1)).to eq "Book is not available until 2019-05-25. Please come back then"
     end
 
+    it 'should get an "error" message when book has already been borrowed by same person' do
+        subject.checkout_book(3)
+        expect(subject.checkout_book(3)).to eq "You have already borrowed this book"
+    end
+
+    it 'should get an "error" message when item number does not exist' do
+        expect(subject.checkout_book(10)).to eq "You have entered an incorrect item number, please try another"
+    end
+
 end

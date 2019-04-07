@@ -26,6 +26,10 @@ end
 def checkout_book(item)
     books = YAML.load_file('./lib/data.yml')
     case
+    when books[item] == nil
+        wrong_item_number
+    when books[item][:borrowed_by] == @name
+        already_borrowed
     when books[item][:available] == false
         book_not_available(item)
     else
@@ -37,9 +41,20 @@ def checkout_book(item)
     end
 end
 
+#Inspired by George and Zane on the sad path suggestions above#
+
 private
+def wrong_item_number
+    return "You have entered an incorrect item number, please try another"
+end
+
 def book_not_available(item)
     books = YAML.load_file('./lib/data.yml')
     return "Book is not available until #{books[item][:return_date]}. Please come back then"
 end
+
+def already_borrowed
+    return "You have already borrowed this book"
+end
+
 end
