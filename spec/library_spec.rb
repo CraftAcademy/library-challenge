@@ -34,16 +34,18 @@ describe Library do
         subject.save_updates
     end
 
-    it 'should get a success message when book is checked out' do
-        expect(subject.checkout_book(0)).to eq "You have borrowed Alfons och soldatpappan"
+    it 'should update the return date when book is checked out' do
+        subject.checkout_book(0)
+        new_date = subject.collection[0][:return_date]
+        expect(subject.collection[0][:return_date]).to eq new_date
         subject.collection[0][:available] = true
         subject.collection[0][:return_date] = nil
         subject.save_updates
     end
 
-    it 'should update return date when book is checked out' do
-        subject.checkout_book(0)
-        expect(subject.collection[0][:return_date]).to eq "2019-05-07"
+    it 'should get a success message when book is checked out' do
+        new_date = subject.collection[0][:return_date]
+        expect(subject.checkout_book(0)).to eq "You have borrowed Alfons och soldatpappan. Please return it by #{new_date}"
         subject.collection[0][:available] = true
         subject.collection[0][:return_date] = nil
         subject.save_updates
@@ -51,6 +53,9 @@ describe Library do
 
     it 'should get an "error" message when book is not available' do
         expect(subject.checkout_book(1)).to eq "Book is not available until 2019-05-25. Please come back then"
+    end
+
+    it 'should update the database with the name of the person who borrowed the book' do
     end
 
 end

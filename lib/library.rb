@@ -1,3 +1,4 @@
+require './lib/person.rb'
 require 'yaml'
 require 'date'
 
@@ -34,7 +35,7 @@ def checkout_book(book)
         collection[book][:available] = false 
         collection[book][:return_date] = Date.today.next_day(STANDARD_RETURN_DAYS).strftime('%F') 
         save_updates
-        return "You have borrowed #{collection[book][:item][:title]}"
+        return "You have borrowed #{collection[book][:item][:title]}. Please return it by #{collection[book][:item][:return_date]}"
     end
 end
 end
