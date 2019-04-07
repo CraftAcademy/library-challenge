@@ -26,8 +26,10 @@ def select_book_by_title(title)
 end
 
 def checkout_book(book)
-    collection[book][:available] = false
-    save_updates
-    return "You have borrowed #{collection[book][:item][:title]}"
+collection[book][:available] = false 
+collection[book][:return_date] = Date.today.next_day(30).strftime('%F') 
+save_updates
+return "You have borrowed #{collection[book][:item][:title]}"
+
 end
 end

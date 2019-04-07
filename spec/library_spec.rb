@@ -38,6 +38,14 @@ describe Library do
     subject.collection[0][:available] = true
     subject.save_updates
     end
+
+    it 'should update return date when book is checked out' do
+    subject.checkout_book(0)
+    expect(subject.collection[0][:return_date]).to eq "2019-05-07"
+    subject.collection[0][:available] = true
+    subject.save_updates
+    end
+
 end
 
 
