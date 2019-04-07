@@ -2,6 +2,7 @@ require 'yaml'
 require 'date'
 
 class Library
+    STANDARD_RETURN_DAYS = 30
     attr_accessor :collection, :available_books, :non_available_books
     def initialize
         @collection = YAML.load_file('./lib/data.yml')
@@ -26,10 +27,19 @@ def select_book_by_title(title)
 end
 
 def checkout_book(book)
-collection[book][:available] = false 
-collection[book][:return_date] = Date.today.next_day(30).strftime('%F') 
-save_updates
-return "You have borrowed #{collection[book][:item][:title]}"
-
+    case
+    when collection[book][:available] == false
+        book_not_available(book)
+    else
+        collection[book][:available] = false 
+        collection[book][:return_date] = Date.today.next_day(STANDARD_RETURN_DAYS).strftime('%F') 
+        save_updates
+        return "You have borrowed #{collection[book][:item][:title]}"
+    end
 end
+end
+
+private
+def book_not_available(book)
+    return "Book is not available until #{collection[book][:return_date]}. Please come back then"
 end
