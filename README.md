@@ -4,7 +4,7 @@ I want a list of the whole collection of books in library
 
 As a Library
 In order to inform visitors about available books
-I want a list of the availble books to include titles and author
+#I want a list of the availble books to include titles and author
 
 As a Library
 In order to have the correct availabilty of books
