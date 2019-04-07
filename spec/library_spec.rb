@@ -21,7 +21,8 @@ describe Library do
     end
 
     it 'should be able to select a book by title' do
-    expect(subject.select_book("Skratta lagom! Sa pappa Åberg")).to be_truthy
+    expected_output = [{:item=>{:title=>"Skratta lagom! Sa pappa Åberg", :author=>"Gunilla Bergström"},:available=>false, :return_date=>"2016-05-25"}]
+    expect(subject.select_book("Skratta lagom! Sa pappa Åberg")).to eq expected_output
     end
     
 end
