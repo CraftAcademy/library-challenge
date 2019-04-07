@@ -16,7 +16,7 @@ describe Person do
     end
 
     it 'should be able to view all books that are available' do
-        expect(subject.show_available_books.length).to eq 4
+        expect(subject.available_books.length).to eq 4
     end
     
     it 'should be able to search for a book based on its title' do
@@ -31,13 +31,15 @@ describe Person do
 
     it 'should be able to make it possible to checkout a book, and update the item availability, return date and borrowed by' do
         subject.checkout_book(0)
+        new_date = Date.today.next_day(30).strftime('%F')
         collection = YAML.load_file('./lib/data.yml')
-        expected_output = {:item=>0, :title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström", :available=>false, :return_date=>"2019-05-07", :borrowed_by=>"Boa"}
+        expected_output = {:item=>0, :title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström", :available=>false, :return_date=>new_date, :borrowed_by=>"Boa"}
         expect(collection[0]).to eq expected_output
     end
 
     it 'should get a success message when book is checked out' do
-        expect(subject.checkout_book(0)).to eq "You have borrowed Alfons och soldatpappan. Please return it by 2019-05-07"
+        new_date = Date.today.next_day(30).strftime('%F')
+        expect(subject.checkout_book(0)).to eq "You have borrowed Alfons och soldatpappan. Please return it by #{new_date}"
     end
 
     it 'should get an "error" message when book is not available' do

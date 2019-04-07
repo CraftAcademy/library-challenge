@@ -27,37 +27,30 @@ describe Library do
         expect(subject.show_non_available_books.length).to eq 1
     end
 
-    it 'should be able to select a book by title' do
+    it 'should be able to search a book by title' do
         expected_output = [{:item=>1, :title=>"Skratta lagom! Sa pappa Åberg", :author=>"Gunilla Bergström", :available=>false, :return_date=>"2019-05-25", :borrowed_by=>nil}]
-        expect(subject.select_book_by_title("Skratta lagom! Sa pappa Åberg")).to eq expected_output
+        expect(subject.search_book_by_title("Skratta lagom! Sa pappa Åberg")).to eq expected_output
+    end
+
+    it 'should be able to search for books based on author' do
+        expected_output = [{:item=>3, :title=>"Pippi Långstrump", :author=>"Astrid Lindgren", :available=>true, :return_date=>nil, :borrowed_by=>nil}, {:item=>4, :title=>"Pippi Långstrump går ombord", :author=>"Astrid Lindgren", :available=>true, :return_date=>nil, :borrowed_by=>nil}]
+        expect(subject.search_book_by_author("Astrid")).to eq expected_output
     end
 
     it 'should be able to make it possible to checkout a book, and update the item availability' do
         subject.checkout_book(0, 'Boa')
         expect(subject.collection[0][:available]).to eq false
-        subject.collection[0][:available] = true
-        subject.collection[0][:return_date] = nil
-        subject.collection[0][:borrowed_by] = nil
-        subject.save_updates
     end
 
     it 'should update the return date when book is checked out' do
         subject.checkout_book(0, 'Boa')
-        new_date = subject.collection[0][:return_date]
+        new_date = Date.today.next_day(30).strftime('%F')
         expect(subject.collection[0][:return_date]).to eq new_date
-        subject.collection[0][:available] = true
-        subject.collection[0][:return_date] = nil
-        subject.collection[0][:borrowed_by] = nil
-        subject.save_updates
     end
 
     it 'should update the database with the name of the person who borrowed the book' do
         subject.checkout_book(0, 'Boa')
         expect(subject.collection[0][:borrowed_by]).to eq "Boa"
-        subject.collection[0][:available] = true
-        subject.collection[0][:return_date] = nil
-        subject.collection[0][:borrowed_by] = nil
-        subject.save_updates
     end
 
 end

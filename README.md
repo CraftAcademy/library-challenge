@@ -1,52 +1,87 @@
-## Library Challenge
-### Week 1 Ruby challenge
+# Library Challenge - Week 1 Ruby challenge
 
-Instructions
+## Description
+---
+This repo contains the first weekend challenge of the [Craft Academy Bootcamp](https://craftacademy.se/english/curriculum/), by April 2019 Cohort. During one weekend, we were asked to create the back-end system of an app for a library - in Ruby Programming language. 
+
+Pair programmed by [leiter007](https://github.com/leiter007) & [snailcoder1](https://github.com/SnailCoder1).
+
+## Requirements and User Stories
 -------
-Read this entire README carefully and follow all instructions.
+Full description of requirements and corresponding user stories can be found in the markdown file located [HERE](https://github.com/leiter007/library-challenge/blob/master/user_stories.md)
 
-* Challenge time: this weekend, until Monday 9am
-* Feel free to use Google, Stack Overflow, your notes, previously written code, books, etc. but work on your own
-* If you refer to or have in whole or partially used the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution to GitHub and create a Pull Request**
-* You must submit a Pull Request to this repository with your code by 9.30am Monday morning - before the stand-up
-
-
-### Tasks
+## User Instructions
 ----
+Below follows instructions on how to use the application - both from the Library operators perspective, as well as that of the visitors
 
-* Fork the challenge repo: https://github.com/CraftAcademy/library-challenge
-* Run the command `bundle install` in the project directory to ensure you have all the gems
-* Write your specs and implementation
-* Be smart about using Git: commit and push often. Use feature branches.
-* Create a Pull Request as soon as possible
-* Read the comments from Hound and fix any issues that the service points out.
+### 1. Library operators
+After loading the library.rb file, a new library can be initiated - displaying the full YAML database/array of books: 
+````
+2.6.0 :001 > require 'yaml'
+ => true 
+2.6.0 :002 > load 'lib/library.rb'
+ => true 
+2.6.0 :003 > library = Library.new
+ => #<Library:0x00007ff371161798 @collection=[{:item=>0, :title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström", :available=>true, :return_date=>nil, :borrowed_by=>nil}, {:item=>1, :title=>"Skratta lagom! Sa pappa Åberg", :author=>"Gunilla Bergström", :available=>false, :return_date=>"2019-05-25", :borrowed_by=>nil}, {:item=>2, :title=>"Osynligt med Alfons", :author=>"Gunilla Bergström", :available=>true, :return_date=>nil, :borrowed_by=>nil}, {:item=>3, :title=>"Pippi Långstrump", :author=>"Astrid Lindgren", :available=>true, :return_date=>nil, :borrowed_by=>nil}, {:item=>4, :title=>"Pippi Långstrump går ombord", :author=>"Astrid Lindgren", :available=>true, :return_date=>nil, :borrowed_by=>nil}]> 
+````
+As a library operator, I can show books that are available to borrow - and those that are already borrowed by customers:
 
-### Tips
-----
+```
+2.6.0 :005 > library.show_available_books
+ => [{:item=>0, :title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström", :available=>true, :return_date=>nil, :borrowed_by=>nil}, {:item=>2, :title=>"Osynligt med Alfons", :author=>"Gunilla Bergström", :available=>true, :return_date=>nil, :borrowed_by=>nil}, {:item=>3, :title=>"Pippi Långstrump", :author=>"Astrid Lindgren", :available=>true, :return_date=>nil, :borrowed_by=>nil}, {:item=>4, :title=>"Pippi Långstrump går ombord", :author=>"Astrid Lindgren", :available=>true, :return_date=>nil, :borrowed_by=>nil}]
 
-##### Some hints:
-  * A Person needs to have a list of books that he currently has in his possession. That list needs to include the return date.
-  * The return date can be calculated using the `Date` object. Out of the box, there are methods you can use to add days to the current date.
-  * Make use of `doubles` when writing your specs
-  * Follow the [naming conventions/standards](https://craftacademy.gitbooks.io/coding-as-a-craft/content/extras/naming_standards.html) for methods and variables
+2.6.0 :006 > library.show_non_available_books
+ => [{:item=>1, :title=>"Skratta lagom! Sa pappa Åberg", :author=>"Gunilla Bergström", :available=>false, :return_date=>"2019-05-25", :borrowed_by=>nil}] 
+ ```
+ As a library operator, I can also search books from the entire database - either on parts of a title, or parts of an author's name:
+ ```
+2.6.0 :011 > library.search_book_by_title("Alfons")
+ => [{:item=>0, :title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström", :available=>true, :return_date=>nil, :borrowed_by=>nil}, {:item=>2, :title=>"Osynligt med Alfons", :author=>"Gunilla Bergström", :available=>true, :return_date=>nil, :borrowed_by=>nil}]
 
-### What we are looking for
-----
-##### I'm hoping to see that:
-* You can take a problem set and write a well tested implementation on your own.
-* You understand how to define Ruby Classes and work with objects.
-* You understand how classes can interact with each other.
-* You know how to make use of arrays, hashes, and associated methods to create dynamic lists.
-* You know how to write specs and use them as a blueprint in your development.
-* I can track your work by following you commit history - so please commit as soon you are done with a feature or when you have made a test pass.
+2.6.0 :012 > library.search_book_by_author("Bergström")
+ => [{:item=>0, :title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström", :available=>true, :return_date=>nil, :borrowed_by=>nil}, {:item=>1, :title=>"Skratta lagom! Sa pappa Åberg", :author=>"Gunilla Bergström", :available=>false, :return_date=>"2019-05-25", :borrowed_by=>nil}, {:item=>2, :title=>"Osynligt med Alfons", :author=>"Gunilla Bergström", :available=>true, :return_date=>nil, :borrowed_by=>nil}]
+ ```
+### 2. Library visitors
+After loading the person.rb file, a new person/visitor can be initiated - requiring a name on initialize:
 
-##### In your Pull Request, I'm hoping to see:
-* That you are testing the right thing in the right spec file.
-* That all tests passing - green is good!
-* High test coverage (above 95% is accepted)
-* The code is easy to follow: every class has a clear responsibility, methods are short, code is nicely formatted, etc.
-* The `README.md` includes information on how to use your solution with command examples in `irb`. (Feel free to remove this text)
+````
+2.6.0 :001 > require 'yaml'
+ => true 
+2.6.0 :002 > load 'lib/person.rb'
+ => true 
+2.6.0 :003 > person = Person.new("Boa")
+ => #<Person:0x00007fc9139b5008 @name="Boa">
+````
+To see which books are available for me, I can either use the show_books method or search_by_title or author - similar as an operator but only showing available books:
+
+````
+2.6.0 :004 > person.show_books
+Nr:0 - Alfons och soldatpappan -by:Gunilla Bergström
+Nr:2 - Osynligt med Alfons -by:Gunilla Bergström
+Nr:3 - Pippi Långstrump -by:Astrid Lindgren
+Nr:4 - Pippi Långstrump går ombord -by:Astrid Lindgren
+
+2.6.0 :005 > person.search_book_by_title("Pippi")
+Nr:3 - Pippi Långstrump -by:Astrid Lindgren
+Nr:4 - Pippi Långstrump går ombord -by:Astrid Lindgren
+
+2.6.0 :006 > person.search_book_by_title("Alfons")
+Nr:0 - Alfons och soldatpappan -by:Gunilla Bergström
+Nr:2 - Osynligt med Alfons -by:Gunilla Bergström
+````
+When deciding what to borrow, I can simply enter checkout_book as a method and type in the item number. If something goes wrong, I get an error message. But if all goes well, I can see when I need to return the book:
+
+````
+2.6.0 :007 > person.checkout_book(3)
+ => "You have borrowed Pippi Långstrump. Please return it by 2019-05-08"
+
+2.6.0 :008 > person.checkout_book(3)
+ => "You have already borrowed this book" 
+
+2.6.0 :009 > person.checkout_book(10)
+ => "You have entered an incorrect item number, please try another" 
+2.6.0 :010 > 
+`````
 
 
-**Happy coding!**
+

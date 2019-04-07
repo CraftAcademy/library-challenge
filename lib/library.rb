@@ -1,4 +1,3 @@
-require './lib/person.rb'
 require 'yaml'
 require 'date'
 STANDARD_RETURN_DAYS = 30
@@ -21,8 +20,12 @@ def show_non_available_books
     collection.select { |obj| obj[:available] == false  }
 end
 
-def select_book_by_title(title)
-    collection.select { |obj| obj[:title] == title }
+def search_book_by_title(title)
+    collection.select { |obj| obj[:title].include? title }
+end
+
+def search_book_by_author(author)
+    collection.select { |obj| obj[:author].include? author }
 end
 
 def checkout_book(book, name)
