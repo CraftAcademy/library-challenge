@@ -3,6 +3,11 @@ require './lib/library.rb'
 
 describe Library do
 
+    after(:each) do
+        original = YAML.load_file('./lib/data_original.yml')
+        File.open('./lib/data.yml', 'w') { |f| f.write original.to_yaml }
+    end
+
     subject {described_class.new}
     let(:person) { instance_double('Person', name: 'Boa')}
 
@@ -23,7 +28,7 @@ describe Library do
     end
 
     it 'should be able to select a book by title' do
-        expected_output = [{:item=>{:title=>"Skratta lagom! Sa pappa Åberg", :author=>"Gunilla Bergström"},:available=>false, :return_date=>"2019-05-25", :borrowed_by=>nil}]
+        expected_output = [{:item=>1, :title=>"Skratta lagom! Sa pappa Åberg", :author=>"Gunilla Bergström", :available=>false, :return_date=>"2019-05-25", :borrowed_by=>nil}]
         expect(subject.select_book_by_title("Skratta lagom! Sa pappa Åberg")).to eq expected_output
     end
 

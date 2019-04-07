@@ -3,41 +3,43 @@ require 'date'
 require 'yaml'
 
 class Person
-    attr_accessor :name, :collection
+    attr_accessor :name
     def initialize(name)
         @name = name
-        @collection = YAML.load_file('./lib/data.yml')
     end
 
-def save_updates
-    File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
-end
-
 def show_available_books
+    collection = YAML.load_file('./lib/data.yml')
     collection.select { |obj| obj[:available] == true }
 end
 
-def select_book_by_title(title)
+def search_book_by_title(title)
     books = show_available_books
-    books.select { |obj| obj[:item][:title] == title }
+    books.select { |obj| obj[:title] == title }
 end
 
-def checkout_book(book)
+def search_book_by_author(author)
+    books = show_available_books
+    books.select { |obj| obj[:author].include? author }
+end
+
+def checkout_book(item)
+    books = YAML.load_file('./lib/data.yml')
     case
-    when collection[book][:available] == false
-        book_not_available(book)
+    when books[item][:available] == false
+        book_not_available(item)
     else
-        collection[book][:available] = false 
-        collection[book][:return_date] = Date.today.next_day(STANDARD_RETURN_DAYS).strftime('%F')
-        collection[book][:borrowed_by] = @name
-        save_updates
-        return "You have borrowed #{@collection[book][:item][:title]}. Please return it by #{@collection[book][:item][:return_date]}"
+        books[item][:available] = false 
+        books[item][:return_date] = Date.today.next_day(STANDARD_RETURN_DAYS).strftime('%F')
+        books[item][:borrowed_by] = @name
+        File.open('./lib/data.yml', 'w') {|f| f.write books.to_yaml}
+        return "You have borrowed #{books[item][:title]}. Please return it by #{books[item][:return_date]}"
     end
 end
 
 private
-def book_not_available(book)
-    return "Book is not available until #{@collection[book][:return_date]}. Please come back then"
+def book_not_available(item)
+    books = YAML.load_file('./lib/data.yml')
+    return "Book is not available until #{books[item][:return_date]}. Please come back then"
 end
-
 end

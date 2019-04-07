@@ -1,30 +1,30 @@
-- :item:
-    :title: Alfons och soldatpappan
-    :author: Gunilla Bergström
+- :item: 0
+  :title: Alfons och soldatpappan
+  :author: Gunilla Bergström
   :available: true
   :return_date: 
   :borrowed_by:
-- :item:
-    :title: Skratta lagom! Sa pappa Åberg
-    :author: Gunilla Bergström
+- :item: 1
+  :title: Skratta lagom! Sa pappa Åberg
+  :author: Gunilla Bergström
   :available: false
   :return_date: '2019-05-25'
   :borrowed_by:
-- :item:
-    :title: Osynligt med Alfons
-    :author: Gunilla Bergström
+- :item: 2
+  :title: Osynligt med Alfons
+  :author: Gunilla Bergström
   :available: true
   :return_date: 
   :borrowed_by:
-- :item:
-    :title: Pippi Långstrump
-    :author: Astrid Lindgren
+- :item: 3
+  :title: Pippi Långstrump
+  :author: Astrid Lindgren
   :available: true
   :return_date: 
   :borrowed_by:
-- :item:
-    :title: Pippi Långstrump går ombord
-    :author: Astrid Lindgren
+- :item: 4
+  :title: Pippi Långstrump går ombord
+  :author: Astrid Lindgren
   :available: true
   :return_date:
   :borrowed_by:

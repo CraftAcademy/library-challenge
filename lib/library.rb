@@ -7,8 +7,6 @@ class Library
     attr_accessor :collection, :available_books, :non_available_books
     def initialize
         @collection = YAML.load_file('./lib/data.yml')
-        @available_books = show_available_books 
-        @non_available_books = show_non_available_books
     end
 
 def save_updates
@@ -24,7 +22,7 @@ def show_non_available_books
 end
 
 def select_book_by_title(title)
-    collection.select { |obj| obj[:item][:title] == title }
+    collection.select { |obj| obj[:title] == title }
 end
 
 def checkout_book(book, name)
