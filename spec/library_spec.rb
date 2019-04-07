@@ -31,8 +31,7 @@ describe Library do
     end
 
     it "can add a new book into the YAML file" do
-        expected_output = [{:index=>0, :title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström", :available=>true, :return_date=>nil, :borrowed_by=>nil}, {:index=>1, :title=>"Skratta lagom! Sa pappa Åberg", :author=>"Gunilla Bergström", :available=>true, :return_date=>nil, :borrowed_by=>nil}, {:index=>2, :title=>"Osynligt med Alfons", :author=>"Gunilla Bergström", :available=>true, :return_date=>nil, :borrowed_by=>nil}, {:index=>3, :title=>"Pippi Långstrump", :author=>"Astrid Lindgren", :available=>true, :return_date=>nil, :borrowed_by=>nil}, {:index=>4, :title=>"Pippi Långstrump går ombord", :author=>"Astrid Lindgren", :available=>true, :return_date=>nil, :borrowed_by=>nil}, {:index=>5, :title=>"Dandelion wine", :author=>"Ray Bradbury", :available=>true, :return_date=>nil, :borrowed_by=>nil}]
-        expect(subject.add_new_book("Dandelion wine", "Ray Bradbury")).to eq expected_output
+        expect(subject.add_new_book("Dandelion wine", "Ray Bradbury")).to eq "Book successfully added to the database"
     end
 
     it "can check in the book into the YAML file when it is returned by the visitor" do

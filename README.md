@@ -96,7 +96,8 @@ I would like to have a feature to provide me a list of books and return dates.
 
 # Authors' view on the scope
 
-This is our first project using YAML. We noticed that the YAML file is doing us a favour and is acting like a bridge between Visitor and Library class. Therefore, we agreed that there is no need connecting these two classes via code.
+<p>This is our first project using YAML. We noticed that the YAML file is doing us a favour and is acting like a bridge between Visitor and Library class. Therefore, we agreed that there is no need connecting these two classes via code.</p>
+<p>We just gave different access levels to the YAML file, based on the class that the methods are called upon.</p>
 
 # Getting Started
 
@@ -118,15 +119,11 @@ Run IRB in your Terminal:
 `irb`
  
 
-Load the visitor.rb and library.rb files:
+Load the visitor.rb file or library.rb file depending on what type of access you want to have.
 
-`
-load './lib/visitor.rb'
-`
+`load './lib/visitor.rb'`
 
-`
-load './lib/atm.rb'
-`
+`load './lib/library.rb'`
 
 You are good to go!
 
@@ -201,11 +198,6 @@ To return a book, run
 library.return_book(book index number)
 ```
 
-# Disclaimer from the developers
-This project is work in progress. We are aware of the completely untested sad path events, such as:
-
-LIST GOES HERE
-
 # Built with
 
 [Ruby](https://www.ruby-lang.org/en/) - The worlds best programming language.
@@ -223,13 +215,8 @@ LIST GOES HERE
 
 # License
 
-This project is completely free for everyone to use and enjoy!
+This project utilizes the MIT open-source license. https://opensource.org/licenses/MIT
 
 # Acknowledgments
 
 Kudos to [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2) for the README template 
-
-
-
-
-
