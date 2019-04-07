@@ -2,12 +2,11 @@ require './lib/library.rb'
 
 class Visitor
 
-    attr_accessor :username, :password, :id
+    attr_accessor :username, :password
 
     def initialize(username, password)
     @username = username
     @password = password
-    @id =  44
     end
 
 end

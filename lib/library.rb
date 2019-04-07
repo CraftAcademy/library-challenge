@@ -8,33 +8,29 @@ class Library
         @collection = YAML.load_file('./lib/data.yml')
     end
 
-
-    def search(kaffe)
-        @search_result = collection.select { |obj| obj[:item][:title].include? kaffe }
-        @search_result == nil ? no_titles_found : @search_result
+    def search(book)
+        @search_result = collection.select { |obj| obj[:item][:title].include? book }
+        @search_result == [] ? no_titles_found : @search_result
     end
 
-    #om de "klickar" på en bok som inte finns inne ska det komma upp när den ska bli returnerad
-
-    def perform_checkout(selected_title)
-        @selected_title = selected_title
-        @collection[@selected_title][:available] = false
+    def perform_checkout(selected)
+        @collection[@selected][:@selected][:available] = false
+        return_date = Date.today >> 1
+        return_date.to_s
+        @collection[@selected][:return_date] = return_date
+        @collection
         File.open('./lib/data.yml', 'w') { |f| f.write @collection.to_yaml }
     end
 
-    ##when checkout,or needs a list of checked out books with returning dates
-
-    def checkin(selected_book)
-        @selected_book = selected_book
-        @collection[@selected_book][:available] = true
+    def checkin(selected)
+        @selected = selected_book
+        @collection[@selected][:available] = true
         File.open('./lib/data.yml', 'w') { |f| f.write @collection.to_yaml }
     end
-
 
     def available_books_number
         @available_books_number = (@collection.select { |obj| obj[:available] == true  }).length
     end
- 
  
     def available_books_titles(title)
         title = title
@@ -42,7 +38,7 @@ class Library
     end
 
     def no_titles_found
-        print'inga titlar matchade din sökning'
+        print 'No titles matches your search'
     end
 
 
