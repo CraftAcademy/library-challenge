@@ -17,12 +17,13 @@ class Visitor
 
     def search_by_title(title_str)
         list = view_books
-        list.select { |book| book[:title].downcase.include? title_str }
+        list.select { |book| book[:title].downcase.include? title_str.downcase }
     end
+    
 
     def search_by_author(author_str)
         list = view_books
-        list.select { |book| book[:author].downcase.include? author_str }
+        list.select { |book| book[:author].downcase.include? author_str.downcase }
     end
 
     def checkout_book (index)

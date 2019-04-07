@@ -9,11 +9,11 @@ class Library
     end
 
     def search_by_title(title_str)
-        books.select { |book| book[:title].downcase.include? title_str }
+        books.select { |book| book[:title].downcase.include? title_str.downcase }
     end
 
     def search_by_author(author_str)
-        books.select { |book| book[:author].downcase.include? author_str }
+        books.select { |book| book[:author].downcase.include? author_str.downcase }
     end
 
     def checkout_book (index, name)
