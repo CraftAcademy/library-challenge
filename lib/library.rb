@@ -8,9 +8,14 @@ class Library
         @collection = YAML.load_file('./lib/data.yml')
     end
 
-    def search(book)
+    def search_title(book)
         @search_result = collection.select { |obj| obj[:item][:title].include? book }
         @search_result == [] ? no_titles_found : @search_result
+    end
+
+    def search_author(book)
+        @search_result = collection.select { |obj| obj[:item][:author].include? book }
+        @search_result == [] ? no_authors_found : @search_result
     end
 
     def perform_checkout(selected)
@@ -33,12 +38,19 @@ class Library
     end
  
     def available_books_titles(title)
-        title = title
         @available_books_titles = @collection.select { |obj| obj[:item][:title].include? title }
     end
 
     def no_titles_found
         print 'No titles matches your search'
+    end
+
+    def available_books_authors(author)
+        @available_books_authors = @collection.select { |obj| obj[:item][:author].include? author }
+    end
+
+    def no_authors_found
+        print 'No author matches your search'
     end
 
 
