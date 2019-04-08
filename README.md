@@ -10,6 +10,10 @@ Pair programmed by [leiter007](https://github.com/leiter007) & [snailcoder1](htt
 -------
 Full description of requirements and corresponding user stories can be found in the markdown file located [HERE](https://github.com/leiter007/library-challenge/blob/master/user_stories.md)
 
+## Sources
+-------
+Main sources used for building the functionality has been the course material, previous assignments, and google (stack overflow mainly for quick answers on method functonality). Towards end of challenge we also took some inspiration from our class mates [Zane&George's](https://github.com/zanenkn/library-challenge) repo on the search functionality (lowercase method) and "sad path" suggestions for visitors. 
+
 ## User Instructions
 ----
 Below follows instructions on how to use the application - both from the Library operators perspective, as well as that of the visitors
