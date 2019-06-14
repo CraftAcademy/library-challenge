@@ -1,14 +1,14 @@
 # Challenge: Book tracking system backend for library applications
 
 ## Summary
-This repository contains Ruby v2.3.4 scripts and tests for tracking a collection of books in a hypothetical library system.  Book information is stored locally  in a YAML file.  Static data about the books includes title and author.  Dynamic information about the books includes check out status and due date.  The backend system must modify the book collection information appropriate to changes in the 'state' of the books as patrons borrow and return the library books.
+This repository contains Ruby scripts and RSpec tests for tracking a collection of books in a hypothetical library system.  The backend system must modify the book collection information appropriate to changes in 'state' of the books as patrons borrow and return the library books.  Book information is stored locally  in a YAML file.  Static data about the books includes *title* and *author*.  Dynamic information about the books includes *check-out status* and *due date*.  
 
 ## Table of Contents
 1. User Stories
 2. Setting Up The Project
-* Prerequisites 
-* Installation 
-* Running tests
+  * Prerequisites 
+  * Installation 
+  * Running tests
 3. Contributions
 4. Versioning
 5. Authors
