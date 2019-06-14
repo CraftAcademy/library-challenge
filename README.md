@@ -6,9 +6,9 @@ This repository contains Ruby scripts and RSpec tests for tracking a collection 
 ## Table of Contents
 1. User Stories
 2. Setting Up The Project
-⋅⋅⋅* Prerequisites 
-⋅⋅⋅* Installation 
-⋅⋅⋅* Running tests
+&nbsp&nbsp* Prerequisites 
+&nbsp&nbsp* Installation 
+&nbsp&nbsp* Running tests
 3. Contributions
 4. Versioning
 5. Authors
