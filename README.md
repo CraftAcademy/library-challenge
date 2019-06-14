@@ -1,26 +1,31 @@
-## Library Challenge
-### Week 1 Ruby challenge
+# Challenge: Book tracking system backend for library applications
 
-Instructions
--------
-Read this entire README carefully and follow all instructions.
+## Summary
+This repository contains Ruby v2.3.4 scripts and tests for tracking a collection of books in a hypothetical library system.  Book information is stored locally  in a YAML file.  Static data about the books includes title and author.  Dynamic information about the books includes check out status and due date.  The backend system must modify the book collection information appropriate to changes in the 'state' of the books as patrons borrow and return the library books.
 
-* Challenge time: this weekend, until Monday 9am
-* Feel free to use Google, Stack Overflow, your notes, previously written code, books, etc. but work on your own
-* If you refer to or have in whole or partially used the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution to GitHub and create a Pull Request**
-* You must submit a Pull Request to this repository with your code by 9.30am Monday morning - before the stand-up
+## Table of Contents
+1. User Stories
+2. Setting Up The Project
+* Prerequisites 
+* Installation 
+* Running tests
+3. Contributions
+4. Versioning
+5. Authors
+6. Acknowledgements
 
 
-### Tasks
-----
 
-* Fork the challenge repo: https://github.com/CraftAcademy/library-challenge
-* Run the command `bundle install` in the project directory to ensure you have all the gems
-* Write your specs and implementation
-* Be smart about using Git: commit and push often. Use feature branches.
-* Create a Pull Request as soon as possible
-* Read the comments from Hound and fix any issues that the service points out.
+
+
+
+
+
+
+
+
+
+
 
 ### Tips
 ----
@@ -48,5 +53,3 @@ Read this entire README carefully and follow all instructions.
 * The code is easy to follow: every class has a clear responsibility, methods are short, code is nicely formatted, etc.
 * The `README.md` includes information on how to use your solution with command examples in `irb`. (Feel free to remove this text)
 
-
-**Happy coding!**
