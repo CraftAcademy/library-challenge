@@ -16,4 +16,7 @@ class Reader
         raise "A name is required"
     end
 
+    def create_library_card
+        @library_card = Library_card.new(owner: self)
+    end
 end

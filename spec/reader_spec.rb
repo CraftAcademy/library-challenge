@@ -9,4 +9,11 @@ describe Reader do
         expect(subject.name).not_to be nil
     end
 
+    it 'is expected to raise an error if no name is set' do
+        expect {described_class.new}.to raise_error 'A name is required'
+    end
+
+    it 'is expected to have an :library_card attribute' do
+        expect(subject.library_card).to be nil
+    end
 end
