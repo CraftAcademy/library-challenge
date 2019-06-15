@@ -38,6 +38,9 @@ class Librarian
        if answer == 'Yes please'
             if search_result[:available] == true
                 puts "It's all yours homie!"
+                search_result[:available] = false
+                search_result[:return_date] = Date.today.next_month(1)
+                File.open('./lib/library.yml', 'w') { |f| f.write library.to_yaml }
             else
                 puts "Some other asshole has checked this book out"
             end

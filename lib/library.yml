@@ -27,8 +27,8 @@
 - :item:
     :title: American Gods
     :author: Neil Gaiman
-  :available: true
-  :return_date: 
+  :available: false
+  :return_date: 2019-07-15
 - :item:
     :title: Longview
     :author: Seth NeJame
