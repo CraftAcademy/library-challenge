@@ -1,8 +1,9 @@
+---
 - :item:
     :title: The Alchemist
     :author: Paulo Coelho
-  :available: true
-  :return_date:
+  :available: false
+  :return_date: 
 - :item:
     :title: Fight Club
     :author: Chuck Palahniuk
@@ -12,7 +13,7 @@
     :title: Women who Run with the Wolves
     :author: Clarissa Pinkola Estes
   :available: true
-  :return_date:
+  :return_date: 
 - :item:
     :title: A Good Day to Die
     :author: Jim Harrison
@@ -27,7 +28,7 @@
     :title: American Gods
     :author: Neil Gaiman
   :available: true
-  :return_date:
+  :return_date: 
 - :item:
     :title: Longview
     :author: Seth NeJame
@@ -47,4 +48,4 @@
     :title: Javascript & JQUERY
     :author: Jon Duckett
   :available: true
-  :return_date:
+  :return_date: 
