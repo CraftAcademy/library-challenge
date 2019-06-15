@@ -4,8 +4,8 @@
 This repository contains Ruby scripts and RSpec tests for tracking a collection of books in a hypothetical library system.  The backend system must modify the book collection information appropriate to changes in 'state' of the books as patrons borrow and return the library books.  Book information is stored locally  in a YAML file.  Static data about the books includes *title* and *author*.  Dynamic information about the books includes *check-out status* and *due date*.  
 
 ## Table of Contents
-1. User Stories
-2. Setting Up The Project
+1. Project Goals
+2. Project Setup
 * Prerequisites 
 * Installation 
 * Running tests
@@ -14,42 +14,63 @@ This repository contains Ruby scripts and RSpec tests for tracking a collection 
 5. Authors
 6. Acknowledgements
 
+### 1. Project Goals
+The requirements for a successful library backend are extracted from a statement from the client.
+
+"We need an app where both the visitors and the library can see if a list of books is available, it would be nice to see both the title and the author of the book. The library needs to store these books in a file where we can easily check if a book is available or not. The library also needs the visitors to check out books after finding the title they want. Depending on the time of the checkout the library needs the books to be returned within a month and obviously, it would be nice for the visitor to know which date to return the book."
+
+User stories can represent the *requirements* of the project as defined by the needs of *stakeholders* of the system expressed as desired *results*.  They follow a particular format for consistency and clarity.
+
+For example,
+```
+As a *stakeholder*,
+In order to *requirement*...
+I want *result*...
+```
+
+Using the client statement from above, the user stories for this project are as follows.
+
+```
+As a library member...
+
+In order to learn of the available books in the library
+I want to access a list of the available books identified by title and author
+
+
+```
+
+```
+As a librarian...
+
+In order to learn of the available books in the library
+I want to access a list of the available books identified by title and author
+```
+
+```
+As a library administrator...
+
+In order to track the borrowed status of the books
+I want the system to have a complete inventory list of books *file* that tracks book borrowed status
+
+In order to permit a member to borrow a book of interest
+I want to have the system record that the book has been borrowed by that member
+
+In order to permit a member to borrow a book of interest
+I want to have the system calculate a due date one month from the borrow date
+
+In order to inform a member of a book due date
+I want to have the system inform the member of the due date when the book is borrowed
+```
 
 
 
+### Project Setup
 
+### Contributions
 
+### Versioning
 
+###Authors
 
-
-
-
-
-
-
-### Tips
-----
-
-##### Some hints:
-  * A Person needs to have a list of books that he currently has in his possession. That list needs to include the return date.
-  * The return date can be calculated using the `Date` object. Out of the box, there are methods you can use to add days to the current date.
-  * Make use of `doubles` when writing your specs
-  * Follow the [naming conventions/standards](https://craftacademy.gitbooks.io/coding-as-a-craft/content/extras/naming_standards.html) for methods and variables
-
-### What we are looking for
-----
-##### I'm hoping to see that:
-* You can take a problem set and write a well tested implementation on your own.
-* You understand how to define Ruby Classes and work with objects.
-* You understand how classes can interact with each other.
-* You know how to make use of arrays, hashes, and associated methods to create dynamic lists.
-* You know how to write specs and use them as a blueprint in your development.
-* I can track your work by following you commit history - so please commit as soon you are done with a feature or when you have made a test pass.
-
-##### In your Pull Request, I'm hoping to see:
-* That you are testing the right thing in the right spec file.
-* That all tests passing - green is good!
-* High test coverage (above 95% is accepted)
-* The code is easy to follow: every class has a clear responsibility, methods are short, code is nicely formatted, etc.
-* The `README.md` includes information on how to use your solution with command examples in `irb`. (Feel free to remove this text)
-
+### Acknowledgements
+Thank you to Craft Academy in Stockholm, Sweden for crafting this challenge.
