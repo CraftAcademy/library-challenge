@@ -14,8 +14,8 @@ class Librarian
         library = YAML.load(File.open(File.join(File.dirname(__FILE__), 'library.yml')))
     end
 
-    def search_books(title, author)
-        {title: 'title', author: 'author'} 
+    def search_books(title)
+        library.detect { |obj| obj[:item][:title] == title  }
     end
 
     def verify_reader_account(name, card_number)

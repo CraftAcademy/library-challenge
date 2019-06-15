@@ -9,8 +9,8 @@ describe Librarian do
     end
 
     it 'has a search function' do
-        book_info = {title: 'title', author: 'author'}
-        expect(subject.search_books('title', 'author')).to eq book_info
+        book_info = {:item=>{:title=>"Dexter", :author=>"Jeff Lindsay"}, :available=>false, :return_date=>"2019-11-03"}
+        expect(subject.search_books('Dexter')).to eq book_info
     end
 
     it 'has to be able to check out books' do
