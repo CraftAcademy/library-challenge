@@ -16,7 +16,7 @@ class Librarian
 
     def search_title(title)
         result = library.detect { |obj| obj[:item][:title] == title  }   
-        result == nil ? no_matches : result   
+        result == nil ? no_matches : checkout_books(result)
     end
 
     def search_author(author)
@@ -32,8 +32,14 @@ class Librarian
         {name: "Ronald McDonald", card_number: 12345}
     end
     
-    def checkout_books(title, author)
-        {title: 'title', author: 'author', date: Date.today}
+    def checkout_books(search_result)
+       puts "Would you like to checkout out #{search_result}?"
+       answer = gets.chomp
+       if answer == 'Yes please'
+            puts "Fuck yeah, we can do that"
+       else
+            puts "Well fuck you then"
+       end
     end
 
     def return_books()
