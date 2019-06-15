@@ -121,7 +121,7 @@ Library Class
 # 
 Visitor Class
 
-- Name
+- [x] Name
 - Access book list
 - Search for book tittle/author
 - See book status
