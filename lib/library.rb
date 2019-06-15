@@ -1,3 +1,4 @@
+require 'date'
 
 class Library
     attr_accessor :books
@@ -5,6 +6,27 @@ class Library
     def initialize
         @books = YAML.load_file('./lib/inventory.yml')
     end
+
+    def search_by_title(title)
+        books.select { |book| book[:title] == title }
+    end
+
+    # def ....
+
+    # end
+
+    def check_out(book)
+        case
+        when book_is_unavailable?(book)
+            { available: false, message: 'Unfortunally this book is unavailable', date: Date.today }
+        else 
+        perform_check_out(book)
+    end
+
+    def perform_check_out(book)
+        { available: true, message: 'You just borrowed the best book in the world', date: Date.today }
+    end
+
 
     # def book_status(books)
     #     @books = 
@@ -17,9 +39,9 @@ class Library
     #     expect(subject.return_date).to eq expected_date
     # end
 
-    def set_return_date
-        Date.today.next_month
-    end
+    # def set_return_date
+    #     Date.today.next_month
+    # end
     # when the book is borrowed by a visitor, we would like it to print a reciept
     # with what book it is, the author and the date of return.
 

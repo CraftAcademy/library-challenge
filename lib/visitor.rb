@@ -1,18 +1,28 @@
 
 class Visitor
 
-    attr_accessor :name
+    attr_accessor :name, :visitor_account_status
 
-    def initialize(attrs = {})
-        @name = set_name(attrs[:name])
+    def initialize
+        @name = name
+        @visitor_account_status = :active
+        @return_date = Date.today.next_month.strftime('%d/%m')
     end
 
-    def set_name(name)
-        @name == nil ? missing_name : name
+    def name
+        name = nil ? missing_name : name
     end
 
     def missing_name
         raise 'You are not able to borrow books in this library'
+    end
+
+    def return_date
+        Date.today.next_month.strfime('%d/%m')
+    end
+
+    def deactivate
+        @visitor_account_status = :deactivated
     end
 end
 
