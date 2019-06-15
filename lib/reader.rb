@@ -1,4 +1,4 @@
-
+require './lib/librarycard.rb'
 class Reader
 
     attr_accessor :name, :library_card
@@ -17,6 +17,6 @@ class Reader
     end
 
     def create_library_card
-        @library_card = Library_card.new(owner: self)
+        @library_card = Card.new(owner: self)
     end
 end
