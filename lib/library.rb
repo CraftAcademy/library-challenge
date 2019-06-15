@@ -6,9 +6,9 @@ class Library
         @books = YAML.load_file('./lib/inventory.yml')
     end
 
-    def book_status(books)
-        @books = 
-    end
+    # def book_status(books)
+    #     @books = 
+    # end
     # book status is either avaiable or borrowed
     # if the book does not exist at all, then its status should is non-existing
 
@@ -19,6 +19,7 @@ class Library
 
     def set_return_date
         Date.today.next_month
+    end
     # when the book is borrowed by a visitor, we would like it to print a reciept
     # with what book it is, the author and the date of return.
 
