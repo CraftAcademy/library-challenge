@@ -3,9 +3,10 @@ require 'date'
 require './lib/librarian.rb'
 
 describe Librarian do
-
-    it 'first test is...' do
-        expect(1).to eq 1
+    subject { described_class.new }
+    
+    it 'checked books status in collection.yml' do
+        expect(subject.check_books).not_to eq nil
     end
 
 end

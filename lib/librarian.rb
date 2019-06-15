@@ -1,21 +1,20 @@
-# import files and built-in methods using <require('name')>
 require 'date'
+require 'yaml'
 
-#class definition
 class Librarian
 
     #attributes accessor to easily change instance variables
-    #attr_accessor 
+    attr_accessor :view
 
     #give instance of class initial attributes
-    #def initialize()
-
-    #end
+    def initialize
+        @view = nil
+    end
 
     #public methods to be accessed by user in irb or other classes
-    #def xxx
-    
-    #end
+    def check_books
+        @view  = YAML.load_file('./lib/collection.yml')
+    end
 
     #private methods to be accessed only by methods in this class
     #private

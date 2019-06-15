@@ -44,7 +44,7 @@ I want to have the system let me initiate borrowing an avaialbe book from the li
 As a librarian...
 
 In order to learn of the available books in the library,
-I want to access a list of the available books identified by title and author.
+I want to access a list of all books identified by title and author.
 ```
 
 ```
@@ -57,7 +57,7 @@ In order to permit a member to borrow a book of interest,
 I want to have the system record that the book has been borrowed by that member.
 
 In order to permit a member to borrow a book of interest,
-I want to have the system calculate a due date one month from the borrow date.
+I want to have the system calculate a due date one month from the borrow date, and record that date.
 
 In order to inform a member of a book due date,
 I want to have the system inform the member of the due date when the book is borrowed.

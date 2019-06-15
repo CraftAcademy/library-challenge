@@ -1,12 +1,10 @@
-# import files and built-in methods using <require('name')>
 require 'date'
 require 'yaml'
 
-#class definition
 class Dewey
 
     #attributes accessor to easily change instance variables
-    attr_accessor :books 
+    attr_accessor :books
 
     #give instance of class initial attributes
     def initialize()
@@ -22,9 +20,9 @@ class Dewey
     #private methods to be accessed only by methods in this class
     private
 
-    def import_books
-        @books = YAML.load_file('./lib/books.yml')
-    end
+    #def import_books
+    #    @books = YAML.load_file('./lib/collection.yml')
+    #end
 
 
 
