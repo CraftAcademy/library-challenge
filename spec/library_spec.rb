@@ -18,7 +18,7 @@ describe Library do
     end
         
     it "if book is available visitor must be able to borrow it" do 
-        expect_output = "You can borrow the book but fuck you if u ruin it"
+        expected_output = "You can borrow the book but fuck you if u ruin it"
         expect(subject.borrow("Pippi Långstrump")).to eq expected_output
     end
       
