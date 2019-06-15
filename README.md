@@ -36,3 +36,12 @@ As a Reader
 In order to check-out & return books from the library
 I need to have an account
 ```
+
+References:
+
+The following resources were used to help Dash & Seth complete the library challenge:
+
+1)
+RFS: Working with YAML Files
+https://www.youtube.com/watch?v=F7JQxXhceZo
+**Learned how to load a YAML file into our librarian class here
