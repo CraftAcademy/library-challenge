@@ -9,22 +9,31 @@ class Dewey
     #give instance of class initial attributes
     def initialize()
         @books = nil
-        import_books
     end
 
-    #public methods to be accessed by user in irb or other classes
-    #def xxx
-    
-    #end
+    #public methods 
+    def show_librarian
+        #return entire book list
+    end
 
-    #private methods to be accessed only by methods in this class
+    def show_member
+        #return book list with available books
+    end
+    
+    def checkout_book(title)
+        add_return_date(title)
+        not_available(title)
+    end
+
     private
 
-    #def import_books
-    #    @books = YAML.load_file('./lib/collection.yml')
-    #end
+    def add_return_date(title)
+        #modify .yml file at selected title to add return date
+    end
 
-
+    def not_available(title)
+        #modify .yml file at selected title remove availability
+    end
 
 
 end
