@@ -14,6 +14,6 @@ class Visitor
         #confirmation
     end
 
-    def list_books()
+    def list_books
     end
 end

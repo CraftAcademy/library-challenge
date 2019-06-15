@@ -110,16 +110,15 @@ I need to know when its being returned
 
 Library Class
 
-- Access book list
 - Add books to list
+- Access book list
 - Search for book title/author
 - See book status
 - Set due date on checked out books
 - See book due dates
 - Check in/out confirmations
 
-#
-
+# 
 Visitor Class
 
 - Name
@@ -137,8 +136,8 @@ Visitor Class
  Book Class
 
 - [x] Title
-- Author
-- Available/Unavailable
-- Due dates
+- [x] Author
+- [x] Available/Unavailable
+- [x] Due dates
 
 #
