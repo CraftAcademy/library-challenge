@@ -7,11 +7,12 @@ class Visitor
     end
 
     def check_out_book(book)
-        #confirmation
+        puts "confirming checkout"
     end
 
     def check_in_book(book)
-        #confirmation
+        puts "confirming checkin"
+
     end
 
     def list_books
