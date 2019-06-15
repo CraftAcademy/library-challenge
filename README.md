@@ -122,7 +122,7 @@ Library Class
 
 Visitor Class
 
-- Name
+- [x] Name
 - Access book list
 - Search for book tittle/author
 - See book status
@@ -137,8 +137,8 @@ Visitor Class
  Book Class
 
 - [x] Title
-- Author
-- Available/Unavailable
-- Due dates
+- [x] Author
+- [x] Available/Unavailable
+- [x] Due dates
 
 #

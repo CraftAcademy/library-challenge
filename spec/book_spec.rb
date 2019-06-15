@@ -22,6 +22,7 @@ describe Book do
     end 
 
     it "is expected to have a return date if it is checked out" do
-            expect(subject.available).to be false
+        subject.available = false
+        expect(subject.available).to be false
     end 
 end
