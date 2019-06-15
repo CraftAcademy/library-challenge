@@ -3,9 +3,9 @@ require 'date'
 require './lib/dewey.rb'
 
 describe Dewey do
-
-    it 'first test is...' do
-        expect(1).to eq 1
+    subject { described_class.new }
+    it 'books.yml loaded successfully' do
+        expect(subject.books).not_to eq nil
     end
 
 end
