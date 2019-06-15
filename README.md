@@ -1,16 +1,16 @@
 # Library Challenge
 ### Week 1 - Ruby weekend challenge
 
-# To-do list (notes to ourselves)
-1. [/] Write User Stories
-2. [ ] Decide what classes to have 
-3. [ ] What should we test for (generally)
+# Initial planning of project
+1. [x] Write User Stories
+2. [x] Decide what classes to have 
+3. [/] What should we test for (generally)
 4.
 [ ] = not started
 [/] = started but not completed
 [x] = completed
 
-### Remember to
+### Remember to check
 - formatting
 - no extra spaces or comments in pull request
 
@@ -25,23 +25,27 @@ I would like to get an app that keeps track of our borrowing system
 ````
 As a librarian
 In order to know what books I own
-I need a list of all my books and their statuses
+I need a list of all my books
 ````
+- [x] Method for Library class to be able to read .yml
 ````
 As a librarian
 In order to keep track our books
 I would like to know if the book is avaiable or borrowed of a visitor
 ````
+- [ ] Method for returning the status of a book
 ````
 As a visitor?
 In order to borrow books?
 I need to have an account in the library?
 ````
+- [ ] If time - make the user able to set an account
 ````
 As a visitor
 In order to borrow a book
 I would need to know if the library has the book I'm looking for
 ````
+- [ ] Method for visitor class that returns status of the book preferred
 ````
 As a visitor
 In order to know if the book is the correct one

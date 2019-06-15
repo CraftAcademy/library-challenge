@@ -3,6 +3,6 @@ class Library
     attr_accessor :books
 
     def initialize
-        @books = 10
+        @books = YAML.load_file('./lib/inventory.yml')
     end
 end
