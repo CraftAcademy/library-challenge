@@ -3,7 +3,7 @@ require 'pry'
 
 
 describe Librarian do
-
+    
     it 'has to have 10 books' do
         expect(subject.books).to eq 10
     end
@@ -37,4 +37,7 @@ describe Librarian do
         expect(subject.library).not_to be nil
     end
 
+    let(:reader) {instance_double('Reader')}
+
+    
 end
