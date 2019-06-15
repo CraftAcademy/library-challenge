@@ -3,14 +3,14 @@ require 'yaml'
 
 class Librarian
 
-    attr_accessor :librarians_books
+    attr_accessor :librarians_book_view
 
     def initialize
-        @librarians_books = nil
+        @librarians_book_view = nil
     end
 
     def check_books(library)
-        @librarians_books = library.books
+        @librarians_book_view = library.books
     end
 
     private
