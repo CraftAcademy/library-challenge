@@ -3,9 +3,11 @@ require 'date'
 require './lib/member.rb'
 
 describe Member do
+    
 
-    it 'first test is...' do
-        expect(1).to eq 1
+    it 'Give member name' do
+        member1 = described_class.new(name: 'Max') 
+        expect(member1.name).to eq 'Max'
     end
 
 end

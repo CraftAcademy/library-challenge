@@ -1,24 +1,20 @@
-# import files and built-in methods using <require('name')>
 require 'date'
 
-#class definition
 class Member
 
-    #attributes accessor to easily change instance variables
-    #attr_accessor 
+    attr_accessor :name
 
-    #give instance of class initial attributes
-    #def initialize()
 
-    #end
+    def initialize(attrs={})
+    @name = attrs[:name]
+    end
 
-    #public methods to be accessed by user in irb or other classes
-    #def xxx
+    
+    #def set_name(name_input)
     
     #end
 
-    #private methods to be accessed only by methods in this class
-    #private
+    private
 
 
 end
