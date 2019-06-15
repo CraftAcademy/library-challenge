@@ -28,4 +28,8 @@ describe Librarian do
         expect(subject.verify_reader_account('Ronald McDonald', 12345)).to eq verified
     end
 
+    it 'loads a library upon initialization' do
+        expect(subject.library).not_to be nil
+    end
+
 end
