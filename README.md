@@ -13,6 +13,7 @@
 ### Remember to check
 - formatting
 - no extra spaces or comments in pull request
+- consistency of usage of words, eg. book/books and borrow/lend/loan
 
 ## Summary
 This is a pair-programming project aiming to create an app simulating a book borrowing system of a library. The project is carried out following TDD (Test Driven Development) practise and is to be submitted as a pull request on Craft Academys original [repository.](https://github.com/CraftAcademy/library-challenge/commits/master) 
