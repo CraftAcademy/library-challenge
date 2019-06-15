@@ -70,7 +70,21 @@ I want to have the system inform the member of the due date when the book is bor
 
 ## 2. Project Setup
 
-## 3. Contributions
+## 3. Testing
+In IRB or Pry from the Root folder, begin by loading the Ruby files and creating instances of a library member, a librarian, and a library.
+
+```
+1. load 'lib/member.rb'
+2. load 'lib/librarian.rb'
+3. load 'lib/dewey.rb'
+4. mem = Member.new(name: 'your_name')
+5. librar = Librarian.new
+6. lib = Dewey.new
+```
+
+The librarian can look at the status of the entire library collection at any time by running ```librar.check_books(lib)```.  The output is in ```@librarians_book_view```.  It is not parsed well, but you can take the time to check that it is identical to ```collection_original.yml```.
+
+The library member can see a list of the available books ```xxx```
 
 ## 4. Versioning
 
