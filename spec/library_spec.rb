@@ -1,21 +1,23 @@
 require "./lib/library.rb"
 
 describe Library do
-    let(:visitor) { class_double('visitor', name: 'erik') }
+    
     it 'can read the YAML file with all the books' do
         expected_output = YAML.load_file('./lib/inventory.yml')
-        expect(subject.books).to eq expected_output
-    end
+        expect(subject.inventory).to eq expected_output
+        end
 
-    it 'can search for a book by its title' do
-        expected_output = YAML.load_file('./lib/inventory.yml').select { |book| book[:title].include? 'Pippi' }
-        expect(subject.search_by_title('Pippi')).to eq expected_output
-    end
-
-    it 'allow visitor to check-out book if avaiable' do
-        expected_output = check_out(book)
-        expect(subject.check_out).to be expected_output
-    end
+    it "visitor must be able to search for title to see a book and if its available" do
+        expected_output = YAML.load_file('./lib/inventory.yml').select { |book| book[:title].include? "Osynligt" }
+        expect(subject.search("Osynligt med Alfons")).to eq expected_output
+        end
+      
+        it "if book is available visitor must be able to borrow it" do 
+        expect_output = "You can borrow the book but fuck you if u ruin it"
+        expect(subject.borrow("pippi")).to eq expected_output
+        end
+      
+      end
 
     # it 'can search for a book by its author' do
     #     expect(subject.search_by_author).to eq ??
@@ -37,4 +39,3 @@ describe Library do
     #     expected_date = Date.today.next_month(1).strftime("%d/%m")
     #     expect(subject.return_date).to eq expected_date
     # end
-end
