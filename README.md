@@ -37,13 +37,16 @@ In order to learn of the available books in the library,
 I want to access a list of the available books identified by title and author.
 
 In order to borrow an available book,
-I want to have the system let me initiate borrowing an avaialbe book from the list.
+I want to have the system let me initiate borrowing an available book from the list.
+
+In order to search for a desired book,
+I want to be able to search the available book titles by keyword. 
 ```
 
 ```
 As a librarian...
 
-In order to learn of the available books in the library,
+In order to learn of the books in the library,
 I want to access a list of all books identified by title and author.
 ```
 
