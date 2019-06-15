@@ -17,4 +17,15 @@ describe Librarian do
         receipt = {title: 'title', author: 'author', date: Date.today}
         expect(subject.checkout_books('title', 'author')).to eq receipt
     end
+
+    it 'updates books inside library file when they are checked out/checked in' do
+        confirmation = {title: 'title', author: 'author', date: Date.today, updated?: true}
+        expect(subject.update_books('title', 'author')).to eq confirmation
+    end
+
+    it 'verifies that a reader has an account before checking out books' do
+        verified = {name: "Ronald McDonald", card_number: 12345}
+        expect(subject.verify_reader_account('Ronald McDonald', 12345)).to eq verified
+    end
+
 end
