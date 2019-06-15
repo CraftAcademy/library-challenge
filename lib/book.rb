@@ -4,15 +4,15 @@ class Book
     attr_accessor :available, :title, :author, :due_date
 
     def initialize(attrs = {})
-        set_name(attrs[:name])
+        @title = attrs[:title]
         set_author(attrs[:author])
         @available = true
         @due_date = ""
     end
 
 
-    def set_name(name)
-        @name = name
+    def get_title
+        @title
     end
 
     def set_author(author)
