@@ -10,5 +10,8 @@ describe Card do
         expect(subject.owner).to eq person
     end
 
+    it 'is expected to raise an error if no owner is set' do
+        expect { described_class.new }. to raise_error 'An owner for the library account card is required'
+    end
 end
 

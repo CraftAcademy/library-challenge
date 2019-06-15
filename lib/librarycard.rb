@@ -11,6 +11,6 @@ class Card
     end
 
     def missing_owner
-        raise "A card owner is required"
+        raise "An owner for the library account card is required"
     end
 end
