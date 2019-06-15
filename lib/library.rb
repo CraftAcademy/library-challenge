@@ -2,6 +2,7 @@
 class Library
     attr_accessor :books
 
-    def books(books)
-        
+    def initialize
+        @books = 10
+    end
 end
