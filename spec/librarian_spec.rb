@@ -8,9 +8,14 @@ describe Librarian do
         expect(subject.books).to eq 10
     end
 
-    it 'has a search function' do
-        book_info = {:item=>{:title=>"Dexter", :author=>"Jeff Lindsay"}, :available=>false, :return_date=>"2019-11-03"}
-        expect(subject.search_books('Dexter')).to eq book_info
+    it 'has a search function by title' do
+        expected_output = {:item=>{:title=>"Dexter", :author=>"Jeff Lindsay"}, :available=>false, :return_date=>"2019-11-03"}
+        expect(subject.search_title('Dexter')).to eq expected_output
+    end
+
+    it 'has a search function by author' do
+        expected_output = {:item=>{:title=>"The Alchemist", :author=>"Paulo Coelho"}, :available=>false, :return_date=>"2019-12-24"}
+        expect(subject.search_author('Paulo Coelho')).to eq expected_output
     end
 
     it 'has to be able to check out books' do
