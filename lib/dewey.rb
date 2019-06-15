@@ -4,20 +4,16 @@ require 'yaml'
 class Dewey
 
     #attributes accessor to easily change instance variables
-    attr_accessor :books
+    attr_accessor :books, :available_books
 
     #give instance of class initial attributes
-    def initialize()
+    def initialize
         @books = YAML.load_file('./lib/collection.yml')
+        available_books?
     end
 
-    #public methods 
-    def show_librarian
-        #return entire book list
-    end
-
-    def show_member
-        #return book list with available books
+    def available_books?
+        @available_books = @books.select{ |obj| obj[:available] == true}
     end
     
     def checkout_book(title)
