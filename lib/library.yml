@@ -1,0 +1,50 @@
+- :item:
+    :title: The Alchemist
+    :author: Paulo Coelho
+  :available: true
+  :return_date:
+- :item:
+    :title: Fight Club
+    :author: Chuck Palahniuk
+  :available: false
+  :return_date: '2019-09-25'
+- :item:
+    :title: Women who Run with the Wolves
+    :author: Clarissa Pinkola Estes
+  :available: true
+  :return_date:
+- :item:
+    :title: A Good Day to Die
+    :author: Jim Harrison
+  :available: false
+  :return_date: '2019-07-13'
+- :item:
+    :title: Dexter
+    :author: Jeff Lindsay
+  :available: false
+  :return_date: '2019-11-03'
+- :item:
+    :title: American Gods
+    :author: Neil Gaiman
+  :available: true
+  :return_date:
+- :item:
+    :title: Longview
+    :author: Seth NeJame
+  :available: false
+  :return_date: '2019-12-01'
+- :item:
+    :title: A Dance with the Dragons
+    :author: George RR Martin
+  :available: true
+  :return_date: 
+- :item:
+    :title: Rant
+    :author: Chuck Palahniuk
+  :available: true
+  :return_date: 
+- :item:
+    :title: Javascript & JQUERY
+    :author: Jon Duckett
+  :available: true
+  :return_date:
