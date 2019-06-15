@@ -13,17 +13,18 @@ class Dewey
     end
     
     def checkout_book(book_num, member)
-        #case
-        if @books[book_num][:member] == member.name
-            puts 'You already have this book.'
-        elseif @books[book_num][]
-            #puts 'Selected book is unavailable to borrow.'
+        if nonexistant(book_num, member)
+            'Selected book does not exist.'
+        elsif already_borrowed(book_num, member)
+            'You already have this book.'
+        elsif unavailable(book_num, member)
+            'This book is checked out by someone else.'
         else
             add_return_date(book_num)
             add_member_name(book_num, member)
             add_not_available(book_num)
-            available_books? #update available books list after checkout
-            puts 'Your book, "' + @books[book_num][:item][:title].to_s + '", is due back in one month!'
+            available_books? #updates available books list after checkout
+            puts 'You now have "' + @books[book_num][:item][:title].to_s + '".  It is due back in one month! ' + @books[book_num][:return_date].to_s 
         end
     end
 
@@ -32,6 +33,19 @@ class Dewey
     
     def available_books?
         @available_books = @books.select{ |obj| obj[:available] == true}
+    end
+
+    #methods when book is not available for check out
+    def already_borrowed(book_num, member)
+        @books[book_num][:member] == member.name
+    end
+
+    def unavailable(book_num, member)
+        (@books[book_num][:available] == false && @books[book_num][:member] != member.name)
+    end
+
+    def nonexistant(book_num, member)
+        @books[book_num] == nil
     end
 
 

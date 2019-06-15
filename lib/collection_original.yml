@@ -11,7 +11,7 @@
     :author: Gunilla Bergström
   :available: false
   :return_date: '2016-05-25'
-  :member:
+  :member: 'Sasha'
   :number: 2
 - :item:
     :title: Osynligt med Alfons
@@ -30,7 +30,7 @@
 - :item:
     :title: Pippi Långstrump går ombord
     :author: Astrid Lindgren
-  :available: true
-  :return_date:
-  :member:
+  :available: false
+  :return_date: '2017-03-20'
+  :member: 'Danni'
   :number: 5
