@@ -4,11 +4,11 @@ describe Book do
     subject {described_class.new(title: "First book", author: "First author", available: true, return_date: "")}
 
     it "is expected to have a title" do
-        expect(subject.get_title).to eq "First book"
+        expect(subject.title).to eq "First book"
     end
 
     it "is expected to have an author" do
-        expect(subject.name).to eq "First author"
+        expect(subject.author).to eq "First author"
     end
     it "is expected to be available when not checked out" do
     expect(subject.available).to eq true
