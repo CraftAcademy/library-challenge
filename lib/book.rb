@@ -15,7 +15,27 @@ class Book
         @name = name
     end
 
-    def set_author(name)
+    def set_author(author)
         @author = author
+    end
+
+    def check_out()
+        @availabe = false
+    end
+
+    def check_in()
+        @available = true
+    end
+
+    def set_due_date(due_date)
+        @due_date = due_date
+    end
+     
+    def get_due_date()
+        due_date
+    end
+    #for listing
+    def to_string()
+        @title + " by " + @author + "is available: " + @available
     end
 end
