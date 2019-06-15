@@ -5,8 +5,9 @@ require './lib/librarian.rb'
 describe Librarian do
     subject { described_class.new }
     
-    it 'checked books status in collection.yml' do
-        expect(subject.check_books).not_to eq nil
+    it 'checks book collection status in the library' do
+        library = Dewey.new
+        expect(subject.check_books(library)).not_to eq nil
     end
 
 end

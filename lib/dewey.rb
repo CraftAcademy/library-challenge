@@ -8,7 +8,7 @@ class Dewey
 
     #give instance of class initial attributes
     def initialize()
-        @books = nil
+        @books = YAML.load_file('./lib/collection.yml')
     end
 
     #public methods 
