@@ -1,29 +1,24 @@
 # import files and built-in methods using <require('name')>
 require 'date'
-require './lib/librarian'
-require './lib/dewey'
 
 #class definition
 class Member
 
     #attributes accessor to easily change instance variables
-    attr_accessor 
+    #attr_accessor 
 
     #give instance of class initial attributes
-    def initialize()
+    #def initialize()
 
-    end
+    #end
 
     #public methods to be accessed by user in irb or other classes
-    def xxx
+    #def xxx
     
-    end
+    #end
 
     #private methods to be accessed only by methods in this class
-    private
-    def xxx
-
-    end
+    #private
 
 
 end
