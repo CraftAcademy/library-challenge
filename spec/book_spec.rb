@@ -13,13 +13,11 @@ describe Book do
     it "is expected to be available when not checked out" do
     expect(subject.available).to eq true
     end
-end
 
-
-describe "rented book" do
-    subject {described_class.new(title: "First book", author: "First author", available: false, return_date: "19-07-15")}
 
     it "is expected to have a return date if it is checked out" do
-            expect(subject.return_date).to be "A DATE"
+        subject.due_date = "2019-07-15"
+        subject.available = false
+            expect(subject.due_date).to eq "2019-07-15"
     end 
 end
