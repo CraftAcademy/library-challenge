@@ -134,10 +134,9 @@ Visitor Class
 
 
 # 
+ Book Class
 
-Book Class
-
-- Title
+- [x] Title
 - Author
 - Available/Unavailable
 - Due dates
