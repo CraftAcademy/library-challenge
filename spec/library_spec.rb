@@ -15,6 +15,10 @@ end
 it "should find a certain title in the list" do
 expect(subject.find_title("Osynligt med Alfons")).not_to eq nil
 end
+
+it "should find a certain author in the list" do
+    expect(subject.find_title("Gunilla Bergström")).not_to eq nil
+    end
 end
    
    

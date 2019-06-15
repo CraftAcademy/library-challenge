@@ -12,17 +12,25 @@ def read_books_from_file(file)
     @library_books = YAML.load_file(file)
 end
 
-def find_title(suggested_title) 
-    @library_books.each{|k,v| 
-        puts "_____________________"
+def find_title(suggested_title)
+    # printf "%s by these author(s) : ", suggested_title
+    author_list = Array.new
+    @library_books.each{|k,v|
         if k[:item][:title] == suggested_title
-            puts suggested_title
-            puts "success!!!!"
-        else
-            puts "FAIL"
+           author_list << k[:item][:author]
         end
     }
 end
+def find_author(suggested_author)
+    # printf "%s has these titles: ", suggested_author
+    title_list = Array.new
+    @library_books.each{|k,v|
+        if k[:item][:author] == suggested_author
+            title_list << k[:item][:title]
+        end
+    }
+end
+
 end
 
 #pry(main)> li.each{|k, v| puts "item = #{k[:item]} and title = #{k[:item][:title]}"}
