@@ -50,3 +50,62 @@ Read this entire README carefully and follow all instructions.
 
 
 **Happy coding!**
+
+#### User Stories
+
+As a library</br>
+In order to know what books do I have</br>
+I need to have a list of all the books
+
+As a library/visitor</br>
+In order to identify a book</br>
+That book needs to have a title and author
+
+As a library</br>
+In order to know what books we can let out</br>
+we need to know which books are already unavailable 
+
+As a visitor</br>
+In order to take out a book</br>
+I need to be able to search for it
+
+As a visitor</br>
+In order to take out a book</br>
+I need to know if it is available
+
+As a visitor</br>
+In order to take out a book</br>
+I need to be able check it out
+
+As a visitor</br>
+In order to return a book</br>
+I need to be able check it in
+
+As a library</br>
+In order to have my books back</br>
+I need to set a 1 month time limit
+
+As a visitor</br>
+In order to keep track of my books</br>
+I need a list of the books I have in my possession
+
+As a visitor</br>
+In order to return a book</br>
+I need to know when I have to return it
+/how much time do I have left
+
+As a library</br>
+In order to keep track of the checked out book</br>
+I need to know when they are going to be returned
+
+As a visitor</br>
+In order to take out an unavailable book</br>
+I need to know when its being returned
+
+As a librarian</br>
+I want to see a list of books</br>
+To know which are delayed or incoming.
+
+As a visitor</br>
+In order to know when my book is do</br>
+I want to get the expiration date on the receipt
