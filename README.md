@@ -110,9 +110,9 @@ I need to know when its being returned
 
 Library Class
 
-- Add books to list
-- Access book list
-- Search for book title/author
+- [x] Add books to list
+- [x] Access book list
+- [x] Search for book title/author
 - See book status
 - Set due date on checked out books
 - See book due dates
