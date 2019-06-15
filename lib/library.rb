@@ -18,46 +18,24 @@ class Library
 
     
     def borrow(title)
-        book_in = find_book(title)[:available]
-        book_in ? book_is_available(title) : 'The book is unavailable'
+        book_in = @inventory.find { |book| book[:title] == title }
+        if book_in[:available] == true 
+            then
+            book_in[:available] = false
+            book_in[:return_date] = returndate
+            "You can borrow the book but fuck you if u ruin it"
+            
     end
+end 
     
-    def find_book(title) 
-        @inventory.find { |book| book[:title] == title }
-      
+    
+        def returndate
+            Date.today.next_month(1).strftime("%m/%y")
+        end
     end
-    
-    def book_is_available(title)
-           "You can borrow the book but fuck you if u ruin it"
-    end
-end
-    
-    # def borrow(book)
-    #     @inventory.select { |book| book[:title][:author] == book}
-    #     if book[:available] == true
-    #     then 
-    #     book[:available] = false
-    #     book[:return_date] = newdate
-    #         "You can borrow the book but fuck you if u ruin it"
-    #     end
-    #     File.open('./lib/inventory.yml', 'w') { |f| f.write inventory.to_yaml }
-    # end
-    #     def newdate
-    #         Date.today.next_month(1).strftime("%m/%y")
-    #     end
+
     
 
-    # end
-      
-    #   def find_book(title) 
-    #     @inventory.find { |book| book[:title] == title }
-    #   end
-      
-    #   def book_is_available(title)
-    #     "You can borrow the book but fuck you if u ruin it"
-    #   end
-
-    # end 
 
 
    
