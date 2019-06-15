@@ -11,10 +11,15 @@ describe Library do
         expected_output = YAML.load_file('./lib/inventory.yml').select { |book| book[:title].include? "Osynligt" }
         expect(subject.search("Osynligt med Alfons")).to eq expected_output
         end
-      
+     
+    it "visitor must be able to search for author to see a book and if its available" do
+        expected_output = YAML.load_file('./lib/inventory.yml').select { |book| book[:author].include? "Astrid Lindgren" }
+        expect(subject.search("Astrid Lindgren")).to eq expected_output
+        end
+        
         it "if book is available visitor must be able to borrow it" do 
         expect_output = "You can borrow the book but fuck you if u ruin it"
-        expect(subject.borrow("pippi")).to eq expected_output
+        expect(subject.borrow("Pippi Långstrump")).to eq expected_output
         end
       
       end
