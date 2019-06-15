@@ -15,19 +15,17 @@ class Librarian
     end
 
     def search_title(title)
-        if library.detect { |obj| obj[:item][:title] == title  }
-            return
-        else
-            puts "That title is not in our library (yet)!"
-        end
+        result = library.detect { |obj| obj[:item][:title] == title  }   
+        result == nil ? no_matches : result   
     end
 
     def search_author(author)
-        if library.detect { |obj| obj[:item][:author] == author  }
-            return
-        else
-            puts "We don't carry that author yet!"
-        end
+        result = library.detect { |obj| obj[:item][:author] == author  }
+        result == nil ? no_matches : result   
+    end
+
+    def no_matches
+        puts "Your search returned no matches!"
     end
 
     def verify_reader_account(name, card_number)
