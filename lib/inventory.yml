@@ -1,0 +1,30 @@
+books:
+  title: "The Da vinci Code"
+  author: "Dan Brown"
+  available: true
+  return_date:
+  borrowed_by:
+
+  title: "Harry Potter"
+  author: "J.K Rowling"
+  available: true
+  return_date:
+  borrowed_by:
+
+  title: "Lolita"
+  author: "Johanna spyri"
+  available: true
+  return_date:
+  borrowed_by:
+
+  title: "Black Beauty"
+  author: " Anna Sewell"
+  available: true
+  return_date:
+  borrowed_by:
+
+  title: "The Hite Report"
+  author: "Shere Hite"
+  available: true
+  return_date:
+  borrowed_by:
