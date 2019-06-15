@@ -7,8 +7,11 @@ class Library
         @inventory = YAML.load_file('./lib/inventory.yml')
     end
 
-    def search(info)
+    def search_by_title
         @inventory.select { |book| book[:title] == title}
+    end
+
+    def search_by_author
         @inventory.select { |book| book[:author] == author}
     end
 end

@@ -5,24 +5,24 @@ describe Library do
     it 'can read the YAML file with all the books' do
         expected_output = YAML.load_file('./lib/inventory.yml')
         expect(subject.inventory).to eq expected_output
-        end
+    end
 
-    it "visitor must be able to search for title to see a book and if its available" do
+    it "must be able to search for title to see a book and if its available" do
         expected_output = YAML.load_file('./lib/inventory.yml').select { |book| book[:title].include? "Osynligt" }
-        expect(subject.search("Osynligt med Alfons")).to eq expected_output
-        end
+        expect(subject.search_by_title("Osynligt med Alfons")).to eq expected_output
+    end
      
-    it "visitor must be able to search for author to see a book and if its available" do
+    it "must be able to search for author to see a book and if its available" do
         expected_output = YAML.load_file('./lib/inventory.yml').select { |book| book[:author].include? "Astrid Lindgren" }
-        expect(subject.search("Astrid Lindgren")).to eq expected_output
-        end
+        expect(subject.search_by_author("Astrid Lindgren")).to eq expected_output
+    end
         
-        it "if book is available visitor must be able to borrow it" do 
+    it "if book is available visitor must be able to borrow it" do 
         expect_output = "You can borrow the book but fuck you if u ruin it"
         expect(subject.borrow("Pippi Långstrump")).to eq expected_output
-        end
+    end
       
-      end
+    end
 
     # it 'can search for a book by its author' do
     #     expect(subject.search_by_author).to eq ??
