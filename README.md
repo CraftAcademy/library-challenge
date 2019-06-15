@@ -55,7 +55,11 @@ Read this entire README carefully and follow all instructions.
 
 As a library</br>
 In order to know what books do I have</br>
-I need to have a list of all the books
+I need to have a list of all the books in a file
+
+As a library</br>
+In order to provide books to visitors</br>
+I need to be able to add books to the book file
 
 As a library/visitor</br>
 In order to identify a book</br>
@@ -102,10 +106,40 @@ As a visitor</br>
 In order to take out an unavailable book</br>
 I need to know when its being returned
 
-As a librarian</br>
-I want to see a list of books</br>
-To know which are delayed or incoming.
+#### Structure
 
-As a visitor</br>
-In order to know when my book is do</br>
-I want to get the expiration date on the receipt
+Library Class
+
+- Access book list
+- Add books to list
+- Search for book title/author
+- See book status
+- Set due date on checked out books
+- See book due dates
+- Check in/out confirmations
+
+#
+
+Visitor Class
+
+- Name
+- Access book list
+- Search for book tittle/author
+- See book status
+- Check out book
+- Check in book
+- Check in/out confirmations
+- List books in my posession
+- See book due dates
+
+
+# 
+
+Book Class
+
+- Title
+- Author
+- Available/Unavailable
+- Due dates
+
+#
