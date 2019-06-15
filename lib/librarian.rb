@@ -36,7 +36,11 @@ class Librarian
        puts "Would you like to checkout out #{search_result}?"
        answer = gets.chomp
        if answer == 'Yes please'
-            puts "Fuck yeah, we can do that"
+            if search_result[:available] == true
+                puts "It's all yours homie!"
+            else
+                puts "Some other asshole has checked this book out"
+            end
        else
             puts "Well fuck you then"
        end
