@@ -8,8 +8,7 @@ This repository contains Ruby scripts and RSpec tests for tracking a collection 
 2. Project Setup
 * Prerequisites 
 * Installation 
-* Running tests
-3. Contributions
+3. Testing
 4. Versioning
 5. Authors
 6. Acknowledgements
@@ -83,14 +82,16 @@ In IRB or Pry from the Root folder, begin by loading the Ruby files and creating
 ```
 
 The librarian can look at the status of the entire library collection at any time by running,
-```1. librar.check_books(lib)```
+```
+1. librar.check_books(lib)
+```
 The output is in ```@librarians_book_view```.  It is not parsed well, but you can take the time to check that it is identical to ```collection_original.yml```.
 
 The library member can see a list of the available books 
 ```
 1. mem.check_available_books(lib)
 ```
-which is a subset of what the librarian can see.  It is important to note that I have added a ```:number:``` attribute for easier book identification, and a ```:member:``` attribute for the library to track who has borrowed the book, to each entry of the .yml file.  Books 2 and 5 are currently checked out, so the library member should only see books 1, 3, and 4.  The library member can also search the available books by title, which is a string based search that is case sensitive.
+which is a subset of what the librarian can see.  It is important to note that I have added a ```:number:``` attribute for faster book identification, and a ```:member:``` attribute for the library to track who has borrowed the book, to each entry of the .yml file.  Books 2 and 5 are currently checked out, so the library member should only see books 1, 3, and 4.  The library member can also search the available books by title, which is a string based search that is case sensitive.
 ```
 1. mem.search_titles(lib, 'search_term')
 ```
@@ -99,9 +100,9 @@ Finally, when the library member has decided to borrow a book from the library, 
 ```
 1. mem.borrow(lib, mem, 1)
 ```
-You can try to take out books that are not on the available book list by guessing at their book number.  See what happens...
+You can try to take out books that are not on the available book list by guessing at their book number.  There are three possible messages returned depending on the reason why the book is not on the availability list.  Can you discover each type?
 
-As a library member continues to borrow books, the available book list will shrink accordingly, but the librarian will always be able to see all the books, as well as confirm that the ```:available```, ```:return_date```, and ```:member``` attributes continue to update.  One can also see the lists simultaneously by calling the library instance ```lib``` that contains both.
+As a library member continues to borrow books, the available book list will shrink accordingly, but the librarian will always be able to see all the books, as well as confirm that the ```:available```, ```:return_date```, and ```:member``` attributes continue to update after each book is borrowed by a member.  One can also see the available and complete lists simultaneously by calling the library instance ```lib``` that contains both.
 
 ## 4. Versioning
 

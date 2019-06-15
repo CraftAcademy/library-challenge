@@ -25,9 +25,9 @@ class Member
         library.checkout_book(book_num, member)
     end
 
-    def list_borrowed()
+    #def my_books(library, member)
         #list all books have borrowed
-    end
+    #end
 
     private
 
