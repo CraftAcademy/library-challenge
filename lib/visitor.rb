@@ -34,17 +34,20 @@ class Visitor
 
    
     def check_out_book(title) # not sure how we can write the method to checkout a specific book
-        check_out = YAML::load_file('./lib/data.yml')
-        check_out[:available] = false
-        File.open('/tmp/test.yml', 'w') {|f| f.write check_out.to_yaml }
+     @library.check_out(title)
+        # check_out = YAML::load_file('./lib/data.yml')
+        # check_out[:available] = false
+        # File.open('/tmp/test.yml', 'w') {|f| f.write check_out.to_yaml }
         puts "confirming checkout"
         #how can we make the checked out book go to a list so that visitor can see the the books they have in their possession?
     end
 
     def check_in_book(title) # not sure how we can write the method to checkin a specific book
-        check_in = YAML::load_file('./lib/data.yml')
-        check_in[:available] = true
-        File.open('/tmp/test.yml', 'w') {|f| f.write check_in.to_yaml }
+      @library.check_in(title)
+       
+        # check_in = YAML::load_file('./lib/data.yml')
+        # check_in[:available] = true
+        # File.open('/tmp/test.yml', 'w') {|f| f.write check_in.to_yaml }
         #how can we make the checked in book go out of the person's list?
         puts "confirming checkin"
 
