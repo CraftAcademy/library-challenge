@@ -1,5 +1,6 @@
 require 'yaml'
 require './lib/visitor.rb'
+require "date"
 
 class Library
 
@@ -14,14 +15,13 @@ def read_book_file(file)
 end
 
 def find_by_title(suggested_title)
-    
     @library_books.each{|book,v|
         if book[:item][:title] == suggested_title
              return book
-        end
+        end 
     }
-    
 end
+
 def find_by_author(suggested_author)
     book_list = Array.new
     @library_books.each{|book,v|
@@ -34,9 +34,10 @@ end
 
 def check_out_book(book_title)
     @library_books.each{|book,v|
+        puts book_title
         if book[:item][:title] == book_title
             book[:available] = false
-            book[:return_date] = "2019-08-17"
+            book[:return_date] = Date.today >> 1.months
             puts "checked out book"
             puts book
             return
@@ -44,14 +45,15 @@ def check_out_book(book_title)
     }
 end
 
-def check_in_book(book_title)
-    @library_books.each{|book,v|
-        if book[:item][:title] == book_title
-            book[:available] = true
+def check_in(book_title)
+
+     @library_books.each{|book,v|
+         if book[:item][:title] == book_title
+             book[:available] = true
             book[:return_date] = nil
             puts "checked in book"
             puts book
-            return
+           return
         end
     }
 end
