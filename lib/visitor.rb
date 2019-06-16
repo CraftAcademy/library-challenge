@@ -57,20 +57,23 @@ class Visitor
 
     def check_out_book(book) # not sure how we can write the method to checkout a specific book
         check_out = YAML::load_file('./lib/data.yml')
-        check_out['available'] = false
+        check_out[:available] = false
         File.open('/tmp/test.yml', 'w') {|f| f.write d.to_yaml }
         puts "confirming checkout"
+        #how can we make the checked out book go to a list so that visitor can see the the books they have in their possession?
     end
 
     def check_in_book(book) # not sure how we can write the method to checkin a specific book
         check_in = YAML::load_file('./lib/data.yml')
-        check_in['available'] = true
+        check_in[:available] = true
         File.open('/tmp/test.yml', 'w') {|f| f.write d.to_yaml }
+        #how can we make the checked in book go out of the person's list?
         puts "confirming checkin"
 
     end
 
     def see_book_status
-        
+        get_status = YAML.load(File.read("./lib/data.yml"))
+        get_status[:available] #how can we specify which of the books we want to see?
     end
 end

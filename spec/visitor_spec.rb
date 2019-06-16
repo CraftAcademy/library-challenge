@@ -28,5 +28,9 @@ describe Visitor do
     it "should be able to change book to available when checkin" do
         
     end
+
+    it 'should be able to see a book status' do
+    
+    end
         
 end
