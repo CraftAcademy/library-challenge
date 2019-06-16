@@ -29,7 +29,7 @@ class Library
   end 
     
     def returndate
-        Date.today.next_month(1).strftime("%m/%y")
+        Date.today.next_month(1).strftime("%d/%m")
         end
 
     def return(title)
@@ -39,7 +39,6 @@ class Library
             return_book[:available] = true
             return_book[:return_date] = nil
             "motherfucker, i bet u didnt even finnished it"
-        
         end
     end
 end
