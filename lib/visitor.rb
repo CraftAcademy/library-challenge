@@ -42,7 +42,7 @@ class Visitor
     end
 
     def check_in_book(title) # not sure how we can write the method to checkin a specific book
-      @library.check_in(title)
+      @library.check_in_book(title)
        
         # check_in = YAML::load_file('./lib/data.yml')
         # check_in[:available] = true

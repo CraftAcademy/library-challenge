@@ -37,7 +37,7 @@ def check_out_book(book_title)
         puts book_title
         if book[:item][:title] == book_title
             book[:available] = false
-            book[:return_date] = Date.today >> 1.months
+            book[:return_date] = Date.today >> 1
             puts "checked out book"
             puts book
             return
@@ -45,7 +45,7 @@ def check_out_book(book_title)
     }
 end
 
-def check_in(book_title)
+def check_in_book(book_title)
 
      @library_books.each{|book,v|
          if book[:item][:title] == book_title
