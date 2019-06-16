@@ -3,8 +3,8 @@
    describe Library do
     subject {described_class.new}
 
-it "should be an empty list of books at first" do
-    expect(subject.library_books).to be_empty
+it "should have a list of books when initialized" do
+    expect(subject.library_books).not_to be_empty
 end
 
 it "should have 5 books after loading lib/data.yml" do

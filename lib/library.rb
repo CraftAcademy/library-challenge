@@ -1,12 +1,15 @@
 require 'yaml'
 require './lib/visitor.rb'
+require './lib/book.rb'
 
 class Library
 
 attr_accessor :library_books
 
 def initialize
-        @library_books = {}
+    @library_books = YAML.load_file('./lib/data.yml') 
+    #@library_books = {}
+    #should the library really start with empty list of books?
 end
 
 def read_books_from_file(file)

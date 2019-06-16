@@ -122,7 +122,7 @@ Library Class
 Visitor Class
 
 - [x] Name
-- [?] Access book list
+- [x] Access book list
 - [?] Search for book tittle/author
 - [?] See book status
 - [?] Check out book

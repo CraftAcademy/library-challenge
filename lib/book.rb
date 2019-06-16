@@ -1,4 +1,5 @@
-
+require './lib/visitor.rb'
+require './lib/library.rb'
 
 class Book
     attr_accessor :available, :title, :author, :return_date
@@ -13,7 +14,7 @@ class Book
     def add_book
         new_book = { 
             item: [ { title: @title, author: @author } ],
-            available: @available 
+            available: @available,
             return_date: @return_date }
         File.open("./lib/data.yaml", "w") { |file| file.write(new_book.to_yaml) }
     end

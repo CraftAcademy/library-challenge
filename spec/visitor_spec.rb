@@ -15,7 +15,9 @@ describe Visitor do
         expect(subject.checkedout_books).to be {}
     end
 
-    let (:library) { instance_double("Library", library_books: YAML.load_file(file)) }
+    it "should be able to see full list of books" do
+        expect(subject.see_book_list).not_to be_empty
+    end
 
     it "should be able to find a specific book by title" do
          expect(subject.find_title(title: "Alfons och soldatpappan")).not_to eq nil
