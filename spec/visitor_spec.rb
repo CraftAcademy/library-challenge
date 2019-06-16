@@ -18,8 +18,12 @@ describe Visitor do
     let (:library) { instance_double("Library", library_books: YAML.load_file(file)) }
 
     it "should be able to find a specific book by title" do
-         expect(subject.find_title(title: "Gunilla Bergström")).not_to eq nil
+         expect(subject.find_title(title: "Alfons och soldatpappan")).not_to eq nil
     end
+
+    it "should be able to find a specific book by author" do
+        expect(subject.find_author(author: "Gunilla Bergström")).not_to eq nil
+   end
 
     it "should be able to change book to unavailable when checkout" do
         

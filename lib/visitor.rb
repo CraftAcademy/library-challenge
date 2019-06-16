@@ -55,7 +55,7 @@ class Visitor
     #     raise "A Library is required"
     # end
 
-    def check_out_book(book) # not sure how we can write the method to checkout a specific book
+    def check_out_book(title) # not sure how we can write the method to checkout a specific book
         check_out = YAML::load_file('./lib/data.yml')
         check_out[:available] = false
         File.open('/tmp/test.yml', 'w') {|f| f.write d.to_yaml }
@@ -63,7 +63,7 @@ class Visitor
         #how can we make the checked out book go to a list so that visitor can see the the books they have in their possession?
     end
 
-    def check_in_book(book) # not sure how we can write the method to checkin a specific book
+    def check_in_book(title) # not sure how we can write the method to checkin a specific book
         check_in = YAML::load_file('./lib/data.yml')
         check_in[:available] = true
         File.open('/tmp/test.yml', 'w') {|f| f.write d.to_yaml }

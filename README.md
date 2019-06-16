@@ -113,23 +113,23 @@ Library Class
 - [x] Add books to list
 - [x] Access book list
 - [x] Search for book title/author
-- See book status
-- Set due date on checked out books
-- See book due dates
-- Check in/out confirmations
+- [] See book status
+- [] Set due date on checked out books
+- [] See book due dates
+- [] Check in/out confirmations
 
 # 
 Visitor Class
 
 - [x] Name
-- Access book list
-- Search for book tittle/author
-- See book status
-- Check out book
-- Check in book
-- Check in/out confirmations
-- List books in my posession
-- See book due dates
+- [?] Access book list
+- [?] Search for book tittle/author
+- [?] See book status
+- [?] Check out book
+- [?] Check in book
+- [?] Check in/out confirmations
+- []List books in my posession
+- []See book due dates
 
 
 # 
