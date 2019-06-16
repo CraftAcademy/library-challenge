@@ -25,14 +25,24 @@ class Library
             book_in[:return_date] = returndate
             "You can borrow the book but fuck you if u ruin it"
             
-    end
-end 
+        end
+  end 
     
-    
-        def returndate
-            Date.today.next_month(1).strftime("%m/%y")
+    def returndate
+        Date.today.next_month(1).strftime("%m/%y")
+        end
+
+    def return(title)
+        return_book = @inventory.find { |book| book[:title] == title }
+        if return_book[:available] == false 
+            then
+            return_book[:available] = true
+            return_book[:return_date] = nil
+            "motherfucker, i bet u didnt even finnished it"
+        
         end
     end
+end
 
     
 

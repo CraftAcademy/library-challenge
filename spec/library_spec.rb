@@ -21,8 +21,12 @@ describe Library do
         expected_output = "You can borrow the book but fuck you if u ruin it"
         expect(subject.borrow("Pippi Långstrump")).to eq expected_output
     end
-      
+
+    it "when a book is borrowed, the visitor must be able to return it" do
+        expect_output = "motherfucker, i bet u didnt even finnished it"
+        expect(subject.return("Alfons och soldatpappan")).to eq expect_output
     end
+    end 
 
     # it 'can search for a book by its author' do
     #     expect(subject.search_by_author).to eq ??
