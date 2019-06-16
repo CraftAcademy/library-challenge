@@ -33,11 +33,13 @@ class Book
     # try 1:
 
     def add_book #method is working but it's overwriting info in data.yml instead of adding
-        new_book = [{ 
+        collection = YAML.load_file('./lib/data.yml')
+        new_book = { 
             item: { title: @title, author: @author } ,
             available: @available,
-            return_date: @return_date }]
-        File.open("./lib/data.yml", "w") { |file| file.write(new_book.to_yaml) }
+            return_date: @return_date }
+        collection << new_book
+        File.open("./lib/data.yml", "w") { |file| file.write(collection.to_yaml) }
     end
 
     # try 2
