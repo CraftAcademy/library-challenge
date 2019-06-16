@@ -1,4 +1,5 @@
 require './lib/librarycard.rb'
+require './lib/librarian.rb'
 class Reader
 
     attr_accessor :name, :library_card, :books
@@ -10,7 +11,15 @@ class Reader
     end
 
     def reader_checkout(info)
-        
+        if @library_card == nil
+            no_library_card
+        elsif info[:librarian] == nil
+            no_librarian  
+        else
+            librarian = info[:librarian]
+            title = info[:title] 
+            result = librarian.search_title(title)
+        end
     end
 
     def reader_return(info)
@@ -27,5 +36,13 @@ class Reader
 
     def create_library_card
         @library_card = Card.new(owner: self)
+    end
+
+    def no_library_card
+        raise 'A library card is required!'
+    end
+
+    def no_librarian
+        raise 'A librarian is required to process your request'
     end
 end

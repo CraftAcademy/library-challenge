@@ -1,5 +1,6 @@
 require './lib/reader.rb'
 require './lib/librarycard.rb'
+require './lib/librarian.rb'
 require 'pry'
 
 describe Reader do
@@ -37,8 +38,7 @@ describe Reader do
         let(:librarian) { Librarian.new }
         before { subject.create_library_card }
         it 'can checkout books' do
-            expected_output = "Women who Run with the Wolves by Clarissa Pinkola Estes is available.
-            Would you like to check it out?(Y/N)"
+            expected_output = 'answer = gets.chomp'
             expect(subject.reader_checkout(title: 'Women who Run with the Wolves', librarian: librarian)).to be eq expected_output
         end
 

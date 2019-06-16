@@ -1,3 +1,6 @@
+require './lib/librarian.rb'
+require './lib/reader.rb'
+
 
 class Card
     attr_accessor :owner, :number

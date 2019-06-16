@@ -1,3 +1,6 @@
+require './lib/librarycard.rb'
+require './lib/reader.rb'
+
 require 'pry'
 require 'yaml'
 
