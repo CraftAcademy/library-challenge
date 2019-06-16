@@ -41,6 +41,7 @@ def check_out_book(book_title)
             puts "checked out book"
             puts book
             return
+            
         end
     }
 end
