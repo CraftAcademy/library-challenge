@@ -23,6 +23,15 @@ class Reader
     end
 
     def reader_return(info)
+        if @library_card == nil
+            no_library_card
+        elsif info[:librarian] == nil
+            no_librarian  
+        else
+            librarian = info[:librarian]
+            title = info[:title] 
+            result = librarian.return_books(title)
+        end
     end
     
 
@@ -34,7 +43,7 @@ class Reader
         raise "A name is required"
     end
 
-    def create_library_card
+    def get_library_card
         @library_card = Card.new(owner: self)
     end
 
@@ -43,6 +52,6 @@ class Reader
     end
 
     def no_librarian
-        raise 'A librarian is required to process your request'
+        raise 'You need to call a librarian first!'
     end
 end

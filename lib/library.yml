@@ -27,8 +27,8 @@
 - :item:
     :title: American Gods
     :author: Neil Gaiman
-  :available: false
-  :return_date: 2019-07-16
+  :available: true
+  :return_date: None
 - :item:
     :title: Longview
     :author: Seth NeJame
@@ -37,8 +37,8 @@
 - :item:
     :title: A Dance with the Dragons
     :author: George RR Martin
-  :available: true
-  :return_date: None
+  :available: false
+  :return_date: 2019-07-16
 - :item:
     :title: Rant
     :author: Chuck Palahniuk

@@ -4,17 +4,19 @@ require './lib/reader.rb'
 require 'pry'
 require 'yaml'
 
-puts "*********************************************************"
+puts "*********************************************************************"
 puts ""
 puts "Welcome to the Library.  What would you like to do today?"
 puts ""
-puts "--Call a Librarian with Librarian = Librarian.new!"
-puts "--Search books by title (Librarian.search_title('title'))"
-puts "--Search books by author (Librarian.search_author('author'))"
-puts "--To check out a book, search for its title/author first!"
-puts "--To return a book, search for its title/author first!"
+puts "--To call a Librarian, enter LibrarianName = Librarian.new!"
+puts "--If you're a Reader, please enter YourName = Reader.new(name: 'Your Name')!"
+puts "--If you're a Reader and don't already have a library card, you can get one by entering YourName.get_library_card!"
+puts "--To search books by title, enter LibrarianName.search_title('title')"
+puts "--To search books by author, enter LibrarianName.search_author('author')"
+puts "--To check out a book, enter YourName.reader_checkout(title: 'desired title', librarian: LibrarianName)"
+puts "--To return a book, enter YourName.reader_return(title: 'desired title', librarian: LibrarianName)"
 puts ""
-puts "*********************************************************"
+puts "*********************************************************************"
 
 class Librarian
 
@@ -62,9 +64,6 @@ class Librarian
             else
                 puts "Someone else has already checked out that title!"
             end
-        elsif ((answer != 'Y') or (answer != 'y') or (answer !='Yes') or (answer !='yes')) and 
-            ((answer != 'N') or (answer != 'No') or (answer != 'no') or (answer != 'n'))
-            puts "Invalid input!"
         else
             puts "Book check out canceled."
         end
@@ -86,11 +85,8 @@ class Librarian
                 else
                     puts "That book has already been returned!"
                 end
-            elsif (answer != 'Y') or (answer != 'y') or (answer !='Yes') or (answer !='yes') and 
-                (answer != 'N') or (answer != 'No') or (answer != 'no') or (answer != 'n')
-                puts "Invalid input!"
             else
-                puts "Book return canceled"
+                puts "Book return canceled."
             end
        end
     end

@@ -24,7 +24,7 @@ describe Reader do
     end
 
     describe 'can get a library card' do
-        before {subject.create_library_card}
+        before {subject.get_library_card}
          it 'of Card class' do
             expect(subject.library_card).to be_an_instance_of Card
         end
@@ -36,15 +36,13 @@ describe Reader do
 
     describe 'can checkout and return books if a library card has been created' do
         let(:librarian) { Librarian.new }
-        before { subject.create_library_card }
+        before { subject.get_library_card }
         it 'can checkout books' do
-            expected_output = 'answer = gets.chomp'
-            expect(subject.reader_checkout(title: 'Women who Run with the Wolves', librarian: librarian)).to be eq expected_output
+            expect(subject.reader_checkout(title: 'Women who Run with the Wolves', librarian: librarian)).not_to be nil
         end
 
         it 'can return books' do
-            expected_output = "Would you like to return 'Women who Run with the Wolves' by 'Clarissa Pinkola Estes'?"
-            expect(subject.reader_return(title: 'Women who Run with the Wolves', librarian: librarian)).to be eq expected_output
+            expect(subject.reader_return(title: 'Women who Run with the Wolves', librarian: librarian)).not_to be nil
         end
 
     end
