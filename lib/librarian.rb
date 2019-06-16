@@ -6,7 +6,7 @@ require 'yaml'
 
 puts "*********************************************************************"
 puts ""
-puts "Welcome to the Library.  What would you like to do today?"
+puts "Welcome to the Library!  The following commands can be used to access the library via IRB or PRY:"
 puts ""
 puts "--To call a Librarian, enter 'LibrarianName = Librarian.new!'"
 puts "--If you're a Reader, please enter 'YourName = Reader.new(name: 'Your Name')'"
