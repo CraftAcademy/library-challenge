@@ -85,9 +85,9 @@ The librarian can look at the status of the entire library collection at any tim
 ```
 1. librar.check_books(lib)
 ```
-The output is in ```@librarians_book_view```.  It is not parsed well, but you can take the time to check that it is identical to ```collection_original.yml```.
+The output is in ```@librarians_book_view```.  It is not parsed well, but you can take the time to check that it is identical to ```collection_original.yml``` upon the creation of the library instance, or ```collection_new.yml``` after at least one book has been borrowed by a member.
 
-*From* ```librar.check_books(lib)```
+From ```librar.check_books(lib)```
 ```
  => [{:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, :available=>true, :return_date=>nil, :member=>nil, :number=>1}, 
  
@@ -105,7 +105,7 @@ The library member can see a list of the available books,
 1. mem.check_available_books(lib)
 ```
 
-*From* ```mem.check_available_books(lib)```
+From ```mem.check_available_books(lib)```
 ```
  => [{:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, :available=>true, :return_date=>nil, :member=>nil, :number=>1}, 
  
@@ -123,7 +123,7 @@ The library member can also search the available books by title, which is a stri
 1. mem.search_titles(lib, 'search_term')
 ```
 
-*From* ```mem.search_titles(lib, 'Alfons')
+From ```mem.search_titles(lib, 'Alfons')
 ```
  => [{:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, :available=>true, :return_date=>nil, :member=>nil, :number=>1}, 
  
