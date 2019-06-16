@@ -27,16 +27,32 @@ class Book
         raise "An author is required"
     end
 
-    def add_book #is it possible to create an instance of the book (ex. newBook) and then add that book to the list with this function with book.add_book?
-        new_book = { 
-            item: [ { title: @title, author: @author } ],
+    # How can we link this class to the data.yaml file so that the new books
+    #are created are added to that list?
+
+    # try 1:
+
+    def add_book #method is working but it's overwriting info in data.yml instead of adding
+        new_book = [{ 
+            item: { title: @title, author: @author } ,
             available: @available,
-            return_date: @return_date }
+            return_date: @return_date }]
         File.open("./lib/data.yml", "w") { |file| file.write(new_book.to_yaml) }
     end
 
-#How can we link this class to the data.yaml file so that the new books
-#are created are added to that list?
+    # try 2
+
+    # def add_book
+    #     convert_yaml = YAML::load_file("./lib/data.yml")
+    #     pp
+    #     #convert_yaml[item][available][return_date]
+    #     convert_yaml['item'] = { 'item' =>
+    #     [{'title'=>@title,
+    #     'author'=>@author}]},
+    #     convert_yaml['available'] = { 'available' => [@available]},
+    #     convert_yaml['return_date'] = @return_date,
+    #     File.open('./lib/data.yml', “w”){|f| YAML.dump(convert_yaml, f)}
+    # end
 
     # def check_out
     #     @availabe = false

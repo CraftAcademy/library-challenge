@@ -22,6 +22,11 @@ class Visitor
         raise "A name is required"
     end
 
+    def find_title
+        find_title = YAML.load_file('./lib/data.yml')
+        find_title[:item][:title]
+    end
+
     # def find_title(suggested_title)
     #     # printf "%s by these author(s) : ", suggested_title
     #     author_list = Array.new
@@ -58,7 +63,7 @@ class Visitor
     def check_out_book(title) # not sure how we can write the method to checkout a specific book
         check_out = YAML::load_file('./lib/data.yml')
         check_out[:available] = false
-        File.open('/tmp/test.yml', 'w') {|f| f.write d.to_yaml }
+        File.open('/tmp/test.yml', 'w') {|f| f.write check_out.to_yaml }
         puts "confirming checkout"
         #how can we make the checked out book go to a list so that visitor can see the the books they have in their possession?
     end
@@ -66,7 +71,7 @@ class Visitor
     def check_in_book(title) # not sure how we can write the method to checkin a specific book
         check_in = YAML::load_file('./lib/data.yml')
         check_in[:available] = true
-        File.open('/tmp/test.yml', 'w') {|f| f.write d.to_yaml }
+        File.open('/tmp/test.yml', 'w') {|f| f.write check_in.to_yaml }
         #how can we make the checked in book go out of the person's list?
         puts "confirming checkin"
 
