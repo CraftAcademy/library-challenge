@@ -33,19 +33,19 @@ class Librarian
     end
     
     def checkout_books(search_result)
-       puts "Would you like to checkout out #{search_result}?"
+       puts "Would you like to check out #{search_result}?"
        answer = gets.chomp
-       if answer == 'Yes please'
+       if answer == 'Yes'
             if search_result[:available] == true
-                puts "It's all yours homie!"
                 search_result[:available] = false
                 search_result[:return_date] = Date.today.next_month(1)
                 File.open('./lib/library.yml', 'w') { |f| f.write library.to_yaml }
+                puts "Check out confirmed, library has been updated!"
             else
-                puts "Some other asshole has checked this book out"
+                puts "Someone else has checked this book out"
             end
        else
-            puts "Well fuck you then"
+            puts "Well then why did you search for it?"
        end
     end
 
