@@ -70,6 +70,8 @@ I want to have the system inform the member of the due date when the book is bor
 ## 2. Project Setup
 
 ## 3. Testing
+Introduction to the library
+-----------
 In IRB or Pry from the Root folder, begin by loading the Ruby files and creating instances of a library member, a librarian, and a library.
 
 ```
@@ -116,7 +118,8 @@ From ```mem.check_available_books(lib)```
 
 This hash is a subset of what the librarian can see.  It is important to note that I have added, in the .yml file, a ```:number:``` attribute for faster book identification, and a ```:member:``` attribute for the library to track who has borrowed the book.  Books 2 and 5 are currently checked out, so the library member should only see books 1, 3, and 4. 
 
-~~~
+Member book search
+-----------
 
 The library member can also search the available books by title, which is a string based search *that is case sensitive*.
 ```
@@ -129,8 +132,8 @@ From ```mem.search_titles(lib, 'Alfons')
  
  {:item=>{:title=>"Osynligt med Alfons", :author=>"Gunilla Bergström"}, :available=>true, :return_date=>nil, :member=>nil, :number=>3}] 
 ```
-
-~~~
+Member borrowing a book
+-----------
 
 Finally, when the library member has decided to borrow a book from the library, it can be accomplished so long as the book is on the available books list.
 ```
