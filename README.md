@@ -59,3 +59,13 @@ The following resources were used to help Dash & Seth complete the library chall
 RFS: Working with YAML Files
 https://www.youtube.com/watch?v=F7JQxXhceZo
 **Learned how to load a YAML file into our librarian class here
+
+2)
+Relish
+https://relishapp.com/rspec/rspec-expectations/v/3-8/docs/built-in-matchers
+**Advanced matchers for testing advanced method behavior
+
+3)
+Testing user command line input in RSpec.
+https://gist.github.com/Kotauror/6993000de0c53206a96879515438950d
+**Getting around our answer = gets.chomp functionality (we need to stub the user input)

@@ -52,7 +52,7 @@ class Librarian
     
     def checkout_books(search_result)
        puts ""
-       puts "#{search_result[:item][:title]} by #{search_result[:item][:author]} is available."
+       puts "'#{search_result[:item][:title]}' by #{search_result[:item][:author]} is available."
        puts "Would you like to check it out?(Y/N)"
        answer = gets.chomp
        if (answer == 'Y') or (answer == 'y') or (answer =='Yes') or (answer =='yes')
@@ -74,7 +74,7 @@ class Librarian
         if result == nil
             no_matches
         else 
-            puts "Would you like to return '#{result[:item][:title]}' by '#{result[:item][:author]}'?"
+            puts "Would you like to return '#{result[:item][:title]}' by #{result[:item][:author]}?"
             answer = gets.chomp
             if (answer == 'Y') or (answer == 'y') or (answer =='Yes') or (answer =='yes')
                 if result[:available] == false
@@ -89,15 +89,6 @@ class Librarian
                 puts "Book return canceled."
             end
        end
-    end
-
-    def update_books(title, author)
-        {title: 'title', author: 'author', date: Date.today, updated?: true}
-    end
-
-    def print_receipt()
-        #TODO
-    end
-        
+    end    
     
 end
