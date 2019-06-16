@@ -1,7 +1,7 @@
 require './lib/visitor.rb'
 
 describe Visitor do
-    let(:library) { class_double('library') }
+    # let(:library) { class_double('library') }
 
     it 'can borrow books if visitor has a name' do
         expect(subject.name).to eq @name

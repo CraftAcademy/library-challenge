@@ -8,7 +8,7 @@ class Visitor
     def initialize
         @name = name
         @visitor_account_status = :active
-        # @return_date = Date.today.next_month.strftime('%d/%m')
+        
     end
 
     def name
@@ -25,20 +25,20 @@ class Visitor
 
     def search(book)
         book = YAML.load_file('./lib/inventory.yml')
-        if book = [:available]
+        if book[:available] = true
         "It's your lucky day! This book is in our library."
-        else book
+        else book[:available] = nil
         "Unfortunally we don't have that book."
         end
     end 
 
-    def borrow_book(book)
+    def borrow_book(title)
         book = YAML.load_file('./lib/inventory.yml')
-        if book[:available] == false
+        if book[:available] == true
+            borrow(title)
         else
-        book[:available] == true
-        book[:return_date] == return_date
-        "You have just borrowed an awesome book! Please don't forget to return it."
+        book[:available] == false
+        "Im sorry, its not here"
         end
     end
 end 
