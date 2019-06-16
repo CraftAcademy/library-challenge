@@ -66,20 +66,22 @@ class Librarian
         end
     end
 
-    def return_books()
-    puts "Would you like to check out #{search_result}?"
-       answer = gets.chomp
-       if answer == 'Yes'
-            if search_result[:available] == true
-                search_result[:available] = false
-                search_result[:return_date] = Date.today.next_month(1)
+    def return_books(title)
+        result = library.detect { |obj| obj[:item][:title] == title  }   
+        if result == nil
+            no_matches
+        else 
+            puts "Would you like to return '#{search_result[:item][:title]}' by '#{search_result[:item][:author]}'?"
+            answer = gets.chomp
+            if answer == 'Yes'
+            if search_result[:available] == false
+                search_result[:available] = true
+                search_result[:return_date] = nil
                 File.open('./lib/library.yml', 'w') { |f| f.write library.to_yaml }
-                puts "Check out confirmed, library has been updated!"
+                puts "Book return confirmed, library has been updated!"
             else
-                puts "Someone else has checked this book out"
+                puts "Book return canceled"
             end
-       else
-            puts "Well then why did you search for it?"
        end
     end
 
