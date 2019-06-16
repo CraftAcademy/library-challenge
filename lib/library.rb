@@ -13,7 +13,7 @@ def read_book_file(file)
     @library_books = YAML.load_file(file)
 end
 
-def find_title(suggested_title)
+def find_by_title(suggested_title)
     
     @library_books.each{|book,v|
         if book[:item][:title] == suggested_title
@@ -22,8 +22,8 @@ def find_title(suggested_title)
     }
     
 end
-def find_author(suggested_author)
-    #book_list # intialized?
+def find_by_author(suggested_author)
+    book_list = Array.new
     @library_books.each{|book,v|
         if book[:item][:author] == suggested_author
             book_list << book
@@ -33,7 +33,6 @@ def find_author(suggested_author)
 end
 
 def check_out_book(book_title)
-    #what if there is no such book?
     @library_books.each{|book,v|
         if book[:item][:title] == book_title
             book[:available] = false
@@ -81,5 +80,6 @@ end
 end
 #[86] pry(main)> load("lib/library.rb") ; lib = Library.new ; lib.read_books_from_file("./lib/data.yml") ; lib.find_title("Onsynligt med Alfons")
 
+#
 
 
