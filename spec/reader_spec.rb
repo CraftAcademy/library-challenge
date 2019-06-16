@@ -41,11 +41,11 @@ describe Reader do
     #     it 'can checkout books' do
     #         subject.stub(:gets).and_return("Y")
     #         expected_outcome = "Check out confirmed, library has been updated!"
-    #         expect(subject.reader_checkout(title: 'Women who Run with the Wolves', librarian: librarian)).to eq expected_outcome
+    #         expect(subject.reader_checkout_title(title: 'Women who Run with the Wolves', librarian: librarian)).to eq expected_outcome
     #     end
 
     #     # it 'can return books' do
-    #     #     expect(subject.reader_return(title: 'Women who Run with the Wolves', librarian: librarian)).not_to be nil
+    #     #     expect(subject.reader_return_title(title: 'Women who Run with the Wolves', librarian: librarian)).not_to be nil
     #     # end
 
     # end

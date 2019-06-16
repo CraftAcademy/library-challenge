@@ -7,8 +7,8 @@ Welcome to the Library.  What would you like to do today?
 -If you're a Reader and don't already have a library card, you can get one by entering YourName.get_library_card!
 -To search books by title, enter LibrarianName.search_title('title')
 -To search books by author, enter LibrarianName.search_author('author')
--To check out a book, enter YourName.reader_checkout(title: 'desired title', librarian: LibrarianName)
--To return a book, enter YourName.reader_return(title: 'desired title', librarian: LibrarianName)
+-To check out a book by title, enter YourName.reader_checkout_title(title: 'desired title', librarian: LibrarianName)
+-To return a book by title, enter YourName.reader_return_title(title: 'desired title', librarian: LibrarianName)
 ```
 *********************************************************************
 

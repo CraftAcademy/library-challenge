@@ -10,7 +10,7 @@ class Reader
         @library_card = nil
     end
 
-    def reader_checkout(info)
+    def reader_checkout_title(info)
         if @library_card == nil
             no_library_card
         elsif info[:librarian] == nil
@@ -22,7 +22,7 @@ class Reader
         end
     end
 
-    def reader_return(info)
+    def reader_return_title(info)
         if @library_card == nil
             no_library_card
         elsif info[:librarian] == nil
@@ -33,7 +33,6 @@ class Reader
             result = librarian.return_books(title)
         end
     end
-    
 
     def set_name(obj)
         obj == nil ? missing_name : @name = obj
