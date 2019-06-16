@@ -45,7 +45,29 @@ class Librarian
     end
     
     def checkout_books(search_result)
-       puts "Would you like to check out #{search_result}?"
+       puts ""
+       puts "#{search_result[:item][:title]} by #{search_result[:item][:author]} is available."
+       puts "Would you like to check it out?(Y/N)"
+       answer = gets.chomp
+       if (answer == 'Y') or (answer == 'y') or (answer =='Yes') or (answer =='yes')
+            if search_result[:available] == true
+                search_result[:available] = false
+                search_result[:return_date] = Date.today.next_month(1)
+                File.open('./lib/library.yml', 'w') { |f| f.write library.to_yaml }
+                puts "Check out confirmed, library has been updated!"
+            else
+                puts "Someone else has already checked out that title!"
+            end
+        elsif (answer != 'Y') or (answer != 'y') or (answer !='Yes') or (answer !='yes') and 
+            (answer != 'N') or (answer != 'No') or (answer != 'no') or (answer != 'n')
+            puts "Invalid input!"
+        else
+            puts "Well then why did you search for it?"
+        end
+    end
+
+    def return_books()
+    puts "Would you like to check out #{search_result}?"
        answer = gets.chomp
        if answer == 'Yes'
             if search_result[:available] == true
@@ -59,9 +81,6 @@ class Librarian
        else
             puts "Well then why did you search for it?"
        end
-    end
-
-    def return_books()
     end
 
     def update_books(title, author)
