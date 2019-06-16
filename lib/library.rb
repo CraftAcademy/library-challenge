@@ -21,12 +21,12 @@ class Library
         if book_in[:available] == true 
             then
             book_in[:available] = false
-            book_in[:return_date] = returndate
-            "You can borrow the book but fuck you if u ruin it"
+            book_in[:return_date] = return_date
+            "You have just borrowed an awesome book! Please don't forget to return it."
         end
-  end 
+    end 
     
-    def returndate
+    def return_date
         Date.today.next_month(1).strftime("%d/%m")
     end
 
@@ -36,7 +36,7 @@ class Library
             then
             return_book[:available] = true
             return_book[:return_date] = nil
-            "motherfucker, i bet u didnt even finnished it"
+            "Thank you for returning this book! You're welcome to borrow another one."
         end
     end
 end
