@@ -63,6 +63,9 @@ class Librarian
                 search_result[:return_date] = Date.today.next_month(1)
                 File.open('./lib/library.yml', 'w') { |f| f.write library.to_yaml }
                 puts "Check out confirmed, library has been updated!"
+                puts "Your book is due back #{Date.today.next_month(1)}.  If it is not returned, you will be executed."
+                puts ""
+                puts "By firing squad."
             else
                 puts "Someone else has already checked out that title!"
             end
