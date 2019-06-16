@@ -7,6 +7,14 @@ class Reader
         set_name(attrs[:name])
         @library_card = nil
     end
+
+    def reader_checkout()
+        # Dash TODO (test specs first!)
+    end
+
+    def reader_return()
+        # Dash TODO (test specs first!)
+    end
     
     def set_name(obj)
         obj == nil ? missing_name : @name = obj

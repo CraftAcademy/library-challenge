@@ -1,6 +1,18 @@
 require 'pry'
 require 'yaml'
 
+puts "*********************************************************"
+puts ""
+puts "Welcome to the Library.  What would you like to do today?"
+puts ""
+puts "--Call a Librarian with Librarian = Librarian.new!"
+puts "--Search books by title (Librarian.search_title('title'))"
+puts "--Search books by author (Librarian.search_author('author'))"
+puts "--To check out a book, search for its title/author first!"
+puts "--To return a book, search for its title/author first!"
+puts ""
+puts "*********************************************************"
+
 class Librarian
 
     attr_accessor :books, :library
