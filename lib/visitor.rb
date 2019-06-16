@@ -1,3 +1,5 @@
+require './lib/library.rb'
+require 'date'
 
 class Visitor
 
@@ -6,7 +8,7 @@ class Visitor
     def initialize
         @name = name
         @visitor_account_status = :active
-        @return_date = Date.today.next_month.strftime('%d/%m')
+        # @return_date = Date.today.next_month.strftime('%d/%m')
     end
 
     def name
@@ -22,12 +24,34 @@ class Visitor
     end
 
     def search(book)
+        book = YAML.load_file('./lib/inventory.yml')
+        if book = [:available]
+        "We have that book"
+        else book = nil
+        "We dont have that book"
+        end
+    end 
+
+    def borrowbook(book)
         books = YAML.load_file('./lib/inventory.yml')
+        if books[:available] == true
+        then
+        books[:available] = false
+        books[:return_date] = return_date
         "You can borrow the book but fuck you if u ruin it"
+       end
     end
+
     
-    # def deactivate
+
+end 
+
+
+
+
+
+# def deactivate
     #     @visitor_account_status = :deactivated
     # end
-end
+
 

@@ -16,7 +16,6 @@ class Library
         @inventory.select { |book| book[:author] == author}
     end
 
-    
     def borrow(title)
         book_in = @inventory.find { |book| book[:title] == title }
         if book_in[:available] == true 
