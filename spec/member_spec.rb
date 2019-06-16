@@ -12,26 +12,39 @@ describe Member do
         subject { described_class.new(name: 'Max') }
         library = Dewey.new
     
-        it 'shows available books.' do
+        it 'checks showing of available books.' do
             expect(subject.check_available_books(library)).not_to eq nil
         end
 
-        it 'searches titles.' do
+        it 'checks searching of titles.' do
             search_term = "Pippi"
             expect(subject.search_titles(library, search_term)).not_to eq nil
         end
 
         describe 'borrows a book and' do
-            it 'the book is not available.' do
-                #book_num = 7
-                #lib = Dewey.new
-                #expect(subject.borrow(lib, member, book_num)).eq to 'Selected book is unavailable.'
+            subject { described_class.new(name: 'Sasha')}
+            it 'checks when the book does not exist.' do
+                book_num = 10
+                expected_value = 'Selected book does not exist.'
+                expect(subject.borrow(library, subject, book_num)).to eq expected_value
+            end
+
+            it 'checks when the book is already borrowed by the user.' do
+                book_num=2
+                expected_value = 'You already have this book.'
+                expect(subject.borrow(library, subject, book_num)).to eq expected_value
+            end
+
+            it 'checks when the book is unavailable.' do
+                book_num=5
+                expected_value = 'This book is checked out by someone else.'
+                expect(subject.borrow(library, subject, book_num)).to eq expected_value
             end
 
             it 'the book is available.' do
-                #member = described_class.new(name: 'Max') 
-                #book_num = 1
-                #expect(subject.borrow(library, member, book_num)).to include "Your book"
+                member = described_class.new(name: 'Danni') 
+                book_num = 1
+                expect(subject.borrow(library, member, book_num)).to include "You now have"
             end
         end
 

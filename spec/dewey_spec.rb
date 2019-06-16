@@ -29,19 +29,19 @@ describe Dewey do
     describe 'when book cannot be checked out' do
         let (:member) {instance_double('mem', name: 'Sasha')}
         
-        it 'checks if book does not exist' do
+        it 'checks if book does not exist.' do
             book_num=10
             expected_value = 'Selected book does not exist.'
             expect(subject.checkout_book(book_num, member)).to eq expected_value
         end
         
-        it 'checks if book is already borrowed' do
+        it 'checks if book is already borrowed by the user.' do
             book_num=1
             expected_value = 'You already have this book.'
             expect(subject.checkout_book(book_num, member)).to eq expected_value
         end
 
-        it 'checks if book is unavailable' do
+        it 'checks if book is unavailable.' do
             book_num=4
             expected_value = 'This book is checked out by someone else.'
             expect(subject.checkout_book(book_num, member)).to eq expected_value

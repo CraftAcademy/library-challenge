@@ -24,7 +24,7 @@ class Dewey
             add_member_name(book_num, member)
             add_not_available(book_num)
             available_books? #updates available books list after checkout
-            puts 'You now have "' + @books[book_num][:item][:title].to_s + '".  It is due back in one month! ' + @books[book_num][:return_date].to_s 
+            'You now have *' + @books[book_num][:item][:title].to_s + '* -- It is due back in one month! ' + @books[book_num][:return_date].to_s 
         end
     end
 
