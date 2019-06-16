@@ -15,10 +15,18 @@ describe Visitor do
         expect(subject.checkedout_books).to be {}
     end
 
-    let (:book) { class_double("book", title: 'This Book', author: 'This Author', available: true, due_date: "") }
+    let (:library) { instance_double("Library", library_books: YAML.load_file(file)) }
 
     it "should be able to find a specific book by title" do
-         expect(subject.find_book('This Book')).to eq "This Book"
+         expect(subject.find_title(title: "Gunilla Bergström")).not_to eq nil
+    end
+
+    it "should be able to change book to unavailable when checkout" do
+        
+    end
+
+    it "should be able to change book to available when checkin" do
+        
     end
         
 end
