@@ -8,10 +8,12 @@ class Visitor
     def initialize(attrs = {})
         set_name(attrs[:name])
         @checkedout_books = {}
+        @library = Library.new
     end
 
     def see_book_list
         book_list = YAML.load_file('./lib/data.yml')
+        
     end
 
     def set_name(obj)
@@ -22,9 +24,10 @@ class Visitor
         raise "A name is required"
     end
 
-    def find_title
-        find_title = YAML.load_file('./lib/data.yml')
-        find_title[:item][:title]
+    def find_title(book_title)
+        # find_title = YAML.load_file('./lib/data.yml')
+        # find_title[:item][:title]
+        @library.find_title(book_title)
     end
 
     # def find_title(suggested_title)

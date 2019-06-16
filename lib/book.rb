@@ -56,9 +56,10 @@ class Book
     #     File.open('./lib/data.yml', “w”){|f| YAML.dump(convert_yaml, f)}
     # end
 
-    # def check_out
-    #     @availabe = false
-    # end
+    def check_out
+        @availabe = false
+        @return_date = "2019-08-17" #FIXME: now + 2 months
+     end
 
     # def check_in
     #     @available = true
