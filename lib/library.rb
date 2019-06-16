@@ -10,10 +10,6 @@ def initialize
     read_book_file('./lib/data.yml') 
 end
 
-def read_book_file(file)
-    @library_books = YAML.load_file(file)
-end
-
 def find_by_title(suggested_title)
     @library_books.each{|book,v|
         if book[:item][:title] == suggested_title
@@ -45,8 +41,7 @@ def check_out(book_title)
     }
 end
 
-def check_in_book(book_title)
-
+def check_in(book_title)
      @library_books.each{|book,v|
          if book[:item][:title] == book_title
              book[:available] = true
@@ -63,12 +58,11 @@ def add_book(title, author)
         available: true,
         return_date: nil }
         @library_books << new_book
-        write_to_file("./lib/trash.yml")
+        #to not trash our backup db, write a copy
+        write_to_file("./lib/copy.yml") 
 end
 
-def write_to_file(path)
-    File.open(path, "w") { |file| file.write(@library_books.to_yaml) }
-end
+
 
 def print_book(book)
     printf "Title: %s\t Author: %s\tAvailable: %s\tReturn date: %s\n",  
@@ -82,9 +76,16 @@ def to_string
     @library_books.each{|book,v| print_book(book)}
 end
 
+# IO methods
+def read_book_file(file)
+    @library_books = YAML.load_file(file)
 end
-#[86] pry(main)> load("lib/library.rb") ; lib = Library.new ; lib.read_books_from_file("./lib/data.yml") ; lib.find_title("Onsynligt med Alfons")
 
-#
+def write_to_file(path)
+    File.open(path, "w") { |file| file.write(@library_books.to_yaml) }
+end
+
+end
+
 
 
