@@ -2,7 +2,7 @@ require './lib/library.rb'
 require 'yaml'
 
 class Visitor
-    attr_accessor  :name, :checkedout_books
+    attr_accessor  :name, :checkedout_books, :library
 
     def initialize(attrs = {})
         set_name(attrs[:name])
@@ -11,6 +11,7 @@ class Visitor
     end
 
     def see_book_list
+        @library.to_string
         book_list = YAML.load_file('./lib/data.yml')
         
     end
@@ -32,24 +33,17 @@ class Visitor
     end
 
    
-    def check_out_book(title) # not sure how we can write the method to checkout a specific book
+    def check_out(title) 
      @library.check_out(title)
-        # check_out = YAML::load_file('./lib/data.yml')
-        # check_out[:available] = false
-        # File.open('/tmp/test.yml', 'w') {|f| f.write check_out.to_yaml }
         puts "confirming checkout"
-        #how can we make the checked out book go to a list so that visitor can see the the books they have in their possession?
+        #how can we make the checked out book go to a list 
+        # so that visitor can see the the books they have in 
+        # their possession?
     end
 
-    def check_in_book(title) # not sure how we can write the method to checkin a specific book
-      @library.check_in_book(title)
-       
-        # check_in = YAML::load_file('./lib/data.yml')
-        # check_in[:available] = true
-        # File.open('/tmp/test.yml', 'w') {|f| f.write check_in.to_yaml }
-        #how can we make the checked in book go out of the person's list?
-        puts "confirming checkin"
-
+    def check_in(title) 
+      @library.check_in(title)
+       #how can we make the checked in book go out of the person's list?
     end
 
     def see_book_status
