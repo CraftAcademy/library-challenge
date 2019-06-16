@@ -26,8 +26,8 @@ class Visitor
         "You can borrow the book but fuck you if u ruin it"
     end
     
-    def deactivate
-        @visitor_account_status = :deactivated
-    end
+    # def deactivate
+    #     @visitor_account_status = :deactivated
+    # end
 end
 

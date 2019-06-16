@@ -26,7 +26,7 @@ describe Library do
         expect_output = "motherfucker, i bet u didnt even finnished it"
         expect(subject.return("Alfons och soldatpappan")).to eq expect_output
     end
-    end 
+end 
 
     # it 'can search for a book by its author' do
     #     expect(subject.search_by_author).to eq ??

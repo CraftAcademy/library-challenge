@@ -34,13 +34,19 @@ As a librarian
 In order to keep track our books
 I would like to know if the book is avaiable or borrowed of a visitor
 ````
-- [ ] Method for returning the status of a book
+- [-] Method for returning the status of a book for the librarian
+````
+As a visitor
+In order to know if a book is avaiable or not
+I need the system to return the status of my preferred book
+````
+- [-] Method for returning the status of a book for the visitor
 ````
 As a visitor?
 In order to borrow books?
 I need to have an account in the library?
 ````
-- [ ] If time - make the user able to set an account
+- [/] If time - make the user able to set an account
 ````
 As a visitor
 In order to borrow a book
@@ -52,6 +58,7 @@ As a visitor
 In order to know if the book is the correct one
 I would like to know both the title and the author of the book
 ````
+- [x] Method for visitor to search for a specific book
 ````
 As a librarian
 In order to know which books that are borrowed
