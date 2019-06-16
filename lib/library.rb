@@ -17,6 +17,7 @@ end
 def find_by_title(suggested_title)
     @library_books.each{|book,v|
         if book[:item][:title] == suggested_title
+            book_to_string(book)
              return book
         end 
     }
@@ -32,14 +33,13 @@ def find_by_author(suggested_author)
     book_list
 end
 
-def check_out_book(book_title)
+def check_out(book_title)
     @library_books.each{|book,v|
-        puts book_title
         if book[:item][:title] == book_title
             book[:available] = false
             book[:return_date] = Date.today >> 1
             puts "checked out book"
-            puts book
+            print_book(book)
             return
         end
     }
@@ -51,8 +51,7 @@ def check_in_book(book_title)
          if book[:item][:title] == book_title
              book[:available] = true
             book[:return_date] = nil
-            puts "checked in book"
-            puts book
+            print_book(book)
            return
         end
     }
@@ -71,12 +70,16 @@ def write_to_file(path)
     File.open(path, "w") { |file| file.write(@library_books.to_yaml) }
 end
 
-def book_to_string(obj)
-    #print "title %s, author %s", title, author
+def print_book(book)
+    printf "Title: %s\t Author: %s\tAvailable: %s\tReturn date: %s\n",  
+    book[:item][:title],
+    book[:item][:author],
+    book[:available] = true,
+    book[:return_date] = nil
 end
 
-def library_to_string()
-    #for libary.each ... book_to_string()
+def to_string
+    @library_books.each{|book,v| print_book(book)}
 end
 
 end
