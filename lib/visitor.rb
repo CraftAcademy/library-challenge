@@ -1,4 +1,5 @@
 require 'book.rb'
+require 'yaml'
 
 class Visitor
     attr_accessor  :name, :checkedout_books

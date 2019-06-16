@@ -1,7 +1,7 @@
 require "./lib/book.rb"
 
 describe Book do
-    subject {described_class.new(title: "First book", author: "First author", available: true, return_date: "")}
+    subject {described_class.new(title: "First book", author: "First author", available: true, return_date: nil)}
 
     it "is expected to have a title" do
         expect(subject.title).to eq "First book"
@@ -16,13 +16,13 @@ describe Book do
 
 
     it "is expected to have a return date if it is checked out" do
-        subject.due_date = "2019-07-15"
+        subject.return_date = "2019-07-15"
         subject.available = false
-            expect(subject.due_date).to eq "2019-07-15"
+            expect(subject.return_date).to eq "2019-07-15"
     end 
 
-    it "is expected to have a return date if it is checked out" do
-        subject.available = false
-        expect(subject.available).to be false
+    it "is expected to not have a return date if it is not checked out" do
+        subject.available = true
+        expect(subject.return_date).to be nil
     end 
 end
