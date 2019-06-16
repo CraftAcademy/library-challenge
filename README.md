@@ -1,7 +1,7 @@
 # Challenge: Book tracking system backend for library applications
 
 ## Summary
-This repository contains Ruby scripts and RSpec tests for tracking a collection of books in a hypothetical library system.  The backend system must modify the book inventory information appropriate to changes in 'state' of the books as members borrow and return the library books.  Book information is stored locally in a YAML file.  Static data about the books includes *title* and *author*.  Dynamic information about the books includes *borrowed status* and *due date*.  
+This repository contains Ruby scripts and RSpec tests for tracking a collection of books in a hypothetical library system.  The backend system must modify the book inventory information appropriate to changes in 'state' of the books as members borrow and return the library books.  Book information is stored locally in a YAML file.
 
 ## Table of Contents
 1. Project Goals
@@ -9,9 +9,8 @@ This repository contains Ruby scripts and RSpec tests for tracking a collection 
 * Prerequisites 
 * Installation 
 3. Testing
-4. Versioning
-5. Authors
-6. Acknowledgements
+4. Authors
+5. Acknowledgements
 
 ## 1. Project Goals
 The requirements for a successful library backend are extracted from a statement from the client.
@@ -65,9 +64,21 @@ In order to inform a member of a book due date,
 I want to have the system inform the member of the due date when the book is borrowed.
 ```
 
-
-
 ## 2. Project Setup
+Prerequisites
+-----
+- Ruby v2.3.4
+- rspec v3.4.2
+- JSON v1.8.3
+
+Please review Gemfile.lock to see all version requirements for this project and the Gemfile for installation gems.
+
+Installation
+-----
+For Mac using Github repositories:
+1. Fork this repository to your Github account and pull down to local workspace.
+2. Use Ruby Version Manager (RVM) to install Ruby and set to v.2.3.4.
+3. Run ```bundle install``` in root folder of project directory to install gems as defined in the Gemfile.
 
 ## 3. Testing
 Introduction to the library
@@ -121,12 +132,12 @@ This hash is a subset of what the librarian can see.  It is important to note th
 Member book search
 -----------
 
-The library member can also search the available books by title, which is a string based search *that is case sensitive*.
+The library member can search the available books by title, which is a string based search *that is case sensitive*.
 ```
 1. mem.search_titles(lib, 'search_term')
 ```
 
-From ```mem.search_titles(lib, 'Alfons')
+From ```mem.search_titles(lib, 'Alfons')```, two titles of the three available books appear.
 ```
  => [{:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, :available=>true, :return_date=>nil, :member=>nil, :number=>1}, 
  
@@ -139,19 +150,18 @@ Finally, when the library member has decided to borrow a book from the library, 
 ```
 1. mem.borrow(lib, mem, 1)
 ```
-You can try to take out books that are not on the available book list by guessing at their book number.  There are three possible messages returned depending on the reason why the book is not on the availability list.  Can you discover each type?
+You can try to take out books that are not on the available book list by guessing at or inferring their book number.  There are three possible messages returned depending on the reason why the book is not on the availability list.  Can you discover each type?
 
 As a library member continues to borrow books, the available book list will shrink accordingly, but the librarian will always be able to see all the books, as well as confirm that the ```:available```, ```:return_date```, and ```:member``` attributes continue to update after each book is borrowed by a member.  One can also see the available and complete lists simultaneously by calling the library instance ```lib``` that contains both.
 
-For example, after the member has borrowed book 1 from the command listed above, the librarian can confirm that the check out of book 1 has been properly logged.
+For example, after the member has borrowed book 1 using the command listed above, the librarian can confirm that the check out of book 1 has been properly logged.
 
 ```
  => [{:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, :available=>false, :return_date=>"2019-07-16", :member=>"Max", :number=>1}
 ```
 
-## 4. Versioning
+## 4. Authors
+[Max Aubain](https://maxaubain.github.io)-[Github](https://github.com/CA-ma)
 
-## 5. Authors
-
-## 6. Acknowledgements
+## 5. Acknowledgements
 Thank you to Craft Academy in Stockholm, Sweden for crafting this challenge.

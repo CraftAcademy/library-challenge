@@ -26,7 +26,7 @@ class Member
     end
 
     #def my_books(library, member)
-        #list all books have borrowed
+        #list all books have been borrowed
     #end
 
     private
