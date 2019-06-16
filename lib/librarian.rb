@@ -62,7 +62,7 @@ class Librarian
             (answer != 'N') or (answer != 'No') or (answer != 'no') or (answer != 'n')
             puts "Invalid input!"
         else
-            puts "Well then why did you search for it?"
+            puts "Book check out canceled."
         end
     end
 
