@@ -71,14 +71,20 @@ class Librarian
         if result == nil
             no_matches
         else 
-            puts "Would you like to return '#{search_result[:item][:title]}' by '#{search_result[:item][:author]}'?"
+            puts "Would you like to return '#{result[:item][:title]}' by '#{result[:item][:author]}'?"
             answer = gets.chomp
-            if answer == 'Yes'
-            if search_result[:available] == false
-                search_result[:available] = true
-                search_result[:return_date] = nil
-                File.open('./lib/library.yml', 'w') { |f| f.write library.to_yaml }
-                puts "Book return confirmed, library has been updated!"
+            if (answer == 'Y') or (answer == 'y') or (answer =='Yes') or (answer =='yes')
+                if result[:available] == false
+                    result[:available] = true
+                    result[:return_date] = 'None'
+                    File.open('./lib/library.yml', 'w') { |f| f.write library.to_yaml }
+                    puts "Book return confirmed, library has been updated!"
+                else
+                    puts "That book has already been returned!"
+                end
+            elsif (answer != 'Y') or (answer != 'y') or (answer !='Yes') or (answer !='yes') and 
+                (answer != 'N') or (answer != 'No') or (answer != 'no') or (answer != 'n')
+                puts "Invalid input!"
             else
                 puts "Book return canceled"
             end
