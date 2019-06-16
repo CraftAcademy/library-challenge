@@ -9,14 +9,14 @@ class Reader
         @library_card = nil
     end
 
-    def reader_checkout(title)
-        # Dash TODO (test specs first!)
+    def reader_checkout(info)
+        
     end
 
-    def reader_return(title)
-        # Dash TODO (test specs first!)
+    def reader_return(info)
     end
     
+
     def set_name(obj)
         obj == nil ? missing_name : @name = obj
     end

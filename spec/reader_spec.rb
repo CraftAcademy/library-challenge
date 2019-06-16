@@ -37,13 +37,15 @@ describe Reader do
         let(:librarian) { Librarian.new }
         before { subject.create_library_card }
         it 'can checkout books' do
-            expected_output = "Check out confirmed, library has been updated!"
-            expect(subject.reader_checkout(title)).to be eq expected_output
+            expected_output = "Women who Run with the Wolves by Clarissa Pinkola Estes is available.
+            Would you like to check it out?(Y/N)"
+            expect(subject.reader_checkout(title: 'Women who Run with the Wolves', librarian: librarian)).to be eq expected_output
         end
 
         it 'can return books' do
-            expected_output = "Book return confirmed, library has been updated!"
-            expect(subject.reader_return(title)).to be eq expected_output
+            expected_output = "Would you like to return 'Women who Run with the Wolves' by 'Clarissa Pinkola Estes'?"
+            expect(subject.reader_return(title: 'Women who Run with the Wolves', librarian: librarian)).to be eq expected_output
         end
+
     end
 end
