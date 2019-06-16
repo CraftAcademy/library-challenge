@@ -13,7 +13,7 @@ end
 def find_by_title(suggested_title)
     @library_books.each{|book,v|
         if book[:item][:title] == suggested_title
-            book_to_string(book)
+            to_string(book)
              return book
         end 
     }
@@ -73,7 +73,7 @@ def print_book(book)
     book[:return_date] = nil
 end
 
-def to_string
+def to_string(book)
     @library_books.each{|book,v| print_book(book)}
 end
 
