@@ -1,18 +1,19 @@
 require './lib/librarycard.rb'
 class Reader
 
-    attr_accessor :name, :library_card
+    attr_accessor :name, :library_card, :books
 
     def initialize(attrs = {})
+        @books = 0
         set_name(attrs[:name])
         @library_card = nil
     end
 
-    def reader_checkout()
+    def reader_checkout(title)
         # Dash TODO (test specs first!)
     end
 
-    def reader_return()
+    def reader_return(title)
         # Dash TODO (test specs first!)
     end
     

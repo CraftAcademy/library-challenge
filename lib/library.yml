@@ -38,7 +38,7 @@
     :title: A Dance with the Dragons
     :author: George RR Martin
   :available: true
-  :return_date: 
+  :return_date: None
 - :item:
     :title: Rant
     :author: Chuck Palahniuk

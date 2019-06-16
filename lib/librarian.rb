@@ -32,6 +32,7 @@ class Librarian
     end
 
     def search_author(author)
+        #must connect to checkout books method
         result = library.detect { |obj| obj[:item][:author] == author  }
         result == nil ? no_matches : result   
     end
@@ -58,8 +59,8 @@ class Librarian
             else
                 puts "Someone else has already checked out that title!"
             end
-        elsif (answer != 'Y') or (answer != 'y') or (answer !='Yes') or (answer !='yes') and 
-            (answer != 'N') or (answer != 'No') or (answer != 'no') or (answer != 'n')
+        elsif ((answer != 'Y') or (answer != 'y') or (answer !='Yes') or (answer !='yes')) and 
+            ((answer != 'N') or (answer != 'No') or (answer != 'no') or (answer != 'n'))
             puts "Invalid input!"
         else
             puts "Book check out canceled."
