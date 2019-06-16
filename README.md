@@ -1,5 +1,10 @@
 *********************************************************************
 ```
+- The Library must be accessed by performing the following commands in your Terminal:
+- Call on pry or irb
+- Load the file Reader.rb by doing the following -> load 'lib/reader.rb'
+- Follow the prompts on screen to access the Library
+
 Welcome to the Library.  What would you like to do today?
 
 -To call a Librarian, enter LibrarianName = Librarian.new!
@@ -9,6 +14,7 @@ Welcome to the Library.  What would you like to do today?
 -To search books by author, enter LibrarianName.search_author('author')
 -To check out a book by title, enter YourName.reader_checkout_title(title: 'desired title', librarian: LibrarianName)
 -To return a book by title, enter YourName.reader_return_title(title: 'desired title', librarian: LibrarianName)
+-To view the entire library enter YourName.view_library(LibrarianName)
 ```
 *********************************************************************
 

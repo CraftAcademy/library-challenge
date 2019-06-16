@@ -34,9 +34,15 @@ describe Reader do
         end
     end    
 
-    # describe 'can checkout and return books if a library card has been created' do
-    #     let(:librarian) { Librarian.new }
-    #     before { subject.get_library_card }
+
+
+     describe 'can checkout and return books if a library card has been created' do
+        let(:librarian) { Librarian.new }
+        before { subject.get_library_card }
+
+        it 'can view the whole library contents' do
+            expect(subject.view_library(librarian)).not_to be nil 
+        end
 
     #     it 'can checkout books' do
     #         subject.stub(:gets).and_return("Y")
@@ -48,5 +54,5 @@ describe Reader do
     #     #     expect(subject.reader_return_title(title: 'Women who Run with the Wolves', librarian: librarian)).not_to be nil
     #     # end
 
-    # end
+    end
 end

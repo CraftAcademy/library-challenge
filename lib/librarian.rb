@@ -13,8 +13,9 @@ puts "--If you're a Reader, please enter YourName = Reader.new(name: 'Your Name'
 puts "--If you're a Reader and don't already have a library card, you can get one by entering YourName.get_library_card!"
 puts "--To search books by title, enter LibrarianName.search_title('title')"
 puts "--To search books by author, enter LibrarianName.search_author('author')"
-puts "--To check out a book, enter YourName.reader_checkout(title: 'desired title', librarian: LibrarianName)"
-puts "--To return a book, enter YourName.reader_return(title: 'desired title', librarian: LibrarianName)"
+puts "--To check out a book, enter YourName.reader_checkout_title(title: 'desired title', librarian: LibrarianName)"
+puts "--To return a book, enter YourName.reader_return_title(title: 'desired title', librarian: LibrarianName)"
+puts "--To view the entire library enter YourName.view_library(LibrarianName)"
 puts ""
 puts "*********************************************************************"
 

@@ -34,6 +34,11 @@ class Reader
         end
     end
 
+    def view_library(librarian)
+        return librarian.library
+    end    
+
+
     def set_name(obj)
         obj == nil ? missing_name : @name = obj
     end
