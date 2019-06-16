@@ -58,4 +58,20 @@ class Reader
     def no_librarian
         raise 'You need to call a librarian first!'
     end
+
+    def help_me
+        puts ""
+        puts "--To call a Librarian, enter 'LibrarianName = Librarian.new!'"
+        puts "--If you're a Reader, please enter 'YourName = Reader.new(name: 'Your Name')'"
+        puts "--If you're a Reader and don't already have a library card, you can get one by entering 'YourName.get_library_card'"
+        puts "--To search books by title, enter 'LibrarianName.search_title('Title')'"
+        puts "--To search books by author, enter 'LibrarianName.search_author('Author')'"
+        puts "--To check out a book by title, enter 'YourName.reader_checkout_title(title: 'Desired Title', librarian: LibrarianName)'"
+        puts "--To return a book by title, enter 'YourName.reader_return_title(title: 'Desired Title', librarian: LibrarianName)'"
+        puts "--To view the entire library enter 'YourName.view_library(LibrarianName)'"
+        puts "--If you need help, please enter 'YourName.help_me'"
+        puts ""
+        return "Help was a success!"
+    end
+
 end

@@ -32,11 +32,14 @@ describe Reader do
         it 'with himself as an owner' do
             expect(subject.library_card.owner).to be subject
         end
-    end    
+    end
 
+    it 'is expected to have a "help" command' do
+        help_msg =  "Help was a success!"
+        expect(subject.help_me).to eq help_msg
+    end
 
-
-     describe 'can checkout and return books if a library card has been created' do
+    describe 'can checkout and return books if a library card has been created' do
         let(:librarian) { Librarian.new }
         before { subject.get_library_card }
 

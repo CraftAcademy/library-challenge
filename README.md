@@ -1,24 +1,31 @@
-*********************************************************************
 ```
-- The Library must be accessed by performing the following commands in your Terminal:
-- Call on pry or irb
-- Load the file Reader.rb by doing the following -> load 'lib/reader.rb'
-- Follow the prompts on screen to access the Library
+Welcome to Dash & Seth's Library Challenge Project!
 
-Welcome to the Library.  What would you like to do today?
-
--To call a Librarian, enter LibrarianName = Librarian.new!
--If you're a Reader, please enter YourName = Reader.new(name: 'Your Name')!
--If you're a Reader and don't already have a library card, you can get one by entering YourName.get_library_card!
--To search books by title, enter LibrarianName.search_title('title')
--To search books by author, enter LibrarianName.search_author('author')
--To check out a book by title, enter YourName.reader_checkout_title(title: 'desired title', librarian: LibrarianName)
--To return a book by title, enter YourName.reader_return_title(title: 'desired title', librarian: LibrarianName)
--To view the entire library enter YourName.view_library(LibrarianName)
-```
 *********************************************************************
 
-User's Story
+1) The Library must be accessed by performing the following commands in your Terminal:
+2) Load 'pry' or 'irb'
+3) Load the reader file bwith 'load "lib/reader.rb"'
+4) The following prompts will appear and guide you through accessing the library
+
+*********************************************************************
+
+Welcome to the Library!  The following commands can be used to access the library via IRB or PRY:
+
+-To call a Librarian, enter 'LibrarianName = Librarian.new!'
+-If you're a Reader, please enter 'YourName = Reader.new(name: "Your Name")'
+-If you're a Reader and don't already have a library card, you can get one by entering 'YourName.get_library_card'
+-To search books by title, enter 'LibrarianName.search_title("Title")'
+-To search books by author, enter 'LibrarianName.search_author("Author")'
+-To check out a book by title, enter 'YourName.reader_checkout_title(title: "Desired Title", librarian: LibrarianName)'
+-To return a book by title, enter 'YourName.reader_return_title(title: "Desired Title", librarian: LibrarianName)'
+-To view the entire library enter 'YourName.view_library(LibrarianName)'
+-If you need help, please enter 'YourName.help_me'
+
+*********************************************************************
+```
+
+User Stories
 1)
 ```
 As a Librarian
