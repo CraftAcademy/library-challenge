@@ -7,12 +7,10 @@ class Library
 attr_accessor :library_books
 
 def initialize
-    @library_books = YAML.load_file('./lib/data.yml') 
-    #@library_books = {}
-    #should the library really start with empty list of books?
+    read_book_file('./lib/data.yml') 
 end
 
-def read_books_from_file(file)
+def read_book_file(file)
     @library_books = YAML.load_file(file)
 end
 

@@ -3,12 +3,8 @@
    describe Library do
     subject {described_class.new}
 
-it "should have a list of books when initialized" do
-    expect(subject.library_books).not_to be_empty
-end
 
 it "should have 5 books after loading lib/data.yml" do
-subject.read_books_from_file("./lib/data.yml")
 expect(subject.library_books.size()).to eq 5
 end
 
@@ -19,8 +15,21 @@ end
 it "should find a certain author in the list" do
     expect(subject.find_title("Gunilla Bergström")).not_to eq nil
     end
+
+
+it "should set due dates" do 
+end
+
+it "should give confirmations when check in/out" do
+end
+
+it "should add books" do
+end
+
+it "should write to file" do
 end
    
+end
    
    
    #booklist should be here
