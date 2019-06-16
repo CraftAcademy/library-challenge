@@ -1,4 +1,5 @@
 require 'yaml'
+require './lib/visitor.rb'
 
 class Library
 
