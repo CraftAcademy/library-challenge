@@ -1,5 +1,4 @@
 require './lib/library.rb'
-require './lib/book.rb'
 require 'yaml'
 
 class Visitor
