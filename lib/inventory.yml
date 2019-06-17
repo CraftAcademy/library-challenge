@@ -2,30 +2,30 @@
 - :book: 0
   :title: Alfons och soldatpappan
   :author: Gunilla Bergström
-  :available: false
-  :borrowed_by:
-  :return_date:
+  :available: true
+  :borrowed_by: 
+  :return_date: 
 - :book: 1
   :title: Skratta lagom! Sa pappa Åberg
   :author: Gunilla Bergström
   :available: true
-  :borrowed_by:
-  :return_date:
+  :borrowed_by: 
+  :return_date: 
 - :book: 2
   :title: Osynligt med Alfons
   :author: Gunilla Bergström
   :available: true
-  :borrowed_by:
-  :return_date:
+  :borrowed_by: 
+  :return_date: 
 - :book: 3
   :title: Pippi Långstrump
   :author: Astrid Lindgren
   :available: true
-  :borrowed_by:
-  :return_date:
+  :borrowed_by: 
+  :return_date: 
 - :book: 4
   :title: Pippi Långstrump går ombord
   :author: Astrid Lindgren
   :available: true
-  :borrowed_by:
-  :return_date:
+  :borrowed_by: 
+  :return_date: 

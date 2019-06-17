@@ -1,10 +1,12 @@
 require './lib/visitor.rb'
+require 'date'
 
 describe Visitor do
-    # let(:library) { class_double('library') }
-
-    it 'can borrow books if visitor has a name' do
-        expect(subject.name).to eq @name
+    
+    subject {described_class.new(name: "Julie")}
+    
+    it 'is expected to have a :name upon initialize' do
+        expect(subject.name).not_to be nil
     end
 
     it 'is active on initialize' do

@@ -36,7 +36,8 @@ class Library
             then
             return_book[:available] = true
             return_book[:return_date] = nil
-            "Thank you for returning this book! You're welcome to borrow another one."
+            File.open('./lib/inventory.yml', 'w') { |f| f.write inventory.to_yaml }
+           puts "Thank you for returning this book! You're welcome to borrow another one."
         end
     end
 end
