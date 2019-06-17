@@ -141,3 +141,59 @@ Visitor Class
 - [x] Due dates
 
 #
+
+### Instructions
+
+- In order to interact with the Library app we first need to open Pry
+```
+pry
+```
+
+- Next we'll load our file
+```
+load './lib/visitor'
+```
+- We can now also create our library 
+```
+newLibrary = Library.new
+```
+This will create a new library with all the books available in our YAML file
+
+- We can also create a user/visitor
+```
+newVisitor = Visitor.new(name: 'Alfred')
+```
+This will create a Visitor named Alfred with an empty loaned book list. By creating this user we are also loading the Library and all the books it contains
+
+- As a Library we have the functionality of adding new books to our list
+```
+newLibrary.add_book('Harry Potter', 'JK Rowling')
+```
+This will create a new book with the tittle 'Harry Potter', and the author 'JK Rowling' and will add it to our YAML file with the status available and ready to be checked out by our visitors
+
+-To search for a specific book, we are able to find them through their title (this can be done through the Library or through the Visitor)
+```
+newVisitor.find_by_title('Harry Potter')
+```
+This will retrieve the wanted book, stating the author and if it is available to be checked out
+
+- We can also search by author (available for Library and Visitor as well)
+```
+newLibrary.find_by_author('JK Rowling')
+```
+This will display all the books in the list written by this author
+
+- We are able to check out books and loan them for a month (function available for Library and Visitor)
+```
+newVisitor.check_out('Harry Potter')
+```
+After this you will receive a confirmation of the check out. The book will change it's status to unavailable and a return date will be automatically set for 1 month after the check out date
+
+- When the Visitors have finished reading their books they are able to check them in
+```
+newVisitor.check_in('Harry Potter')
+```
+The book will be returned, changing it's status to available
+
+
+
