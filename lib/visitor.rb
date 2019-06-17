@@ -2,18 +2,16 @@ require './lib/library.rb'
 require 'yaml'
 
 class Visitor
-    attr_accessor  :name, :checkedout_books, :library
+    attr_accessor  :name, :checked_out_books, :library
 
     def initialize(attrs = {})
         set_name(attrs[:name])
-        @checkedout_books = {}
+        @checked_out_books = Array.new
         @library = Library.new
     end
 
     def see_book_list
-        @library.to_string
-        book_list = YAML.load_file('./lib/data.yml')
-        
+        @library.to_string        
     end
 
     def set_name(obj)
@@ -31,23 +29,28 @@ class Visitor
     def find_by_author(author_name)
         @library.find_by_author(author_name)
     end
-
    
-    def check_out(title) 
-     @library.check_out(title)
-        puts "confirming checkout"
+    def check_out(title)
+        @checked_out_books << @library.check_out(title)
         #how can we make the checked out book go to a list 
         # so that visitor can see the the books they have in 
         # their possession?
     end
 
     def check_in(title) 
-      @library.check_in(title)
-       #how can we make the checked in book go out of the person's list?
+        delivered_book = @library.check_in(title)
+
+        @checked_out_books.each{|book,v|
+            if book[:item][:title] == delivered_book[:title]
+                @checked_out_books - delivered_book
+                return delivered_book
+            end 
+        }
     end
 
-    def see_book_status
-        get_status = YAML.load(File.read("./lib/data.yml"))
-        get_status[:available] #how can we specify which of the books we want to see?
+    def see_check_outs
+        @checked_out_books.each{|book,v|@library.print_book(book)}
     end
 end
+
+#load("lib/visitor.rb") ; load("lib/library.rb") ; visitor = Visitor.new(name: "Camilia") ; visitor.find_by_author("Gunilla Bergström"); load("lib/visitor.rb") ; load("lib/library.rb") ; visitor = Visitor.new(name: "Camilia") ; visitor.check_out("Alfons och soldatpappan"); visitor.check_out("Skratta lagom! Sa pappa Åberg"); visitor.checked_out_books ; visitor.check_in("Skratta lagom! Sa pappa Åberg")
