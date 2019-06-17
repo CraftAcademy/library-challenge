@@ -28,6 +28,10 @@ class Visitor
         @library.find_by_title(book_title)
     end
 
+    def available_books
+        @library.available_books
+    end
+
     def find_by_author(author_name)
         @library.find_by_author(author_name)
     end

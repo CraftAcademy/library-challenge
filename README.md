@@ -202,5 +202,13 @@ newVisitor.checked_out_books
 
 - The library can see a list of all the checked out books that are overdue in their return date
 ```
-newLibrary.
+newLibrary.books_past_due
+```
+- The visitor is able to a see a list of all the books that are available to be checked out in that moment
+```
+newVisitor.available_books
+```
+
+
+***ALL RIGHTS RESERVED*** Camilla and Pedro
 
