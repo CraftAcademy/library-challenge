@@ -195,5 +195,12 @@ newVisitor.check_in('Harry Potter')
 ```
 The book will be returned, changing it's status to available
 
+- The visitor can also see all the books that he/she has checked out and see all the return dates
+```
+newVisitor.checked_out_books
+```
 
+- The library can see a list of all the checked out books that are overdue in their return date
+```
+newLibrary.
 
