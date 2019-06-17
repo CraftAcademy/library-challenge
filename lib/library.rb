@@ -13,7 +13,7 @@ end
 def find_by_title(suggested_title)
     @library_books.each{|book,v|
         if book[:item][:title] == suggested_title
-            book_to_string(book)
+            to_string(book)
              return book
         end 
     }
@@ -29,34 +29,15 @@ def find_by_author(suggested_author)
     book_list
 end
 
-
-def available_books
-    book_list = Array.new
-    @library_books.each{|book,v|
-        if book[:available] == true
-            book_list << book
-        end
-    }
-    book_list
-end
-
-def books_past_due
-    book_list = Array.new
-    @library_books.each{|book,v|
-        if book[:return_date] != nil && book[:return_date] < Date.today.to_s
-            book_list << book
-        end
-    }
-    book_list
-end
-
 def check_out(book_title)
     @library_books.each{|book,v|
         if book[:item][:title] == book_title
             book[:available] = false
             book[:return_date] = Date.today >> 1
+            puts "checked out book"
             print_book(book)
-            return book
+            return
+            
         end
     }
 end
@@ -67,7 +48,7 @@ def check_in(book_title)
              book[:available] = true
             book[:return_date] = nil
             print_book(book)
-           return book
+           return
         end
     }
 end
@@ -88,11 +69,11 @@ def print_book(book)
     printf "Title: %s\t Author: %s\tAvailable: %s\tReturn date: %s\n",  
     book[:item][:title],
     book[:item][:author],
-    book[:available],
-    book[:return_date]
+    book[:available] = true,
+    book[:return_date] = nil
 end
 
-def to_string
+def to_string(book)
     @library_books.each{|book,v| print_book(book)}
 end
 

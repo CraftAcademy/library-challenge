@@ -1,25 +1,39 @@
    require "./lib/library.rb"
+   require "date"
    
    describe Library do
     subject {described_class.new}
 
+it "should have a list of books when initialized" do
+    expect(subject.library_books).not_to be_empty
+end
 
 it "should have 5 books after loading lib/data.yml" do
 expect(subject.library_books.size()).to eq 5
 end
 
 it "should find books by title" do
-expect(subject.find_title("Osynligt med Alfons")).not_to eq nil
+expect(subject.find_by_title("Osynligt med Alfons")).not_to eq nil
 end
 
 it "should find books by author" do
-    expect(subject.find_title("Gunilla Bergström")).not_to eq nil
-    end
+    expect(subject.find_by_title("Gunilla Bergström")).not_to eq nil
+end
 
+it "should be able to check out books" do
+    expected_output = {
+      item: [
+      title: "Osynligt med Alfons",
+      author: "Gunilla Bergström"],
+      available: false,
+      return_date: Date.today >> 1,
+    }
+    expect(subject.check_out("Osynligt med Alfons")).to eq expected_output
+end
 
 it "should set due dates" do 
-    subject.check_out_book("Osynligt med Alfons")
-    expect(subject.return_date).to eq "2019-08-17"
+    subject.check_out("Osynligt med Alfons")
+    expect(subject.return_date).to eq Date.today >> 1
 end
 
 it "should set to unavailable when checking out" do 
@@ -31,6 +45,8 @@ it "should give confirmations when check in/out" do
 end
 
 it "should add books" do
+    expected_output = 673
+    expect(subject.add_book('Harry Potter', 'JK Rowling')).to eq expected_output
 end
 
 it "should write to file" do

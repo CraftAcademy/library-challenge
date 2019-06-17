@@ -11,7 +11,9 @@ class Visitor
     end
 
     def see_book_list
-        @library.to_string        
+        #@library.to_string
+        book_list = YAML.load_file('./lib/data.yml')
+        
     end
 
     def set_name(obj)
