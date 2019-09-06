@@ -39,6 +39,12 @@ We need the return date for the book to be a month from check-out
 ```
 
 ```
+As a Visitor 
+In order to know which books I checked-out 
+I need a list of the books I have in possession
+```
+
+```
 As a Visitor
 In order to return book on time
 We need to know the return date
