@@ -7,14 +7,14 @@ class Library
     end
 
     private
-    #We need to create a write/read method to change the YAML data.
-    def change_available_status #this code works in irb. 
+    def change_available_status #this code works in irb and rspec (do not touch)
         collection.select { |book| book[:item][:title].include? "Alfons och soldatpappan" }
         collection[0][:available] = false
         File.open('./lib/data.yml', 'w') { |book| book.write collection.to_yaml}
+        collection.select { |book| book[:item][:title].include? "Alfons och soldatpappan" }
     end
 
-    
+    #[WIP]
 =begin
     def something #look at the withdraw in the atm!??
     when unavaiable(book)
