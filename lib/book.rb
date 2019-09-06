@@ -1,3 +1,4 @@
+require './lib/library'
 class Book  
     STANDARD_VALIDITY_DAYS = 30
     attr_accessor :author, :title, :return_date, :book_status
@@ -17,4 +18,5 @@ class Book
     def self.unavailable(book)
         book.book_status = :unavailable
     end
+
 end

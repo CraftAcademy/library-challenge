@@ -2,43 +2,43 @@
 
 <h2>User Stories</h2>
 
-```
+``` DONE
 As a Librarian
 In order to see which books exist in the library 
 We need a list showing the title and author 
 ```
 
-```
+``` DONE
 As a Visitor 
 In order to see which books exist in the library 
 We need a list showing the title and author 
 ```
 
-```
+``` #We need to create a write/read method to change the YAML data.
 As a Librarian 
 In order to check if a book is available
 We need a file to show book availability
 ```
 
-```
+``` ADD A SEARCH METHOD
 As a Visitor
 In order to check if a book is available
-We need a file to show book availability
+We need a be able to search for books by title and author
 ```
 
-```
+``` #We need a checkout-method, and a person/visitor class or instance-double
 As a Visitor
 In order to read a book
 We need to be able to check-out a book from the library
 ```
 
-```
+``` #we have set_return_date, we don't have method to change it or add to YAML
 As a Librarian
 In order to track book check-out and return
 We need the return date for the book to be a month from check-out
 ```
 
-```
+``` #Need to add checked_out_books method list to person/visitor class
 As a Visitor 
 In order to know which books I checked-out 
 I need a list of the books I have in possession

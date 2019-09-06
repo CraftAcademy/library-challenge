@@ -24,4 +24,5 @@ describe Book do
         Book.unavailable(subject)
         expect(subject.book_status).to eq :unavailable
     end
+
 end
