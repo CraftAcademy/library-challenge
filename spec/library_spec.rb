@@ -15,5 +15,12 @@ describe Book do
         expect(subject.return_date).to eq expected_date
     end
 
+    it 'is expected to have :available status on initialize' do
+        expect(subject.book_status).to eq :available
+    end
 
+    it 'is not available when checked-out' do
+        Book.unavailable(subject)
+        expect(subject.book_status).to eq :unavailable
+    end
 end
