@@ -50,3 +50,22 @@ Read this entire README carefully and follow all instructions.
 
 
 **Happy coding!**
+
+# User stories
+
+As a programmer:
+In order to produce good quality code
+I want to work in a test driven way and unit test my code
+
+As the Library
+Needs to access a database
+
+As the Library:
+Needs to be able see a list of available books
+Both *title* and *author*
+
+As a user
+Needs to see which books are available
+
+As a user
+Needs to have an account to see which books he/she has checked out
