@@ -1,5 +1,49 @@
-## Library Challenge
-### Week 1 Ruby challenge
+<h1>Library Challenge</h1>
+
+<h2>User Stories</h2>
+
+```
+As a Librarian
+In order to see which books exist in the library 
+We need a list showing the title and author 
+```
+
+```
+As a Visitor 
+In order to see which books exist in the library 
+We need a list showing the title and author 
+```
+
+```
+As a Librarian 
+In order to check if a book is available
+We need a file to show book availability
+```
+
+```
+As a Visitor
+In order to check if a book is available
+We need a file to show book availability
+```
+
+```
+As a Visitor
+In order to read a book
+We need to be able to check-out a book from the library
+```
+
+```
+As a Librarian
+In order to track book check-out and return
+We need the return date for the book to be a month from check-out
+```
+
+```
+As a Visitor
+In order to return book on time
+We need to know the return date
+```
+
 
 Instructions
 -------
