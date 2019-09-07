@@ -55,12 +55,16 @@ Read this entire README carefully and follow all instructions.
 
 As a Library employee
 In order to see a list of available books
-I need access to a database of books
+I need access to a data of books
 
 As a Library employee
 In order to see if a book is available 
 I need to be able see a list of available books\* (Both *title* and *author*)  
  \* "can see if a list of books is available" is an unclear request  
+
+As a user
+In order to see whether a specific book is available
+I need a search method to query the database
 
 As a user
 In order to pick a book
