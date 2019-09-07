@@ -1,6 +1,14 @@
 ## Library Challenge
 ### Week 1 Ruby challenge
 
+<h1>User stories</h1>
+
+```
+As a library clerk, 
+I would like to be able to keep track of 
+which books are in the library
+```
+
 Instructions
 -------
 Read this entire README carefully and follow all instructions.
