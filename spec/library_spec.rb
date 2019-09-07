@@ -10,12 +10,16 @@ describe Library do
     expect(subject.books).to be_a Array
   end
 
-  it 'has books that holds a collection of hashes' do 
+  it 'has books stored as a collection of hashes' do 
     expect(subject.books.first).to be_a Hash
   end
 
   it 'can access books from the array' do
     expect(subject.books.first[:item][:title]).to eq "Alfons och soldatpappan"
+  end
+
+  it 'can tell if a book is available or not' do
+    expect(subject.books[1][:available]).to be false
   end
 
 
