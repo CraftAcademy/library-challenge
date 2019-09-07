@@ -5,8 +5,8 @@
 
 ```
 As a library clerk, 
-I would like to be able to keep track of 
-which books are in the library
+I would like to be able to see a list of 
+all the books in my book list as well as title and author of the book
 ```
 
 Instructions

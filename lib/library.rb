@@ -1,15 +1,16 @@
 require 'yaml'
 
 class Library
-    attr_accessor :booklist
+    attr_accessor :collection
 
     def initialize
-        @booklist = load_yaml
+        @collection = YAML.load_file('./lib/data.yml') 
+    end
+    
+    def display_books
+        collection.each do |book| 
+        puts "#{book[:item][:title] + " " + [:author]}"
     end
 
-    private
-
-    def load_yaml
-       YAML.load_file('./lib/data.yml')
-    end
+end
 end
