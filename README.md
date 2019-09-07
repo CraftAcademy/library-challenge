@@ -1,5 +1,9 @@
 ## User stories
 
+As a Visitor  
+In order to lend a book  
+The Library needs to have books  
+
 As a librarian  
 In order to find a book to lend out    
 I want to see the title and author of the book  
@@ -12,10 +16,10 @@ As a librarian
 I need to know which day the visitor has to return the book  
 So that I know when to send him/her a fine  
 
-As a visitor  
+As a Visitor  
 In order to check out a book  
 I want to see the title and author of the book  
 
-As a visitor  
+As a Visitor  
 In order to know when to return a book    
 I want to know the due date of the book  
