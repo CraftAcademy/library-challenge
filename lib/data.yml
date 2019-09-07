@@ -1,21 +1,26 @@
---- #Books
-- :item:
-    :title: Alfons och soldatpappan
-    :author: Gunilla Bergström
-  :available: true
-  :return_date:
-- :item:
-    :title: The Fellowship of The Ring
-    :author: J.R.R. Tolkien
-  :available: true
-  :return_date:
-- :item:
-    :title: Harry Potter and the Goblet of Fire
-    :author: J.K Rowling
-  :available: true
-  :return_date:
-- :item:
-    :title: Catcher in the Rye
-    :author: J.D Salinger
-  :available: true
-  :return_date:
+---
+library:
+  A:
+    book:
+        :title: Alfons och soldatpappan
+        :author: Gunilla Bergström
+      :available: true
+      :return_date:
+  C:    
+    book:
+        :title: Catcher in the Rye
+        :author: J.D Salinger
+      :available: true
+      :return_date:
+  H:
+    book:
+        :title: Harry Potter and the Goblet of Fire
+        :author: J.K Rowling
+      :available: true
+      :return_date:
+  T:
+    book:
+        :title: The Fellowship of The Ring
+        :author: J.R.R. Tolkien
+      :available: true
+      :return_date:
