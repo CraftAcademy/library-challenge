@@ -4,7 +4,7 @@ class Book
     attr_accessor :author, :title, :return_date, :book_status
 
     def initialize
-        @author = :author
+        @author = collection.select { |book| book[:item][:author].include? "" }
         @title = :title
         @return_date = set_return_date
         @book_status = :available
@@ -20,3 +20,9 @@ class Book
     end
 
 end
+
+##
+    collection.select { |book| book[:item][:title].include? "Alfons och soldatpappan" }
+        collection[0][:available] = false
+        File.open('./lib/data.yml', 'w') { |book| book.write collection.to_yaml}
+        collection.select { |book| book[:item][:title].include? "Alfons och soldatpappan" }

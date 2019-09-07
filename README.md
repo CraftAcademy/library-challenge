@@ -14,13 +14,13 @@ In order to see which books exist in the library
 We need a list showing the title and author 
 ```
 
-``` #We need to create a write/read method to change the YAML data.
+```  DONE
 As a Librarian 
 In order to check if a book is available
 We need a file to show book availability
 ```
 
-``` ADD A SEARCH METHOD
+``` DONE
 As a Visitor
 In order to check if a book is available
 We need a be able to search for books by title and author

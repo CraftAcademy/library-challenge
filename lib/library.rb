@@ -6,13 +6,23 @@ class Library
         collection = YAML.load_file('./lib/data.yml') 
     end
 
+    def search_by_author(book_author)
+        collection.select { |book| book[:item][:author].include? "#{book_author}" }
+    end
+
+    def search_by_title(book_name)
+        collection.select { |book| book[:item][:title].include? "#{book_name}" }
+    end
+    
     private
-    def change_available_status #this code works in irb and rspec (do not touch)
+    def change_available_status_false #this code works in irb and rspec (do not touch)
         collection.select { |book| book[:item][:title].include? "Alfons och soldatpappan" }
         collection[0][:available] = false
         File.open('./lib/data.yml', 'w') { |book| book.write collection.to_yaml}
         collection.select { |book| book[:item][:title].include? "Alfons och soldatpappan" }
     end
+
+    
 
     #[WIP]
 =begin
