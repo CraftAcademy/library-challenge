@@ -14,13 +14,12 @@ describe Library do
     expect(subject.books.first).to be_a Hash
   end
 
-  it 'can access books from the array' do
+  it 'can get a book from the list' do
     expect(subject.books.first[:item][:title]).to eq "Alfons och soldatpappan"
   end
 
   it 'can tell if a book is available or not' do
     expect(subject.books[1][:available]).to be false
   end
-
 
 end
