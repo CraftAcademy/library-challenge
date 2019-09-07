@@ -5,12 +5,17 @@ class Book
   attr_accessor :collection, :exp_date
 
   def initialize(attrs = {})
-    @exp_date = set_expire_date
+    @exp_date = set_return_date
     @collection = YAML.load_file('./lib/data.yml')
   end
 
-  def set_expire_date
+  def set_return_date
     Date.today.next_month(STANDARD_VALIDITY_MONTHS).strftime('%d/%m/%y')
   end
+
+  def search(book, person)
+    
+  end
+
 
 end

@@ -22,11 +22,21 @@ describe Book do
     expect(subject.collection[1][:available]).to be false
   end
 
-  describe 'when loaning a book' do  
+  it 'is expected to have an expiration date on initialize' do
+    expected_date = Date.today.next_month(1).strftime('%d/%m/%y')
+    expect(subject.exp_date).to eq expected_date
+  end
 
-    it 'is expected to have an expiration date on initialize' do
-      expected_date = Date.today.next_month(1).strftime('%d/%m/%y')
-      expect(subject.exp_date).to eq expected_date
+  describe 'when loaning a book' do  
+  let(:person) { instance_double('Person', :exp_date) }
+    before do
+      allow(person).to receive(:a_book).and_return('Your book is #{[:item][:title]')
+      allow(person).to receive(:a_book=)
+    end
+
+    it 'allows a person to loan a book if the book is available' do
+      expected_output = { message: 'The book is available', date: Date.today, book: 'Your book is #{[:item][:title]}'
+      expect(subject.search([:item][:title], person)).to eq expected_output
     end
 
   end
