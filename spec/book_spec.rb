@@ -1,6 +1,10 @@
 require './lib/book.rb'
 
-describe Book do
+describe Book do 
+
+  before do
+    YAML.load_file('./lib/data.yml')
+  end
 
   it 'responds to #books' do 
     expect(subject).to respond_to :collection

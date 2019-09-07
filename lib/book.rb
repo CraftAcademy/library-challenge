@@ -2,14 +2,13 @@ require 'yaml'
 
 class Book
   STANDARD_VALIDITY_DAYS = 30
-  attr_accessor :collection, :exp_date
+  attr_accessor :exp_date
 
   def initialize(attrs = {})
     @exp_date = set_return_date
-    @collection = available_books
   end
 
-  def available_books
+  def collection
     YAML.load_file('./lib/data.yml')
   end
 
