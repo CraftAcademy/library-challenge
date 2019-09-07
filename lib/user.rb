@@ -33,6 +33,7 @@ class User
         return true
       end
     end
+    puts 'The book "' + title + '" is not available'
   end
 
   private
