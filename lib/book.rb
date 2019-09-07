@@ -25,6 +25,10 @@ class Book
       visitors == nil ? no_visitors : visitors
   end
 
+  def no_visitors
+    raise 'There are no visitors.'
+  end
+
 
   # def checkout(attrs={})
   #   collection([])
