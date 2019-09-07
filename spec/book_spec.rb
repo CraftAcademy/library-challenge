@@ -28,16 +28,16 @@ describe Book do
   end
 
   describe 'when loaning a book' do  
-  let(:person) { instance_double('Person', :exp_date) }
-    before do
-      allow(person).to receive(:a_book).and_return('Your book is #{[:item][:title]')
-      allow(person).to receive(:a_book=)
-    end
+  # let(:person) { instance_double('Person', :exp_date) }
+  #   before do
+  #     allow(person).to receive(:a_book).and_return('Your book is #{[:item][:title]')
+  #     allow(person).to receive(:a_book=)
+  #   end
 
-    # it 'allows a person to loan a book if the book is available' do
-    #   expected_output = { message: 'The book is available', date: Date.today, book: 'Your book is #{[:item][:title]}'
-    #   expect(subject.search([:item][:title], person)).to eq expected_output
-    # end
+    it 'is expected to return a list of chosen books' do
+      expected_output = [{:item=>{:title=>"Skratta lagom! Sa pappa Åberg", :author=>"Gunilla Bergström"}, :available=>false, :return_date=>"2016-05-25"}]
+      expect(subject.search('Åberg')).to eq expected_output
+    end
 
   end
 
