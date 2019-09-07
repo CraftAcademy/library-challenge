@@ -6,21 +6,19 @@ class Library
 
     STANDARD_VALIDITY_MONTHS = 1
 
-    def initialize
-    @available = :available
-    @return_date = set_return_date
+    def collection
+        collection = File.open('./lib/data.yml')
     end
 #case def with !true statements like atm.rb
 
-    def borrow(title, author, available)
-        collection.select{|obj| obj[:item][:title].include?"Alfons och soldatpappan"}
-        case
-        when not_available?(available)
-            { status: false, message: 'book not available', date: Date.today }
-        else
-            checkout(args)
-        end
+    def search_author(author)
+        collection.select{|book| book[:item][:title].include? "#{author}" }
     end
+
+    def search_title(title)
+        collection.select{|book| book[:item][:title].include? "#{title}" }
+    end
+        
 =begin 
     def book_info
         yml = YAML::load(File.open('./lib/data.yml'))
@@ -39,14 +37,14 @@ class Library
     }
    end
 
-    def checkout(args)
+    def checkout
         collection.select {|book| book[:book][:title].include?"Catcher in the Rye"}
         collection[0][:available] = false
         File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
     end
 
-    def return(args)
-        title = args[:title]
+    def return
+        collection.select {|book| book[:book][:title].include? "Catcher in the Rye"}
         collection[0][:available] = true
         File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
     end
