@@ -1,3 +1,4 @@
+require 'yaml'
 
 class User
   attr_accessor :data
@@ -19,12 +20,19 @@ class User
 
   def see_available_books
     available_books = find_available_books
-    
     (0...available_books.length).each do |book|
       puts available_books[book][:item][:author] + ' : ' +  available_books[book][:item][:title]
-      #print available_books[book][:item][:author] + ' : ' +  available_books[book][:item][:title] + '\n'
     end
+  end
 
+  def search_for_book_title(title)
+    available_books = find_available_books
+    (0...available_books.length).each do |book|
+      if title == available_books[book][:item][:title]
+        puts 'The book "' + title + '" is available'
+        return true
+      end
+    end
   end
 
   private
