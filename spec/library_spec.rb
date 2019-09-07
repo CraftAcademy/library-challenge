@@ -14,5 +14,9 @@ describe Library do
     expect(subject.books.first).to be_a Hash
   end
 
+  it 'first item in books is "Alfons och soldatpappan"' do
+    expect(subject.books.first[:item][:title]).to eq "Alfons och soldatpappan"
+  end
+
 
 end
