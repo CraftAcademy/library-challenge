@@ -13,15 +13,19 @@ class Book
   end
 
   def set_return_date
-    Date.today.next_day(STANDARD_VALIDITY_DAYS).strftime('%d/%m/%y')
+    Date.today.next_day(STANDARD_VALIDITY_DAYS).strftime('Any books have to be returned by: %d/%m/%y')
   end
 
   def search(title)
     collection.select { |obj| obj[:item][:title].include? title  }
   end
-  # def search(book, person)
-    
+
+  # def checkout
+
   # end
 
+  # File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
+
+  # collection[0][:available] = false
 
 end

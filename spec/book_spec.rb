@@ -27,7 +27,7 @@ describe Book do
   end
 
   it 'is expected to have an expiration date on initialize' do
-    expected_date = Date.today.next_day(30).strftime('%d/%m/%y')
+    expected_date = Date.today.next_day(30).strftime('Any books have to be returned by: %d/%m/%y')
     expect(subject.exp_date).to eq expected_date
   end
 
@@ -42,6 +42,10 @@ describe Book do
       expected_output = [{:item=>{:title=>"Skratta lagom! Sa pappa Åberg", :author=>"Gunilla Bergström"}, :available=>false, :return_date=>"2016-05-25"}]
       expect(subject.search('Åberg')).to eq expected_output
     end
+
+    # it 'is expected to checkout currently chosen book' do
+    #   expected_output = 
+    # end
 
   end
 
