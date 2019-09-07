@@ -8,6 +8,11 @@ As a library clerk,
 I would like to be able to see a list of 
 all the books in my book list as well as title and author of the book
 ```
+```
+As a library clerk,
+I would like to be able to search for books
+```
+
 
 Instructions
 -------
