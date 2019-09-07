@@ -1,4 +1,4 @@
-require './lib/library.rb'
+require './lib/book.rb'
 
 describe Library do
 
