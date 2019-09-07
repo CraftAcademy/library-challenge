@@ -11,7 +11,12 @@ attr_accessor :t0, :t1, :t2, :t3, :t4
     end
 
     def collection
-        collection = YAML.load_file('./lib/data.yml') 
+        collection = YAML.load_file('./lib/data.yml') #Is an Array retrieve collection[integer] with Hashes inside, retrieve with :key
+    end
+
+    def read_all_books #added for a new way to show collection
+        show_collection = collection.collect
+        puts show_collection
     end
 
     def search_by_author(book_author)
@@ -45,15 +50,38 @@ attr_accessor :t0, :t1, :t2, :t3, :t4
         end
     end
 
-    
+    def aval 
+        available = YAML.load_file ('./lib/data.yml')
+        available[3][:available] = false
+        File.open('./lib/data.yml', 'w') { |f| YAML.dump(available, f)}
+        collection.select { |book| book[:item][:title].include? "Pippi Långstrump" }
+    end
+
+    def isAval 
+        available = YAML.load_file ('./lib/data.yml')
+        available[3][:available] = true
+        File.open('./lib/data.yml', 'w') { |f| YAML.dump(available, f)}
+        collection.select { |book| book[:item][:title].include? "Pippi Långstrump" }
+    end
     private
 
-    def change_available_status_false?(t0)
-        collection.select { |book| book[:item][:title].include? "Alfons och soldatpappan" }
-        collection[0][:available] = false
-        File.open('./lib/data.yml', 'w') { |book| book.write collection.to_yaml}
-        collection.select { |book| book[:item][:title].include? "Alfons och soldatpappan" }
-    end
+
+
+
+    
+
+=begin
+Help from StackOverflow answer: https://stackoverflow.com/questions/13948951/update-value-of-key-of-a-yaml-file-in-ruby-on-rails
+ EX: I have a yml file with some key value.
+age: 24
+Name: XYZ
+I want code to update the value of "Name" key from XYZ to ABC? How can i do it?
+Solution:
+data = YAML.load_file "path/to/yml_file.yml"
+    data["Name"] = ABC
+    File.open("path/to/yml_file.yml", 'w') { |f| YAML.dump(data, f) }
+It will write into yml file. If specified key ("Name") is not present in file, it will write new key value othrwise the existing one will be replaced.
+
 
     def change_available_status_false?(t1)
         collection.select { |book| book[:item][:title].include? "Skratta lagom! Sa pappa Åberg" }
@@ -82,4 +110,5 @@ attr_accessor :t0, :t1, :t2, :t3, :t4
         File.open('./lib/data.yml', 'w') { |book| book.write collection.to_yaml}
         collection.select { |book| book[:item][:title].include? "Pippi Långstrump går ombord" }
     end
+=end
 end

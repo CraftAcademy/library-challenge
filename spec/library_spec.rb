@@ -17,8 +17,13 @@ describe Library do
         expect(subject).to be_truthy
     end
 
-    it 'sets chosen book availability to false' do
-        expected_output = { message: 'You have checked-out the book. The return date is', date: Date.today.next_day(30).strftime('%d/%m/%y') }
-        expect(subject.book_change_availability_false("Alfons och soldatpappan")).to eq expected_output
+    it 'finds available set to false for 3rd book' do
+        expected_output = [{:item=>{:title=>"Pippi Långstrump", :author=>"Astrid Lindgren"}, :available=>false, :return_date=>nil}, {:item=>{:title=>"Pippi Långstrump går ombord", :author=>"Astrid Lindgren"}, :available=>true, :return_date=>nil}] 
+        expect(subject.aval).to eq expected_output
+    end
+
+    it 'finds available set to true for 3rd book' do
+        expected_output = [{:item=>{:title=>"Pippi Långstrump", :author=>"Astrid Lindgren"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"Pippi Långstrump går ombord", :author=>"Astrid Lindgren"}, :available=>true, :return_date=>nil}] 
+        expect(subject.isAval).to eq expected_output
     end
 end
