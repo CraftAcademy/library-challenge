@@ -6,7 +6,7 @@ describe Book do
     YAML.load_file('./lib/data.yml')
   end
 
-  it 'responds to #books' do 
+  it 'responds to #collection' do 
     expect(subject).to respond_to :collection
   end
 
@@ -39,7 +39,7 @@ describe Book do
       expect(subject.visitor).to eq person
     end
 
-    it 'is expected to raise error if no owner is set' do
+    it 'is expected to raise error if no visitor is set' do
       expect { described_class.new }.to raise_error 'There are no visitors.'
     end
 
