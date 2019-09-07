@@ -6,8 +6,12 @@ describe Library do
     expect(subject).to respond_to :books
   end
 
-    it 'has #books as an Array' do 
+    it 'stores #books as an Array' do 
     expect(subject.books).to be_a Array
+  end
+
+  it 'has books that holds a collection of hashes' do 
+    expect(subject.books.first).to be_a Hash
   end
 
 
