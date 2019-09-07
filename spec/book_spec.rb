@@ -31,21 +31,22 @@ describe Book do
     expect(subject.exp_date).to eq expected_date
   end
 
-  describe 'when loaning a book' do  
-  # let(:person) { instance_double('Person', :exp_date) }
-  #   before do
-  #     allow(person).to receive(:a_book).and_return('Your book is #{[:item][:title]')
-  #     allow(person).to receive(:a_book=)
-  #   end
+  describe 'when loaning a book from the library' do  
+    let(:person) { instance_double('Person') }
+    subject { described_class.new({visitor: person}) }
+
+    it 'is expected to have a visitor' do
+      expect(subject.visitor).to eq person
+    end
+
+    it 'is expected to raise error if no owner is set' do
+      expect { described_class.new }.to raise_error 'There are no visitors.'
+    end
 
     it 'is expected to return a list of chosen books' do
       expected_output = [{:item=>{:title=>"Skratta lagom! Sa pappa Åberg", :author=>"Gunilla Bergström"}, :available=>false, :return_date=>"2016-05-25"}]
       expect(subject.search('Åberg')).to eq expected_output
     end
-
-    # it 'is expected to checkout currently chosen book' do
-    #   expected_output = 
-    # end
 
   end
 
