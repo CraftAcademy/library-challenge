@@ -1,7 +1,7 @@
 require './lib/library.rb'
 
 describe Library do
-  it 'needs to have access to yaml file' do
+  it 'needs to have access to a database of books' do
     expect(subject.database).not_to be nil
   end
 

@@ -53,19 +53,31 @@ Read this entire README carefully and follow all instructions.
 
 # User stories
 
-As a programmer:
-In order to produce good quality code
-I want to work in a test driven way and unit test my code
+As a Library employee
+In order to see a list of available books
+I need access to a database of books
 
-As the Library
-Needs to access a database
-
-As the Library:
-Needs to be able see a list of available books
-Both *title* and *author*
+As a Library employee
+In order to see if a book is available 
+I need to be able see a list of available books\* (Both *title* and *author*)  
+ \* "can see if a list of books is available" is an unclear request  
 
 As a user
-Needs to see which books are available
+In order to pick a book
+I need to see which books are available
 
 As a user
-Needs to have an account to see which books he/she has checked out
+In order to borrow a book
+I need an account
+
+As a user
+In order to check out a book
+I need a checkout process
+
+As a library employee
+In order to have books returned on time
+I need a process to calculate the return date
+
+As a user
+In order to return the book on time
+I need the checkout process to return a return date
