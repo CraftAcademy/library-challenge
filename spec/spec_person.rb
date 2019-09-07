@@ -7,6 +7,10 @@ describe Person do
         expect()
     end
 
+    it 'is expected to search for the book I want to read' do
+        expect()
+    end
+
     it 'is expected to check out the book I want to read' do
         expect()
     end
