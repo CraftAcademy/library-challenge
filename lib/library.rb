@@ -27,11 +27,29 @@ class Library
   end
 
   def checkout(book)
-    #index = []
     collection.detect { |book| book[:item][:title] == book }
-    index = collection.index {|choice| choice[:item][:title] == book }
-    #Returns the index of the chosen book and puts it inside an array
-    collection[index][:available] = false
+    index = collection.index { |choice| choice[:item][:title] == book }
+    collection[index][:available]
+    #Responds to true or false
+    if collection[index][:available] == true
+        collection[index][:available] = false
+        return thank_you
+    else not_available
+    end
+  end
+
+  def thank_you
+    File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
+    return 'You have checked out this book'
+  end
+
+  if result[:available] == false
+    result[:available] = true
+    result[:return_date] = 'None'
+    File.open('./lib/library.yml', 'w') { |f| f.write collection.to_yaml }
+
+  def not_available
+    return 'This book is currently unavailable'
   end
 
 

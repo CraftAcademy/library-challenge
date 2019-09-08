@@ -54,7 +54,7 @@ describe Library do
     end
 
     it 'is expected to return the index of the title of the chosen book' do 
-      expect(subject.checkout('Pippi Långstrump')).to be false
+      expect(subject.checkout('Pippi Långstrump')).to eq 'You have checked out this book'
     end
 
   end
