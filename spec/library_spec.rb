@@ -43,9 +43,14 @@ describe Library do
     #   expect { described_class.new }.to raise_error 'No librarian here.'
     # end
 
-    it 'is expected to return all details of chosen books' do
+    it 'is expected to return all details of matching book titles' do
       expected_output = [{:item=>{:title=>"Skratta lagom! Sa pappa Åberg", :author=>"Gunilla Bergström"}, :available=>false, :return_date=>"2016-05-25"}]
       expect(subject.search('Åberg')).to eq expected_output
+    end
+
+    it 'is expected to return all details of the chosen book' do
+      expected_output = {:item=>{:title=>"Pippi Långstrump", :author=>"Astrid Lindgren"}, :available=>true, :return_date=>nil}
+      expect(subject.pick('Pippi Långstrump')).to eq expected_output
     end
 
   end

@@ -18,7 +18,11 @@ class Library
   end
 
   def search(title)
-    collection.select { |obj| obj[:item][:title].include? title  }
+    collection.select { |books| books[:item][:title].include? title  }
+  end
+
+  def pick(book)
+    collection.detect { |book| book[:item][:title] == "Pippi Långstrump"  }
   end
 
   # def call_librarian(obj)
