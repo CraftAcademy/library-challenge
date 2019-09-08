@@ -27,9 +27,10 @@ class Library
   end
 
   def final_choice(book)
+    index = []
     collection.detect { |book| book[:item][:title] == book }
-    collection.index {|choice| choice[:item][:title] == book }
-    #Returns the index of the chosen book
+    index << collection.index {|choice| choice[:item][:title] == book }
+    #Returns the index of the chosen book and puts it inside an array
   end
 
 

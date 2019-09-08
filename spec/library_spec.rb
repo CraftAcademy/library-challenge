@@ -53,8 +53,8 @@ describe Library do
       expect(subject.pick('Pippi Långstrump')).to eq expected_output
     end
 
-    it 'is expected to return the index of the chosen book' do 
-      expect(subject.final_choice('Pippi Långstrump')).to eq 3
+    it 'is expected to return the index of the title of the chosen book' do 
+      expect(subject.final_choice('Pippi Långstrump')).to eq [3]
     end
 
   end
