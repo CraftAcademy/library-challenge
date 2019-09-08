@@ -4,7 +4,7 @@ describe Library do
   let(:person) { instance_double('Librarian') }
   subject { described_class.new({librarian: person}) }
 
-  before do
+  before :all do
     YAML.load_file('./lib/data.yml')
   end
 
@@ -24,7 +24,7 @@ describe Library do
     expect(subject.collection.first[:item][:title]).to eq "Alfons och soldatpappan"
   end
 
-  it 'can tell if a book is available or not' do
+  it 'can tell if a specific book is available or not' do
     expect(subject.collection[1][:available]).to be false
   end
 
@@ -34,6 +34,7 @@ describe Library do
   end
 
   describe 'when loaning a book from the library' do  
+
     it 'is expected to have a librarian' do
       expect(subject.librarian).to eq person
     end
