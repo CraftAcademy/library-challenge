@@ -18,7 +18,7 @@ class Library
   end
 
   def search(title)
-    collection.select { |book| book[:item][:title].include? title  }
+    collection.select { |obj| obj[:item][:title].include? title  }
   end
 
   # def call_librarian(obj)
