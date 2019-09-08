@@ -44,6 +44,7 @@ class User
           data[book][:available] = false
           data[book][:return_date] = calculate_return_date
           transaction_success = true
+          write_to_account(data[book][:item][:title], data[book][:item][:author], calculate_return_date)
         end
       end
       write_changes
@@ -65,6 +66,10 @@ class User
 
   def write_changes
     File.open('./lib/data.yml', 'w') {|book| book.write data.to_yaml}
+  end
+
+  def write_to_account(book_title, book_author, date)
+    account << [{title: book_title}, {author: book_author}, {return_date: date}]
   end
 
 end
