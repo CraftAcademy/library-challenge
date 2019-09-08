@@ -7,18 +7,27 @@ class Library
     STANDARD_VALIDITY_MONTHS = 1
 
     def collection
-        collection = File.open('./lib/data.yml')
+        collection = YAML.load_file('./lib/data.yml')
     end
-#case def with !true statements like atm.rb
+
+  
+    
+    #def index
+        #index = collection.index(:title)
+
+    #case def with !true statements like atm.rb
+    #collection.select{|book| book[:book][:title].include?
 
     def search_author(author)
-        collection.select{|book| book[:item][:title].include? "#{author}" }
+        collection.select{|book| book[:book][:title].include? author }
     end
 
     def search_title(title)
-        collection.select{|book| book[:item][:title].include? "#{title}" }
+        collection.select{|book| book[:book][:title].include? title }
     end
-        
+
+
+         
 =begin 
     def book_info
         yml = YAML::load(File.open('./lib/data.yml'))
@@ -26,7 +35,7 @@ class Library
         title = yml['book']['title']
         title.each{||}
 
-=end
+
    def book_info
         yml = YAML.load_file '.lib/data.yml'
         yml.each_key { |key|
@@ -36,15 +45,18 @@ class Library
             puts "#{title}, Written by #{author}, available: #{available}"
     }
    end
+=end
+    
+
 
     def checkout
-        collection.select {|book| book[:book][:title].include?"Catcher in the Rye"}
+        collection.select {|book| book[:book][:title].include? title}
         collection[0][:available] = false
         File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
     end
 
     def return
-        collection.select {|book| book[:book][:title].include? "Catcher in the Rye"}
+        collection.select {|book| book[:book][:title].include? title}
         collection[0][:available] = true
         File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
     end
