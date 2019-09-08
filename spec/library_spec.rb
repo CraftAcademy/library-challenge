@@ -13,12 +13,12 @@ describe Library do
 
     it 'should be able to find a title ' do
     expected_output = {:item=>{:title=>'Osynligt med Alfons', :author=>'Gunilla Bergström'}, :available=>true, :return_date=>nil}
-    expect(subject.search_for_book_title(Osynligt)).to eq expected_output 
+    expect{subject.search_for_book_title('Osynligt')}.to eq expected_output 
     end
 
     it 'should be able to find an author ' do
         expected_output = {:item=>{:title=>'Osynligt med Alfons', :author=>'Gunilla Bergström'}, :available=>true, :return_date=>nil}
-        expect(subject.search_for_book_author(Gunilla)).to eq expected_output 
-        end
+       expect(subject.search_for_book_author(Gunilla)).to eq expected_output 
+    end
     
 end
