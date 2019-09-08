@@ -18,4 +18,8 @@ class Library
         end
     end
 
+    def search_for_book_author(search_author)
+        puts collection.select { |book| book[:item][:author].include? search_author} do
+        end
+    end
 end
