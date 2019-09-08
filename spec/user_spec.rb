@@ -7,7 +7,7 @@ describe User do
   end
 
   it 'needs to see whether a specific book is available' do
-    title = 'Osynligt med Alfons'
-    expect(subject.search_for_book_title(title)).to eq true
+    expected_output = "Alfons och soldatpappan\nOsynligt med Alfons\n"
+    expect{subject.search_for_book_title('Alfons')}.to output(expected_output).to_stdout
   end
 end

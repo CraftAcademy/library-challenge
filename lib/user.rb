@@ -23,8 +23,9 @@ class User
   end
 
   def search_for_book_title(search_str)
-    puts data.select { |book| book[:item][:title].include? search_str}
-    # TODO: Fix output and put into Library class
+    search = data.select { |book| book[:item][:title].include? search_str}
+    search.each { |book| puts book[:item][:title] }
+    # TODO: Copy into Library class
   end
 
   def search_for_book_author(search_str)
@@ -33,7 +34,9 @@ class User
   end
 
   def checkout
-    # TODO: Finish process
+    # TODO: Write a user story to store rented books
+    # TODO: Create an account; an Array where each book is an array that contains key:value pairs (title, author, return date)
+    # TODO: Finish process - argument should be the index number of @data
   end
 
   private
