@@ -11,5 +11,6 @@ describe Library do
     end
 
     it 'should be able to find a book' do
-    expected_output = 
+    expected_output = { book[:item][:title]}"
+    expect(subject.{ |book| book[:item][:title].include? "#{book_name}" }
 end

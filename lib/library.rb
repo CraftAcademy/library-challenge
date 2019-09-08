@@ -12,9 +12,9 @@ class Library
         puts "#{book[:item][:title] + " " + [:author]}"
     end
 
-    def search_book(apple)
-        collection.select { |book| book[:item][:title].include? apple}
-        end
+    def search_title(name)
+        collection.select { |book| book[:item][:title].include? "#{book_name}" }
+    end
 
 end
 end
