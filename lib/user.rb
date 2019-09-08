@@ -51,13 +51,13 @@ class User
       return transaction_success
     end
     
-    # TODO: Create an account; an Array where each book is an array that contains key:value pairs (title, author, return date)
-    # TODO: Finish process - argument should be the index number of @data
   end
 
   def display_account
     return_strings = []
-    (0...account.length).each {|book| return_strings << "#{account[book][:title]} : #{account[book][:author]} : return by #{account[book][:return_date]}"}
+    (0...account.length).each do |book| 
+      return_strings << "#{account[book][:title]} : #{account[book][:author]} : return by #{account[book][:return_date]}"
+    end
     return return_strings
   end
 
@@ -75,7 +75,7 @@ class User
   end
 
   def write_to_account(book_title, book_author, date)
-    account << [{title: book_title}, {author: book_author}, {return_date: date}]
+    account << {title: book_title, author: book_author, return_date: date}
   end
 
 end
