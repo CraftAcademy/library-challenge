@@ -1,10 +1,11 @@
 require 'yaml'
 
 class User
-  attr_accessor :data
+  attr_accessor :data, :account
 
   def initialize
     @data = load_data
+    @account = []
   end
 
   def see_available_books
@@ -33,7 +34,7 @@ class User
     # TODO: Fix output and put into Library class
   end
 
-  def checkout
+  def checkout()
     # TODO: Write a user story to store rented books
     # TODO: Create an account; an Array where each book is an array that contains key:value pairs (title, author, return date)
     # TODO: Finish process - argument should be the index number of @data

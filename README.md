@@ -75,6 +75,10 @@ In order to borrow a book
 I need an account
 
 As a user
+In order to know when to return a book
+I need my account to store my books
+
+As a user
 In order to check out a book
 I need a checkout process
 
