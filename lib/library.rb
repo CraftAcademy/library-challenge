@@ -22,5 +22,4 @@ class Library
         puts collection.select { |book| book[:item][:author].include? search_author} do
         end
     end
-
 end

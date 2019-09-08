@@ -7,7 +7,7 @@ describe Library do
 
     
     it 'should show a list of the books stored in the book list' do
-    expected_output = {book[:item][:title] + " " + [:author]}
+    expected_output = {[:item][:title] + " " + [:author]}
     expect(subject.display_books).to eq expected_output
     end
 
