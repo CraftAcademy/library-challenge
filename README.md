@@ -52,6 +52,9 @@ Thank you [CraftAcademy](https://craftacademy.se/) for giving us this challenge.
 
 ## Updates/Improvements  
 When time given, we plan to finalize our code.  
+* At the moment, using the checkout method replaces all data inside of the data.yml file, instead of adding to it.  
+* At the moment, the syntax for the instance double prevents creating an instance of the Library class when loading the file in IRB.  
+* At the moment, there is currently only a Library class and an instance double for a Librarian class.
 
 ## User stories
 ```
