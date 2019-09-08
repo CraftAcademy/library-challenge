@@ -100,3 +100,13 @@ Read this entire README carefully and follow all instructions.
 
 
 **Happy coding!**
+
+
+Sources for help
+
+Help from StackOverflow answer regarding other ways to change key values within a yaml-file: https://stackoverflow.com/questions/13948951/update-value-of-key-of-a-yaml-file-in-ruby-on-rails
+Explanation being: The showed method will write into yml file. If specified key ("Name") is not present in file, it will write new key value othrwise the existing one will be replaced.
+    data = YAML.load_file "path/to/yml_file.yml"
+    data["Name"] = ABC
+    File.open("path/to/yml_file.yml", 'w') { |f| YAML.dump(data, f) }
+It will write into yml file. If specified key ("Name") is not present in file, it will write new key value othrwise the existing one will be replaced.
