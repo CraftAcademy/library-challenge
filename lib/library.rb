@@ -19,12 +19,19 @@ class Library
   end
 
   def search(title)
-    collection.select { |books| books[:item][:title].include? title  }
+    collection.select { |books| books[:item][:title].include? title }
   end
 
   def pick(choice)
     collection.detect { |book| book[:item][:title] == choice }
   end
+
+  def final_choice(book)
+    collection.detect { |book| book[:item][:title] == book }
+    collection.index {|h| h[:item][:title] == book }
+    #Returns the index of the chosen book
+  end
+
 
 
   # def call_librarian(obj)
