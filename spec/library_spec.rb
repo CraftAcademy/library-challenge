@@ -1,6 +1,6 @@
-require './lib/book.rb'
+require './lib/library.rb'
 
-describe Book do 
+describe Library do 
 
   before do
     YAML.load_file('./lib/data.yml')

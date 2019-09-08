@@ -1,6 +1,6 @@
 require 'yaml'
 
-class Book
+class Library
   STANDARD_VALIDITY_DAYS = 30
   attr_accessor :exp_date#, :visitor
 
