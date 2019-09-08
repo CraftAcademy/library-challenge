@@ -33,4 +33,8 @@ describe Library do
         collection.select { |book| book[:item][:title].include? "Osynligt med Alfons" }
         expect(subject.unAval("Osynligt med Alfons")).to include{[{:item=>{:title=>"Osynligt med Alfons"}, :available=>false}]} 
     end
+
+    it 'checks-out book and sends message stating return date' do
+        expect(subject.check_out("Skratta lagom! Sa pappa Åberg")).to include { ('You have checked-out the book.') }
+    end
 end 

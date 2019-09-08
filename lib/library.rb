@@ -34,27 +34,11 @@ attr_accessor :book_name, :array_number
         Date.today.next_day(STANDARD_VALIDITY_DAYS).strftime('%d/%m/%y')
     end
 
-    def book_change_availability_false(book_name)
-        case  
-            when change_available_status_false?(0)
-                { message: 'You have checked-out the book. The return date is', date: Date.today.next_day(30).strftime('%d/%m/%y') }
-
-            when change_available_status_false?(1)
-                { message: 'You have checked-out the book. The return date is', date: Date.today.next_day(30).strftime('%d/%m/%y') }
-
-            when change_available_status_false?(2)
-                { message: 'You have checked-out the book. The return date is', date: Date.today.next_day(30).strftime('%d/%m/%y') }
-
-            when change_available_status_false?(3)
-                { message: 'You have checked-out the book. The return date is', date: Date.today.next_day(30).strftime('%d/%m/%y') }
-
-            when change_available_status_false?(4)
-                { message: 'You have checked-out the book. The return date is', date: Date.today.next_day(30).strftime('%d/%m/%y') }
-            else
-                print 'wrong'
-        end
+    def check_out(book_name)
+        unAval(array_number)
+        return_date_method(array_number)
+        { message: 'You have checked-out the book. The return date is', date: Date.today.next_day(30).strftime('%d/%m/%y') }
     end
-
 
     def unAval(array_number)
         available = YAML.load_file ('./lib/data.yml')

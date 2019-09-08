@@ -26,13 +26,13 @@ In order to check if a book is available
 We need a be able to search for books by title and author
 ```
 
-``` #We need a checkout-method, and a person/visitor class or instance-double
+``` DONE
 As a Visitor
 In order to read a book
 We need to be able to check-out a book from the library
 ```
 
-``` #we have set_return_date, we don't have method to change it or add to YAML
+``` DONE
 As a Librarian
 In order to track book check-out and return
 We need the return date for the book to be a month from check-out
@@ -45,7 +45,7 @@ I need a list of the books I have in possession
 ```
 
 ```
-As a Visitor
+As a Visitor DONE
 In order to return book on time
 We need to know the return date
 ```
