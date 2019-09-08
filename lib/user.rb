@@ -29,8 +29,8 @@ class User
 
   def checkout(title, author)
     data = @library.data
-    (0...data.length).each do |book|
-      transaction_success = false
+    transaction_success = false
+    for book in (0...data.length) do
       if (data[book][:item][:author] == author) && (data[book][:item][:title] == title)
         if data[book][:available] == true
           data[book][:available] = false
@@ -40,15 +40,14 @@ class User
         end
       end
       @library.write_changes
-      return transaction_success
     end
-    
+    return transaction_success
   end
 
   def display_account
     return_strings = []
     (0...account.length).each do |book| 
-      return_strings << "#{account[book][:title]} : #{account[book][:author]} : #{account[book][:return_date]}"
+      return_strings.push "#{account[book][:title]} : #{account[book][:author]} : #{account[book][:return_date]}"
     end
     return return_strings
   end
@@ -56,7 +55,7 @@ class User
   private
 
   def write_to_account(book_title, book_author, date)
-    account << {title: book_title, author: book_author, return_date: date}
+    account.push({title: book_title, author: book_author, return_date: date})
   end
 
 end
