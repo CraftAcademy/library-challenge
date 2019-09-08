@@ -55,6 +55,12 @@ class User
     # TODO: Finish process - argument should be the index number of @data
   end
 
+  def display_account
+    return_strings = []
+    (0...account.length).each {|book| return_strings << "#{account[book][:title]} : #{account[book][:author]} : return by #{account[book][:return_date]}"}
+    return return_strings
+  end
+
   private
   def load_data
     YAML.load_file('lib/data.yml')
