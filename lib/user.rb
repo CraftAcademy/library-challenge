@@ -1,4 +1,5 @@
 require 'yaml'
+require 'date'
 
 class User
   attr_accessor :data, :account
@@ -34,8 +35,18 @@ class User
     # TODO: Fix output and put into Library class
   end
 
-  def checkout()
-    # TODO: Write a user story to store rented books
+  def checkout(title, author)
+    
+    (0...data.length).each do |book|
+      if (data[book][:item][:title][:author] == author) && (data[book][:item][:title][:title] == title)
+        if data[book][:available] == true
+          data[book][:available] = false
+          data[book][:return_date] = calculate_return_date
+        end
+      end
+      File.open('./lib/data.yml', 'w') {|book| book.write data.to_yaml}
+    end
+    
     # TODO: Create an account; an Array where each book is an array that contains key:value pairs (title, author, return date)
     # TODO: Finish process - argument should be the index number of @data
   end
@@ -44,4 +55,9 @@ class User
   def load_data
     YAML.load_file('lib/data.yml')
   end
+
+  def calculate_return_date
+    Date.today + 30
+  end
+
 end
