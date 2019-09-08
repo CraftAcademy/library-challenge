@@ -1,6 +1,8 @@
 require './lib/library.rb'
 
 describe Library do 
+  let(:person) { instance_double('Librarian') }
+  subject { described_class.new({librarian: person}) }
 
   before do
     YAML.load_file('./lib/data.yml')
@@ -32,15 +34,12 @@ describe Library do
   end
 
   describe 'when loaning a book from the library' do  
-    let(:person) { instance_double('Person') }
-    subject { described_class.new({visitor: person}) }
-
-    it 'is expected to have a visitor' do
-      expect(subject.visitor).to eq person
+    it 'is expected to have a librarian' do
+      expect(subject.librarian).to eq person
     end
 
     it 'is expected to raise error if no visitor is set' do
-      expect { described_class.new }.to raise_error 'There are no visitors.'
+      expect { described_class.new }.to raise_error 'No librarian here.'
     end
 
     it 'is expected to return a list of chosen books' do

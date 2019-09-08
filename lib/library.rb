@@ -2,11 +2,11 @@ require 'yaml'
 
 class Library
   STANDARD_VALIDITY_DAYS = 30
-  attr_accessor :exp_date#, :visitor
+  attr_accessor :exp_date, :librarian
 
   def initialize(attrs = {})
     @exp_date = set_return_date
-    # @visitor = visit_library(attrs[:visitor])
+    @librarian = call_librarian(attrs[:librarian])
   end
 
   def collection
@@ -21,12 +21,12 @@ class Library
     collection.select { |obj| obj[:item][:title].include? title  }
   end
 
-  # def visit_library(visitors)
-  #     visitors == nil ? no_visitors : visitors
-  # end
+  def call_librarian(obj)
+    obj == nil ? missing_librarian : obj
+  end
 
-  # def no_visitors
-  #   raise 'There are no visitors.'
-  # end
+  def missing_librarian
+    raise 'No librarian here.'
+  end
 
 end
