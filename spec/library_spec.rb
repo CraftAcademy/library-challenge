@@ -53,8 +53,8 @@ describe Library do
       expect(subject.pick('Pippi Långstrump')).to eq expected_output
     end
 
-    it 'is expected to return the index of the title of the chosen book' do 
-      expect(subject.checkout('Pippi Långstrump')).to eq 'You have checked out this book'
+    it 'is expected to checkout the the chosen book and return a due date' do 
+      expect(subject.checkout('Pippi Långstrump')).to eq 'You have checked out this book ' + Date.today.next_day(30).strftime('Any books have to be returned by: %d/%m/%y')
     end
 
   end
