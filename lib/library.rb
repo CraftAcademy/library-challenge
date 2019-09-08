@@ -1,6 +1,8 @@
 require 'yaml'
+require 'Date'
 
 class Library
+STANDARD_VALIDITY_DAYS = 30
 attr_accessor :t0, :t1, :t2, :t3, :t4
     def initialize
        t0 = "Alfons och soldatpappan"
@@ -27,44 +29,137 @@ attr_accessor :t0, :t1, :t2, :t3, :t4
         collection.select { |book| book[:item][:title].include? "#{book_name}" }
         { message: 'Please do a new search with the full book title within quotation marks.' }
     end
-
+    
+    def set_return_date
+        Date.today.next_day(STANDARD_VALIDITY_DAYS).strftime('%d/%m/%y')
+    end
 
     def book_change_availability_false(book_name)
         case  
-            when change_available_status_false?(t0)
+            when change_available_status_false?(0)
                 { message: 'You have checked-out the book. The return date is', date: Date.today.next_day(30).strftime('%d/%m/%y') }
 
-            when change_available_status_false?(t1)
+            when change_available_status_false?(1)
                 { message: 'You have checked-out the book. The return date is', date: Date.today.next_day(30).strftime('%d/%m/%y') }
 
-            when change_available_status_false?(t2)
+            when change_available_status_false?(2)
                 { message: 'You have checked-out the book. The return date is', date: Date.today.next_day(30).strftime('%d/%m/%y') }
 
-            when change_available_status_false?(t3)
+            when change_available_status_false?(3)
                 { message: 'You have checked-out the book. The return date is', date: Date.today.next_day(30).strftime('%d/%m/%y') }
 
-            when change_available_status_false?(t4)
+            when change_available_status_false?(4)
                 { message: 'You have checked-out the book. The return date is', date: Date.today.next_day(30).strftime('%d/%m/%y') }
             else
                 print 'wrong'
         end
     end
 
-    def aval 
+    def unAval(book_name)
+        available = YAML.load_file ('./lib/data.yml')
+        available[0][:available] = false
+        File.open('./lib/data.yml', 'w') { |f| YAML.dump(available, f)}
+        collection.select { |book| book[:item][:title].include? "Alfons och soldatpappan" }
+    end
+
+    def isAval(book_name)
+        available = YAML.load_file ('./lib/data.yml')
+        available[0][:available] = true
+        File.open('./lib/data.yml', 'w') { |f| YAML.dump(available, f)}
+        collection.select { |book| book[:item][:title].include? "Alfons och soldatpappan" }
+    end
+
+    def unAval(book_name)
+        available = YAML.load_file ('./lib/data.yml')
+        available[1][:available] = false
+        File.open('./lib/data.yml', 'w') { |f| YAML.dump(available, f)}
+        collection.select { |book| book[:item][:title].include? "Skratta lagom! Sa pappa Åberg" }
+    end
+
+    def isAval(book_name)
+        available = YAML.load_file ('./lib/data.yml')
+        available[1][:available] = true
+        File.open('./lib/data.yml', 'w') { |f| YAML.dump(available, f)}
+        collection.select { |book| book[:item][:title].include? "Skratta lagom! Sa pappa Åberg" }
+    end
+
+    def unAval(book_name)
+        available = YAML.load_file ('./lib/data.yml')
+        available[2][:available] = false
+        File.open('./lib/data.yml', 'w') { |f| YAML.dump(available, f)}
+        collection.select { |book| book[:item][:title].include? "Osynligt med Alfons" }
+    end
+
+    def isAval(book_name)
+        available = YAML.load_file ('./lib/data.yml')
+        available[2][:available] = true
+        File.open('./lib/data.yml', 'w') { |f| YAML.dump(available, f)}
+        collection.select { |book| book[:item][:title].include? "Osynligt med Alfons" }
+    end
+
+    def unAval(book_name)
         available = YAML.load_file ('./lib/data.yml')
         available[3][:available] = false
         File.open('./lib/data.yml', 'w') { |f| YAML.dump(available, f)}
         collection.select { |book| book[:item][:title].include? "Pippi Långstrump" }
     end
 
-    def isAval 
+    def isAval(book_name)
         available = YAML.load_file ('./lib/data.yml')
         available[3][:available] = true
         File.open('./lib/data.yml', 'w') { |f| YAML.dump(available, f)}
         collection.select { |book| book[:item][:title].include? "Pippi Långstrump" }
     end
-    private
 
+    def unAval(book_name)
+        available = YAML.load_file ('./lib/data.yml')
+        available[4][:available] = false
+        File.open('./lib/data.yml', 'w') { |f| YAML.dump(available, f)}
+        collection.select { |book| book[:item][:title].include? "Pippi Långstrump går ombord" }
+    end
+
+    def isAval(book_name)
+        available = YAML.load_file ('./lib/data.yml')
+        available[4][:available] = true
+        File.open('./lib/data.yml', 'w') { |f| YAML.dump(available, f)}
+        collection.select { |book| book[:item][:title].include? "Pippi Långstrump går ombord" }#
+    end
+    
+    def return_date_method(book_name)
+        book_return = YAML.load_file ('./lib/data.yml')
+        book_return[0][:return_date] = set_return_date
+        File.open('./lib/data.yml', 'w') { |f| YAML.dump(book_return, f)}
+        collection.select { |book| book[:item][:title].include? "Alfons och soldatpappan" }
+    end
+
+    def return_date_method(book_name)
+        book_return = YAML.load_file ('./lib/data.yml')
+        book_return[1][:return_date] = set_return_date
+        File.open('./lib/data.yml', 'w') { |f| YAML.dump(book_return, f)}
+        collection.select { |book| book[:item][:title].include? "Skratta lagom! Sa pappa Åberg" }
+    end
+
+    def return_date_method(book_name)
+        book_return = YAML.load_file ('./lib/data.yml')
+        book_return[2][:return_date] = set_return_date
+        File.open('./lib/data.yml', 'w') { |f| YAML.dump(book_return, f)}
+        collection.select { |book| book[:item][:title].include? "Osynligt med Alfons" }
+    end
+
+    def return_date_method(book_name)
+        book_return = YAML.load_file ('./lib/data.yml')
+        book_return[3][:return_date] = set_return_date
+        File.open('./lib/data.yml', 'w') { |f| YAML.dump(book_return, f)}
+        collection.select { |book| book[:item][:title].include? "Pippi Långstrump" }
+    end
+
+    def return_date_method(book_name)
+        book_return = YAML.load_file ('./lib/data.yml')
+        book_return[4][:return_date] = set_return_date
+        File.open('./lib/data.yml', 'w') { |f| YAML.dump(book_return, f)}
+        collection.select { |book| book[:item][:title].include? "Pippi Långstrump går ombord" }
+    end
+end
 
 
 
@@ -111,4 +206,3 @@ It will write into yml file. If specified key ("Name") is not present in file, i
         collection.select { |book| book[:item][:title].include? "Pippi Långstrump går ombord" }
     end
 =end
-end

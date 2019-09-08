@@ -11,14 +11,10 @@ class Book
     end
 
     private
-    def set_return_date
-        Date.today.next_day(STANDARD_VALIDITY_DAYS).strftime('%d/%m/%y')
-    end
 
     def self.unavailable(book)
         book.book_status = :unavailable
     end
-
 end
 
 ##

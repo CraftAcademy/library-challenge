@@ -17,13 +17,29 @@ describe Library do
         expect(subject).to be_truthy
     end
 
-    it 'finds available set to false for 3rd book' do
-        expected_output = [{:item=>{:title=>"Pippi Långstrump", :author=>"Astrid Lindgren"}, :available=>false, :return_date=>nil}, {:item=>{:title=>"Pippi Långstrump går ombord", :author=>"Astrid Lindgren"}, :available=>true, :return_date=>nil}] 
-        expect(subject.aval).to eq expected_output
+    it 'finds available set to true for 3rd book' do
+        expected_output = [{:item=>{:title=>"Pippi Långstrump går ombord", :author=>"Astrid Lindgren"}, :available=>true, :return_date=>"08/10/19"}] 
+        expect(subject.isAval("pippi")).to eq expected_output
     end
 
-    it 'finds available set to true for 3rd book' do
-        expected_output = [{:item=>{:title=>"Pippi Långstrump", :author=>"Astrid Lindgren"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"Pippi Långstrump går ombord", :author=>"Astrid Lindgren"}, :available=>true, :return_date=>nil}] 
-        expect(subject.isAval).to eq expected_output
+   # it 'finds available set to false for 3rd book' do
+    #    expected_output = [{:item=>{:title=>"Pippi Långstrump går ombord", :author=>"Astrid Lindgren"}, :available=>false, :return_date=>nil}] 
+     #   expect(subject.unAval("pippi")).to eq expected_output 
+    #end
+
+    it 'has a set expiration date' do #WIP
+        expected_output = [{:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, :available=>false, :return_date=>"08/10/19"}]
+        expect(subject.return_date_method("Alfons och soldatpappan")).to eq expected_output
     end
-end
+
+   # it 'finds available = false' do #WIP
+    #    expect(subject.unAval("osynligt")).to include({:item=>{:title=>"Osynligt med Alfons"}, :available=>false}) 
+    #end
+    it 'finds available set to FALSE for 3rd book' do
+        expected_output = [{:item=>{:title=>"Osynligt med Alfons", :author=>"Gunilla Bergström"}, :available=>false, :return_date=>"08/10/19"}] 
+        expect(subject.unAval("osynligt")).to eq expected_output
+    end
+    
+
+   
+end 
