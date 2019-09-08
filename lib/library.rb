@@ -2,10 +2,11 @@ require 'yaml'
 
 class Library
   STANDARD_VALIDITY_DAYS = 30
-  attr_accessor :exp_date, :librarian
+  attr_accessor :exp_date, :librarian#, :choice
 
   def initialize(attrs = {})
     @exp_date = set_return_date
+    #@choice = choice
     #@librarian = call_librarian(attrs[:librarian])
   end
 
@@ -21,9 +22,10 @@ class Library
     collection.select { |books| books[:item][:title].include? title  }
   end
 
-  def pick(book)
-    collection.detect { |book| book[:item][:title] == "Pippi Långstrump"  }
+  def pick(choice)
+    collection.detect { |book| book[:item][:title] == choice }
   end
+
 
   # def call_librarian(obj)
   #   obj == nil ? missing_librarian : obj

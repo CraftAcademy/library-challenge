@@ -53,10 +53,10 @@ describe Library do
       expect(subject.pick('Pippi Långstrump')).to eq expected_output
     end
 
-  end
-
-  #   it 'check if book is avaliable or not' do
-  #     expect(subject.avaliable).to eq available
-  #  end
+    # it 'is expected to store book choice in @choice' do 
+    #   expected_output = {:item=>{:title=>"Pippi Långstrump", :author=>"Astrid Lindgren"}, :available=>true, :return_date=>nil}
+    #   expect(subject.pick('Pippi Långstrump').choice).to eq expected_output
+    # end
+end
 
 end
