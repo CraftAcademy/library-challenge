@@ -2,7 +2,7 @@ require 'yaml'
 
 class Library
   STANDARD_VALIDITY_DAYS = 30
-  attr_accessor :exp_date, :librarian
+  attr_accessor :exp_date#, :librarian
 
   def initialize(attrs = {})
     @exp_date = set_return_date
@@ -28,18 +28,12 @@ class Library
   def checkout(book)
     collection.detect { |book| book[:item][:title] == book }
     index = collection.index { |choice| choice[:item][:title] == book }
-    collection[index][:available]
-    #Responds to true or false
     if collection[index][:available] == true
-        collection[index][:available] = false
-        return thank_you
+       collection[index][:available] = false
+       File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
+       return 'You have checked out this book ' + @exp_date
     else not_available
     end
-  end
-
-  def thank_you
-    File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
-    return 'You have checked out this book'
   end
 
   def not_available
