@@ -1,5 +1,6 @@
 require 'yaml'
 require 'Date'
+require './lib/visitor'
 
 class Library
 STANDARD_VALIDITY_DAYS = 30
@@ -37,6 +38,7 @@ attr_accessor :book_name, :array_number
     def check_out(book_name)
         unAval(array_number)
         return_date_method(array_number)
+        create_book_list(book_name) 
         { message: 'You have checked-out the book. The return date is', date: Date.today.next_day(30).strftime('%d/%m/%y') }
     end
 
@@ -65,5 +67,9 @@ attr_accessor :book_name, :array_number
         elsif book_name == "Pippi Långstrump går ombord" then array_number = 4
         else puts "can't help you I don't know that book"
         end
+    end
+
+    def create_book_list(book_name)
+        collection[array_number.to_i]
     end
 end

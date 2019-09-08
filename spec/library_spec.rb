@@ -1,4 +1,5 @@
 require './lib/library.rb'
+require './lib/visitor.rb'
 require 'date'
 
 describe Library do
@@ -37,4 +38,12 @@ describe Library do
     it 'checks-out book and sends message stating return date' do
         expect(subject.check_out("Skratta lagom! Sa pappa Åberg")).to include { ('You have checked-out the book.') }
     end
-end 
+
+        describe 'creates a vistor which checks-out Pippi Långstrump går ombord' do 
+            let(:visitor) {instance_double('Visitor') }
+
+            it 'our visitor checks out Pippi Långstrump går ombord' do 
+                expect(subject.check_out("Pippi Långstrump går ombord")).to include { ('You have checked-out the book.') }
+            end
+        end
+ end 
