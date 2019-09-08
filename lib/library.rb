@@ -26,11 +26,12 @@ class Library
     collection.detect { |book| book[:item][:title] == choice }
   end
 
-  def final_choice(book)
-    index = []
+  def checkout(book)
+    #index = []
     collection.detect { |book| book[:item][:title] == book }
-    index << collection.index {|choice| choice[:item][:title] == book }
+    index = collection.index {|choice| choice[:item][:title] == book }
     #Returns the index of the chosen book and puts it inside an array
+    collection[index][:available] = false
   end
 
 

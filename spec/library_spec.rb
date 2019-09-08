@@ -5,7 +5,7 @@ describe Library do
   subject { described_class.new({librarian: person}) }
 
   before :all do
-    YAML.load_file('./lib/data.yml')
+    YAML.load_file('./lib/data_double.yml')
   end
 
   it 'responds to #collection' do 
@@ -54,7 +54,7 @@ describe Library do
     end
 
     it 'is expected to return the index of the title of the chosen book' do 
-      expect(subject.final_choice('Pippi Långstrump')).to eq [3]
+      expect(subject.checkout('Pippi Långstrump')).to be false
     end
 
   end
