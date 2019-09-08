@@ -15,5 +15,11 @@ describe User do
     expect(subject.account).to eq []
   end
 
+  it 'needs to be able to check out available books' do
+    title = 'Alfons och soldatpappan'
+    author = 'Gunilla Bergström'
+    expect(subject.checkout(title, author)). to be_truthy
+  end
+
   
 end

@@ -38,13 +38,16 @@ class User
   def checkout(title, author)
     
     (0...data.length).each do |book|
-      if (data[book][:item][:title][:author] == author) && (data[book][:item][:title][:title] == title)
+      transaction_success = false
+      if (data[book][:item][:author] == author) && (data[book][:item][:title] == title)
         if data[book][:available] == true
           data[book][:available] = false
           data[book][:return_date] = calculate_return_date
+          transaction_success = true
         end
       end
-      File.open('./lib/data.yml', 'w') {|book| book.write data.to_yaml}
+      write_changes
+      return transaction_success
     end
     
     # TODO: Create an account; an Array where each book is an array that contains key:value pairs (title, author, return date)
@@ -57,7 +60,11 @@ class User
   end
 
   def calculate_return_date
-    Date.today + 30
+    String(Date.today + 30)
+  end
+
+  def write_changes
+    File.open('./lib/data.yml', 'w') {|book| book.write data.to_yaml}
   end
 
 end
