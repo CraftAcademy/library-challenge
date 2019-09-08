@@ -10,11 +10,12 @@ class Library
     def display_books
         collection.each do |book| 
         puts "#{book[:item][:title] + " " + [:author]}"
+        end
     end
 
-    def search_title(name)
-        collection.select { |book| book[:item][:title].include? "#{book_name}" }
+    def search_for_book_title(search_title)
+        puts collection.select { |book| book[:item][:title].include? search_title} do
+        end
     end
 
-end
 end
