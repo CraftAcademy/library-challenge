@@ -9,26 +9,49 @@
 [Miyesier Kaerman](https://github.com/miyeaier) 
 
 ## The code  
-This program is library prototype application. As a visitor you may view all relevant information about the book ，You can even view the return date. As a librarian you may view related book information and send tickets to tourists who have not returned books on time.
+This program represents a library prototype application. As a visitor of the Library you may view all relevant information about the books such as title, author, availability and current due date. You may check out a book and receive its due date.  
  
 ## Setup  
 To test this application you need to fork it to your own GitHub account and clone it to your local workspace. Once you have cloned the repository, you will be able to:  
-* The library needs to have books
-* Can find authors of books and books
-* Can check the date of return and send fine 
+* Retrive books from the library collection.
+* Search for specific book titles as well as related book titles.
+* Proceed to checkout with a book of your choice.
   
-  To get started, run IRB in your local workspace. Make sure to load the following files:  
+To get started, run IRB in your local workspace. Make sure to load the following files:  
+```rb
+load 'lib/library.rb'
+``` 
 
->$ load './lib/library.rb'  
+## Instructions  
+Once the files are loaded in IRB, get started by visiting your local Library:  
+```rb
+library = Library.new  
+```
+Look up available books:  
+```rb
+library.collection
+```
 
- ## Instructions 
+Search for books with a title containing a subject/phrase
+```rb   
+library.search('Pippi')  #This method will return all books containing parts of your input string
+```
 
+Search for a specific book title to see if it's currently availble: 
+```rb
+library.pick('Pippi Långstrump') #This will return the book details with a title that matches your input string
+```
+
+Proceed to checkout with your book of choice and receive a return date:  
+```rb 
+library.checkout('Pippi Långstrump')  #The book title need to be a perfect match of the book you wish to check out
+```
 
 ## Acknowledgement  
 Thank you [CraftAcademy](https://craftacademy.se/) for giving us this challenge.  
 
 ## Updates/Improvements  
-When time given, we plan to refactor our code.  
+When time given, we plan to finalize our code.  
 
 ## User stories
 ```
