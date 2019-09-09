@@ -33,7 +33,7 @@ describe Library do
     expect(subject.exp_date).to eq expected_date
   end
 
-  describe 'when loaning a book from the library' do  
+  describe 'when loaning a book from the library' do
 
     # it 'is expected to have a librarian' do
     #   expect(subject.librarian).to eq person
@@ -54,7 +54,8 @@ describe Library do
     end
 
     it 'is expected to checkout the the chosen book and return a due date' do 
-      expect(subject.checkout('Pippi Långstrump')).to eq 'You have checked out this book ' + Date.today.next_day(30).strftime('Any books have to be returned by: %d/%m/%y')
+      expected_output = 'You have checked out this book ' + Date.today.next_day(30).strftime('Any books have to be returned by: %d/%m/%y')
+      expect(subject.checkout('Pippi Långstrump')).to eq expected_output
     end
 
   end

@@ -18,19 +18,19 @@ class Library
   end
 
   def search(title)
-    collection.select { |books| books[:item][:title].include? title }
+    collection.select{ |books| books[:item][:title].include? title }
   end
 
   def pick(choice)
-    collection.detect { |book| book[:item][:title] == choice }
+    collection.detect{ |book| book[:item][:title] == choice }
   end
 
   def checkout(book)
-    collection.detect { |book| book[:item][:title] == book }
+    collection.detect{ |book| book[:item][:title] == book }
     index = collection.index { |choice| choice[:item][:title] == book }
     if collection[index][:available] == true
        collection[index][:available] = false
-       File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
+       File.open('./lib/data.yml', 'w') { |file| file.write collection.to_yaml }
        return 'You have checked out this book ' + @exp_date
     else not_available
     end
