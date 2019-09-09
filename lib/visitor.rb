@@ -3,7 +3,7 @@ require './lib/library'
 
 class Visitor
     attr_accessor :book_list
-    def initialize
+    def initialize 
         @book_list = set_book_list
     end
 
@@ -11,4 +11,5 @@ class Visitor
         book_list = []
     end  
 end
+
 

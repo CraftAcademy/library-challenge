@@ -1,4 +1,57 @@
-<h1>Library Challenge</h1>
+<h1>READ ME</h1>
+<h2>for Library-Challenge, created by Pia and Becca</h2>
+GitHub-repositories:
+Pia's: https://github.com/piavW/library-challenge
+Becca's: https://github.com/beccaburns/library-challenge
+
+<h2>What the code does</h2>
+This code creates a file including books within the library. It is possible to search the books by title and author, and has the ability to show the entire list. The visitor can see which books are available and upon check-out receives a return-date. A visitor can have a list with the current checked-out books.
+
+<h2>Dependencies</h2>
+This code is written in Ruby and is unit tested with RSpec. It is manually tested through the irb in Terminal. We've used Visual Studio Code to access and write the code. It is saved on GitHub. 
+
+<h2>Setup</h2>
+After you fork the repository, run bundle install in your Terminal and make sure you are in the project folder. That should install RSpec on your computer.
+
+Then, from your Terminal go to the project folder and run RSpec.
+
+To manually use it through irb in Terminal, open Terminal, "cd " your way to the repository's root-folder (library-challenge), and type the word "irb" into Terminal.
+
+<h2>Instructions</h2>
+To run the program inside irb in Terminal.
+
+```rb 
+require 'YAML'
+load './lib/library.rb'
+load './lib/visitor.rb'
+require 'date'
+```
+You have now loaded the program properly. 
+
+in irb;
+
+Create your library and visitor through;
+library = Library.new
+visitor = Visitor.new
+
+Now you can see the collection of books:
+library.show_index
+
+<h2>Acknowledgements</h2>
+Thank you google, pairprogrammer, CraftAcademy coaches and amazing cohort teammates.
+
+Help from StackOverflow answer regarding other ways to change key values within a yaml-file: https://stackoverflow.com/questions/13948951/update-value-of-key-of-a-yaml-file-in-ruby-on-rails
+Explanation being: The showed method will write into yml file. If specified key ("Name") is not present in file, it will write new key value othrwise the existing one will be replaced.
+    data = YAML.load_file "path/to/yml_file.yml"
+    data["Name"] = ABC
+    File.open("path/to/yml_file.yml", 'w') { |f| YAML.dump(data, f) }
+It will write into yml file. If specified key ("Name") is not present in file, it will write new key value othrwise the existing one will be replaced.
+
+<h2>Updates/improvements plans</h2>
+We plan to refactor the code. 
+
+<h3>License</h3>
+MIT-license
 
 <h2>User Stories</h2>
 
@@ -38,7 +91,7 @@ In order to track book check-out and return
 We need the return date for the book to be a month from check-out
 ```
 
-``` #Need to add checked_out_books method list to person/visitor class
+``` 
 As a Visitor 
 In order to know which books I checked-out 
 I need a list of the books I have in possession
@@ -49,64 +102,3 @@ As a Visitor DONE
 In order to return book on time
 We need to know the return date
 ```
-
-
-Instructions
--------
-Read this entire README carefully and follow all instructions.
-
-* Challenge time: this weekend, until Monday 9am
-* Feel free to use Google, Stack Overflow, your notes, previously written code, books, etc. but work on your own
-* If you refer to or have in whole or partially used the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution to GitHub and create a Pull Request**
-* You must submit a Pull Request to this repository with your code by 9.30am Monday morning - before the stand-up
-
-
-### Tasks
-----
-
-* Fork the challenge repo: https://github.com/CraftAcademy/library-challenge
-* Run the command `bundle install` in the project directory to ensure you have all the gems
-* Write your specs and implementation
-* Be smart about using Git: commit and push often. Use feature branches.
-* Create a Pull Request as soon as possible
-* Read the comments from Hound and fix any issues that the service points out.
-
-### Tips
-----
-
-##### Some hints:
-  * A Person needs to have a list of books that he currently has in his possession. That list needs to include the return date.
-  * The return date can be calculated using the `Date` object. Out of the box, there are methods you can use to add days to the current date.
-  * Make use of `doubles` when writing your specs
-  * Follow the [naming conventions/standards](https://craftacademy.gitbooks.io/coding-as-a-craft/content/extras/naming_standards.html) for methods and variables
-
-### What we are looking for
-----
-##### I'm hoping to see that:
-* You can take a problem set and write a well tested implementation on your own.
-* You understand how to define Ruby Classes and work with objects.
-* You understand how classes can interact with each other.
-* You know how to make use of arrays, hashes, and associated methods to create dynamic lists.
-* You know how to write specs and use them as a blueprint in your development.
-* I can track your work by following you commit history - so please commit as soon you are done with a feature or when you have made a test pass.
-
-##### In your Pull Request, I'm hoping to see:
-* That you are testing the right thing in the right spec file.
-* That all tests passing - green is good!
-* High test coverage (above 95% is accepted)
-* The code is easy to follow: every class has a clear responsibility, methods are short, code is nicely formatted, etc.
-* The `README.md` includes information on how to use your solution with command examples in `irb`. (Feel free to remove this text)
-
-
-**Happy coding!**
-
-
-Sources for help
-
-Help from StackOverflow answer regarding other ways to change key values within a yaml-file: https://stackoverflow.com/questions/13948951/update-value-of-key-of-a-yaml-file-in-ruby-on-rails
-Explanation being: The showed method will write into yml file. If specified key ("Name") is not present in file, it will write new key value othrwise the existing one will be replaced.
-    data = YAML.load_file "path/to/yml_file.yml"
-    data["Name"] = ABC
-    File.open("path/to/yml_file.yml", 'w') { |f| YAML.dump(data, f) }
-It will write into yml file. If specified key ("Name") is not present in file, it will write new key value othrwise the existing one will be replaced.
