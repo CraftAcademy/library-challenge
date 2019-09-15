@@ -28,5 +28,4 @@ describe User do
     date = String(Date.today + 30)
     expect(subject.account[0][:return_date]).to eq date
   end
-  
 end

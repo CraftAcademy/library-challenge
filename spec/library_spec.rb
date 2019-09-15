@@ -15,5 +15,4 @@ describe Library do
     return_date = String(Date.today + 30)
     expect(subject.calculate_return_date).to eq return_date
   end
-
 end

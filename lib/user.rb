@@ -57,5 +57,4 @@ class User
   def write_to_account(book_title, book_author, date)
     account.push({title: book_title, author: book_author, return_date: date})
   end
-
 end

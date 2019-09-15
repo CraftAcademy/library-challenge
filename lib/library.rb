@@ -38,5 +38,4 @@ class Library
   def load_data
     YAML.load_file('lib/data.yml')
   end
-
 end
