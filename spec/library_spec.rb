@@ -35,14 +35,6 @@ describe Library do
 
   describe 'when loaning a book from the library' do
 
-    # it 'is expected to have a librarian' do
-    #   expect(subject.librarian).to eq person
-    # end
-
-    # it 'is expected to raise error if no visitor is set' do
-    #   expect { described_class.new }.to raise_error 'No librarian here.'
-    # end
-
     it 'is expected to return all details of matching book titles' do
       expected_output = [{:item=>{:title=>"Skratta lagom! Sa pappa Åberg", :author=>"Gunilla Bergström"}, :available=>false, :return_date=>"2016-05-25"}]
       expect(subject.search('Åberg')).to eq expected_output
@@ -54,7 +46,7 @@ describe Library do
     end
 
     it 'is expected to checkout the the chosen book and return a due date' do 
-      expected_output = 'You have checked out this book ' + Date.today.next_day(30).strftime('Any books have to be returned by: %d/%m/%y')
+      expected_output = 'You have checked out this book ' + @exp_date
       expect(subject.checkout('Pippi Långstrump')).to eq expected_output
     end
 

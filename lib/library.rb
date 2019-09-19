@@ -6,7 +6,6 @@ class Library
 
   def initialize(attrs = {})
     @exp_date = set_return_date
-    #@librarian = call_librarian(attrs[:librarian])
   end
 
   def collection
@@ -39,13 +38,5 @@ class Library
   def not_available
     return 'This book is currently unavailable'
   end
-
-  # def call_librarian(obj)
-  #   obj == nil ? missing_librarian : obj
-  # end
-
-  # def missing_librarian
-  #   raise 'No librarian here.'
-  # end
 
 end
