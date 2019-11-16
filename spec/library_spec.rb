@@ -13,4 +13,10 @@ describe Library do
         expect(subject.all_books[3]).to eq expected_output
     end
 
+    it 'marks a book as checked-out with return date in one month' do
+        subject.checkout("Osynligt med Alfons")
+        expect(subject.collection[2][:available]).to be false
+        expect(subject.collection[2][:return_date]).to eq Date.today.next_month(1).strftime("%Y-%m-%d")
+    end
+
 end

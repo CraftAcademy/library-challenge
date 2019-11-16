@@ -3,7 +3,7 @@ require 'yaml'
 
 class Library
 
-    attr_accessor :collection
+    attr_accessor :collection, :all_books
 
     def initialize
         @collection = read_file
@@ -22,6 +22,13 @@ class Library
             all_books << "#{book_title} - #{book_author} (#{book_available})"
         end
         @all_books
+    end
+
+    def checkout(book_title)
+        selected_book = collection.select { |obj| obj[:item][:title].include? book_title }
+        selected_book[0][:available] = false
+        selected_book[0][:return_date] = Date.today.next_month(1).strftime("%Y-%m-%d")
+        File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
     end
 
 end
