@@ -37,7 +37,8 @@ class Library
     def checkout_final
         selected_book[:available] = false
         selected_book[:return_date] = Date.today.next_month(1).strftime("%Y-%m-%d")
-        File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
+        #File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
+        selected_book
     end
 
 end
