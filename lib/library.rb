@@ -34,6 +34,7 @@ class Library
                 book_checkout[0][:available] = false
                 book_checkout[0][:return_date] = Date.today >> 1
                 File.open('./lib/data.yml', 'w') { |f| f.write books.to_yaml }
+                File.open('./lib/receipt.yml', 'w') { |f| f.write book_checkout.to_yaml }
                 else raise "Sorry, book is unavailable!"
             end
         

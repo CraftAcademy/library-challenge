@@ -29,9 +29,14 @@ class Visitor
             book_returned[0][:available] = true
             book_returned[0][:return_date] = nil
             File.open('./lib/data.yml', 'w') { |f| f.write books.to_yaml }
+            File.open('./lib/receipt.yml', 'w') { |f| f.write book_returned.to_yaml }
             "Thanks for returning the book"
             else raise "Sorry, book is already in the library!"
         end
+    end
+
+    def borrowed_books
+        @borrowed_book = YAML.load_file('./lib/receipt.yml')
     end
 
     

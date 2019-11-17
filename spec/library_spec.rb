@@ -3,6 +3,8 @@ require 'pry'
 require 'date'
 
     describe Library do
+
+       
         
         it 'expects a library to have a list of its books' do
             expect(subject.books).not_to be nil
@@ -22,9 +24,10 @@ require 'date'
         end
 
         it 'checkout changes status of book and sets return date' do
-            #expected_output = {:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, :available=>false, :return_date=>Date.today >> 1 }
-            #expect(subject.checkout("Alfons och soldatpappan")).to eq expected_output
-            true
+            subject.checkout('soldat')
+            expected_output = {:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, :available=>false, :return_date=>Date.today >> 1 }
+            expect(subject.checkout("Alfons och soldatpappan")).to eq expected_output
+            
         end
         
 
