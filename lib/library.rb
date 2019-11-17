@@ -1,9 +1,10 @@
+require_relative 'user.rb'
 require 'date'
 require 'yaml'
 
 class Library
 
-    attr_accessor :collection, :all_books
+    attr_accessor :collection, :all_books, :selected_book
 
     def initialize
         @collection = read_file
@@ -21,13 +22,21 @@ class Library
             book_available = book[:available] ? "Available" : "Unavailable"
             all_books << "#{book_title} - #{book_author} (#{book_available})"
         end
-        @all_books
+        @all_books 
     end
 
     def checkout(book_title)
-        selected_book = collection.select { |obj| obj[:item][:title].include? book_title }
-        selected_book[0][:available] = false
-        selected_book[0][:return_date] = Date.today.next_month(1).strftime("%Y-%m-%d")
+        @selected_book = collection.detect { |obj| obj[:item][:title].include? book_title }
+        selected_book[:available] == false ? not_available : checkout_final
+    end
+
+    def not_available
+        raise 'Selection not available'
+    end
+
+    def checkout_final
+        selected_book[:available] = false
+        selected_book[:return_date] = Date.today.next_month(1).strftime("%Y-%m-%d")
         File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
     end
 

@@ -13,6 +13,10 @@ describe Library do
         expect(subject.all_books[3]).to eq expected_output
     end
 
+    it 'checks if book is available for checkout' do
+        expect { subject.checkout("Osynligt med Alfons") }.to raise_error('Selection not available')
+    end
+
     it 'marks a book as checked-out with return date in one month' do
         subject.checkout("Osynligt med Alfons")
         expect(subject.collection[2][:available]).to be false
