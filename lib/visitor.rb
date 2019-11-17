@@ -38,8 +38,5 @@ class Visitor
     def borrowed_books
         @borrowed_book = YAML.load_file('./lib/receipt.yml')
     end
-
-    
-
 end
  
