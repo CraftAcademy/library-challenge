@@ -28,7 +28,7 @@ class Library
     end
 
     def checkout(title)
-        book_checkout = @books.select do |book| book[:item][:title].include? title
+        book_checkout = @books.select do |book| book[ :item][:title].include? title
         end
             if  book_checkout[0][:available] == true then
                 book_checkout[0][:available] = false
