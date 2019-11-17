@@ -18,12 +18,13 @@ describe Library_main do
  # end  
 
   it 'check_out' do
-    if subject.check_avl("Alfons och soldatpappan","Gunilla Bergström") == false 
+    if subject.check_avl("Alfons och soldatpappan","Gunilla Bergström") == false
       subject.check_in("Alfons och soldatpappan","Gunilla Bergström")
       expect(subject.check_avl("Alfons och soldatpappan","Gunilla Bergström") ).to eq true
     else
-      subject.check_out("Alfons och soldatpappan","Gunilla Bergström")
+      subject.check_out("Alfons och soldatpappan","Gunilla Bergström") 
       expect(subject.check_avl("Alfons och soldatpappan","Gunilla Bergström") ).to eq false
+      expect(subject.return_date("Alfons och soldatpappan","Gunilla Bergström") ).to eq Date.today.next_day(30).strftime('%d/%m/%y')
     end
     if subject.check_avl("Pippi Långstrump","Astrid Lindgren") == false 
       subject.check_in("Pippi Långstrump","Astrid Lindgren")
@@ -31,6 +32,27 @@ describe Library_main do
     else
       subject.check_out("Pippi Långstrump","Astrid Lindgren")
       expect(subject.check_avl("Pippi Långstrump","Astrid Lindgren") ).to eq false
+    end
+    if subject.check_avl("Osynligt med Alfons","Gunilla Bergström") == false 
+      subject.check_in("Osynligt med Alfons","Gunilla Bergström")
+      expect(subject.check_avl("Osynligt med Alfons","Gunilla Bergström") ).to eq true
+    else
+      subject.check_out("Osynligt med Alfons","Gunilla Bergström")
+      expect(subject.check_avl("Osynligt med Alfons","Gunilla Bergström") ).to eq false
+    end
+    if subject.check_avl("Pippi Långstrump går ombord","Astrid Lindgren") == false 
+      subject.check_in("Pippi Långstrump går ombord","Astrid Lindgren")
+      expect(subject.check_avl("Pippi Långstrump går ombord","Astrid Lindgren") ).to eq true
+    else
+      subject.check_out("Pippi Långstrump går ombord","Astrid Lindgren")
+      expect(subject.check_avl("Pippi Långstrump går ombord","Astrid Lindgren") ).to eq false
+    end
+    if subject.check_avl("Skratta lagom! Sa pappa Åberg","Gunilla Bergström") == false 
+      subject.check_in("Skratta lagom! Sa pappa Åberg","Gunilla Bergström")
+      expect(subject.check_avl("Skratta lagom! Sa pappa Åberg","Gunilla Bergström") ).to eq true
+    else
+      subject.check_out("Skratta lagom! Sa pappa Åberg","Gunilla Bergström")
+      expect(subject.check_avl("Skratta lagom! Sa pappa Åberg","Gunilla Bergström") ).to eq false
     end
   end
 
