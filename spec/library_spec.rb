@@ -14,7 +14,7 @@ describe Library do
     end
 
     it 'checks if book is available for checkout' do
-        expect { subject.checkout("Osynligt med Alfons") }.to raise_error('Selection not available')
+        expect { subject.checkout("Skratta lagom! Sa pappa Åberg") }.to raise_error('Selection not available')
     end
 
     it 'marks a book as checked-out with return date in one month' do
