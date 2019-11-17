@@ -46,6 +46,8 @@ Stackoverflow
 Relish
 Ruby Gems
 
+Used three lines of code from Johan Sundqvist's repo https://github.com/sundqvistjohan/library-challenge for the checkout function for the library.
+
 ### Updates/Improvements plans
 Functionality to be added in future versions:
 
