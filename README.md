@@ -53,7 +53,6 @@ library.list_books
 <user>.books_in_posession
 # See updated book list and availabilities
 library.list_books
-# 
 ```
 
 ## Acknowledgements
