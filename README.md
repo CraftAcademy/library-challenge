@@ -50,3 +50,7 @@ Read this entire README carefully and follow all instructions.
 
 
 **Happy coding!**
+
+
+- Need to use ruby 2.6.3
+- install bundle
