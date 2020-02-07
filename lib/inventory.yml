@@ -1,21 +1,26 @@
 ---
-- item:
-    title: Råttkungen
-    author: Pascal Engman
-  available: true
-  return_date:
-- item:
-    title: Bränn alla mina brev
-    author: Alex Schulman
-  available: true
-  return_date:
-- item:
-    title: Ett jävla solsken
-    author: Fatima Bremmer
-  available: true
-  return_date:
-- item:
-    title: In search of lost time
-    author: Marcel Proust
-  available: true
-  return_date:
+- :item:
+    :title: Råttkungen
+    :author: Pascal Engman
+  :available: true
+  :return_date: 
+- :item:
+    :title: Bränn alla mina brev
+    :author: Alex Schulman
+  :available: true
+  :return_date:
+- :item:
+    :title: Ett jävla solsken
+    :author: Fatima Bremmer
+  :available: true
+  :return_date: 
+- :item:
+    :title: Ondskan
+    :author: Jan Guillou
+  :available: true
+  :return_date: 
+- :item:
+    :title: In search of lost time
+    :author: Marcel Proust
+  :available: true
+  :return_date:
