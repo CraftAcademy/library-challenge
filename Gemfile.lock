@@ -59,10 +59,8 @@ GEM
     tins (1.24.0)
       sync
     unicode-display_width (1.6.1)
-
 PLATFORMS
   ruby
-
 DEPENDENCIES
   coveralls
   pry
@@ -70,9 +68,7 @@ DEPENDENCIES
   rake
   rspec
   rubocop
-
 RUBY VERSION
    ruby 2.6.3p62
-
 BUNDLED WITH
    2.1.3
