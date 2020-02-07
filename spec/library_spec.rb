@@ -22,6 +22,13 @@ describe Library do
     ##  To have something to read
     ##  I should be able to lend a book to read it
 
+
+
+    it 'Checks if the book is you can change availible status' do
+        subject.change_availability(0)
+        expect(subject.collection[0][:available]).to eq false
+    end
+
     
 
 end

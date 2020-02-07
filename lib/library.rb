@@ -9,4 +9,8 @@ class Library
         collection = YAML.load_file('./lib/data.yml')
     end
 
+    def change_availability(id)
+        self.collection[id][:available] = false
+    end
+
 end
