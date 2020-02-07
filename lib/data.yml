@@ -1,11 +1,1 @@
----
-- :item:
-    :title: Quiet
-    :author: Susan Cain
-  :available: true
-  :return_date: 
-- :item:
-    :title: Harry Potter and the Prisoner of Askaban
-    :author: J.K Rowling
-  :available: false
-  :return_date: '2020-03-07'
+--- 

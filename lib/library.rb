@@ -9,10 +9,10 @@ def initialize
 end
 
 
-def new_book(args)
-        title ≈ args[ :title] 
-        author ≈ args[ :author]
-        available = true
+def new_book(args = {})
+        title = args[:title]
+        author = args[:author]
+        available = args[:available]
 end
    
 def add_book
