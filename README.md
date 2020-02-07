@@ -50,3 +50,39 @@ Read this entire README carefully and follow all instructions.
 
 
 **Happy coding!**
+
+
+## Library's Request
+
+"We need an app where both the visitors and the library can see if a list of books is available, it would be nice to see both the title and the author of the book. The library needs to store these books in a file where we can easily check if a book is available or not. The library also needs the visitors to check out books after finding the title they want. Depending on the time of the checkout the library needs the books to be returned within a month and obviously, it would be nice for the visitor to know which date to return the book."
+
+# User Stories
+
+  As a  visitor and librarian (any user)
+  In order to  find a book
+  I want to be able to search the library catalog to find a specific book
+
+  As a librarian and visitor (any user)
+  In order to review the library catalog
+  I want to be able to see a list of all library books, their title, author and availability
+
+  As a visitor
+  In order to know when to return my checked out books
+  I want to see the return date for my books
+
+  As a visitor
+  In order to get a book I want to read
+  I want to be able to check out available books from the catalog
+
+  As a visitor
+  In order to know what books I have checked out
+  I want to be able to see a list of all books I have
+
+  As a librarian
+  In order to determine a books availability
+  I want to be able to see the return date
+  
+  As a librarian
+  In order to keep visitors data confidential
+  I want to visitors to have a pin/passwrd/login/account to access their profile/books
+ 
