@@ -5,13 +5,17 @@ require './lib/library.rb'
 # I want a normal number to return that number
 
 describe Library do
-    
+    subject { described_class.new }
     #it 'Finds the library empty' do
         #expect(subject.collection).to eq nil
     #end
 
-    it 'finds if the library has books in stock' do
-        expect(collection).to_not eq nil
+    it 'Checks if the library collection is not empty' do
+        expect(subject.collection).to_not eq nil
+    end
+
+    it 'Checks if the library has the book "Alfons och soldatpappan"' do
+        expect(subject.collection[0][:item][:title]).to include("Alfons och soldatpappan")
     end
 
 end
