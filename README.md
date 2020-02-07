@@ -1,12 +1,19 @@
 # User Stories
 
 
-1. 
-2. 
-3. 
-4. 
+1. As a visitor, I would like to be able to look at a list of books, so that I can decide which one I want. 
+2. As a visitor, I would like to know if a book is available or not, so that I can check it out.
+3. As a visitor, I would like to know when my book return is due, so that I do not pay a late return penalty.
 
 
+* Dependencies: book returned in 1 month after checkout, author / title of book available, "database" toggled when book is checked out
+
+check book list - is there a list
+check title + author of book
+check if book available
+check out book
+return book - parameter 1 month
+visitor pinged - return book on x date
 
 
 
