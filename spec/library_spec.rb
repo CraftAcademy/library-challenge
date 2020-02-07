@@ -18,4 +18,11 @@ describe Library do
         expect(subject.collection[0][:item][:title]).to include("Alfons och soldatpappan")
     end
 
+    ##  As a citizen I would like to use our public libraries
+    ##  To have something to read
+    ##  I should be able to lend a book to read it
+
+    
+
 end
+
