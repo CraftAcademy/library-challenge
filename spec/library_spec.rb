@@ -1,6 +1,7 @@
-require './lib/library.rb'
+require './lib/library.rb' #links to this file so the tests can refer to this code
 
 describe Library do 
+
     it 'add new books' do
     end
 

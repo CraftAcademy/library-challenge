@@ -1,1 +1,3 @@
-class 
+require 'date'
+
+class Library
