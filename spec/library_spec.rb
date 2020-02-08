@@ -25,8 +25,10 @@ before { subject.add_book}
     #it 'search for books by title' do
     #end
 
-    #it 'search for books by author' do
-    #end
+    it 'search for books by author' do
+        expected_output = YAML.load_file('./lib/data.yml').select { |obj| obj[:item][:author].include? " Astrid "  }
+        expect(subject.author_search("Astrid")).to eq expected_output
+    end
 
     #it 'books status shown' do
     #end
@@ -40,6 +42,8 @@ before { subject.add_book}
         expected_output = YAML.load_file('./lib/data.yml')
         expect(subject.catalog).to eq expected_output
     end
+
+    
 
 
 
