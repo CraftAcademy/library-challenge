@@ -15,7 +15,7 @@
 
 
 
-* Potential Tests
+## Potential Tests
 
 - first test: are there books in the library?
 - second test: can you search book author / title and get expected output
