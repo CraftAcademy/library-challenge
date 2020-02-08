@@ -38,12 +38,22 @@ describe Library do
         expected_output = 'Checkout incomplete, book unavailable.'
         expect(subject.book_availability?("Osynligt med Alfons")).to eq expected_output
     end
+    
+    it 'updates the availability of book,after checkout' do
+        expected_output = (false)
+        expect(subject.availability).to eq expected_output 
 
+    end
+
+    it 'updates the return_date,after checkout' do
+        expected_output = (subject.return_date)  
+        expect(book_to_checkout(user_search)[0][:return_date]).to eq expected_output  
+    end
     
 end
 
 
-    #it 'book status updated when checkedout'
+
 
    
 
