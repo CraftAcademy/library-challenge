@@ -16,9 +16,5 @@ class Library
 
 end
 
-private
 
-def index(obj)
-  obj == nil ?  missing_name : @index = obj
-end
 
