@@ -1,25 +1,30 @@
 # User Stories
 
 
-1. As a visitor, I would like to be able to look at a list of books, so that I can decide which one I want. 
-2. As a visitor, I would like to know if a book is available or not, so that I can check it out.
-3. As the library, I would like to know when a book is checked out, so that I can determine it's return due date
-4. As a visitor, I would like to know when my book return is due, so that I return the book on time
+1. As the library, I would like to have an index of books, so that visitors and employees can see that we have books. 
 
+2. As the library, I would like book information to include author and title, so that the book index can be searchable. 
 
+3. As the library, I would like to know if a book is checked out, so that both employees and visitors know it is available / unavailable. 
 
-* Dependencies: book returned in 1 month after checkout, author / title of book available, "database" toggled when book is checked out
+4. As the library, I would like to know when a book is checked out, so that a return date 30 days in the future can be generated.
+
+5. As a visitor, I would like to be able to check out a book, so that I can read it. 
+
+6. As a visitor, I would like to know when my book return is due, so that I return the book on time.
+
 
 
 * Potential Tests
-first test - can you pull list of books author / title from yml
-second - can you check state of book (available / not available)
-third - can user checkout book (yes / no)
-fourth - is inventory state updated?
-fifth - can a return date be generated 
-sixth - can return date be set to 1 month?
-seventh - is user notified of return date
-should this be a test too??? check book list - is there a list
+
+- first test: are there books in the library?
+- second test: can you search book author / title and get expected output
+- third test: can you check state of book (available / not available)
+- fourth test: can you see checkout date
+- fifth test: can you generate return date
+- sixth test: is inventory state updated when book checked out
+- seventh test: is visitor notified of return date
+
 
 
 ## Library Challenge
