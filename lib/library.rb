@@ -8,6 +8,7 @@ class Library
 
    def initialize
       @collection = YAML.load_file('./lib/inventory.yml')
+      # @book = {:item=>{:title=>"", :author=>""}, :available=>true, :return_date=>nil}
    end
 
    def list 
