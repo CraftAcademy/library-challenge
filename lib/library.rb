@@ -1,6 +1,6 @@
+require 'yaml'
+
 class Library
-  require 'yaml'
-  
 
   attr_accessor :index
 
@@ -17,11 +17,10 @@ class Library
   def query_author(author)
     index.select { |librarybooks| librarybooks[:item][:author].include? "#{author}" }
   end
-  
+
  # def return_date
   #  Date.today.next_year(Account::STANDARD_VAILIDITY_YRS).strftime('%m/%y')
   #end
-
 
 end
 
