@@ -15,12 +15,13 @@ describe Library do
   it 'can search book list by author' do
     expect(subject.index[2][:item][:author]).to include("Gunilla")
   end
-  
-=begin
+
+
   it 'can check if the book is available' do
     
   end
-
+  
+=begin 
   it 'can generate checkout date' do
     
   end

@@ -11,11 +11,11 @@ class Library
   end
 
   def query_title(title)
-      index.select { |librarybooks| librarybooks[:item][:title].include? "#{title}" }
+      index.select { [:item][:title].include? "#{title}" }
   end
   
   def query_author(author)
-    index.select { |librarybooks| librarybooks[:item][:author].include? "#{author}" }
+    index.select { [:item][:author].include? "#{author}" }
   end
 
  # def return_date
@@ -24,6 +24,7 @@ class Library
 
 end
 
+# to see index in irb p @index = YAML.load_file('./lib/data.yml')
 
 
 
