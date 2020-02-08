@@ -4,19 +4,19 @@ require 'yaml'
 class Library
     attr_accessor :catalog, :title, :author, :available
 
-def initialize
+    def initialize
         @catalog = YAML.load_file('./lib/data.yml')
-end
+    end
 
-
-def new_book(args = {})
+    def new_book(args = {})
         title = args[:title]
         author = args[:author]
         available = args[:available]
-end
+    end
    
-def add_book
-    File.open('./lib/data.yml', 'w') { |f| f.write new_book.to_yaml }
-end
+    def add_book
+        File.open('./lib/data.yml', 'w') { |f| f.write new_book.to_yaml }
+    end
+
 
 end
