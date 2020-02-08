@@ -1,5 +1,6 @@
 require 'yaml'
 require './lib/library.rb' #links to this file so the tests can refer to this code
+require 'pry'
 
 describe Library do 
     #let(:catalog)  { instance_double( title: 'Lord of the rings', author: 'JRR Tolkien', available: true ) }
@@ -22,15 +23,20 @@ describe Library do
         expect(subject.author_search("Astrid")).to eq expected_output
     end
 
+    it 'book to check out' do
+        expected_output = YAML.load_file('./lib/data.yml').select { |obj| obj[:item][:title] == "Pippi Långstrump" }
+        expect(subject.book_to_checkout('Pippi Långstrump')).to eq expected_output
+    end 
 
     it 'message to user"checkout complete, return book on {return_date}" ' do
-        expected_output = { message: 'checkout complete', return_date: '08/04/2020' } 
-        expect(subject.checkout_message(true)).to eq expected_output
+        #binding.pry
+        expected_output = { message: 'Checkout complete', return_date: '03/08/20' } 
+        expect(subject.checkout("Pippi Långstrump")).to eq expected_output
     end
 
     it 'message to user"checkout incomplete,book unavailable" ' do
-        expected_output = 'checkout incomplete,book unavailable'
-        expect(subject.book_availability?("Pippi Långstrump")).to eq expected_output
+        expected_output = 'Checkout incomplete, book unavailable.'
+        expect(subject.book_availability?("Osynligt med Alfons")).to eq expected_output
     end
 
     
