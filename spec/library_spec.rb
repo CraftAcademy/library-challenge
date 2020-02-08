@@ -1,5 +1,6 @@
 require './lib/library.rb'
 require 'data.yml'
+require 'date'
 
   describe Library  do
   let(:account) { instance_double('Account', password: '1234', borrowed_book: :title,  date: Date.today, due_date: Date.today + 30) }
