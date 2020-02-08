@@ -2,10 +2,12 @@ require './lib/library.rb'
 
 describe Library do
   
+
   it 'has a list of books' do
-    
+    expect(subject.index).not_to be nil
   end
 
+=begin
   it 'can search book list by author' do
     
   end
@@ -37,4 +39,5 @@ describe Library do
   it 'when checkout occurs, visitor pinged return date information' do
     
   end
+=end
 end
