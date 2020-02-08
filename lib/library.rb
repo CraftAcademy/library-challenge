@@ -10,7 +10,8 @@ class Library
     end
 
     #def change_availability(id)
-     #   self.collection[id][:available] = false
+    #collection[id][:available] = false
+    #File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
     #end
 
     def search_author(author)
@@ -19,6 +20,14 @@ class Library
 
     def search_title(title)
         collection.select { |book| book[:item][:title].include? "#{title}" }
+    end
+
+    def list_of_available_books
+        collection.select { |book| book[:item][:available] == true }
+    end
+
+    def list_of_unavailable_books
+        collection.select { |book| book[:item][:available] == false }
     end
 
 end

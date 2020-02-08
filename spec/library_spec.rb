@@ -27,6 +27,19 @@ describe Library do
         expect(subject.search_title('pippi')).to be_truthy
     end
 
+    #As a member I want to be able to see only the list of available books
+    it 'Gives only the list of available books' do
+        expect(subject.list_of_available_books).to be_truthy
+    end
+
+    #As a librarian I want to be able to see which books are not in the library
+    it 'Gives a list of unavailable books' do
+        expect(subject.list_of_unavailable_books).to be_truthy
+    end
+
+
+
+
     ##  As a citizen I would like to use our public libraries
     ##  To have something to read
     ##  I should be able to lend a book to read it
@@ -42,8 +55,7 @@ describe Library do
 
 
     #it 'Checks if the book is you can change availible status' do
-     #   subject.change_availability(0)
-      #  expect(subject.collection[0][:available]).to eq false
+    #expect(subject.change_availability[0][:available]).to eq false 
     #end
 
     
