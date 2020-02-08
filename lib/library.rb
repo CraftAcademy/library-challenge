@@ -2,14 +2,14 @@ require 'yaml'
 #require 'date'
 
 class Library
-    attr_accessor :catalog, :title, :author, :available
+    attr_accessor :catalog, :title, :author, :available, :book
 
     def initialize
         @catalog = YAML.load_file('./lib/data.yml')
     end
 
-    def author_search(obj)
-        catalog.select { |obj| obj[:item][:author].include? "Astrid"  }
+    def author_search(user_search)
+        @book = catalog.select { |obj| obj[:item][:author].include? user_search }
     end
 
 
