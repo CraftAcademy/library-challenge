@@ -13,9 +13,23 @@ describe Library do
     expect(subject.collection_books[0][:item][:title]).to eq 'Alfons och soldatpappan'
     end
 
-    it 'List of books avaible' do
-    expect_output ={book_title: '', status: true}
-    expect(subject.collection_books).to eq expect_output
+    it 'Gets author' do
+    expect(subject.collection_books[0][:item][:author]).to eq 'Gunilla Bergström'
     end
+
+    it 'Checks avaliability' do
+        expect(subject.collection_books[0][:available]).to eq true
+    end
+
+
+
+
+
+    #it 'List of books avaible' do
+    #expect_output ={book_title: '', status: true}
+    #expect(subject.collection_books).to eq expect_output
+    #end
+
+
 
 end

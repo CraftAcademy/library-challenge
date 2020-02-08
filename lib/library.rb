@@ -1,5 +1,6 @@
 require 'yaml'
 
+
 class Library
     attr_accessor :collection_books
     
@@ -8,11 +9,12 @@ class Library
     end
 
 
-   @collection_books.each do |available: , **|
-   return available
-   end
-  
 
+    #002 > collection.detect { |obj| obj[:item][:title] == "Pippi Långstrump"  }
+
+   #@collection_books.each do |available: , **|
+   #return available
+   #end
 end
 
 private
