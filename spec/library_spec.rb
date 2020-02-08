@@ -1,4 +1,5 @@
 require './lib/library.rb'
+require 'Date'
 
 describe Library do 
 
@@ -12,8 +13,8 @@ describe Library do
         expect(subject.list).to eq nil
     end
 
-    it 'to see a list of only available books' do
-    expect(subject.available_books).to_not eq [{:available=> false}]
+    it 'to see a list of only unavailable books' do
+        expect(subject.unavailable_books).to_not eq [{:available=> true}]
     end   
     
     it 'to search for a book with only part of, or the whole title' do
@@ -25,5 +26,10 @@ describe Library do
         expected_output = [{:item=>{:title=>"In search of lost time", :author=>"Marcel Proust"}, :available=>true, :return_date=>nil}] 
         expect(subject.select_author("Proust")).to eq expected_output
     end
+
+    it 'to be able to see what date the books has to be returned' do 
+        expected_date = Date.today.next_day(30).strftime('%d/%m/%y')
+        expect(subject.return_date).to eq expected_date
+    end 
 end
 

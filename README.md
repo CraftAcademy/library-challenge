@@ -57,8 +57,8 @@ In order to find the right book
 I need to be able to search for both title and author
 
 As a library worker
-In order to see what books are available and not
-I need to see a list that shows the status of the book
+In order to see what books are available 
+I need to see a list of available books
 
 As a library worker
 In order to get the checked out books back

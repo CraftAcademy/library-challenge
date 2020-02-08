@@ -1,7 +1,8 @@
 require 'yaml'
+require 'Date'
 
 class Library
-   attr_accessor :collection, :search_word
+   attr_accessor :collection, :search_word, :return_date
 
    DAYS_BEFORE_RETURN = 30
 
@@ -13,8 +14,8 @@ class Library
       puts collection
    end
 
-   def available_books
-     collection.select {|book| book[:available].eql? true }
+   def unavailable_books
+     collection.select {|book| book[:available].eql? false }
    end
 
 
@@ -25,5 +26,10 @@ class Library
    def select_author(search_word)
       collection.select {|book| book[:item][:author].include? search_word}
    end
+
+   def return_date
+      Date.today.next_day(Library::DAYS_BEFORE_RETURN).strftime('%d/%m/%y')
+
+   end 
     
 end
