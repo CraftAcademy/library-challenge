@@ -9,8 +9,16 @@ class Library
         collection = YAML.load_file('./lib/data.yml')
     end
 
-    def change_availability(id)
-        self.collection[id][:available] = false
+    #def change_availability(id)
+     #   self.collection[id][:available] = false
+    #end
+
+    def search_author(author)
+        collection.select { |book| book[:item][:author].include? "#{author}" }  
+    end 
+
+    def search_title(title)
+        collection.select { |book| book[:item][:title].include? "#{title}" }
     end
 
 end
