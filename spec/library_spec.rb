@@ -11,6 +11,10 @@ describe Library do
     it 'to see a list of all books' do
         expect(subject.list).to eq nil
     end
+
+    it 'to see a list of only available books' do
+    expect(subject.available_books).to_not eq [{:available=> false}]
+    end   
     
     it 'to search for a book with only part of, or the whole title' do
         expected_output = [{:item=>{:title=>"In search of lost time", :author=>"Marcel Proust"}, :available=>true, :return_date=>nil}] 

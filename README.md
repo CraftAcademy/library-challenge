@@ -48,6 +48,38 @@ Read this entire README carefully and follow all instructions.
 * The code is easy to follow: every class has a clear responsibility, methods are short, code is nicely formatted, etc.
 * The `README.md` includes information on how to use your solution with command examples in `irb`. (Feel free to remove this text)
 
+As a library worker
+In order to see range of books 
+I need to be able to see a list of all the books 
+
+As a library worker
+In order to find the right book
+I need to be able to search for both title and author
+
+As a library worker
+In order to see what books are available and not
+I need to see a list that shows the status of the book
+
+As a library worker
+In order to get the checked out books back
+We need to be able to have a time frame when it needs to be returned
+
+As a visitor
+In order to see what books are available in the library
+I need to be able to see a list of available books
+
+As a visitor 
+In order to find the book I want
+I need to be able to search for both title and author
+
+As a visitor 
+In order to borrow the book I want
+I need to be able to checkout the book
+
+As a visitor 
+In order to know when the book has to be returned
+I need to see which date the book has to be return on 
+
 
 **Happy coding!**
 

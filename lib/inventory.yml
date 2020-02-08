@@ -17,8 +17,8 @@
 - :item:
     :title: Ondskan
     :author: Jan Guillou
-  :available: true
-  :return_date: 
+  :available: false
+  :return_date: '2020-03-09'
 - :item:
     :title: In search of lost time
     :author: Marcel Proust

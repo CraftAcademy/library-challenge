@@ -13,6 +13,11 @@ class Library
       puts collection
    end
 
+   def available_books
+     collection.select {|book| book[:available].eql? true }
+   end
+
+
    def select_title(search_word)
       collection.select {|book| book[:item][:title].include? search_word}
    end
