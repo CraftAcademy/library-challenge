@@ -7,9 +7,14 @@ class Library
         @collection_books = YAML.load_file('./lib/data.yml')
     end
 
-   
-    def book_title(title)
-        collection_books.detect {|obj| obj[:item][:title]}
-    end
+
+   @collection_books.each do |available: , **|
+   return available
+   end
+  
 
 end
+
+private
+
+
