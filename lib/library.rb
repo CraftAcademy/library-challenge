@@ -6,13 +6,17 @@ class Library
 
     STANDARD_LENDING_PERIOD_IN_DAYS = 30
 
-    def collection
-        collection = YAML.load_file('./lib/data.yml')
+    def initialize 
+        @collection = create_collection()
     end
 
-    def change_availability(book)
-    collection[book][:available] = false
-    File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
+    def create_collection
+        @collection = YAML.load_file('./lib/data.yml')
+    end
+
+    def change_availability(id)
+        self.collection[id][:available] = false
+        File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
     end
 
     def search_author(author)
@@ -31,9 +35,14 @@ class Library
         collection.select { |book| book[:item][:available] == false }
     end
 
-    def return_date(book)
-        collection[book][:return_date] = Date.today + STANDARD_LENDING_PERIOD_IN_DAYS
+    def setReturnDate(book)
+        self.collection[book][:return_date] = Date.today.next_day(STANDARD_LENDING_PERIOD_IN_DAYS).strftime('%Y-%m-%d')
+        File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
     end
 
+    def lendBook(book)
+        setReturnDate(book)
+        #change_availability(book)
+    end
 
 end

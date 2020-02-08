@@ -1,5 +1,6 @@
 
 require './lib/library.rb'
+require 'yaml'
 
 # As a programmer            
 # So that the game can be played according to the rules            
@@ -15,7 +16,7 @@ describe Library do
     end
 
     it 'Checks if the library has the book "Alfons och soldatpappan"' do
-        expect(subject.collection.first[:item][:title]).to include("Alfons och soldatpappan")
+        expect(subject.collection[0][:item][:title]).to include("Alfons och soldatpappan")
     end
 
     #As a member I want to be able to search for a book by author or title
@@ -41,13 +42,13 @@ describe Library do
     #As a librarian I would like a book to no longer be available once somebody borrows it
     it 'Checks if you can change availible status on a book once borrowed' do
         subject.change_availability(0)
-        expect(subject.change_availability[0][:available]).to eq false 
+        expect(subject.collection[0][:available]).to eq false 
     end
 
     #As a librarian I would like that a customer can borrow a book for no more then 30 days
     it 'Checks that a return date is set for 30 days once book has been borrowed' do
-        subject.return_date()
-        expect(subject.collection[0][:return_date]).to eq
+        subject.setReturnDate(0)
+        expect(subject.collection[0][:return_date]).to eq Date.today.next_day(30).strftime('%Y-%m-%d')
     end
 end
 
