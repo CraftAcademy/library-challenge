@@ -14,8 +14,8 @@ class Library
         @collection = YAML.load_file('./lib/data.yml')
     end
 
-    def change_availability(id)
-        self.collection[id][:available] = false
+    def change_availability(book)
+        self.collection[book][:available] = false
         File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
     end
 
@@ -42,7 +42,7 @@ class Library
 
     def lendBook(book)
         setReturnDate(book)
-        #change_availability(book)
+        change_availability(book)
     end
 
 end
