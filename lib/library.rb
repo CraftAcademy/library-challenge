@@ -19,7 +19,7 @@ class Library
     end
 
     def available_books
-        books_list.select { |book| book[:available].eq? true }
+        books_list.select { |book| book[:item][:available].eq? true }
     end
 
 
