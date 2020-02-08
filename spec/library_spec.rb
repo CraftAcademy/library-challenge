@@ -2,13 +2,14 @@ require './lib/library.rb'
 
 require 'date'
 
-  describe Library  do
+describe Library  do
   let(:account) { instance_double('Account', password: '1234', borrowed_book: :title,  date: Date.today, due_date: Date.today + 30) }
 
   before do
     allow(account).to receive(:borrowed_book).and_return(title)
     allow(account).to receive(:title=)
   end
+
 
   it "list of books" do
     expect(subject.data.yml).to eq (title)
@@ -37,12 +38,7 @@ require 'date'
 
   it'reject borrow if the pin is wrong' do
     expected_output = { status: false, message: 'wrong password', date: Date.today}
-    expect(subject.borrow(title, 9999, account)).to eq expected_output
+   expect(subject.borrow(title, 9999, account)).to eq expected_output
 
   end
- 
-
-
 end
-
-
