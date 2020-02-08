@@ -9,9 +9,12 @@ class Library
       @collection = YAML.load_file('./lib/inventory.yml')
    end
 
-   def select(search_word)
+   def select_title(search_word)
       collection.select {|book| book[:item][:title].include? search_word}
    end
+   
+   def select_author(search_word)
+      collection.select {|book| book[:item][:author].include? search_word}
+   end
     
-end 
-
+end

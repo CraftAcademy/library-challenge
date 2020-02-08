@@ -18,6 +18,13 @@ describe Library do
     
     it 'to search for a book with only part of the title' do
         expected_output = [{:item=>{:title=>"In search of lost time", :author=>"Marcel Proust"}, :available=>true, :return_date=>nil}] 
-        expect(subject.collection.select {|book| book[:item][:title].include? "of lost"}).to eq expected_output
+        expect(subject.select_title("of lost")).to eq expected_output
+    end
+
+    it 'to search for a book with only part of the authors name' do
+        expected_output = [{:item=>{:title=>"In search of lost time", :author=>"Marcel Proust"}, :available=>true, :return_date=>nil}] 
+        expect(subject.select_author("Proust")).to eq expected_output
     end
 end
+
+# {|book| book[:item][:title].include? "of lost"}).to eq expected_output
