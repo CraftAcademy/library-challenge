@@ -12,6 +12,10 @@ class Library
         @book = catalog.select { |obj| obj[:item][:author].include? user_search }
     end
 
+    def title_search(user_search)
+        @book = catalog.select { |obj| obj[:item][:title].include? user_search }
+    end
+
 
 
 

@@ -22,8 +22,10 @@ describe Library do
     #it 'delete old books' do
     #end
 
-    #it 'search for books by title' do
-    #end
+    it 'search for books by title' do
+        expected_output = YAML.load_file('./lib/data.yml').select { |obj| obj[:item][:title].include? "Pippi Långstrump"  }
+        expect(subject.title_search("Pippi Långstrump")).to eq expected_output
+    end
 
     it 'search for books by author' do
         expected_output = YAML.load_file('./lib/data.yml').select { |obj| obj[:item][:author].include? "Astrid"  }
