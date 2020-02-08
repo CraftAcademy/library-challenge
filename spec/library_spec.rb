@@ -10,6 +10,7 @@ describe Library do
   it 'can search book list by title' do
     expect(subject.index[1][:item][:title]).to include("Skratta la")
   end
+  
 =begin
   it 'can search book list by author' do
   

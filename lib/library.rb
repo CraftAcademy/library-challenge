@@ -11,7 +11,7 @@ class Library
   end
 
   def query_title(title)
-      index.select { |book| book[:item][:title].include? "#{title}" }
+      index.select { |librarybooks| librarybooks[:item][:title].include? "#{title}" }
   end
   
  # def return_date
