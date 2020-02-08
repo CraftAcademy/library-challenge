@@ -1,19 +1,27 @@
 require 'yaml'
-books = YAML.load_file('./lib/data.yml')
-puts books
-books = [item1:]
-books.each do |title|
-puts "#{title[:title]}" end
+
+class Books
+    attr_accessor :item
+
+    def initialize
+    @item = YAML.load_file('./lib/data.yml')
+    end
+
+    def query_title(title)
+        item.select { [:item][:title].include? "#{title}" }
+    end
+
+    def query_author(author)
+        item.select { [:item][:author].include? "#{author}" }
+    end
+
+    def check_availability
+        item.select { [:item][:available].eql? true }
+    end
+
+end
+#p @item = YAML.load_file('./lib/data.yml')
 
 
-# class Books
-#     attr_accessor :item
-
-#     def initialize
-#       @item = [YAML.load_file('./lib/data.yml')]
-#     end
-# end
-
-
-
-
+# if item.each do |title| 
+#     puts "#{title[:title]}"
