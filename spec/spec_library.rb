@@ -7,5 +7,10 @@ describe Library do
         expect(subject.collection_books).not_to be nil
     end
 
+    it 'Gets book through title/author' do
+        expect(subject.collection_books.title).to be 'Alfons och soldatpappan'
+    end
+
+
 
 end
