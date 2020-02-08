@@ -36,9 +36,11 @@ class Library
     # then if the book is available we want to 'checkout' by updating the books availability and return_date and message to user
     def checkout(user_search)
         #update availability
-        book_to_checkout(user_search)[0][:available] == false
+        book_to_checkout(user_search)[0][:available] = false
         #update return date
-        book_to_checkout(user_search)[0][:return_date] = set_return_date
+        book_to_checkout(user_search)[0][:return_date] = @return_date
+        #push to yml
+        File.open('./lib/data.yml', 'w') { |f| f.write catalog.to_yaml }
         #message to user
         { message: 'Checkout complete', return_date: set_return_date } 
     end

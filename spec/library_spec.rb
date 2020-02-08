@@ -41,13 +41,13 @@ describe Library do
     
     it 'updates the availability of book,after checkout' do
         expected_output = (false)
-        expect(subject.availability).to eq expected_output 
+        expect(subject.book_to_checkout("Pippi Långstrump")[0][:available]).to eq expected_output 
 
     end
 
     it 'updates the return_date,after checkout' do
         expected_output = (subject.return_date)  
-        expect(book_to_checkout(user_search)[0][:return_date]).to eq expected_output  
+        expect(subject.book_to_checkout("Pippi Långstrump")[0][:return_date]).to eq expected_output  
     end
     
 end
