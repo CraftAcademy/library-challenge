@@ -1,5 +1,8 @@
 class Library
   require 'yaml'
+
+  attr_accessor :index
+
   #STANDARD_RETURN_DATE = 30
 
   def initialize
@@ -10,6 +13,7 @@ class Library
   #  Date.today.next_year(Account::STANDARD_VAILIDITY_YRS).strftime('%m/%y')
   #end
 
+
 end
 
 private
@@ -17,3 +21,4 @@ private
 def index(obj)
   obj == nil ?  missing_name : @index = obj
 end
+
