@@ -18,7 +18,7 @@ describe Library do
 
 
   it 'can check if the book is available' do
-    
+    expect(subject.index[2][:item][:available]).to eq("true")
   end
   
 =begin 

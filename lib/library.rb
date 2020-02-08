@@ -18,6 +18,10 @@ class Library
     index.select { [:item][:author].include? "#{author}" }
   end
 
+  def is_available(available)
+    index.select { [:item][:available].eq? "true" }
+  end
+
  # def return_date
   #  Date.today.next_year(Account::STANDARD_VAILIDITY_YRS).strftime('%m/%y')
   #end
