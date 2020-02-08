@@ -6,16 +6,12 @@ class Library
    DAYS_BEFORE_RETURN = 30
 
    def initialize
-      @search_word = nil
+      @collection = YAML.load_file('./lib/inventory.yml')
    end
 
-   def collection
-    collection = YAML.load_file('./lib/inventory.yml')
-   end 
-
-   # def select(search_word)
-   #    collection.select {|book| book[:item][:title].include? search_word}
-   # end
+   def select(search_word)
+      collection.select {|book| book[:item][:title].include? search_word}
+   end
     
 end 
 
