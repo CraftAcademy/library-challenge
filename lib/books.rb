@@ -1,11 +1,12 @@
 require 'yaml'
 books = YAML.load_file('./lib/data.yml')
 
+
 class Books
     attr_accessor :item
 
     def initialize
-      @item = ["item1"]
+      @item = YAML.load_file('./lib/data.yml')
     end
 end
 
