@@ -36,7 +36,7 @@ describe Library do
 
     it 'message to user"checkout incomplete,book unavailable" ' do
         expected_output = 'Checkout incomplete, book unavailable.'
-        expect(subject.book_availability?("Pippi Långstrump")).to eq expected_output
+        expect(subject.book_availability?("Osynligt med Alfons")).to eq expected_output
     end
 
     
