@@ -6,21 +6,11 @@ describe Library do
       
 #before { subject.add_book}
         
-    #it "add new books" do
-        #expected_output = '{:title=>"Lord of the rings", :author=>"JRR Tolkien", :available=>true}'
-        #new_book_details = catalog.select { |obj| obj[:item][:title] == 'Lord of the rings' }
-        #expect(catalog.select { |obj| obj[:item][:title] == 'Lord of the rings' }).to eq expected_output
-        #end
-    #it "add new books" do
-        #expected_output = YAML.load_file('./lib/data.yml').select { |obj| obj[:item][:title] == 'Lord of the rings' }
-        #expect(new_book_details.to_s).to eq expected_output
-    #end
-    #it "add new book" do
-        #expect(catalog.select { |obj| obj[:item][:title] == 'Lord of the rings' }).not_to be_nil
-    #end
 
-    #it 'delete old books' do
-    #end
+    it 'view all books' do
+    expected_output = YAML.load_file('./lib/data.yml')
+    expect(subject.catalog).to eq expected_output
+    end
 
     it 'search for books by title' do
         expected_output = YAML.load_file('./lib/data.yml').select { |obj| obj[:item][:title].include? "Pippi Långstrump"  }
@@ -32,24 +22,30 @@ describe Library do
         expect(subject.author_search("Astrid")).to eq expected_output
     end
 
-    #it 'books status shown' do
-    #end
 
-    # it 'book 'checkout complete, return book on {date}' do
-    #end
+    it 'message to user"checkout complete, return book on {return_date}" ' do
+        expected_output = { message: 'checkout complete', return_date: '08/04/2020' } 
+        expect(subject.checkout_message(true)).to eq expected_output
+    end
+
+    it 'message to user"checkout incomplete,book unavailable" ' do
+        expected_output = { message: 'checkout incomplete,book unavailable', } 
+        expect(subject.checkout_message(false)).to eq expected_output
+    end
+
+    
+end
+
 
     #it 'book status updated when checkedout'
 
-    it 'view all books' do
-        expected_output = YAML.load_file('./lib/data.yml')
-        expect(subject.catalog).to eq expected_output
-    end
+   
 
     
 
 
 
-end
+
 
 
 
