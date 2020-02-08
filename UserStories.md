@@ -1,6 +1,6 @@
 As a library
-In order to inform if a book is avaliavle
-I want to keep track when a book is store or lent.
+In order to inform if a book is avaliable
+I want to keep track when a book is stored or lent.
 -
 As a library.
 in order get the books in time
