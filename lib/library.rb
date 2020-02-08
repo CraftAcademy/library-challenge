@@ -1,7 +1,6 @@
-require './lib/data.yml'
+require 'yaml'
 require './lib/person.rb'
-item = YAML.load_file('./lib/data.yml')
-put thing.inspect
+items = YAML.load_file('./lib/data.yml')
 
 class Library
     attr_accessor :books

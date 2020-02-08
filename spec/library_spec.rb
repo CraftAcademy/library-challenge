@@ -1,5 +1,5 @@
 require './lib/library.rb'
-require 'data.yml'
+
 require 'date'
 
   describe Library  do

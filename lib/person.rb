@@ -12,7 +12,8 @@ class Person
 
 
     def set_due_date?
-        Date.today + 30 ('%m/%d')
+        Date.today + 30
+        
     end
 
 
