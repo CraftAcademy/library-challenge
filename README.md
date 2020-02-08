@@ -54,3 +54,6 @@ Read this entire README carefully and follow all instructions.
 
 - Need to use ruby 2.6.3
 - install bundle
+
+- collection.each_index.select{|item| collection[item] = [:author]}
+ => [0, 1, 2, 3, 4] 
