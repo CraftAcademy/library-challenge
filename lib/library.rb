@@ -1,14 +1,15 @@
 require 'yaml'
 
 class Library
-    attr_accessor :title, :item
-
-    def collection_books
-        collection_books = YAML.load_file('./lib/data.yml')
+    attr_accessor :collection_books
+    
+    def initialize
+        @collection_books = YAML.load_file('./lib/data.yml')
     end
 
-    def title
-        collection_books.detect { |obj| obj[:item][:title] == "Alfons och soldatpappan"  }
+   
+    def book_title(title)
+        collection_books.detect {|obj| obj[:item][:title]}
     end
 
 end
