@@ -1,37 +1,87 @@
-## Library Challenge
-### Week 1 Ruby challenge
-
-Instructions
--------
-Read this entire README carefully and follow all instructions.
-
-* Challenge time: this weekend, until Monday 9am
-* Feel free to use Google, Stack Overflow, your notes, previously written code, books, etc. but work on your own
-* If you refer to or have in whole or partially used the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution to GitHub and create a Pull Request**
-* You must submit a Pull Request to this repository with your code by 9.30am Monday morning - before the stand-up
 
 
-### Tasks
-----
 
-* Fork the challenge repo: https://github.com/CraftAcademy/library-challenge
-* Run the command `bundle install` in the project directory to ensure you have all the gems
-* Write your specs and implementation
-* Be smart about using Git: commit and push often. Use feature branches.
-* Create a Pull Request as soon as possible
-* Read the comments from Hound and fix any issues that the service points out.
+# Library Challenge
+Code pairing: *Kayla Woodbury*, *Anish Kanswal*
 
-### Tips
-----
+## Code overview
+This software creates a digital library using Ruby and RSpec testing.The goal is to simulate a library where the following user stories are met:
 
-##### Some hints:
-  * A Person needs to have a list of books that he currently has in his possession. That list needs to include the return date.
-  * The return date can be calculated using the `Date` object. Out of the box, there are methods you can use to add days to the current date.
-  * Make use of `doubles` when writing your specs
-  * Follow the [naming conventions/standards](https://craftacademy.gitbooks.io/coding-as-a-craft/content/extras/naming_standards.html) for methods and variables
+* As a librarian or visitor, in order to review the entire library catalog, I want to be able to see a list of all library books, their title, author and availability.
 
-### What we are looking for
+* As a  visitor or librarian, in order to  find a book, I want to be able to search the library's catalog for a book by title or author.
+
+* As a visitor, in order to checkout a book, I want the ability to check out a book.
+
+* As a visitor, in order to checkout a book, I want to receive a message if the checkout was successful with the return date specified.
+
+* As a visitor, in order to checkout a book, I want to receive a message if the checkout was unsuccessful because book is unavailable.
+
+* As a librarian, in order to have an accurate catalog, I want books that are checked out to have their availability status updated in the library's catalog.
+
+* As a librarian, in order to have an accurate catalog, I want books that are checked out to have the return date updated in the library's catalog.
+
+
+#### Prompt these User Stories are responding to:
+"We need an app where both the visitors and the library can see if a list of books is available, it would be nice to see both the title and the author of the book. The library needs to store these books in a file where we can easily check if a book is available or not. The library also needs the visitors to check out books after finding the title they want. Depending on the time of the checkout the library needs the books to be returned within a month and obviously, it would be nice for the visitor to know which date to return the book."
+
+## Dependencies
+
+* Ruby version 2.6.3
+* Gems: Rspec, Pry, Pry-ByeBug, Rake, Coveralls, Rubocop
+* Yaml file with list of books
+
+
+## Setup
+To access this code visit this [GitHub](https://github.com/Anish2504/library-challenge) repo and complete the following steps:
+
+1. Fork the repo and clone it to your local computer
+2. Have the Ruby and Gem bundler installed
+3. Utilize IRB to run program
+
+## Instructions
+Instructions for running in IRB.
+
+**Activate virtual library** | Connects to the YAML file to intialize the library catalog. 
+
+        library = Library.new
+
+
+**Veiw entire library book list** | Displays array of all books including title, author, availability, and if appicable, the return date.
+
+        library.catalog
+
+
+**Search for a specific book** | Looks for books either by title or author, does not need the full title/name for search to run
+        
+        library.title_search('*enter title here*')
+        library.author_search('*enter author here*') 
+
+
+**Check out book** | Checks out book by entering the full book title, if book is available the user will see message that checkout was successful with the return date and the library's catalog will be updated; if book is unavailable user will see message that checkout was unsuccessful
+
+        library.checkout('*enter full book title*')
+
+
+## Acknowledgements
+Material from [Craft Academy](learn.craftacademy.co) <br>
+[Ruby Documentation](rubymonstas.org) <br>
+[Rspec Program](rspec.info) <br>
+Material from the [Craftoverflow](https://github.com/CraftAcademy/CraftOverflow) repo on GitHub <br>
+[Ruby Date Cheatsheet](https://www.shortcutfoo.com/app/dojos/ruby-date-format-strftime/cheatsheet)
+
+## Updates/Improvement Plans
+* Adding personal vistor account with login
+* Being able to add and remove books from catalog
+* Formatting how book info is displayed
+
+## License
+MIT License <br><br><br>
+
+---
+
+## Notes from Coaches
+
 ----
 ##### I'm hoping to see that:
 * You can take a problem set and write a well tested implementation on your own.
@@ -47,42 +97,3 @@ Read this entire README carefully and follow all instructions.
 * High test coverage (above 95% is accepted)
 * The code is easy to follow: every class has a clear responsibility, methods are short, code is nicely formatted, etc.
 * The `README.md` includes information on how to use your solution with command examples in `irb`. (Feel free to remove this text)
-
-
-**Happy coding!**
-
-
-## Library's Request
-
-"We need an app where both the visitors and the library can see if a list of books is available, it would be nice to see both the title and the author of the book. The library needs to store these books in a file where we can easily check if a book is available or not. The library also needs the visitors to check out books after finding the title they want. Depending on the time of the checkout the library needs the books to be returned within a month and obviously, it would be nice for the visitor to know which date to return the book."
-
-# User Stories
-
-  As a  visitor and librarian (any user)
-  In order to  find a book
-  I want to be able to search the library catalog to find a specific book
-
-  As a librarian and visitor (any user)
-  In order to review the library catalog
-  I want to be able to see a list of all library books, their title, author and availability
-
-  As a visitor
-  In order to know when to return my checked out books
-  I want to see the return date for my books
-
-  As a visitor
-  In order to get a book I want to read
-  I want to be able to check out available books from the catalog
-
-  As a visitor
-  In order to know what books I have checked out
-  I want to be able to see a list of all books I have
-
-  As a librarian
-  In order to determine a books availability
-  I want to be able to see the return date
-  
-  As a librarian
-  In order to keep visitors data confidential
-  I want to visitors to have a pin/passwrd/login/account to access their profile/books
- 
