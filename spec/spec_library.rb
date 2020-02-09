@@ -18,8 +18,8 @@ describe Library do
         expect(subject.books_is_unavailable?).to_not eq [{:available => true}]
     end
     
-    it 'Re-writes the value of a  ' do
-        
+    it 'Search a book by the title' do
+        expect(subject.search_book_title("Pipi")).to eq         
     end
 
   

@@ -20,6 +20,14 @@ class Library
         collection_books.select {|b| b[:available].eql? false }
     end
 
+    def search_book_title(user_input)
+        collection_books.select{|b| b[:item][:title].include? "#{user_input}"}
+    end
+
+    def search_book_author(user_input)
+        collection_books.select{|b| b[:item][:author].include? "#{user_input}"}
+    end
+
 
 end
 
