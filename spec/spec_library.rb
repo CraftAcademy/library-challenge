@@ -14,6 +14,14 @@ describe Library do
     expect(subject.books_is_available?).to_not eq [{:available => false}]
     end
 
+    it 'List of borrowed books' do
+        expect(subject.books_is_unavailable?).to_not eq [{:available => true}]
+    end
+    
+    it 'Re-writes the value of a  ' do
+        
+    end
+
   
 
 end
