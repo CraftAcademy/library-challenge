@@ -20,8 +20,3 @@ class Books
     end
 
 end
-#p @item = YAML.load_file('./lib/data.yml')
-
-
-# if item.each do |title| 
-#     puts "#{title[:title]}"

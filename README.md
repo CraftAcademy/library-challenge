@@ -1,17 +1,21 @@
 # User stories
 
+-- PersonClass + BookClass --
 As a user
 In order to check out a book
 I want to see a list of books with title and author
 
+-- BooksClass --
 As a library
 In order for visitors to check if a book is available or not
 We need a list that shows all books 
 
+-- PersonClass + BookClass --
 As a library
 In order for visitors to check out books 
 We need an app for them to access the list of books
 
+-- AccountClass + PersonClass + BookClass --
 As a visitor
 In order to return the books within a month of checkout
 I need an app that shows the date it is due
