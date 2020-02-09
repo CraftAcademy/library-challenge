@@ -22,13 +22,13 @@ describe User do
         end
     end
 
-    describe 'user can checkout book if' do
+    describe 'can checkout book when' do
         let(:item) { Books.new }
         before { subject.create_account }
 
         it 'the status of the book is changed to unavailable' do
             expected_output = false
-            expect(subject.checkout(item)[:available]).to eq expected_output
+            expect(subject.checkout.item[item][:available]).to eq expected_output
          end
       
 

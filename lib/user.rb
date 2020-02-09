@@ -1,5 +1,6 @@
 require './lib/account'
 require './lib/books'
+require 'yaml'
 require 'pry'
 
 class User
@@ -29,7 +30,9 @@ class User
     def checkout(item)
         # item.select { [:item][:available].eql? true }
         @item = YAML::load_file('./lib/data.yml') #Load
-        @item[0][:available] = false #Modify
+        #self.item[(1)][:available] = false
+        item[(1)][:available] = false
+        #@item[0][:available] = false #Modify
         File.write('./lib/data.yml', item.to_yaml) #Store
         #File.open('./lib/data.yml', 'w') {|f| f.write item.to_yaml } #Store
        # @item = file.open('./lib/data.yml'), 'r') { |f| f.read collection.to_yaml }
