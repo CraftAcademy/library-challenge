@@ -1,5 +1,5 @@
-require './lib/library.rb'
-# require './lib/library_service.rb'
+require 'library'
+require 'search_service'
 require 'yaml' 
 require 'date'
 
@@ -9,6 +9,14 @@ class Customer
     def available_books
         collection = YAML.load_file('./lib/inventory.yml')
         collection.select {|book| book[:available].eql? true }
+    end
+
+    def search_title(search_word)
+        SearchService.find_title(search_word)
+    end
+
+    def search_author(search_word)
+        SearchService.find_author(search_word)
     end
 
     def checkout_service(num)

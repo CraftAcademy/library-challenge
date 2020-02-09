@@ -1,6 +1,4 @@
 require 'yaml'
-require 'Date'
-require 'library'
 
 module SearchService
     attr_accessor :collection, :search_word,
