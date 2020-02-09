@@ -1,52 +1,10 @@
 ## Library Challenge
 ### Week 1 Ruby challenge
 
-Instructions
--------
-Read this entire README carefully and follow all instructions.
+This is a virtual library where we have created solutions for the library to store books, see documentation of the stored books and be able to search for books by title and author. We have also made it possible for the library to see a specific list for the books that are checked out to keep track of them. 
+We have also created solutions for a customer to be able to see a list of all books and search for a certain book by both title and author. In order to loan a book of choice we have made it possible for the customer to checkout a book and then get the return date showed and also a solution for returning the book to the library. 
 
-* Challenge time: this weekend, until Monday 9am
-* Feel free to use Google, Stack Overflow, your notes, previously written code, books, etc. but work on your own
-* If you refer to or have in whole or partially used the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution to GitHub and create a Pull Request**
-* You must submit a Pull Request to this repository with your code by 9.30am Monday morning - before the stand-up
-
-
-### Tasks
-----
-
-* Fork the challenge repo: https://github.com/CraftAcademy/library-challenge
-* Run the command `bundle install` in the project directory to ensure you have all the gems
-* Write your specs and implementation
-* Be smart about using Git: commit and push often. Use feature branches.
-* Create a Pull Request as soon as possible
-* Read the comments from Hound and fix any issues that the service points out.
-
-### Tips
-----
-
-##### Some hints:
-  * A Person needs to have a list of books that he currently has in his possession. That list needs to include the return date.
-  * The return date can be calculated using the `Date` object. Out of the box, there are methods you can use to add days to the current date.
-  * Make use of `doubles` when writing your specs
-  * Follow the [naming conventions/standards](https://craftacademy.gitbooks.io/coding-as-a-craft/content/extras/naming_standards.html) for methods and variables
-
-### What we are looking for
-----
-##### I'm hoping to see that:
-* You can take a problem set and write a well tested implementation on your own.
-* You understand how to define Ruby Classes and work with objects.
-* You understand how classes can interact with each other.
-* You know how to make use of arrays, hashes, and associated methods to create dynamic lists.
-* You know how to write specs and use them as a blueprint in your development.
-* I can track your work by following you commit history - so please commit as soon you are done with a feature or when you have made a test pass.
-
-##### In your Pull Request, I'm hoping to see:
-* That you are testing the right thing in the right spec file.
-* That all tests passing - green is good!
-* High test coverage (above 95% is accepted)
-* The code is easy to follow: every class has a clear responsibility, methods are short, code is nicely formatted, etc.
-* The `README.md` includes information on how to use your solution with command examples in `irb`. (Feel free to remove this text)
+These are our user stories for the library:
 
 As a library worker
 In order to see range of books 
@@ -64,28 +22,69 @@ As a library
 In order to get the checked out books back
 We need to be able to have a time frame when it needs to be returned
 
-As a visitor
+As a customer
 In order to see what books are available in the library
 I need to be able to see a list of available books
 
-As a visitor 
+As a customer
 In order to find the book I want
 I need to be able to search for both title and author
 
-As a visitor 
+As a customer
 In order to borrow the book I want
 I need to be able to checkout the book
 
-As a visitor 
+As a customer
 In order to know when the book has to be returned
 I need to see which date the book has to be return on 
 
+As a customer
+In order to return a book
+I need to be able to check the book back in
 
-**Happy coding!**
+### Dependencies
+We have written this project in Ruby and used RSpec to uni-test our code to see that the functions work in an expected way
+
+The Gems we have used is:
+- rake
+- rspec
+- pry
+- pry-byebug
+- coveralls 
+- rubocop
+
+### Set-up
+For this project you should use Ruby version 2.6.3
+You can check your ruby version:
+>$ rvm list
+
+If you are using the wrong version, then you need to install 2.6.3
+>$ rvm install 2.6.3
+
+And then to use the corret version
+>$ rvm use 2.6.3
+
+Then run bundle to get all the required gems.
+>$ bundle
+
+### Instructions
+
+### Acknowledgements 
+- We have got inspiration from the Craft Academy demo by Faraz Naeem about how to search and use a yaml file.
+<!-- https://drive.google.com/file/d/1Pwh_fvKHGFjz-sWJE03x6AGpTaWjE-8c/view?usp=sharing -->
+- We also took inspiration from a demo by Thomas Ochman where he showed how to use a module for a specific method that will be used in a class. 
+<!-- https://drive.google.com/file/d/19HDUds8gXl8dZV0fOXEH5e5-FUvUUz6c/view?ts=5e3d3389 -->
+- We also want to give a big up to Jaime Cruz H. for giving us the "num" class. That got us up from a deep hole. 
+
+### Updates/Improvement plans
+What could be improved is that every customer should have a library account that shows what books the customer has checked out, stopping the customer from checking out a new book if another book is not return on time and setting a limited amount of books that a customer can borrow. 
+
+### License:
+#### MIT-license 
 
 
-- Need to use ruby 2.6.3
-- install bundle
 
-- collection.each_index.select{|item| collection[item] = [:author]}
- => [0, 1, 2, 3, 4] 
+
+
+
+ 
