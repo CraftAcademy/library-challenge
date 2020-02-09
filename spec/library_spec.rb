@@ -2,6 +2,11 @@ require './lib/library.rb'
 
 require 'date'
 
+
+it 'can search book list by title' do
+    expect(subject.index[1][:item][:title]).to include("Skratta la")
+  end
+
 # describe Library  do
 #   let(:account) { instance_double('Account', password: '1234', borrowed_book: :title,  date: Date.today, due_date: Date.today + 30) }
 

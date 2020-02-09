@@ -5,7 +5,7 @@ Instructions
 -------
 Read this entire README carefully and follow all instructions.
 
-* Challenge time: this weekend, until Monday 9am
+* Challenge time: this weekend, until Monday 9am 
 * Feel free to use Google, Stack Overflow, your notes, previously written code, books, etc. but work on your own
 * If you refer to or have in whole or partially used the solution of another coach or student, please put a link to that in your README
 * If you have a partial solution, **still check in a partial solution to GitHub and create a Pull Request**
@@ -15,11 +15,11 @@ Read this entire README carefully and follow all instructions.
 ### Tasks
 ----
 
-* Fork the challenge repo: https://github.com/CraftAcademy/library-challenge
-* Run the command `bundle install` in the project directory to ensure you have all the gems
+√* Fork the challenge repo: https://github.com/CraftAcademy/library-challenge 
+√* Run the command `bundle install` in the project directory to ensure you have all the gems
 * Write your specs and implementation
 * Be smart about using Git: commit and push often. Use feature branches.
-* Create a Pull Request as soon as possible
+√* Create a Pull Request as soon as possible
 * Read the comments from Hound and fix any issues that the service points out.
 
 ### Tips
@@ -50,3 +50,27 @@ Read this entire README carefully and follow all instructions.
 
 
 **Happy coding!**
+
+
+-------
+**User Stories**
+
+√ As a user and a librarian, 
+in order to know wich books are available, 
+i want to see a list in the app
+
+ As a costumer,
+ to know what books are available, 
+ i will like a list of available books
+
+As a librarian, 
+in order to know what books are checked out, 
+i want to see the list of titles and  information of wich user and when it was borrowed
+
+As a librarian, 
+in order to give an account to a costumer,
+I want them to register with password and email
+
+As a costumer,
+ in order to know when to return a book, 
+ i will like to receive an email with due date
