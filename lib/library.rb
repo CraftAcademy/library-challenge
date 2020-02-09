@@ -63,5 +63,9 @@ class Library
         File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
     end
 
+    def return_book(book)
+        book_returned(book)
+        date_to_nil(book)
+    end
 
 end
