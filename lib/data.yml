@@ -2,7 +2,7 @@
 - :item:
     :title: Alfons och soldatpappan
     :author: Gunilla Bergström
-  :available: false
+  :available: true
   :return_date: 
 - :item:
     :title: Skratta lagom! Sa pappa Åberg
@@ -24,5 +24,3 @@
     :author: Astrid Lindgren
   :available: true
   :return_date: 
-- 0
-- 0

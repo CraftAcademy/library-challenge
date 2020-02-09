@@ -35,13 +35,16 @@ class Library
        return bring_back
     end
 
-    def lend(num)
-        @collection_books << (num)
+    def borrow_book(num)
         @collection_books[("#{num}".to_i)][:available] = false
         File.open('./lib/data.yml', 'w') { |f| f.write @collection_books.to_yaml }
+        
     end
 
-
+    def return_book(num)    
+        @collection_books[("#{num}".to_i)][:available] = true
+        File.open('./lib/data.yml', 'w') { |f| f.write @collection_books.to_yaml }
+    end
 
 
 
