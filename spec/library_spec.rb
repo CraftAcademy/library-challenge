@@ -26,8 +26,8 @@ describe Library do
     end
 
     it 'change book to unavailable ' do
-        subject.set_book_unvailable(2)
-        expect(subject.books_list[2][:available]).to eq false
+        subject.set_book_unvailable(4)
+        expect(subject.books_list[4][:available]).to eq false
     end
 
 end

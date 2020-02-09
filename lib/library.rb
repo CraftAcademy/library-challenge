@@ -8,9 +8,6 @@ class Library
         @books_list = YAML.load_file('./lib/data.yml') 
     end
 
-    ##def create_books_list
-       # @books_list = YAML.load_file('./lib/data.yml')   
-    #end
 
 
 
