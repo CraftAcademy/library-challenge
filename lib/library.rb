@@ -36,15 +36,20 @@ class Library
         collection.select { |book| book[:item][:available] == false }
     end
 
-    def setReturnDate(book)
+    def set_return_date(book)
         self.collection[book][:return_date] = Date.today.next_day(STANDARD_LENDING_PERIOD_IN_DAYS).strftime('%Y-%m-%d')
         File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
     end
 
     def lend_book(book)
-        setReturnDate(book)
+        set_return_date(book)
         change_availability(book)
         {title: collection[book][:item][:title], available: collection[book][:available], return_date: collection[book][:return_date]}
+    end
+
+    def book_returned(book)
+        self.collection[book][:available] = true
+        File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
     end
 
 end

@@ -49,15 +49,23 @@ describe Library do
 
     #As a librarian I would like that a customer can borrow a book for no more then 30 days
     it 'Checks that a return date is set for 30 days once book has been borrowed' do
-        subject.setReturnDate(0)
+        subject.set_return_date(0)
         expect(subject.collection[0][:return_date]).to eq Date.today.next_day(30).strftime('%Y-%m-%d')
     end
 
     #As a user I would like to know which book I've borrowed and when is a return date
-    it 'Checks if the receipt has a return date and title' do
-    expected_output = {title: 'Alfons och soldatpappan', available: false, return_date: Date.today.next_day(30).strftime('%Y-%m-%d')}
-    expect(subject.lend_book(0)).to eq expected_output
-end
+    it 'Checks if the receipt has a return date, title and that it is not available anymore' do
+        expected_output = {title: 'Alfons och soldatpappan', available: false, return_date: Date.today.next_day(30).strftime('%Y-%m-%d')}
+        expect(subject.lend_book(0)).to eq expected_output
+    end
+
+    #As a librarian I want that when a book is returned for it to become available again
+    it 'Checks if a book is available when it is returned' do
+        subject.book_returned(0)
+        expect(subject.collection[0][:available]).to eq true
+    end
+
+   
 
 end
 
