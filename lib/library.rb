@@ -15,11 +15,6 @@ class Library
         @collection = YAML.load_file('./lib/data.yml')
     end
 
-    def change_availability(book)
-        self.collection[book][:available] = false
-        File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
-    end
-
     def search_author(author)
         collection.select { |book| book[:item][:author].include? "#{author}" }  
     end 
@@ -36,8 +31,16 @@ class Library
         collection.select { |book| book[:item][:available] == false }
     end
 
+
+    ## Book borrowed
+
+    def change_availability(book)
+        collection[book][:available] = false
+        File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
+    end
+
     def set_return_date(book)
-        self.collection[book][:return_date] = Date.today.next_day(STANDARD_LENDING_PERIOD_IN_DAYS).strftime('%Y-%m-%d')
+        collection[book][:return_date] = Date.today.next_day(STANDARD_LENDING_PERIOD_IN_DAYS).strftime('%Y-%m-%d')
         File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
     end
 
@@ -47,13 +50,16 @@ class Library
         {title: collection[book][:item][:title], available: collection[book][:available], return_date: collection[book][:return_date]}
     end
 
+
+    ## Book returned
+
     def book_returned(book)
-        self.collection[book][:available] = true
+        collection[book][:available] = true
         File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
     end
 
     def date_to_nil(book)
-        self.collection[book][:return_date] = nil
+        collection[book][:return_date] = nil
         File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
     end
 
