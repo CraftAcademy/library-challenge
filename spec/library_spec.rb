@@ -20,8 +20,8 @@ describe Library do
         expect(subject.search_by_author('Astrid Lindgren')).to eq(expected_book)
     end
 
-    it 'check books that are available' do
-        expect(subject.available_books).to eq [{available: true}]
+    it 'list of available books' do
+        expect(subject.available_books).to be_truthy
         
     end
 
