@@ -1,5 +1,5 @@
-require 'library'
-require 'search_service'
+require './lib/library.rb'
+require './lib/search_service.rb'
 require 'yaml' 
 require 'date'
 

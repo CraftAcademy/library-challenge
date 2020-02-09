@@ -1,6 +1,6 @@
 require 'yaml'
 require 'Date'
-require 'search_service'
+require './lib/search_service.rb'
 
 class Library
    attr_accessor :collection, :search_word, :set_return_date
