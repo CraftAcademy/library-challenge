@@ -6,7 +6,8 @@ describe Library do
   
 
   it 'can search book list by title' do
-    expect(subject.select_book("Skratta lagom! Sa pappa Åberg")).to be_truthy
+    expected_output = true
+    expect(subject.select_book("Skratta lagom! Sa pappa Åberg")).to eq expected_output
   end
 
   it 'show a list of available book' do
