@@ -1,4 +1,48 @@
-Virtual Library project:
+Virtual Library project: Carlos and Philip
+
+The code - 
+
+This program serves a digital catalogue between a library and a customer.
+
+- The 'digital library' allows user and library to check the books by its title or         Author.
+- The 'digital library' allows user and library to check a list of the available and       unavailable books.
+- The 'digital library' allos the library to change the availability status of a book.
+- The 'digital library' allow the user and library to see when a book will be available    again.
+
+Dependencies - 
+
+This project uses Bundle to manage the Gemfiles and YAML for the data.
+The code consists in two folders, 'lib' and 'spec':
+Lib - Stores the implmentation code in the file 'library, and the data 'data.yml'.
+Spec - Contains the test for the implementation code in the 'library_spec.rb'.
+
+The Virtual Library has been developed and stored Github. Carltesio/github.com and pgaunizt/github.com have forked the repository from craftacademy/github.com.
+Every part of the worked has been commited into Github and the parts of code that were created but were not used in the final code have been left at the bottom of the file 'library.rb' as comments.
+
+How to setup the code and run it:
+
+-Install Ruby
+-Install Bundler: https://bundler.io
+-instructions: the program can be used through IRB (test on it are still to be made)
+
+The code was implemented following inputs from the Craft Academy learning material and  solutions of our own.
+
+Credits: The part of the code that changes the status of the availability was developed           with suggestions from robin-lillqvist/github.com
+
+License: The follwing code is open source as part of a learning process type of project. Feel free to implement and/or suggest any modifications to it.
+Authors: https://github.com/Carltesio https://github.com/johanbounce
+
+
+
+
+// The following lines are the begining of the assignment and requests for the project//
+
+
+*****************************************************************************************
+
+
+
+
 
 
 
