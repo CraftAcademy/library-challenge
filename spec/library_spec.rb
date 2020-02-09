@@ -29,7 +29,7 @@ describe Library do
 
     it 'to be able to see what date the books has to be returned' do 
         expected_date = Date.today.next_day(30).strftime('%d/%m/%y')
-        expect(subject.return_date).to eq expected_date
+        expect(subject.set_return_date).to eq expected_date
     end 
 end
 

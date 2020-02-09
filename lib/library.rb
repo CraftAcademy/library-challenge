@@ -2,7 +2,7 @@ require 'yaml'
 require 'Date'
 
 class Library
-   attr_accessor :collection, :search_word, :return_date
+   attr_accessor :collection, :search_word, :set_return_date
 
    DAYS_BEFORE_RETURN = 30
 
@@ -29,7 +29,6 @@ class Library
 
    def set_return_date
       Date.today.next_day(Library::DAYS_BEFORE_RETURN).strftime('%d/%m/%y')
-
    end 
     
 end

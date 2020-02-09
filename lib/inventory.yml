@@ -8,19 +8,19 @@
     :title: Bränn alla mina brev
     :author: Alex Schulman
   :available: true
-  :return_date:
+  :return_date: 
 - :item:
     :title: Ett jävla solsken
     :author: Fatima Bremmer
-  :available: true
-  :return_date: 
+  :available: false
+  :return_date: 10/03/20
 - :item:
     :title: Ondskan
     :author: Jan Guillou
-  :available: false
-  :return_date: '2020-03-01'
+  :available: true
+  :return_date: 
 - :item:
     :title: In search of lost time
     :author: Marcel Proust
   :available: true
-  :return_date:
+  :return_date: 
