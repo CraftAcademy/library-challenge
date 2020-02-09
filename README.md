@@ -30,7 +30,7 @@ The code was implemented following inputs from the Craft Academy learning materi
 Credits: The part of the code that changes the status of the availability was developed           with suggestions from robin-lillqvist/github.com
 
 License: The follwing code is open source as part of a learning process type of project. Feel free to implement and/or suggest any modifications to it.
-Authors: https://github.com/Carltesio https://github.com/johanbounce
+Authors: https://github.com/Carltesio https://github.com/pgaunizt
 
 
 
