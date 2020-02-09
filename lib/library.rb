@@ -19,7 +19,6 @@ class Library
      collection.select {|book| book[:available].eql? false }
    end
 
-
    def select_title(search_word)
       collection.select {|book| book[:item][:title].include? search_word}
    end
