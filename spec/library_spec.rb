@@ -11,7 +11,7 @@ describe Library do
 
     it 'Can search for book by title' do
         expected_book = [{item: {title: 'Pippi Långstrump går ombord',author: 'Astrid Lindgren'}, available: true, return_date: nil }]
-        expect(subject.search_by_title('går ombord')).to eq(expected_book)
+        expect(subject.search_by_title('Pippi Långstrump går ombord')).to eq(expected_book)
     end
 
     it 'Can search for book by author' do
@@ -25,5 +25,9 @@ describe Library do
         
     end
 
+    it 'change book to unavailable ' do
+        subject.set_book_unvailable(2)
+        expect(subject.books_list[2][:available]).to eq false
+    end
 
 end
