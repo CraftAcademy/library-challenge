@@ -17,6 +17,10 @@ class Library
     def due_date
         Date.today + 30
     end
+
+    def mybooks
+        @mybooks = @collection.select { |obj| obj[:item][:available] == false }
+    end
     
     
 end
