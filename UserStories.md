@@ -29,12 +29,12 @@ in order get the books in time
 I want books to be returned in 30 days.
 
 # 7
-As a library
+As a library. (done)
 In order to know if book is back.
 I want to know if it's available
 
 # 8
-As a library
+As a library (done)
 In order to know if I borrowed a book
 I want to know if the book is "away" /unavailable
 
