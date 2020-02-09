@@ -1,6 +1,6 @@
 require 'coveralls'
 Coveralls.wear!
-require 'pry'
+
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
