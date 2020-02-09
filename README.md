@@ -71,7 +71,7 @@ As a librarian,
 in order to give an account to a costumer,
 I want them to register with password and email
 
-As a costumer,
+√As a costumer,
  in order to know when to return a book, 
  i will like to see due date when we borrow
 

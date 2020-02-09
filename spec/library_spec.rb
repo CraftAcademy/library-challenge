@@ -2,7 +2,7 @@ require './lib/library.rb'
 require 'date'
 
 describe Library do
-  let(:person) { instance_double('Person', password: '1234', email: 'person@book.com') }
+  let(:person) { instance_double('Person', password: '1234') }
   
 
   it 'can search book list by title' do
@@ -14,7 +14,7 @@ describe Library do
   end
 
   it 'show the due date at borrowing' do
-    expect(subject.select_book(due_date)).to be_truthy
+    expect(subject.due_date)
   end
 end
 
