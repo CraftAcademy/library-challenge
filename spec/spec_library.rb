@@ -7,11 +7,11 @@ describe Library do
     
 
     it 'Library collection books is not empty' do
-    expect(subject.collection_books).not_to eq nil
+        expect(subject.collection_books).not_to eq nil
     end
 
     it 'List of available books' do
-    expect(subject.books_is_available?).to_not eq [{:available => false}]
+        expect(subject.books_is_available?).to_not eq [{:available => false}]
     end
 
     it 'List of borrowed books' do
@@ -19,7 +19,11 @@ describe Library do
     end
     
     it 'Search a book by the title' do
-        expect(subject.search_book_title("Pipi")).to eq         
+        expect(subject.search_book_title("Osynligt")).not_to include ("Långstrump")
+    end
+
+    it 'Search a book by the author' do
+        expect(subject.search_book_author("Gunilla")).not_to include ("Astrid Lindgren")        
     end
 
   
