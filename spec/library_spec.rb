@@ -1,4 +1,5 @@
 require './lib/library.rb'
+require 'date'
 
 describe Library do
 
@@ -25,5 +26,18 @@ describe Library do
         
     end
 
+    it 'returns the date of return' do
+        expect(subject.return_date).to eq Date.today.next_day(30).strftime('%d%m/%y')
+
+    end
+
+    it 'returns the list of unavailable books' do
+        expect(subject.unavailable_books).to be_truthy
+    end
+
+    it 'change book to unavailable ' do
+        subject.set_book_unvailable(4)
+        expect(subject.books_list[4][:available]).to eq false
+    end
 
 end
