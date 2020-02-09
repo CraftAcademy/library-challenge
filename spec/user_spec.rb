@@ -49,12 +49,12 @@ describe User do
     #     expect(command.call).to be_truthy
     # end
 
-    it 'checked out books are displayed in user account' do
-        # Ex. subject.cash = 100
-        # subject.deposit(100)
-        # expect(subject.account.balance).to be 100
-        # expect(subject.cash).to be 0
-    end
+    # it 'checked out books are displayed in user account' do
+    #     # Ex. subject.cash = 100
+    #     # subject.deposit(100)
+    #     # expect(subject.account.balance).to be 100
+    #     # expect(subject.cash).to be 0
+    # end
 
     # it 'checkout is expected to raise an error if the book is unavailable' do ???
     #     # Ex. command = lambda {
