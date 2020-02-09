@@ -4,7 +4,7 @@ class Library
 
   attr_accessor :index
 
-  #STANDARD_RETURN_DATE = 30
+  STANDARD_RETURN_DATE = 1
 
   def initialize
     @index = YAML.load_file('./lib/data.yml')
@@ -18,13 +18,13 @@ class Library
     index.select { [:item][:author].include? "#{author}" }
   end
 
-  def is_available(available)
-    index.select { [:item][:available].eq? "true" }
-  end
-
- # def return_date
-  #  Date.today.next_year(Account::STANDARD_VAILIDITY_YRS).strftime('%m/%y')
+  #def is_available(available)
+  #  index.select { [:item][:available].equal? true }
   #end
+
+  def return_date
+    Date.today.next_month(STANDARD_RETURN_DATE).strftime('%y-%m-%d')
+  end
 
 end
 

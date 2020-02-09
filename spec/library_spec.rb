@@ -18,18 +18,20 @@ describe Library do
 
 
   it 'can check if the book is available' do
-    expect(subject.index[2][:item][:available]).to eq("true")
+    expect(subject.index[0][:item][:available]).to eq(true)
   end
   
-=begin 
-  it 'can generate checkout date' do
+
+  #it 'can generate checkout date' do
     
-  end
+  #end
 
   it 'can generate return date' do
-    
+    return_date = Date.today.next_month(1).strftime('%y-%m-%d')
+    expect(subject.return_date).to eq return_date
   end
-
+  
+=begin
   it 'when book checked out availability changes to unavailable' do
     
   end
