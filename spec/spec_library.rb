@@ -1,21 +1,34 @@
 require './lib/library.rb'
 require 'pry'
 
+
 describe Library do
     subject {described_class.new}
-
-    it 'Library collection books is not empty'do
     
+
+    it 'Library collection books is not empty' do
     expect(subject.collection_books).not_to eq nil
     end
 
-    it 'Gets book through title' do
-    expect(subject.collection_books[0][:item][:title]).to eq 'Alfons och soldatpappan'
+    it 'List of available books' do
+    expect(subject.books_is_available?).to_not eq [{:available => false}]
     end
 
     it 'Gets author' do
     expect(subject.collection_books[0][:item][:author]).to eq 'Gunilla Bergström'
+    
     end
+    
+    it 'List of borrowed books' do
+        expect(subject.books_is_unavailable?).to_not eq [{:available => true}]
+    
+    end
+    
+    it 'Re-writes the value of a  ' do
+        
+    end
+
+  
 
     it 'Checks avaliability' do
         expect(subject.collection_books[0][:available]).to eq true
