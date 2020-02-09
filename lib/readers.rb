@@ -1,8 +1,17 @@
+require 'date'
+require './lib/library.rb'
 
-    def available_to_false(desired_book)
-        collection_books.
-        File.open('./lib/data.yml', 'w') {|f| f.write collection_books.to_yaml}
-        end
-    
-        
-    
+class Readers
+    attr_accessor :books_is_available?
+
+
+
+    def initialize        
+    end
+
+    def check_avaible?
+        test1 = books_is_available?
+        return "#{test1}"
+    end
+
+end

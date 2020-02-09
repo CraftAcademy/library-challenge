@@ -1,6 +1,55 @@
 ## Library Challenge
 ### Week 1 Ruby challenge
 
+### Daniel & Jaime
+-------
+Requisites:
+
+Project it's a [WIP], so no fully functional at the moment. 
+
+DISCLAIMER: NOT A VERSION FOR PEOPLE WITHOUTH BASIC KNOWLADGE OF RUBY AND PROGRAMMING.
+
+If you want to check the code and work with it futher you will need the following:
+
+Ruby version 2.5.1
+
+YALM not required it's integrated to all ruby versions above  2.0.0
+
+RSpec installed and initialized.
+
+
+Download the requiered gems (If download doesn't get through due error, please delete file:Gemfile.lock and try again.)
+
+The project so far has passed the following test successfully.
+
+Library
+  Library collection books is not empty
+  List of available books
+  List of borrowed books
+  Search a book by the title
+  Search a book by the author
+  Is expected to give the return date
+  Checks if the book has been borrowed
+  Checks if the book has been returned
+  Checks if the date has been added into the borrowed book
+  Checks if the date has been added into the borrowed book
+
+-------
+
+We been learning a lot and the Challenge did indeed challenge our nerves, but we made through all this small victories that we feel proud with what we archived in this two days! 
+
+
+░██╗░░░░░░░██╗███████╗  ██╗░░░░░░█████╗░██╗░░░██╗███████╗  ░█████╗░░█████╗░██████╗░███████╗
+░██║░░██╗░░██║██╔════╝  ██║░░░░░██╔══██╗██║░░░██║██╔════╝  ██╔══██╗██╔══██╗██╔══██╗██╔════╝
+░╚██╗████╗██╔╝█████╗░░  ██║░░░░░██║░░██║╚██╗░██╔╝█████╗░░  ██║░░╚═╝██║░░██║██║░░██║█████╗░░
+░░████╔═████║░██╔══╝░░  ██║░░░░░██║░░██║░╚████╔╝░██╔══╝░░  ██║░░██╗██║░░██║██║░░██║██╔══╝░░
+░░╚██╔╝░╚██╔╝░███████╗  ███████╗╚█████╔╝░░╚██╔╝░░███████╗  ╚█████╔╝╚█████╔╝██████╔╝███████╗
+░░░╚═╝░░░╚═╝░░╚══════╝  ╚══════╝░╚════╝░░░░╚═╝░░░╚══════╝  ░╚════╝░░╚════╝░╚═════╝░╚══════╝
+
+
+##### User histories created and used are in the file UserStories.md !
+
+
 Instructions
 -------
 Read this entire README carefully and follow all instructions.
