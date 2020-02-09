@@ -28,7 +28,7 @@ class Library
       collection.select {|book| book[:item][:author].include? search_word}
    end
 
-   def return_date
+   def set_return_date
       Date.today.next_day(Library::DAYS_BEFORE_RETURN).strftime('%d/%m/%y')
 
    end 
