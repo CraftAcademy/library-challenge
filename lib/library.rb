@@ -11,16 +11,18 @@ class Library
   end
 
   def query_title(title)
-      index.select { [:item][:title].include? "#{title}" }
+      index.select { [:title].include? "#{title}" }
   end
   
   def query_author(author)
-    index.select { [:item][:author].include? "#{author}" }
+    index.select { [:author].include? "#{author}" }
   end
 
   def is_available(available)
     index.select { [:available] }
   end
+
+
 
   #dependent on checkout
   def return_date

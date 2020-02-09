@@ -33,6 +33,7 @@ describe Library do
   end
 
 =begin
+
   it 'when book checked out availability changes to unavailable' do
     
   end
