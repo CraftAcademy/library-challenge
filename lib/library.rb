@@ -15,12 +15,19 @@ class Library
         @selected_book = @collection.select { |obj| obj[:item][:title] == title }
     end
 
+    def due_date
+        Date.today + 30.strftime('%m/%d')
+    end
+    
+    
+end
+            
     # def borrowed_book(title, due_date)
     # @item -= title
     # account.borrowed_book = account.borrowed_book- due_date
     # { status: true, message: 'success', date: Date.today, title: title, due_date: (due_date) }
     # end
-end
+
 
     
     # def initialize

@@ -73,7 +73,7 @@ I want them to register with password and email
 
 As a costumer,
  in order to know when to return a book, 
- i will like to receive an email with due date
+ i will like to see due date when we borrow
 
  Reference
  
