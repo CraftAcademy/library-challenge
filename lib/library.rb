@@ -8,6 +8,7 @@ class Library
 
     def initialize 
         @collection = create_collection()
+        
     end
 
     def create_collection
@@ -40,9 +41,10 @@ class Library
         File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
     end
 
-    def lendBook(book, name)
+    def lend_book(book)
         setReturnDate(book)
         change_availability(book)
+        {title: collection[book][:item][:title], available: collection[book][:available], return_date: collection[book][:return_date]}
     end
 
 end

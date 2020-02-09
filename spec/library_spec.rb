@@ -54,6 +54,11 @@ describe Library do
     end
 
     #As a user I would like to know which book I've borrowed and when is a return date
+    it 'Checks if the receipt has a return date and title' do
+    expected_output = {title: 'Alfons och soldatpappan', available: false, return_date: Date.today.next_day(30).strftime('%Y-%m-%d')}
+    expect(subject.lend_book(0)).to eq expected_output
+end
+
 end
 
 
