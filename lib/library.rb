@@ -2,7 +2,7 @@ require 'yaml'
 require 'date'
 
 class Library 
-    attr_accessor :collection, :current_loans, :Library
+    attr_accessor :collection, :Library, :lend_book
 
     STANDARD_LENDING_PERIOD_IN_DAYS = 30
 

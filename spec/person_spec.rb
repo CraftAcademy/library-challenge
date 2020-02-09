@@ -1,7 +1,7 @@
 require './lib/person.rb'
 
 describe Person do
-    let(:person) { Person.new() }
+    let(:Lib) { Library.new }
 
     subject { described_class.new }
 
@@ -19,8 +19,8 @@ describe Person do
         expect(subject.username).to_not eq nil
     end
 
-    skip 'Checks if the person can lend a book' do
-        subject.loan_book(0)
+    it 'Checks if the person can lend a book' do
+        self.loan_book(0, 'Robin')
         expect(subject.loaned_books).to include(subject.collection[0])
     end
 
