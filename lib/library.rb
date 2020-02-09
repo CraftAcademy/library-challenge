@@ -7,7 +7,7 @@ class Library
     end
 
     def available_book(title)
-        @available_book = @collection.select { |obj| obj[:item][:available] == true }
+        @available_book = @collection.select { |obj| obj[:available].eql? true }
     end
 
     def select_book(title)

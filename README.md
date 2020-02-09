@@ -59,7 +59,7 @@ Read this entire README carefully and follow all instructions.
 in order to know wich books are available, 
 i want to see a list in the app
 
- √As a costumer,
+√ As a costumer,
  to know what books are available, 
  i will like a list of available books
 
