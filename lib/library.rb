@@ -30,16 +30,6 @@ class Library
         collection_books.select{|b| b[:item][:author].include? "#{user_input}"}
     end
 
-    def borrow_book(num)
-        @collection_books[(num)][:available] = false
-        File.open('./lib/data.yml', 'w') { |f| f.write @collection_books.to_yaml }
-    end
-
-    def return_book(num)    
-        @collection_books[(num)][:available] = true
-        File.open('./lib/data.yml', 'w') { |f| f.write @collection_books.to_yaml }
-    end
-
     def borrow_period(num)
         @collection_books[(num)][:available] = false
         @collection_books[(num)][:return_date] = time_out
