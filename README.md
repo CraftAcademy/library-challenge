@@ -59,11 +59,11 @@ Read this entire README carefully and follow all instructions.
 in order to know wich books are available, 
 i want to see a list in the app
 
- As a costumer,
+ √As a costumer,
  to know what books are available, 
  i will like a list of available books
 
-As a librarian, 
+√As a librarian, 
 in order to know what books are checked out, 
 i want to see the list of titles and  information of wich user and when it was borrowed
 
@@ -74,3 +74,8 @@ I want them to register with password and email
 As a costumer,
  in order to know when to return a book, 
  i will like to receive an email with due date
+
+ Reference
+ 
+ https://github.com/boamatule/library-challenge
+Used for defining searching my title in library
