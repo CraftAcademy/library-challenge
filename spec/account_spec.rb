@@ -15,7 +15,7 @@ describe Account do
       # Ex: expect(subject.account_status).to eq :active
    end
 
-   it 'checks that books borrowed get expiry date on initialize (checkout)' do
+   it 'checks that books borrowed get return date on initialize (checkout)' do
       # Ex. expected_date = Date.today.next_year(5).strftime("%m/%y") expect(subject.exp_date).to eq expected_date
    end
 
@@ -25,14 +25,6 @@ describe Account do
 
    it 'displays list of currently borrowed books' do
       # Some supersmart code
-   end
-
-   it 'rases error if date is due for return of book' do
-      # Ex. expect { described_class.new }.to raise_error 'An Account owner is required'
-   end
-
-   it 'deactivates account on initialize' do
-      # Ex. subject.deactivate expect(subject.account_status).to eq :deactivated
    end
 
 end
