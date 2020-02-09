@@ -22,6 +22,9 @@ class Library
     index.select { [:available] }
   end
 
+  def checkout_book
+
+  end
 
 
   #dependent on checkout
