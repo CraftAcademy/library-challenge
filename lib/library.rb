@@ -19,7 +19,7 @@ class Library
   end
 
   def is_available(available)
-    index.select { [:item][:available].eq? "#{false}" }
+    index.select {[:available].eql? true }
   end
 
   #dependent on checkout
