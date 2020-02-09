@@ -16,6 +16,7 @@ describe Customer do
     end
 
     it 'Can return a book' do
-        
+        expected_output = {:item=>{:title=>"Ett jävla solsken", :author=>"Fatima Bremmer"}, :available=>true, :return_date=>nil}
+        expect(subject.checkin_service(2)).to eq expected_output
     end
 end 

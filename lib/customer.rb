@@ -5,6 +5,7 @@ require 'date'
 
 class Customer
 
+
     def available_books
         collection = YAML.load_file('./lib/inventory.yml')
         collection.select {|book| book[:available].eql? true }
@@ -19,9 +20,10 @@ class Customer
     end 
 
     def checkin_service(num)
+        collection = YAML.load_file('./lib/inventory.yml')
         collection[(num)][:available]= true 
         collection[(num)][:return_date]= nil
-        File.open('./lib/inventory.yml', "w") {|f| f.write collection.to.yaml}
+        File.open('./lib/inventory.yml', "w") {|f| f.write collection.to_yaml}
         collection[(num)]
     end
 

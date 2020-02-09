@@ -1,5 +1,6 @@
 require 'yaml'
 require 'Date'
+require 'search_service'
 
 class Library
    attr_accessor :collection, :search_word, :set_return_date
@@ -8,27 +9,26 @@ class Library
 
    def initialize
       @collection = YAML.load_file('./lib/inventory.yml')
-      # @book = {:item=>{:title=>"", :author=>""}, :available=>true, :return_date=>nil}
-   end
+      end
 
    def list 
-      puts collection
+      self.collection
    end
 
    def unavailable_books
      collection.select {|book| book[:available].eql? false }
    end
 
-   def select_title(search_word)
-      collection.select {|book| book[:item][:title].include? search_word}
+   def search_title(search_word)
+      SearchService.find_title(search_word)
    end
    
-   def select_author(search_word)
-      collection.select {|book| book[:item][:author].include? search_word}
+   def search_author(search_word)
+      SearchService.find_author(search_word)
    end
 
    def set_return_date
       Date.today.next_day(Library::DAYS_BEFORE_RETURN).strftime('%d/%m/%y')
-   end 
+   end
     
 end

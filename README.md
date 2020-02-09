@@ -57,10 +57,10 @@ In order to find the right book
 I need to be able to search for both title and author
 
 As a library worker
-In order to see what books are available 
-I need to see a list of available books
+In order to see what books are checked out by customer 
+I need to see a list of unvailable books
 
-As a library worker
+As a library
 In order to get the checked out books back
 We need to be able to have a time frame when it needs to be returned
 

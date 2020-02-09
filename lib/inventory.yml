@@ -12,13 +12,13 @@
 - :item:
     :title: Ett jävla solsken
     :author: Fatima Bremmer
-  :available: false
-  :return_date: 10/03/20
+  :available: true
+  :return_date: 
 - :item:
     :title: Ondskan
     :author: Jan Guillou
-  :available: true
-  :return_date: 
+  :available: false
+  :return_date: '2020-03-01'
 - :item:
     :title: In search of lost time
     :author: Marcel Proust
