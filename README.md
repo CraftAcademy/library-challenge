@@ -12,7 +12,7 @@ We need a list that shows all books
 
 -- PersonClass + BookClass --
 As a library
-In order for visitors to check out books 
+In order for visitors to check out books
 We need an app for them to access the list of books
 
 -- AccountClass + PersonClass + BookClass --
