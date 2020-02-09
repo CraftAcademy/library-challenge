@@ -8,7 +8,9 @@ class User
     def initialize (attrs = {})
         @account == nil
         @book = nil
-        set_id(attrs[:id])
+        @id = rand()
     end
 
 end
+
+# set_id(attrs[:id])

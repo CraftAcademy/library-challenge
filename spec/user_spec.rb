@@ -1,40 +1,41 @@
 require './lib/account.rb'
 require './lib/books.rb'
+require './lib/user.rb'
 require 'pry'
 
 describe User do
-
-    let(:user) { instance_double('User', id: '8510316584')}
-    subject {   described_class.new({owner: id})    }
+    subject { described_class.new(id: '1234') }
 
     it 'gets an :id on initialize' do
-        # Ex. expect(subject.id).not_to be nil
+        expect(subject.id).not_to be nil
     end
     
     it 'raises an error if no :id is set' do
          # Ex. expect{ described_class.new }.to raise_error 'A person name is required'
     end
 
-    describe 'user can create an account' do
-        before # Ex. { subject.create_account }
+    # describe 'user can create an account' do
+    #     before # Ex. { subject.create_account }
         
-        it 'will be of user class' do
-            # Ex. expect(subject.account).to be_an_instance_of Account
-        end
+    #     it 'will be of user class' do
+    #         # Ex. expect(subject.account).to be_an_instance_of Account
+    #     end
 
-        it 'assigns user as owner' do
-            # Ex. expect(subject.account.owner).to be subject
-        end
-    end
+    #     it 'assigns user as owner' do
+    #         # Ex. expect(subject.account.owner).to be subject
+    #     end
+    # end
 
-    describe 'user can checkout book if???' do
-        let # Ex. let(:atm) { ATM.new }
-        before # Ex. { subject.create_account }
+    # describe 'user can checkout book if???' do
+    #     let # Ex. let(:atm) { ATM.new }
+    #     before # Ex. { subject.create_account }
 
-        it 'user can return book???' do
-            # Ex. expect(subject.deposit(100)).to be_truthy
-        end
-    end
+    #     it 'user can return book???' do
+    #         # Ex. expect(subject.deposit(100)).to be_truthy
+    #     end
+    # end
+
+
     # Other code example
     # it 'can withdraw funds' do 
     #     command = lambda { 

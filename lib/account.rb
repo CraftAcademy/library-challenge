@@ -9,6 +9,7 @@ class Account
         @owner = set_owner(attrs[:owner])
         @borrowed_books = # List of borrowed books
         @account_status = :active
+        @id = rand(1000..9999)
     end
 
     def set_account_status # The account deactivates in 10 years from "today"
