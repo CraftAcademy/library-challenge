@@ -12,9 +12,8 @@
 - :item:
     :title: Osynligt med Alfons
     :author: Gunilla Bergström
-  :available: true
-  :return_date: 
-  :retrun_date: 1003/20
+  :available: false
+  :return_date: 10-03-20
 - :item:
     :title: Pippi Långstrump
     :author: Astrid Lindgren

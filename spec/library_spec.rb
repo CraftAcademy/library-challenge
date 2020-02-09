@@ -12,7 +12,7 @@ describe Library do
 
     it 'Can search for book by title' do
         expected_book = [{item: {title: 'Pippi Långstrump går ombord',author: 'Astrid Lindgren'}, available: true, return_date: nil }]
-        expect(subject.search_by_title('går ombord')).to eq(expected_book)
+        expect(subject.search_by_title('Pippi Långstrump går ombord')).to eq(expected_book)
     end
 
     it 'Can search for book by author' do
@@ -27,7 +27,7 @@ describe Library do
     end
 
     it 'returns the date of return' do
-        expect(subject.return_date).to eq Date.today.next_day(30).strftime('%d%m/%y')
+        expect(subject.return_date).to eq Date.today.next_day(30).strftime('%d-%m-%y')
 
     end
 
@@ -44,11 +44,18 @@ describe Library do
         subject.set_book_available(4)
         expect(subject.books_list[4][:available]).to eq true
     end
-
-    it 'tells when a book will be available again' do
+        
+    
+    it 'change return date of book' do
         subject.set_book_return_date(2)
-        expect(subject.books_list[2][:return_date]).to eq Date.next_day(30).strftime('%d%m/%y')
+        expect(subject.books_list[2][:return_date]).to eq Date.today.next_day(30).strftime('%d-%m-%y')
 
+    end
+
+    it 'can check out book' do
+        subject.check_out(2)
+        expect(subject.books_list[2][:return_date]).to eq Date.today.next_day(30).strftime('%d-%m-%y')
+        expect(subject.books_list[2][:available]).to eq false
     end
 
 
