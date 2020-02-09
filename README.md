@@ -18,7 +18,7 @@ YALM not required it's integrated to all ruby versions above  2.0.0
 RSpec installed and initialized.
 
 
-Download the requiered gems (If download doesn't get through due error, please delete file:Gemfile.lock and try again.)
+Download the requiered gems with blundle install (If download doesn't get through due error, please delete file:Gemfile.lock and try again.)
 
 The project so far has passed the following test successfully.
 
@@ -37,15 +37,6 @@ Library
 -------
 
 We been learning a lot and the Challenge did indeed challenge our nerves, but we made through all this small victories that we feel proud with what we archived in this two days! 
-
-
-░██╗░░░░░░░██╗███████╗  ██╗░░░░░░█████╗░██╗░░░██╗███████╗  ░█████╗░░█████╗░██████╗░███████╗
-░██║░░██╗░░██║██╔════╝  ██║░░░░░██╔══██╗██║░░░██║██╔════╝  ██╔══██╗██╔══██╗██╔══██╗██╔════╝
-░╚██╗████╗██╔╝█████╗░░  ██║░░░░░██║░░██║╚██╗░██╔╝█████╗░░  ██║░░╚═╝██║░░██║██║░░██║█████╗░░
-░░████╔═████║░██╔══╝░░  ██║░░░░░██║░░██║░╚████╔╝░██╔══╝░░  ██║░░██╗██║░░██║██║░░██║██╔══╝░░
-░░╚██╔╝░╚██╔╝░███████╗  ███████╗╚█████╔╝░░╚██╔╝░░███████╗  ╚█████╔╝╚█████╔╝██████╔╝███████╗
-░░░╚═╝░░░╚═╝░░╚══════╝  ╚══════╝░╚════╝░░░░╚═╝░░░╚══════╝  ░╚════╝░░╚════╝░╚═════╝░╚══════╝
-
 
 ##### User histories created and used are in the file UserStories.md !
 
