@@ -25,8 +25,8 @@ class Library
         books_list.select { |book| book[:available] == true }
     end
 
-    def return_date ()
-    Date.today.next_day(LOAN_TIME_DAYS).strftime('%d%m/%y')
+    def return_date 
+        Date.today.next_day(LOAN_TIME_DAYS).strftime('%d-%m-%y')
     end
 
     def unavailable_books
@@ -37,16 +37,22 @@ class Library
         self.books_list[book][:available] = false
         File.open('./lib/data.yml', 'w') { |f| f.write books_list.to_yaml }
     end
-
-    def  set_book_return_date(book)
-        self.books_list[book][:retrun_date] = return_date
+    
+    def set_book_available(book)
+        self.books_list[book][:available] = true
         File.open('./lib/data.yml', 'w') { |f| f.write books_list.to_yaml }
     end
 
+    def  set_book_return_date(book)
+        self.books_list[book][:return_date] = return_date
+        File.open('./lib/data.yml', 'w') { |f| f.write books_list.to_yaml }
+    end
+    
     def check_out(book)
         set_book_unvailable(book)
         set_book_return_date(book)
         end
+    
 
 end
 

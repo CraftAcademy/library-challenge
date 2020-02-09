@@ -1,11 +1,51 @@
+Virtual Library project:
+
+
+
 Project requirements
 "We need an app where both the visitors and the library can see if a list of books is available, it would be nice to see both the title and the author of the book. The library needs to store these books in a file where we can easily check if a book is available or not. The library also needs the visitors to check out books after finding the title they want. Depending on the time of the checkout the library needs the books to be returned within a month and obviously, it would be nice for the visitor to know which date to return the book."
 
+returns true if there is a list of books *
+  Can search for book by title *
+  Can search for book by author *
+  list of available books *
+  returns the date of return *
+  returns the list of unavailable books*
+  change book to unavailable*
+  change book to unavailable*
+
 Users stories:
 
-As a visitor/library 
-In order to order/lend out a book
-I would like to see the availability of books
+As a Visitor/library
+In order to search for books 
+I would like to see if there is a catalog with items
+
+As a Visitor/library
+In order to search for books
+I would like to search for a book by its title
+
+As a Visitor/library
+In order to search for books
+I would like to search for a book by its Author
+
+As a Visitor/library
+In order to lend/borrow an available book
+I would like to see a list of the available books
+
+As a Visitor/library
+In order to know when a book should be back at the library
+I would like to see a return date
+
+As a library
+In order to communicate when a book is being borrowed
+I would like to change the available status
+
+As a library
+In order to communicate when a book is being returned
+I would like to change the available status
+
+
+
 
 
 
