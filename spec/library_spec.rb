@@ -31,12 +31,12 @@ describe Library do
     it 'message to user"checkout complete, return book on {return_date}" ' do
         #binding.pry
         expected_output = { message: 'Checkout complete', return_date: '03/08/20' } 
-        expect(subject.checkout("Pippi Långstrump")).to eq expected_output
+        expect(subject.checkout_process("Pippi Långstrump")).to eq expected_output
     end
 
     it 'message to user"checkout incomplete,book unavailable" ' do
         expected_output = 'Checkout incomplete, book unavailable.'
-        expect(subject.book_availability?("Osynligt med Alfons")).to eq expected_output
+        expect(subject.book_checkout("Osynligt med Alfons")).to eq expected_output
     end
     
     it 'updates the availability of book,after checkout' do

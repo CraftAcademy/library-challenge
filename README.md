@@ -60,7 +60,7 @@ Instructions for running in IRB.
 
 **Check out book** | Checks out book by entering the full book title, if book is available the user will see message that checkout was successful with the return date and the library's catalog will be updated; if book is unavailable user will see message that checkout was unsuccessful
 
-        library.checkout('*enter full book title*')
+        library.book_checkout('*enter full book title*')
 
 
 ## Acknowledgements
@@ -74,6 +74,8 @@ Material from the [Craftoverflow](https://github.com/CraftAcademy/CraftOverflow)
 * Adding personal vistor account with login
 * Being able to add and remove books from catalog
 * Formatting how book info is displayed
+* Making the searches case insensitive
+
 
 ## License
 MIT License <br><br><br>

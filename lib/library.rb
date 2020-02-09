@@ -28,13 +28,13 @@ class Library
     
     # we then want to check the book's availability
     # we then want an OR statement to either checkout book or say book is not available (maybe do in one step?)
-    def book_availability?(user_search)
+    def book_checkout(user_search)
         availablity = book_to_checkout(user_search)[0][:available]
         availablity ? checkout(user_search) : 'Checkout incomplete, book unavailable.'
     end
     
     # then if the book is available we want to 'checkout' by updating the books availability and return_date and message to user
-    def checkout(user_search)
+    def checkout_process(user_search)
         #update availability
         book_to_checkout(user_search)[0][:available] = false
         #update return date
