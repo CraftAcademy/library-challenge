@@ -22,11 +22,13 @@ describe Library do
     #As a member I want to be able to search for a book by author or title
 
     it 'Checks if you can search for a book by the author' do
-        expect(subject.search_author('Astrid')).to be_truthy
+        expected_output = [{:item=>{:title=>"Pippi Långstrump", :author=>"Astrid Lindgren"}, :available=>true, :return_date=>nil}, {:item=>{:title=>"Pippi Långstrump går ombord", :author=>"Astrid Lindgren"}, :available=>true, :return_date=>nil}]
+        expect(subject.search_author('Astrid')).to eq expected_output
     end
 
     it 'Checks if you can search for a book by title' do
-        expect(subject.search_title('pippi')).to be_truthy
+        expected_output = [{:item=>{:title=>"Skratta lagom! Sa pappa Åberg", :author=>"Gunilla Bergström"}, :available=>true, :return_date=>nil}]
+        expect(subject.search_title('Åberg')).to eq expected_output
     end
 
     #As a member I want to be able to see only the list of available books
@@ -50,6 +52,8 @@ describe Library do
         subject.setReturnDate(0)
         expect(subject.collection[0][:return_date]).to eq Date.today.next_day(30).strftime('%Y-%m-%d')
     end
+
+    #As a user I would like to know which book I've borrowed and when is a return date
 end
 
 

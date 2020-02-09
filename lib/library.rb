@@ -40,7 +40,7 @@ class Library
         File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
     end
 
-    def lendBook(book)
+    def lendBook(book, name)
         setReturnDate(book)
         change_availability(book)
     end
