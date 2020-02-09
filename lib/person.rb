@@ -1,5 +1,3 @@
-require 'library.rb'
-
 class Person
 
     attr_accessor :username, :personal_id
@@ -13,5 +11,7 @@ class Person
         @username = usrname
     end
 
-    
+    def set_personal_id(input_personal_id)
+        @personal_id = input_personal_id
+    end
 end
