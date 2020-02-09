@@ -6,8 +6,3 @@
     
         
     
-        def lend(num)
-            @book_collection["#{num}".to_i][:available] = false
-            File.open('./lib/data.yml', 'w') { |f| f.write @book_collection.to_yaml }
-        end
-    

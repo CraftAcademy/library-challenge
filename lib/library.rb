@@ -35,16 +35,16 @@ class Library
        return bring_back
     end
 
+    def lend(num)
+        @collection_books << (num)
+        @collection_books[("#{num}".to_i)][:available] = false
+        File.open('./lib/data.yml', 'w') { |f| f.write @collection_books.to_yaml }
+    end
 
 
 
 
 
-    #002 > collection.detect { |obj| obj[:item][:title] == "Pippi Långstrump"  }
-
-   #@collection_books.each do |available: , **|
-   #return available
-   #end
 end
 
 private
