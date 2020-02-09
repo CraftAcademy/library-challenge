@@ -38,6 +38,22 @@ class Library
         File.open('./lib/data.yml', 'w') { |f| f.write books_list.to_yaml }
     end
 
+    def set_book_available(book)
+        self.books_list[book][:available] = true
+        File.open('./lib/data.yml', 'w') { |f| f.write books_list.to_yaml }
+    end
+
+    def  set_book_return_date(book)
+        self.books_list[book][:retrun_date] = return_date
+        File.open('./lib/data.yml', 'w') { |f| f.write books_list.to_yaml }
+    end
+    
+    def check_out(book)
+        set_book_unvailable(book)
+        set_book_return_date(book)
+        end
+    
+
 end
 
     # def check_out (available)

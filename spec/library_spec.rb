@@ -40,4 +40,17 @@ describe Library do
         expect(subject.books_list[4][:available]).to eq false
     end
 
+    it 'change book to available ' do
+        subject.set_book_available(4)
+        expect(subject.books_list[4][:available]).to eq true
+    end
+
+    it 'tells when a book will be available again' do
+        subject.set_book_return_date(2)
+        expect(subject.books_list[2][:return_date]).to eq Date.next_day(30).strftime('%d%m/%y')
+
+    end
+
+
+
 end

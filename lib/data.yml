@@ -14,6 +14,7 @@
     :author: Gunilla Bergström
   :available: true
   :return_date: 
+  :retrun_date: 1003/20
 - :item:
     :title: Pippi Långstrump
     :author: Astrid Lindgren
@@ -22,5 +23,5 @@
 - :item:
     :title: Pippi Långstrump går ombord
     :author: Astrid Lindgren
-  :available: false
+  :available: true
   :return_date: 
