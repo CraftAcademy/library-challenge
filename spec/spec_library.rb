@@ -4,14 +4,15 @@ require 'pry'
 
 describe Library do
     subject {described_class.new}
+
     
 
     it 'Library collection books is not empty' do
-    expect(subject.collection_books).not_to eq nil
+        expect(subject.collection_books).not_to eq nil
     end
 
     it 'List of available books' do
-    expect(subject.books_is_available?).to_not eq [{:available => false}]
+        expect(subject.books_is_available?).to_not eq [{:available => false}]
     end
 
     it 'Gets author' do
@@ -25,7 +26,16 @@ describe Library do
     end
     
     it 'Search a book by the title' do
-        expect(subject.search_book_title("Pipi")).to eq         
+        expect(subject.search_book_title("Osynligt")).not_to include ("Långstrump")
+    end
+
+    it 'Search a book by the author' do
+        expect(subject.search_book_author("Gunilla")).not_to include ("Astrid Lindgren")        
+    end
+
+    it 'Is expected to give the return date' do
+        expected_date = Date.today + 30
+        expect(subject.time_out).to eq expected_date
     end
 
   
