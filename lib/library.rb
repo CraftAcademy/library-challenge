@@ -18,10 +18,11 @@ class Library
     index.select { [:item][:author].include? "#{author}" }
   end
 
-  #def is_available(available)
-  #  index.select { [:item][:available].equal? true }
-  #end
+  def is_available(available)
+    index.select { [:item][:available].eq? "#{false}" }
+  end
 
+  #dependent on checkout
   def return_date
     Date.today.next_month(STANDARD_RETURN_DATE).strftime('%y-%m-%d')
   end
