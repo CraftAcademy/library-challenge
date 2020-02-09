@@ -65,7 +65,10 @@ describe Library do
         expect(subject.collection[0][:available]).to eq true
     end
 
-   
+    it 'Checks that return date is set to nil once book is returned' do
+        subject.date_to_nil(0)
+        expect(subject.collection[0][:return_date]).to eq nil
+    end
 
 end
 

@@ -52,4 +52,10 @@ class Library
         File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
     end
 
+    def date_to_nil(book)
+        self.collection[book][:return_date] = nil
+        File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
+    end
+
+
 end
