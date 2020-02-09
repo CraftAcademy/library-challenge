@@ -6,9 +6,9 @@ class Library
         @collection = YAML.load_file('./lib/data.yml')
     end
 
-    def available_book(title)
-        @available_book = @collection.select { |obj| obj[:available].eql? true }
-    end
+    # def available_book(title)
+    #     @available_book = @collection.select { |obj| obj[:available].eql? true }
+    # end
 
     def select_book(title)
         @selected_book = @collection.select { |obj| obj[:item][:title] == title }
