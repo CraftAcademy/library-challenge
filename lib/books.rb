@@ -13,10 +13,12 @@ class Books
 
     def query_author(author)
         item.select { [:item][:author].include? "#{author}" }
+        #@item = file.open('./lib/data.yml'), 'r') { |f| f.read collection.to_yaml }
     end
 
     def check_availability
-        item.select { [:item][:available].eql? true }
+        item.select { [:available]}
+        #@item = file.open('./lib/data.yml'), 'r') { |f| f.read collection.to_yaml }
     end
 
 end

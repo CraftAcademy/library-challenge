@@ -1,3 +1,5 @@
+--- !ruby/object:Books
+item:
 - :item:
     :title: Alfons och soldatpappan
     :author: Gunilla Bergström
@@ -22,4 +24,4 @@
     :title: Pippi Långstrump går ombord
     :author: Astrid Lindgren
   :available: true
-  :return_date:
+  :return_date: 

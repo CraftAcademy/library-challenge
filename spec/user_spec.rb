@@ -9,31 +9,33 @@ describe User do
     it 'gets an :id on initialize' do
         expect(subject.id).not_to be nil
     end
-    
-    it 'raises an error if no :id is set' do
-         # Ex. expect{ described_class.new }.to raise_error 'A person name is required'
+
+    describe 'user can create an account' do
+        before { subject.create_account }
+        
+        it 'will be of user class' do
+            expect(subject.account).to be_an_instance_of Account
+        end
+
+        it 'assigns user as owner' do
+            expect(subject.account.owner).to be subject
+        end
     end
 
-    # describe 'user can create an account' do
-    #     before # Ex. { subject.create_account }
-        
-    #     it 'will be of user class' do
-    #         # Ex. expect(subject.account).to be_an_instance_of Account
-    #     end
+    describe 'user can checkout book if' do
+        let(:item) { Books.new }
+        before { subject.create_account }
 
-    #     it 'assigns user as owner' do
-    #         # Ex. expect(subject.account.owner).to be subject
-    #     end
-    # end
+        it 'the status of the book is changed to unavailable' do
+            expected_output = false
+            expect(subject.checkout(item)[:available]).to eq expected_output
+         end
+      
 
-    # describe 'user can checkout book if???' do
-    #     let # Ex. let(:atm) { ATM.new }
-    #     before # Ex. { subject.create_account }
-
-    #     it 'user can return book???' do
-    #         # Ex. expect(subject.deposit(100)).to be_truthy
-    #     end
-    # end
+        # it 'user can return book???' do
+        #     expect(subject.return(item)).to be_truthy
+        # end
+    end
 
 
     # Other code example

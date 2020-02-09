@@ -1,7 +1,7 @@
 require 'date' # This allows dates to work
 
 class Account
-    attr_accessor :owner, :borrowed_books, :account_status
+    attr_accessor :owner, :borrowed_books, :account_status, :id
 
     STANDARD_VALIDITY_YRS = 10 # Library card expiration date
 
@@ -15,6 +15,8 @@ class Account
     def set_account_status # The account deactivates in 10 years from "today"
         Date.today.ten_years(STANDARD_VALIDITY_YRS).strftime('%d/%m/%y')
     end
+
+
     
     def set_owner(obj)
         obj == nil ? missing_owner : @owner = obj
