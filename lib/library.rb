@@ -6,21 +6,25 @@ class Library
         @collection = YAML.load_file('./lib/data.yml')
     end
 
-    # def available_book(title)
-    #     @available_book = @collection.select { |obj| obj[:available].eql? true }
-    # end
+    def borrowed_book 
+        borrowed_book = @collection.select { |obj| obj[:available]== false}
+        end
 
+    def show_available_books
+        available_books = @collection.select { |obj| obj[:available] == true }
+         end
+        
     def select_book(title)
         @selected_book = @collection.select { |obj| obj[:item][:title] == title }
-    end
+        end
 
     def due_date
         Date.today + 30
-    end
+        end
 
-    def mybooks
-        @mybooks = @collection.select { |obj| obj[:item][:available] == false }
-    end
+    # def mybooks
+    #     @mybooks = @collection.select { |obj| obj[:item][:available] == false }
+    #     end
     
     
 end
