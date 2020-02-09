@@ -11,6 +11,6 @@ module SearchService
     def self.find_author(search_word)
         collection = YAML.load_file('./lib/inventory.yml')
         collection.select {|book| book[:item][:author].include? search_word}
-     end
+    end
 
 end

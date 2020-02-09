@@ -69,6 +69,39 @@ Then run bundle to get all the required gems.
 
 ### Instructions
 
+>$ irb 
+
+>$ load ’lib/library.rb’
+
+>$ load ’lib/customer.rb’
+
+>$ load ’lib/search_services.rb’
+
+
+>$ library = Library.new
+
+>$ library.search_author(”Pascal”)
+
+>$ library.search_title(”kungen”)
+
+>$ library.unavailable_books
+
+
+
+
+>$ customer = Customer.new
+
+>$ customer.available_books
+
+>$ customer.search_author(”Schulman”)
+
+>$ customer.search_title(”brev”)
+
+>$ customer.checkout_service(1)
+
+>$ customer.checkin_service(1)
+
+
 ### Acknowledgements 
 - We have got inspiration from the Craft Academy demo by Faraz Naeem about how to search and use a yaml file.
 <!-- https://drive.google.com/file/d/1Pwh_fvKHGFjz-sWJE03x6AGpTaWjE-8c/view?usp=sharing -->
