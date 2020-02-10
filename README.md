@@ -83,4 +83,5 @@ Read this entire README carefully and follow all instructions.
 
 ##### Notable Collaborators
 
-Karolina and Pierre for discussing user stories
+Karolina and Pierre for discussing user stories.
+Paulo and I had some trouble designing tests to write to the YAML file and see how to do this in the IRB
