@@ -1,3 +1,32 @@
+# User Stories
+
+
+1. As the library, I would like to have an index of books, so that visitors and employees can see that we have books. 
+
+2. As the library, I would like book information to include author and title, so that the book index can be searchable. 
+
+3. As the library, I would like to know if a book is checked out, so that both employees and visitors know it is available / unavailable. 
+
+4. As the library, I would like to know when a book is checked out, so that a return date 30 days in the future can be generated.
+
+5. As a visitor, I would like to be able to check out a book, so that I can read it. 
+
+6. As a visitor, I would like to know when my book return is due, so that I return the book on time.
+
+
+
+### Potential Tests
+
+- first test: are there books in the library?
+- second test: can you search book author / title and get expected output
+- third test: can you check state of book (available / not available)
+- fourth test: can you see checkout date
+- fifth test: can you generate return date
+- sixth test: is inventory state updated when book checked out
+- seventh test: is visitor notified of return date
+
+
+
 ## Library Challenge
 ### Week 1 Ruby challenge
 
@@ -50,3 +79,9 @@ Read this entire README carefully and follow all instructions.
 
 
 **Happy coding!**
+
+
+##### Notable Collaborators
+
+Karolina and Pierre for discussing user stories.
+Paulo and I had some trouble designing tests to write to the YAML file and see how to do this in the IRB
