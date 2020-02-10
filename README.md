@@ -14,9 +14,11 @@ This program sets the foundation for an app that library staff an visitors can u
 * view checked out books in user account
 * return book to the library
 * send a message if book has passed its return date
+<br>
+<br>
 
-# User stories
 ![The Library Challenge](/Assets/library.jpg)
+# User stories
 *The app has been built with four requests in mind. These are the user stories of our customer.*
 
 **Show a list of all books**<br>
