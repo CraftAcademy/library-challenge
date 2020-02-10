@@ -2,8 +2,8 @@
 - :item:
     :title: Råttkungen
     :author: Pascal Engman
-  :available: true
-  :return_date: 
+  :available: false
+  :return_date: 10/03/20
 - :item:
     :title: Bränn alla mina brev
     :author: Alex Schulman

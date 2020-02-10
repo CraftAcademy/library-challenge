@@ -68,8 +68,11 @@ Then run bundle to get all the required gems.
 >$ bundle
 
 ### Instructions
+Load irb
 
 >$ irb 
+
+Load all the files that are required
 
 >$ load ’lib/library.rb’
 
@@ -77,27 +80,45 @@ Then run bundle to get all the required gems.
 
 >$ load ’lib/search_services.rb’
 
+Create a new Library
 
 >$ library = Library.new
 
+Search for a book with only part of, or the whole author's name
+
 >$ library.search_author(”Pascal”)
 
+Search for a book with only part of, or the whole title
+
 >$ library.search_title(”kungen”)
+
+Search for books that are checked out an has the status available: false
 
 >$ library.unavailable_books
 
 
 
+Create a new Customer
 
 >$ customer = Customer.new
 
+Create a list of books that aren't checked out, and has the status available: true
+
 >$ customer.available_books
+
+Search for a book with only part of, or the whole author's name
 
 >$ customer.search_author(”Schulman”)
 
+Search for a book with only part of, or the whole title
+
 >$ customer.search_title(”brev”)
 
+Loan a book by checking it out
+
 >$ customer.checkout_service(1)
+
+Return a loaned book by checking it in
 
 >$ customer.checkin_service(1)
 
