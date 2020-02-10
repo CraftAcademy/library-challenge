@@ -17,8 +17,8 @@ class Person
         @personal_id = input_personal_id
     end
 
-    def loan_book(book_to_loan, username)
-        self.lend_book(book_to_loan, username)
-    end
+    # def loan_book(book_to_loan, username)
+    #     self.lend_book(book_to_loan, username)
+    # end
     
 end
