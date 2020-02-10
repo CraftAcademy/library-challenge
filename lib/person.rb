@@ -1,6 +1,7 @@
+require './lib/library.rb'
 class Person
 
-    attr_accessor :person, :username, :personal_id,
+    attr_accessor :person, :username, :personal_id
 
     def initialize
         @username = nil
@@ -16,20 +17,8 @@ class Person
         @personal_id = input_personal_id
     end
 
-    def loan_book(args = {})
-        @account == nil ? missing_account : withdraw_funds(args)
+    def loan_book(book_to_loan, username)
+        self.lend_book(book_to_loan, username)
     end
     
-    def make_loan_of_book(args)
-        #args[:library] == nil ? missing_library : library = args[:library]
-        username = @username
-        response = library.lend_book(book, username)
-        response[:status] == true ? make_loan_of_book(book, username) : response
-    end
-
-    def missing_library
-        raise RuntimeError, 'A Library is required'
-    end
-    
-
 end

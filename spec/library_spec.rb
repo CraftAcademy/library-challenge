@@ -70,6 +70,7 @@ describe Library do
     it 'Checks if the receipt has a return date, title and that it is not available anymore' do
         expected_output = {title: 'Alfons och soldatpappan', available: false, return_date: Date.today.next_day(30).strftime('%Y-%m-%d'), loaned_by: @username }
         expect(subject.lend_book(0, @username)).to eq expected_output
+        subject.return_book(0)
     end
     
 end
