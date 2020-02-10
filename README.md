@@ -30,7 +30,7 @@ I want to see a list of books with title and author
 **Show book availability**<br>
 As a library<br>
 In order for visitors to check if a book is available or not<br>
-We need a list that shows all books 
+We need a list that shows available books 
 
 **Make possible to check out book**<br>
 As a library<br>
