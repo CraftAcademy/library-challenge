@@ -1,0 +1,26 @@
+---
+- :item:
+    :title: Råttkungen
+    :author: Pascal Engman
+  :available: false
+  :return_date: 10/03/20
+- :item:
+    :title: Bränn alla mina brev
+    :author: Alex Schulman
+  :available: false
+  :return_date: 10/03/20
+- :item:
+    :title: Ett jävla solsken
+    :author: Fatima Bremmer
+  :available: true
+  :return_date: 
+- :item:
+    :title: Ondskan
+    :author: Jan Guillou
+  :available: false
+  :return_date: '2020-03-01'
+- :item:
+    :title: In search of lost time
+    :author: Marcel Proust
+  :available: true
+  :return_date: 
