@@ -21,7 +21,7 @@ describe Customer do
     end
 
     it 'Can checkout a book' do
-        expected_output = {:item=>{:title=>"Ett jävla solsken", :author=>"Fatima Bremmer"}, :available=>false, :return_date=>"11/03/20"}
+        expected_output = {:item=>{:title=>"Ett jävla solsken", :author=>"Fatima Bremmer"}, :available=>false, :return_date=>Date.today.next_day(Library::DAYS_BEFORE_RETURN).strftime('%d/%m/%y')}
         expect(subject.checkout_service(2)).to eq expected_output
     end
 
