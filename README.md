@@ -1,52 +1,73 @@
-## Library Challenge
-### Week 1 Ruby challenge
+# Library Challenge
+Code pairing: *Pierre Tiberi*, *Karolina Frostare*
 
-Instructions
--------
-Read this entire README carefully and follow all instructions.
+## Work in progress (Code overview)
+This program sets the foundation for an app that library staff an visitors can use to get a better overview of library assets. At the moment the functionality for bullet points in bold are available. When the app is complete a user will be able to:
 
-* Challenge time: this weekend, until Monday 9am
-* Feel free to use Google, Stack Overflow, your notes, previously written code, books, etc. but work on your own
-* If you refer to or have in whole or partially used the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution to GitHub and create a Pull Request**
-* You must submit a Pull Request to this repository with your code by 9.30am Monday morning - before the stand-up
+* **be assigned a library card with an account number**
+* **view a list of all library books**
+* **search a book by title**
+* **search a book by author**
+* checkout book (if book is available to checkout, or else error message)
+* upon checkout the book will get assigned a return date
+* view a return date for books currently checked out
+* view checked out books in user account
+* return book to the library
+* send a message if book has passed its return date
+<br>
+<br>
 
+<img src="./Assets/library.jpg" width="400" height="200">
 
-### Tasks
-----
+# User stories
+*The app has been built with four requests in mind. These are the user stories of our customer.*
 
-* Fork the challenge repo: https://github.com/CraftAcademy/library-challenge
-* Run the command `bundle install` in the project directory to ensure you have all the gems
-* Write your specs and implementation
-* Be smart about using Git: commit and push often. Use feature branches.
-* Create a Pull Request as soon as possible
-* Read the comments from Hound and fix any issues that the service points out.
+**Show a list of all books**<br>
+As a user<br>
+In order to check out a book<br>
+I want to see a list of books with title and author
 
-### Tips
-----
+**Show book availability**<br>
+As a library<br>
+In order for visitors to check if a book is available or not<br>
+We need a list that shows available books 
 
-##### Some hints:
-  * A Person needs to have a list of books that he currently has in his possession. That list needs to include the return date.
-  * The return date can be calculated using the `Date` object. Out of the box, there are methods you can use to add days to the current date.
-  * Make use of `doubles` when writing your specs
-  * Follow the [naming conventions/standards](https://craftacademy.gitbooks.io/coding-as-a-craft/content/extras/naming_standards.html) for methods and variables
+**Make possible to check out book**<br>
+As a library<br>
+In order for visitors to check out books<br>
+We need an app for them to access the list of books
 
-### What we are looking for
-----
-##### I'm hoping to see that:
-* You can take a problem set and write a well tested implementation on your own.
-* You understand how to define Ruby Classes and work with objects.
-* You understand how classes can interact with each other.
-* You know how to make use of arrays, hashes, and associated methods to create dynamic lists.
-* You know how to write specs and use them as a blueprint in your development.
-* I can track your work by following you commit history - so please commit as soon you are done with a feature or when you have made a test pass.
+**Make possible to see checked out book's due date**<br>
+As a visitor<br>
+In order to return the books within a month of checkout<br>
+I need an app that shows the date it is due
 
-##### In your Pull Request, I'm hoping to see:
-* That you are testing the right thing in the right spec file.
-* That all tests passing - green is good!
-* High test coverage (above 95% is accepted)
-* The code is easy to follow: every class has a clear responsibility, methods are short, code is nicely formatted, etc.
-* The `README.md` includes information on how to use your solution with command examples in `irb`. (Feel free to remove this text)
+## Dependencies
+| Ruby | Gems: Rspec, Pry-ByeBug | Yaml |
 
+## Setup
+To access this code visit [GitHub](https://github.com/kfrostare/library-challenge) repo and complete the following steps:
 
-**Happy coding!**
+1. Fork the repo and clone
+2. Have Ruby and Gem bundler installed
+3. Utilize IRB to run program
+
+## Instructions
+Instructions for running in IRB.
+
+**Library card** | Generates a new library card ID 
+
+        Library card = User.new
+*This will assign you a brand new user ID and show you the book list of currently borrowed books (0)*
+
+## Acknowledgements
+The material has been provided by [Craft Academy](learn.craftacademy.co) <br>
+The app is being created in [Ruby](rubymonstas.org) <br>
+The app is being tested in [Rspec](rspec.info) <br>
+We would like to thank [Kayla Woodbury](https://github.com/kaylawoodbury) for helping us with the Ruby/Yaml- connection
+
+## Updates/Improvement Plans
+There will be updates to this software shortly.
+
+## License
+MIT License
