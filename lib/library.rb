@@ -23,11 +23,11 @@ class Library
     end
 
     def list_of_available_books
-        collection.select { |book| book[:item][:available].eql? true }
+        collection.select { |book| book[:available] == true }
     end
 
     def list_of_unavailable_books
-        collection.select { |book| book[:item][:available].eql? false }
+        collection.select { |book| book[:available] == false }
     end
 
     def book_unavailable?(book)
