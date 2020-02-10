@@ -17,7 +17,8 @@ This program sets the foundation for an app that library staff an visitors can u
 <br>
 <br>
 
-![The Library Challenge](/Assets/library.jpg)
+<img src="./Assets/library.jpg" width="400" height="200">
+
 # User stories
 *The app has been built with four requests in mind. These are the user stories of our customer.*
 
