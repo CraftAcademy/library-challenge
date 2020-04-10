@@ -15,12 +15,17 @@ class Book
         @loanee = person
         @return_date = Date.today.next_day(DEFAULT_LOAN_DURATION_DAYS)
         @available = false
+        receipt
     end
 
     def return_book
         @loanee = nil
         @return_date = nil
         @available = true        
+    end
+
+    def receipt
+
     end
 
     private
