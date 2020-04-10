@@ -8,6 +8,10 @@ describe Visitor do
     expect(subject.show_list).to eq [{:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, :available=>true, :return_date=>nil}] 
     end
 
+    it 'Can search for book title' do 
+    expect(subject.search_title('Alfons')).to eq [{:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, :available=>true, :return_date=>nil}]
+    end
+
 
 
 end
