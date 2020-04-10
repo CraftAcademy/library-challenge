@@ -1,0 +1,225 @@
+---
+- :item:
+    :title: Alfons och soldatpappan
+    :author: Gunilla Bergström
+    :category: Children
+  :available: true
+  :loanee:
+  :return_date: 
+- :item:
+    :title: Skratta lagom! Sa pappa Åberg
+    :author: Gunilla Bergström
+    :category: Children
+  :available: false
+  :loanee:
+  :return_date: '2016-05-25'
+- :item:
+    :title: Osynligt med Alfons
+    :author: Gunilla Bergström
+    :category: Children
+  :available: true
+  :loanee:
+  :return_date: 
+- :item:
+    :title: Pippi Långstrump
+    :author: Astrid Lindgren
+    :category: Children
+  :available: true
+  :loanee:
+  :return_date: 
+- :item:
+    :title: Pippi Långstrump går ombord
+    :author: Astrid Lindgren
+    :category: Children
+  :available: true
+  :loanee:
+  :return_date:
+- :item:
+    :title: Dune
+    :author: Frank Herbert
+    :category: Sci-fi
+  :available: true
+  :loanee:
+  :return_date:
+- :item:
+    :title: Solaris
+    :author: Stanislaw Lem
+    :category: Sci-fi
+  :available: true
+  :loanee:
+  :return_date:
+- :item:
+    :title: A Scanner Darkly
+    :author: Philip K Dick
+    :category: Sci-fi
+  :available: true
+  :loanee:
+  :return_date:
+- :item:
+    :title: Neuromancer
+    :author: William Gibson
+    :category: Sci-fi
+  :available: true
+  :loanee:
+  :return_date:
+- :item:
+    :title: Metro 2033
+    :author: Dmitry Glukhovsky
+    :category: Sci-fi
+  :available: true
+  :loanee:
+  :return_date:
+- :item:
+    :title: The Martian
+    :author: Andy Weir
+    :category: Sci-fi
+  :available: true
+  :loanee:
+  :return_date:
+- :item:
+    :title: Rendezvous with Rama
+    :author: Arthur C Clarke
+    :category: Sci-fi
+  :available: true
+  :loanee:
+  :return_date:
+- :item:
+    :title: The Moon is a Harsh Mistress
+    :author: Robert Heinlein
+    :category: Sci-fi
+  :available: true
+  :loanee:
+  :return_date:
+- :item:
+    :title: Animal Farm
+    :author: George Orwell
+    :category: World-classic
+  :available: true
+  :loanee:
+  :return_date:
+- :item:
+    :title: The Three Musketeers
+    :author: Alexandre Dumas
+    :category: World-classic
+  :available: true
+  :loanee:
+  :return_date:
+- :item:
+    :title: The Odyssey
+    :author: Homer
+    :category: World-classic
+  :available: true
+  :loanee:
+  :return_date:
+- :item:
+    :title: Les Misérables
+    :author: Victor Hugo
+    :category: World-classic
+  :available: true
+  :loanee:
+  :return_date:
+- :item:
+    :title: Pet Sematary
+    :author: Stephen King
+    :category: Horror
+  :available: true
+  :loanee:
+  :return_date:
+- :item:
+    :title: Something Wicked This Way Comes
+    :author: Ray Bradbury
+    :category: Horror
+  :available: true
+  :loanee:
+  :return_date:
+- :item:
+    :title: The Shining
+    :author: Stephen King
+    :category: Horror
+  :available: true
+  :loanee:
+  :return_date:
+- :item:
+    :title: Manual For Living
+    :author: Epictetus
+    :category: Non-fiction
+  :available: true
+  :loanee:
+  :return_date:
+- :item:
+    :title: A Brief History Of Time
+    :author: Stephen Hawking
+    :category: Non-fiction
+  :available: true
+  :loanee:
+  :return_date:
+- :item:
+    :title: Guns, Germs, and Steel The Fates of Human Societies
+    :author: Jared Diamond
+    :category: History
+  :available: true
+  :loanee:
+  :return_date:
+- :item:
+    :title: A Brief History of Time
+    :author: Stephen Hawking
+    :category: Non-fiction
+  :available: true
+  :loanee:
+  :return_date:
+- :item:
+    :title: The Guns of August
+    :author: Barbara Tuchman
+    :category: History
+  :available: true
+  :loanee:
+  :return_date:
+- :item:
+    :title: The Crusades
+    :author: Thomas Asbridge
+    :category: History
+  :available: true
+  :loanee:
+  :return_date:
+- :item:
+    :title: The History of the Ancient World
+    :author: Susan Wise Bauer
+    :category: History
+  :available: true
+  :loanee:
+  :return_date:
+- :item:
+    :title: The Stranger Beside Me
+    :author: Ann Rule
+    :category: Crime
+  :available: true
+  :loanee:
+  :return_date:
+- :item:
+    :title: In Cold Blood
+    :author: Truman Capote
+    :category: Crime
+  :available: true
+  :loanee:
+  :return_date:
+- :item:
+    :title: Mindhunter
+    :author: John Douglas
+    :category: Crime
+  :available: true
+  :loanee:
+  :return_date:
+- :item:
+    :title: Mindhunter
+    :author: John Douglas
+    :category: Crime
+  :available: true
+  :loanee:
+  :return_date:
+- :item:
+    :title: Murder On The Orient Express
+    :author: Agatha Christie
+    :category: Crime
+  :available: true
+  :loanee:
+  :return_date:
