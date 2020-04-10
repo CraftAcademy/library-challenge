@@ -1,0 +1,35 @@
+As a library
+In order to be a library
+I want to have books
+
+As a librarian and a visitor
+In order to know which book I am looking at
+I want to know the title, author and category of the book
+
+As a librarian and a visitor
+In order to check book collection
+I need to see list of books (Title,author,availability,returndate,loaned by)
+
+As a librarian
+In order to have loaned books back
+I need to set a return date
+
+As a librarian
+In order to have loaned books back
+I need to know who loaned book
+
+As a visitor
+In order to find a specific book
+I need to search the library book collection
+
+As a visitor
+In order to loan a book
+I need to checkout the book from library
+
+As a visitor
+In order to check when to return loaned books
+I need to see list/receipts of my loans
+
+As a visitor
+In order to return books before due time
+I need to able to return book to library collection
