@@ -23,7 +23,13 @@ describe Book do
         expect(subject.available).to eq false
     end
 
+    it 'Book can not be check out if not available' do
+        subject.checkout(person)
+        expect{subject.checkout(person)}.to raise_error 'Book not available'
+    end
+
     it 'Book must be available after return' do
+        
        
     end
 

@@ -12,9 +12,9 @@ class Book
     end
 
     def checkout(person)
+        @available = @available ? false : (raise 'Book not available')
         @loanee = person
         @return_date = Date.today.next_day(DEFAULT_LOAN_DURATION_DAYS)
-        @available = false
         receipt
     end
 
