@@ -10,8 +10,8 @@ class Visitor
         YAML.load_file('./lib/data.yml').select { |obj| obj[:item][:title].include? title }
     end
 
-    def check_status_book
-        YAML.load_file('./lib/data.yml')[0][:available]
+    def check_status_book(title)
+        YAML.load_file('./lib/data.yml').select { |obj| obj[:item][:title].include? title }[0][:available]
     
     end
 

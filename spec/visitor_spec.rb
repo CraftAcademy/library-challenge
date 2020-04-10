@@ -13,7 +13,7 @@ describe Visitor do
     end
 
     it 'Can check status availability' do 
-    expect(subject.check_status_book).not_to be nil
+    expect(subject.check_status_book('Alfons')).not_to be nil
     end
 
 
