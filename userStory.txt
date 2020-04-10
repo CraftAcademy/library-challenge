@@ -1,0 +1,29 @@
+"We need an app where both the visitors and the library can see if a list of books is available, it would be nice to see both the title and the author of the book. The library needs to store these books in a file where we can easily check if a book is available or not. The library also needs the visitors to check out books after finding the title they want. Depending on the time of the checkout the library needs the books to be returned within a month and obviously, it would be nice for the visitor to know which date to return the book."
+​
+as a user
+In order to choose which book I want 
+The library page needs a list of books with title and the author
+​
+as a product owner
+In order to know what books we have 
+I want to add a list of books to the library page
+​
+as a product owner
+in order to check if a book is available
+I want to be able to search a book to see if it's availible
+​
+as a user 
+in order to check out a book
+I want to receive a message with the book loan details
+​
+as a product owner 
+in order for users to check out a book
+I want to receive a message with the book loan details
+​
+as a product owner
+in order to have the book returned by the user
+I want to receive a message with the return date
+​
+as a user
+in order to know when to return the book
+I want to receive a message with the return date
