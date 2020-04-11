@@ -9,14 +9,14 @@ class Book
         @author = set_author(attrs[:item][:author])
         @category = set_category(attrs[:item][:category])
         @available = attrs[:available] || true
-        @loanee = attrs[:loanee]
+        @loanee = attrs[:loanee].nil? ? nil : Person.new({name: attrs[:loanee]})
         @return_date = attrs[:return_date]
         @library = attrs[:library]
     end
 
     def checkout(person)
         @available = @available ? false : (raise 'Book not available')
-        @loanee = person
+        @loanee = person 
         @return_date = Date.today.next_day(DEFAULT_LOAN_DURATION_DAYS).strftime('%d/%m/%y')   
         rec = receipt
         person.receipts << rec

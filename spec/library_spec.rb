@@ -13,18 +13,25 @@ describe Library do
 
     it "Can search for a title or author" do
         output = subject.find_author("Agatha Christie")
+        expect(output.length).to eq 1
         expect(subject.find_title("Murder On The Orient Express")).to eq output  
     end
 
     it "Can search for category" do
+        expect(subject.find_category("Sci-fi").length).to eq 8
         
     end
 
     it "Can search for available books" do
+        expect(subject.find_available.length).to eq 32
+        # subject.collection[0].checkout(Person.new({name: "Sara"}))
+        # expect(subject.find_available.length).to eq 31
+        
         
     end
 
     it "Can see return date for unavailable books" do
+        
         
     end
 

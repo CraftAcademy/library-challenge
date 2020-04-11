@@ -40,8 +40,9 @@ class Library
     end
 
 
-    def obj_to_hash(bookobj)     
-     {item:{title:bookobj.title,author:bookobj.author,category:bookobj.category},available:bookobj.available,loanee:bookobj.loanee,return_date:bookobj.return_date}
+    def obj_to_hash(bookobj)
+        name = bookobj.loanee.nil? ? nil : bookobj.loanee.name     
+     {item:{title:bookobj.title,author:bookobj.author,category:bookobj.category},available:bookobj.available,loanee: name, return_date:bookobj.return_date}
     end
 
     def write_database
