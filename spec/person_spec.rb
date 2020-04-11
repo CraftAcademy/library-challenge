@@ -1,10 +1,12 @@
 require './lib/book.rb'
 require './lib/person.rb'
+require './lib/library.rb'
 require 'date'
 describe Person do
     subject { described_class.new({name: "Arnold"})}
-    book1 = Book.new(item: {title: 'Book1', author: 'Author1', category: 'Cat1'})
-    book2 = Book.new(item: {title: 'Book2', author: 'Author2', category: 'Cat2'})
+    let(:lib) {Library.new}
+    let(:book1)  {Book.new({item: {title: 'Book1', author: 'Author1', category: 'Cat1'},library:lib})}
+    let(:book2)  {Book.new({item: {title: 'Book2', author: 'Author2', category: 'Cat2'},library:lib})}
 
     it 'cannot exist without a name' do
         expect{ described_class.new}.to raise_error 'Person must have a name'        

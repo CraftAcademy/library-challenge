@@ -1,9 +1,11 @@
 require 'date'
 require './lib/book.rb'
 require './lib/person.rb'
+require './lib/library.rb'
 
 describe Book do
-    subject {described_class.new({item:{title: 'Alfons och soldatpappan', author: 'Gunilla Bergström', category: 'Children'}})}
+    let(:lib) {Library.new}
+    subject { described_class.new({item:{title: 'Alfons och soldatpappan', author: 'Gunilla Bergström', category: 'Children'},library:lib}) }
 
     let(:person) { Person.new(name: "Person") }
 

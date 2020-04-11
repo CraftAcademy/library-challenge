@@ -1,7 +1,8 @@
 require 'date'
 require './lib/person.rb'
+require './lib/library.rb'
 class Book
-    attr_accessor :title, :author, :category, :available, :loanee, :return_date
+    attr_accessor :title, :author, :category, :available, :loanee, :return_date, :library
     DEFAULT_LOAN_DURATION_DAYS = 30
     def initialize(attrs = {})
         @title = set_title(attrs[:item][:title])
@@ -10,14 +11,16 @@ class Book
         @available = attrs[:available] || true
         @loanee = attrs[:loanee]
         @return_date = attrs[:return_date]
+        @library = attrs[:library]
     end
 
     def checkout(person)
         @available = @available ? false : (raise 'Book not available')
         @loanee = person
-        @return_date = Date.today.next_day(DEFAULT_LOAN_DURATION_DAYS).strftime('%d/%m/%y')
+        @return_date = Date.today.next_day(DEFAULT_LOAN_DURATION_DAYS).strftime('%d/%m/%y')   
         rec = receipt
         person.receipts << rec
+        @library.write_database
         rec
     end
 
@@ -25,14 +28,12 @@ class Book
         @return_date = nil
         @available = true
         @loanee.receipts.delete_if { |receipt| receipt[:book]==self } 
-        @loanee = nil       
+        @loanee = nil
+        @library.write_database    
     end
 
     def receipt
         {book: self, today_date: Date.today, return_date: @return_date}
-
-        #Should we update data.yml everytime ? or use library.collection all the time ?
-
     end
 
     private
