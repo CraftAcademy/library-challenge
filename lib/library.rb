@@ -11,7 +11,7 @@ class Library
     end
  
     def set_collection
-        YAML.load_file('./lib/data.yml').each {|rawdata|  Book.new(rawdata) }
+        (YAML.load_file('./lib/data.yml')).map! {|rawdata|  Book.new(rawdata) }
     end
 
 

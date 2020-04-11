@@ -6,9 +6,9 @@ class Book
         @title = set_title(attrs[:item][:title])
         @author = set_author(attrs[:item][:author])
         @category = set_category(attrs[:item][:category])
-        @available = true
-        @loanee 
-        @return_date
+        @available = attrs[:available] || true
+        @loanee = attrs[:loanee]
+        @return_date = attrs[:return_date]
     end
 
     def checkout(person)
