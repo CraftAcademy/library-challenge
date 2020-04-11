@@ -3,9 +3,9 @@ class Book
     attr_accessor :title, :author, :category, :available, :loanee, :return_date
     DEFAULT_LOAN_DURATION_DAYS = 30
     def initialize(attrs = {})
-        @title = set_title(attrs[:title])
-        @author = set_author(attrs[:author])
-        @category = set_category(attrs[:category])
+        @title = set_title(attrs[:item][:title])
+        @author = set_author(attrs[:item][:author])
+        @category = set_category(attrs[:item][:category])
         @available = true
         @loanee 
         @return_date
@@ -14,7 +14,7 @@ class Book
     def checkout(person)
         @available = @available ? false : (raise 'Book not available')
         @loanee = person
-        @return_date = Date.today.next_day(DEFAULT_LOAN_DURATION_DAYS)
+        @return_date = Date.today.next_day(DEFAULT_LOAN_DURATION_DAYS).strftime('%d/%m/%y')
         receipt
     end
 
@@ -25,6 +25,8 @@ class Book
     end
 
     def receipt
+
+        #Should we update data.yml everytime ? or use library.collection all the time ?
 
     end
 

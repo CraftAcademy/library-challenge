@@ -1,13 +1,19 @@
 require "date"
 require "yaml"
+require "./lib/book.rb"
 
 class Library
 
     attr_accessor :collection
 
     def initialize(attr={})
-        @collection = YAML.load_file("./lib/data.yml")
+        @collection = set_collection
     end
+ 
+    def set_collection
+        YAML.load_file('./lib/data.yml').each {|rawdata|  Book.new(rawdata) }
+    end
+
 
     def list_collection
         @collection
