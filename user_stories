@@ -33,3 +33,11 @@ I need to see list/receipts of my loans
 As a visitor
 In order to return books before due time
 I need to able to return book to library collection
+
+As a library owner
+In order to make sure I can get my books back
+I want to keep the personal details of the loanees
+
+As a library owner
+In order to make sure books are not lost
+I want to keep unauthorized people from loaning books

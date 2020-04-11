@@ -24,24 +24,18 @@ describe Library do
 
     it "Can search for available books" do
         expect(subject.find_available.length).to eq 32
-        # subject.collection[0].checkout(Person.new({name: "Sara"}))
-        # expect(subject.find_available.length).to eq 31
-        
-        
+        subject.collection[0].checkout(Person.new({name: "Sara"}))
+        expect(subject.find_available.length).to eq 31
     end
 
     it "Can see return date for unavailable books" do
-        
-        
+        subject.collection[0].checkout(Person.new({name: "Sara"}))
+        expect(subject.find_unavailable[0].return_date ).not_to be nil
     end
 
     it "Can see who loaned books" do   # Other visitors should see it also?
-        
+        subject.collection[0].checkout(Person.new({name: "Sara"}))
+        expect(subject.find_unavailable[0].loanee).not_to be nil 
     end
-    
-
-
-
-
 
 end
