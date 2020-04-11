@@ -1,10 +1,11 @@
 require 'date'
 require './lib/book.rb'
+require './lib/person.rb'
 
 describe Book do
     subject {described_class.new({item:{title: 'Alfons och soldatpappan', author: 'Gunilla Bergström', category: 'Children'}})}
 
-    let(:person) {instance_double("Person")}
+    let(:person) { Person.new(name: "Person") }
 
     it 'must have a title' do
         expect {described_class.new({item:{author: "someone", category: 'Children'}})}.to raise_error 'Book must have a title'
@@ -38,8 +39,6 @@ describe Book do
     it 'Gives out receipt after checkout' do
         receipt = {title: subject.title, today_date: Date.today, return_date: Date.today.next_day(Book::DEFAULT_LOAN_DURATION_DAYS).strftime('%d/%m/%y')}
         expect(subject.checkout(person)).to eq receipt
-
-
     end
 
 end

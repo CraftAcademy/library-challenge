@@ -1,4 +1,5 @@
 require 'date'
+require './lib/person.rb'
 class Book
     attr_accessor :title, :author, :category, :available, :loanee, :return_date
     DEFAULT_LOAN_DURATION_DAYS = 30
@@ -15,7 +16,9 @@ class Book
         @available = @available ? false : (raise 'Book not available')
         @loanee = person
         @return_date = Date.today.next_day(DEFAULT_LOAN_DURATION_DAYS).strftime('%d/%m/%y')
-        receipt
+        rec = receipt
+        person.receipts << rec
+        rec
     end
 
     def return_book
