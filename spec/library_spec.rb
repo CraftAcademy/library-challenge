@@ -38,4 +38,10 @@ describe Library do
         expect(subject.find_unavailable[0].loanee).not_to be nil 
     end
 
+    it 'can registers users' do
+        users = subject.users.length
+        subject.add_user({name: "Alice"})
+        expect(subject.users.length).to eq (users + 1)
+    end
+
 end

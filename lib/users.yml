@@ -1,0 +1,22 @@
+---
+- :name: Alfons
+  :phone: '07069696969'
+  :role: User
+  :active: true
+  :id: 1
+  :born_date: 11/05/97
+  :no_of_borrowed_books: 0
+- :name: Boris
+  :phone: 948578465
+  :role: Librarian
+  :active: true
+  :id: 2
+  :born_date: 11/05/78
+  :no_of_borrowed_books: 0
+- :name: Alice
+  :phone: 
+  :role: User
+  :active: true
+  :id: 3
+  :born_date: 
+  :no_of_borrowed_books: 0

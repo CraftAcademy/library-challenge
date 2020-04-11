@@ -25,8 +25,9 @@ describe Person do
         book1.return_book
         expect( subject.receipts.length ).to eq 1
         expect( subject.receipts[0][:book]).to eq book2
-        
     end
+
+    
 
 
 end
