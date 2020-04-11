@@ -13,8 +13,10 @@ describe Library do
   end 
 
   it 'searches for a book title in collection' do
-    expect(subject.search('Pippi Långstrump') ).to include(available: true)
+    expect(subject.search('Pippi Långstrump') ).to include(include(:available))
   end
-
+  it 'searches for a book author in collection' do
+    expect(subject.search('Astrid Lindgren') ).to include(include(:available))
+  end
  end   
 
