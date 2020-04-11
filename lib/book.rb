@@ -22,13 +22,14 @@ class Book
     end
 
     def return_book
-        @loanee = nil
         @return_date = nil
-        @available = true        
+        @available = true
+        @loanee.receipts.delete_if { |receipt| receipt[:book]==self } 
+        @loanee = nil       
     end
 
     def receipt
-        {title: @title, today_date: Date.today, return_date: @return_date}
+        {book: self, today_date: Date.today, return_date: @return_date}
 
         #Should we update data.yml everytime ? or use library.collection all the time ?
 

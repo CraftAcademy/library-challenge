@@ -14,12 +14,17 @@ describe Person do
         expect( described_class.new({name: "Bob"}).receipts).to eq []
     end
 
-    it 'can check what books it has loaned' do
+    it 'can check what books it has loaned,return them,remove correct receipt' do
         book1.checkout(subject)
         book2.checkout(subject)
         expect( subject.receipts ).to be_a_kind_of(Array)
         expect( subject.receipts.length ).to eq 2
         expect( subject.receipts[0] ).to be_a_kind_of(Hash)
+        book1.return_book
+        expect( subject.receipts.length ).to eq 1
+        expect( subject.receipts[0][:book]).to eq book2
+        
     end
+
 
 end

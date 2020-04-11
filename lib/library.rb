@@ -19,7 +19,8 @@ class Library
         @collection
     end
 
-    def find_title
+    def find_title(search_word)
+        @collection
     end
 
     def find_author

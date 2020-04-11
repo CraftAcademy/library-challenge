@@ -37,7 +37,7 @@ describe Book do
     end
 
     it 'Gives out receipt after checkout' do
-        receipt = {title: subject.title, today_date: Date.today, return_date: Date.today.next_day(Book::DEFAULT_LOAN_DURATION_DAYS).strftime('%d/%m/%y')}
+        receipt = {book:subject, today_date: Date.today, return_date: Date.today.next_day(Book::DEFAULT_LOAN_DURATION_DAYS).strftime('%d/%m/%y')}
         expect(subject.checkout(person)).to eq receipt
     end
 
