@@ -25,6 +25,7 @@ class Book
     end
 
     def receipt
+        {title: @title, today_date: Date.today, return_date: @return_date}
 
         #Should we update data.yml everytime ? or use library.collection all the time ?
 

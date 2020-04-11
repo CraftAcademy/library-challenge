@@ -29,11 +29,16 @@ describe Book do
     end
 
     it 'Book must be available after return' do
-        
+        subject.checkout(person)
+        subject.return_book
+        expect(subject.available).to eq true
        
     end
 
     it 'Gives out receipt after checkout' do
+        receipt = {title: subject.title, today_date: Date.today, return_date: Date.today.next_day(Book::DEFAULT_LOAN_DURATION_DAYS).strftime('%d/%m/%y')}
+        expect(subject.checkout(person)).to eq receipt
+
 
     end
 
