@@ -22,6 +22,11 @@ describe Visitor do
         expect(subject.check_out_book('Alfons och soldatpappan')).to be_truthy
         end
 
+        it 'The book becomes unavailable upon checkout' do
+        subject.check_out_book('Alfons och soldatpappan')
+        expect(YAML.load_file('./lib/data.yml').select { |obj| obj[:item][:title].include? 'Alfons och soldatpappan' }[0][:available]).to eq false
+        end
+
     end
 
 

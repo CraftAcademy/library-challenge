@@ -4,7 +4,7 @@ require 'yaml'
 class Visitor
 
     def show_list
-         YAML.load_file('./lib/data.yml') 
+        YAML.load_file('./lib/data.yml') 
    
     end
 
@@ -18,8 +18,12 @@ class Visitor
     end
 
     def check_out_book(title)
-        collection = YAML.load_file('./lib/data.yml').select { |obj| obj[:item][:title].include? title }
-        File.open('./lib/visitor_data.yml', 'w') { |f| f.write collection.to_yaml }
+        book_to_checkout = YAML.load_file('./lib/data.yml').select { |obj| obj[:item][:title].include? title }
+        book_to_checkout[0][:available] = false
+
+        File.open('./lib/data.yml', 'w') { |f| f.write book_to_checkout.to_yaml }
+        File.open('./lib/visitor_data.yml', 'w') { |f| f.write book_to_checkout.to_yaml }
+
     end
 
 
