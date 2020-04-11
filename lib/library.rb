@@ -25,9 +25,17 @@ class Library
       return item_title 
     end
   end
+
   def check_out(search_item)
-     book_title = search(search_item)[0][:item][:title]
-     puts @collection[0][:item][title: book_title] 
-    #  File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
+    book_title = search(search_item)[0][:item][:title]
+    index = @collection.to_a.index {|key,| key[:item][:title] == book_title}
+    if @collection[index][:available] == false
+      'Book not availible right now, back in library [date]'
+    else
+      @collection[index][:available] = false
+      month = Date.today.strftime('%m').to_i + 1
+      @collection[index][:return_date] = "#{Date.today.strftime('%Y')}-0#{month}-#{Date.today.strftime('%d')}"
+      File.open('./lib/data.yml', 'w') { |f| f.write @collection.to_yaml }
+    end
   end 
 end

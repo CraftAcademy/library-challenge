@@ -23,8 +23,8 @@ describe Library do
   end
 
   it 'checks out a book in the collection' do
-    # expect(subject.check_out('Madicken')).to include(include(available: false))
-    subject.check_out('Madicken')
+    expect(subject.check_out('Madicken')).to include(include(available: false))
+    # subject.check_out('Madicken')
   end
   
  end   
