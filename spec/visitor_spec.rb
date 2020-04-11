@@ -16,6 +16,13 @@ describe Visitor do
     expect(subject.check_status_book('Alfons')).not_to be nil
     end
 
+    describe'Can check out book' do
+
+        it "Add book into visitor account"do
+        expect(subject.check_out_book('Alfons och soldatpappan')).to be_truthy
+        end
+
+    end
 
 
 end
