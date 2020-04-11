@@ -6,10 +6,10 @@ describe Library do
     subject { described_class.new() }
 
     it "Create a list of all books" do
-        expect(subject.list_all().length).to eq 32
+        expect(subject.list_collection.length).to eq 32
     end
 
-    it "Can search for a specific book" do
+    it "Can search for a title" do
         
     end
 
