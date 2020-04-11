@@ -24,7 +24,10 @@ class Library
     else 
       return item_title 
     end
-    
   end
-
+  def check_out(search_item)
+     book_title = search(search_item)[0][:item][:title]
+     puts @collection[0][:item][title: book_title] 
+    #  File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
+  end 
 end

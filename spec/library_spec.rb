@@ -21,5 +21,11 @@ describe Library do
   it 'searches for a book author not in the collection' do
     expect(subject.search('Strindberg') ).to eq 'no such book'
   end
+
+  it 'checks out a book in the collection' do
+    # expect(subject.check_out('Madicken')).to include(include(available: false))
+    subject.check_out('Madicken')
+  end
+  
  end   
 
