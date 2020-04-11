@@ -15,11 +15,16 @@ class Library
   end
 
   def search(search_item)
-    item = @collection.select { |obj| obj[:item][:title].include?search_item }
-    if item.length == 0 
-      item = @collection.select { |obj| obj[:item][:author].include?search_item }
+    item_title = @collection.select { |obj| obj[:item][:title].include?search_item }
+    item_author = @collection.select { |obj| obj[:item][:author].include?search_item }
+    if item_title.length == 0 && item_author.length == 0
+       return 'no such book'
+    elsif item_title.length == 0
+      return item_author
+    else 
+      return item_title 
     end
-    return item 
+    
   end
 
 end

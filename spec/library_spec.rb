@@ -18,5 +18,8 @@ describe Library do
   it 'searches for a book author in collection' do
     expect(subject.search('Astrid Lindgren') ).to include(include(:available))
   end
+  it 'searches for a book author not in the collection' do
+    expect(subject.search('Strindberg') ).to eq 'no such book'
+  end
  end   
 
