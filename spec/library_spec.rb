@@ -23,10 +23,13 @@ describe Library do
   end
 
   it 'checks out a book in the collection' do
+    
     expect(subject.check_out('Madicken')).to include(available: false, return_date: Date.today.next_month(1).strftime("%Y/%m/%d"))
     # subject.check_out('Madicken')
   end
   
+  
+
   # it 'has return date for checked out book' do
   # expect(subject.check_out('Madicken')).to include(return_date: Date.today.next_month(1).strftime("%Y/%m/%d"))
   # end 

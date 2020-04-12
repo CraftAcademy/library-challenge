@@ -5,7 +5,7 @@ require 'yaml'
 
 describe User do
     
-    subject { described_class.new(name: 'Jenny', account_nr: 123456,account: :active) }
+    subject { described_class.new(name: 'Jenny', account_nr: 123456, account: :active) }
     
     it 'is expected to have a :name on initialize' do
         expect(subject.name).not_to be nil
@@ -25,8 +25,13 @@ describe User do
       expect(subject.search_book('Strindberg') ).to eq 'no such book'
     end
     it 'checks out a book in the collection' do
-        expect(subject.check_out_book('Madicken')).to include(return_date: Date.today.next_month(1).strftime("%Y/%m/%d"))
+      expect(subject.check_out_book('Madicken')).to include(return_date: Date.today.next_month(1).strftime("%Y/%m/%d"))
     end
+    it 'attemps to check out a book in the collection without account' do
+      expect(subject.check_out_book('Madicken')).to eq "You do not have a valid account"
+      # subject.check_out('Madicken')
+    end
+
     it 'checks in a book in the collection when returned' do
         expect(subject.check_in_book('Madicken')).to eq 'Book is checked in'
       end

@@ -15,9 +15,12 @@ class User
     end
 
     def check_out_book(search_word)
+        if account_nr.to_s.length == 6
       # if account is valid then its ok to check out book
       @book = @library.check_out(search_word)
-      reciept
+      receipt
+        else "You do not have a vaild account" 
+        end
     end
 
     def check_in_book(book_name)
@@ -25,7 +28,7 @@ class User
         (@book[:available] == true && @book[:return_date].nil?) ? "Book is checked in" : "Check in book failed"
     end
 
-    def reciept
+    def receipt
       {account: @account_nr, title: @book[:item][:title], return_date: @book[:return_date]}
     end
 
@@ -37,5 +40,5 @@ class User
     def missing_name
         raise "A name is required"
     end
-
+  
 end
