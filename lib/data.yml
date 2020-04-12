@@ -59,9 +59,9 @@
     :title: Neuromancer
     :author: William Gibson
     :category: Sci-fi
-  :available: true
-  :loanee: 
-  :return_date: 
+  :available: false
+  :loanee: 18
+  :return_date: 12/05/20
 - :item:
     :title: Metro 2033
     :author: Dmitry Glukhovsky

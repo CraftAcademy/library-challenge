@@ -24,7 +24,6 @@ class Book
         rec = receipt
         person.receipts << rec
         @library.write_database
-        rec
     end
 
     def return_book
@@ -36,7 +35,7 @@ class Book
     end
 
     def receipt
-        {book: self, today_date: Date.today, return_date: @return_date}
+        {book: self, receipt: {title: @title, checkout_date: Date.today.strftime('%d/%m/%y'), return_date: @return_date}}
     end
 
     private

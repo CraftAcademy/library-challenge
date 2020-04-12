@@ -10,6 +10,13 @@ class Person
         @receipts = []
     end
 
+    def show_receipts
+        @receipts.each {|rec| 
+            puts rec[:receipt]
+        }
+        @receipts.length
+    end
+
     private
 
     def set_name(name)

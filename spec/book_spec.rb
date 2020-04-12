@@ -46,8 +46,9 @@ describe Book do
     end
 
     it 'Gives out receipt after checkout' do
-        receipt = {book:subject, today_date: Date.today, return_date: Date.today.next_day(Book::DEFAULT_LOAN_DURATION_DAYS).strftime('%d/%m/%y')}
-        expect(subject.checkout(person)).to eq receipt
+        receipt = {book:subject, receipt: {title: subject.title, checkout_date: Date.today.strftime('%d/%m/%y'), return_date: Date.today.next_day(Book::DEFAULT_LOAN_DURATION_DAYS).strftime('%d/%m/%y')}}
+        subject.checkout(person)
+        expect(person.receipts[0]).to eq receipt
     end
 
     it 'cannot be checked out by an inactive user' do

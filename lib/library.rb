@@ -30,7 +30,8 @@ class Library
 
     def add_user(attrs = {})
         @users << Person.new(attrs)
-        update_user_database
+        a = update_user_database
+        @users[-1]
     end
 
     def collection_to_hash
@@ -104,8 +105,6 @@ class Library
     
     def select_book(book_name)
         selected = @collection.select {|book| book.title == book_name}
-        selected.nil? ? (raise 'no such book') : selected
+        selected.nil? ? (raise 'no such book') : selected[0]
     end
-
-
-    end
+end

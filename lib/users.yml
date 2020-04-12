@@ -111,3 +111,38 @@
   :id: 16
   :born_date: 
   :no_of_borrowed_books: 0
+- :name: Marcus
+  :phone: 
+  :role: User
+  :active: true
+  :id: 17
+  :born_date: 
+  :no_of_borrowed_books: 0
+- :name: Marcus
+  :phone: 
+  :role: User
+  :active: true
+  :id: 18
+  :born_date: 
+  :no_of_borrowed_books: 0
+- :name: Alice
+  :phone: 
+  :role: User
+  :active: true
+  :id: 19
+  :born_date: 
+  :no_of_borrowed_books: 0
+- :name: Alice
+  :phone: 
+  :role: User
+  :active: true
+  :id: 20
+  :born_date: 
+  :no_of_borrowed_books: 0
+- :name: Alice
+  :phone: 
+  :role: User
+  :active: true
+  :id: 21
+  :born_date: 
+  :no_of_borrowed_books: 0
