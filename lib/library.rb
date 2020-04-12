@@ -30,16 +30,19 @@ class Library
     book_title = search(search_item)[0][:item][:title]
     index = @collection.to_a.index {|key,| key[:item][:title] == book_title}
     book = @collection[index]
-    if book[:available] == false
-      "Book not availible right now, back in library #{book[:return_date]}"
-    else
-      book[:available] = false
-      book[:return_date] = "#{Date.today.next_month(1).strftime("%Y/%m/%d")}"
-      File.open('./lib/data.yml', 'w') { |f| f.write @collection.to_yaml }
-      return book
-    end
-    
+    book[:available] ?  set_check_out(book) : not_availible(book)
   end 
+  
+  def not_availible(book)
+    "Book not availible right now, back in library #{book[:return_date]}"
+  end
+
+  def set_check_out(book)
+    book[:available] = false
+    book[:return_date] = "#{Date.today.next_month(1).strftime("%Y/%m/%d")}"
+    File.open('./lib/data.yml', 'w') { |f| f.write @collection.to_yaml }
+    return book
+  end
 
   def check_in(book_title)
     index = @collection.to_a.index {|key,| key[:item][:title] == book_title}
