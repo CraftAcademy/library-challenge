@@ -9,7 +9,7 @@ class Book
         @author = set_author(attrs[:item][:author])
         @category = set_category(attrs[:item][:category])
         @available = attrs[:available].nil? ? true : attrs[:available]
-        @loanee = attrs[:loanee].nil? ? nil : Person.new({name: attrs[:loanee]})
+        @loanee = attrs[:loanee]
         @return_date = attrs[:return_date]
         @library = attrs[:library]
     end
@@ -19,7 +19,7 @@ class Book
             raise 'Person is not allowed to loan books' 
         end
         @available = @available ? false : (raise 'Book not available')
-        @loanee = person 
+        @loanee = person
         @return_date = Date.today.next_day(DEFAULT_LOAN_DURATION_DAYS).strftime('%d/%m/%y')   
         rec = receipt
         person.receipts << rec

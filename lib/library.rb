@@ -9,8 +9,17 @@ class Library
     def initialize(attr={})
         @collection = set_collection
         @users = set_users
+        replace_id
     end
  
+    def replace_id
+        @collection.each do |book|
+            usr = @users.select {|user| user.id == book.loanee}
+            usr << nil
+            book.loanee=usr[0]
+        end
+    end
+
     def set_collection
         (YAML.load_file('./lib/data.yml')).map! {|rawdata|  Book.new(rawdata.merge({library: self}))}
     end
@@ -57,8 +66,8 @@ class Library
 
 
     def book_to_hash(bookobj)
-        name = bookobj.loanee.nil? ? nil : bookobj.loanee.name     
-        {item: {title: bookobj.title, author: bookobj.author,category: bookobj.category }, available: bookobj.available, loanee: name, return_date: bookobj.return_date }
+        personid = bookobj.loanee.nil? ? nil : bookobj.loanee.id     
+        {item: {title: bookobj.title, author: bookobj.author,category: bookobj.category }, available: bookobj.available, loanee: personid, return_date: bookobj.return_date }
     end
 
     def user_to_hash(userobj)
