@@ -29,13 +29,14 @@ class Library
   def check_out(search_item)
     book_title = search(search_item)[0][:item][:title]
     index = @collection.to_a.index {|key,| key[:item][:title] == book_title}
-    if @collection[index][:available] == false
+    book = @collection[index]
+    if book[:available] == false
       'Book not availible right now, back in library [date]'
     else
-      @collection[index][:available] = false
-      month = Date.today.strftime('%m').to_i + 1
-      @collection[index][:return_date] = "#{Date.today.strftime('%Y')}-0#{month}-#{Date.today.strftime('%d')}"
+      book[:available] = false
+      book[:return_date] = "#{Date.today.next_month(1).strftime("%Y/%m/%d")}"
       File.open('./lib/data.yml', 'w') { |f| f.write @collection.to_yaml }
     end
+    return book 
   end 
 end
