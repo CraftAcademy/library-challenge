@@ -2,7 +2,7 @@ require 'date'
 require './lib/person.rb'
 require './lib/library.rb'
 class Book
-    attr_accessor :title, :author, :category, :available, :loanee, :return_date, :library
+    attr_accessor :title, :author, :category, :available, :loanee, :return_date
     DEFAULT_LOAN_DURATION_DAYS = 30
     def initialize(attrs = {})
         @title = set_title(attrs[:item][:title])

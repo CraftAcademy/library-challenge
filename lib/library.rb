@@ -33,24 +33,36 @@ class Library
         update_user_database
     end
 
+    def collection_to_hash
+        list = @collection.map {|book| book_to_hash(book)}
+        list.each {|book| book.delete(:loanee)}
+    end
+
+    def printpretty(array_of_books)
+        array_of_books.each do |book|
+           puts "#{book[:item][:title]} by #{book[:item][:author]} \n #{book[:item][:category]} \t Available:#{book[:available]} \t Return Date: #{book[:return_date]} \n "
+        end
+        nil
+    end
+
     def list_collection
-        @collection
+        printpretty(collection_to_hash)
     end
 
     def find_title(search_word)
-        @collection.select {|book| book.title.include? search_word}
+        printpretty(collection_to_hash.select {|book| book[:item][:title].include? search_word})
     end
 
     def find_author(search_word)
-        @collection.select {|book| book.author.include? search_word}
+        printpretty(collection_to_hash.select {|book| book[:item][:author].include? search_word})
     end
 
     def find_category(search_word)
-        @collection.select {|book| book.category.include? search_word}
+        printpretty(collection_to_hash.select {|book| book[:item][:category].include? search_word})
     end
 
     def find_available
-        @collection.select {|book| book.available==true }
+        printpretty(collection_to_hash.select {|book| book[:available]==true })
     end
 
     def find_unavailable(user)
