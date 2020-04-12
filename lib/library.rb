@@ -89,5 +89,11 @@ class Library
         end
         File.open('./lib/users.yml', 'w') { |f| f.write updated_users.to_yaml }
     end
+    
+    def select_book(book_name)
+        selected = @collection.select {|book| book.title == book_name}
+        selected.nil? ? (raise 'no such book') : selected
+    end
 
-end
+
+    end
