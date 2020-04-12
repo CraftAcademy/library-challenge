@@ -1,7 +1,10 @@
 require 'yaml'
+require 'date'
 
 
 class Visitor
+
+    STANDARD_RETURN_DATE = 1
 
     def show_list
         YAML.load_file('./lib/data.yml') 
@@ -23,7 +26,13 @@ class Visitor
 
         File.open('./lib/data.yml', 'w') { |f| f.write book_to_checkout.to_yaml }
         File.open('./lib/visitor_data.yml', 'w') { |f| f.write book_to_checkout.to_yaml }
+        return_date
 
+    end
+
+    def return_date
+        expected_date=Date.today.next_month(STANDARD_RETURN_DATE).strftime('%d/%m/%y')
+        {message:"The book is due before the following date: #{expected_date}"}
     end
 
 

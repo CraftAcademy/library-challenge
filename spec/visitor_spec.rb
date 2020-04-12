@@ -1,5 +1,6 @@
 require 'yaml'
 require './lib/visitor.rb'
+require 'date'
 
 
 describe Visitor do 
@@ -27,7 +28,16 @@ describe Visitor do
         expect(YAML.load_file('./lib/data.yml').select { |obj| obj[:item][:title].include? 'Alfons och soldatpappan' }[0][:available]).to eq false
         end
 
+        it "Receive receipt with return date one month from today's date" do 
+        subject.check_out_book('Alfons och soldatpappan')
+        expected_date=Date.today.next_month(STANDARD_RETURN_DATE).strftime('%d/%m/%y')
+        expected_outcome = {message:"The book is due before the following date: #{expected_date}"}
+        
+        
+        end
+
     end
+
 
 
 end
