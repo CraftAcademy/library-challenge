@@ -1,11 +1,13 @@
 require './lib/library.rb'
 class User 
-    attr_accessor :name, :account, :library
+    attr_accessor :name, :account, :library, :account_nr
 
     def initialize(attr={})
         set_name(attr[:name])
         @library = Library.new
         @book = nil
+        @account_nr = attr[:account_nr]
+        @account = attr[:account]
     end
 
     def search_book(search_word)
@@ -13,11 +15,18 @@ class User
     end
 
     def check_out_book(search_word)
+      # if account is valid then its ok to check out book
       @book = @library.check_out(search_word)
+      reciept
     end
 
     def check_in_book(book_name)
         @book = @library.check_in(book_name)
+        (@book[:available] == true && @book[:return_date].nil?) ? "Book is checked in" : "Check in book failed"
+    end
+
+    def reciept
+      {account: @account_nr, title: @book[:item][:title], return_date: @book[:return_date]}
     end
 
     private
