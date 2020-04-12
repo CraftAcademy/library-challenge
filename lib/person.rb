@@ -5,7 +5,7 @@ class Person
         @phone = attrs[:phone] || nil
         @id = assign_id(attrs[:id])
         @born_date = attrs[:born_date] || nil
-        @active = attrs[:active] || true
+        @active = attrs[:active].nil? ? true : attrs[:active]
         @role = attrs[:role] || 'User'
         @receipts = []
     end

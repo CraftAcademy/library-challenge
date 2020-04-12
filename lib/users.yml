@@ -20,3 +20,122 @@
   :id: 3
   :born_date: 
   :no_of_borrowed_books: 0
+- :name: John
+  :phone: 
+  :role: User
+  :active: true
+  :id: 4
+  :born_date: 0
+  :no_of_borrowed_books: 0
+- :name: Alice
+  :phone: 
+  :role: User
+  :active: true
+  :id: 5
+  :born_date: 
+  :no_of_borrowed_books: 0
+- :name: Alice
+  :phone: 
+  :role: User
+  :active: true
+  :id: 6
+  :born_date: 
+  :no_of_borrowed_books: 0
+- :name: Alice
+  :phone: 
+  :role: User
+  :active: true
+  :id: 7
+  :born_date: 
+  :no_of_borrowed_books: 0
+- :name: Alice
+  :phone: 
+  :role: User
+  :active: true
+  :id: 8
+  :born_date: 
+  :no_of_borrowed_books: 0
+- :name: Alice
+  :phone: 
+  :role: User
+  :active: true
+  :id: 9
+  :born_date: 
+  :no_of_borrowed_books: 0
+- :name: Alice
+  :phone: 
+  :role: User
+  :active: true
+  :id: 10
+  :born_date: 
+  :no_of_borrowed_books: 0
+- :name: Alice
+  :phone: 
+  :role: User
+  :active: true
+  :id: 11
+  :born_date: 
+  :no_of_borrowed_books: 0
+- :name: Alice
+  :phone: 
+  :role: User
+  :active: true
+  :id: 12
+  :born_date: 
+  :no_of_borrowed_books: 0
+- :name: Alice
+  :phone: 
+  :role: User
+  :active: true
+  :id: 13
+  :born_date: 
+  :no_of_borrowed_books: 0
+- :name: Alice
+  :phone: 
+  :role: User
+  :active: true
+  :id: 14
+  :born_date: 
+  :no_of_borrowed_books: 0
+- :name: Alice
+  :phone: 
+  :role: User
+  :active: true
+  :id: 15
+  :born_date: 
+  :no_of_borrowed_books: 0
+- :name: Alice
+  :phone: 
+  :role: User
+  :active: true
+  :id: 16
+  :born_date: 
+  :no_of_borrowed_books: 0
+- :name: Alice
+  :phone: 
+  :role: User
+  :active: true
+  :id: 17
+  :born_date: 
+  :no_of_borrowed_books: 0
+- :name: Alice
+  :phone: 
+  :role: User
+  :active: true
+  :id: 18
+  :born_date: 
+  :no_of_borrowed_books: 0
+- :name: Alice
+  :phone: 
+  :role: User
+  :active: true
+  :id: 19
+  :born_date: 
+  :no_of_borrowed_books: 0
+- :name: Alice
+  :phone: 
+  :role: User
+  :active: true
+  :id: 20
+  :born_date: 
+  :no_of_borrowed_books: 0

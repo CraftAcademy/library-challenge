@@ -22,8 +22,12 @@ describe Book do
     end
 
     it 'Book must not be available after checkout' do
+        # As a visitor
+        # In order to loan a book
+        # I need to checkout the book from library
         subject.checkout(person)
         expect(subject.available).to eq false
+        subject.return_book
     end
 
     it 'Book can not be check out if not available' do
@@ -32,6 +36,9 @@ describe Book do
     end
 
     it 'Book must be available after return' do
+        # As a visitor
+        # In order to return books before due time
+        # I need to able to return book to library collection 
         subject.checkout(person)
         subject.return_book
         expect(subject.available).to eq true
@@ -41,6 +48,13 @@ describe Book do
     it 'Gives out receipt after checkout' do
         receipt = {book:subject, today_date: Date.today, return_date: Date.today.next_day(Book::DEFAULT_LOAN_DURATION_DAYS).strftime('%d/%m/%y')}
         expect(subject.checkout(person)).to eq receipt
+    end
+
+    it 'cannot be checked out by an inactive user' do
+        # As a library owner
+        # In order to make sure books are not lost
+        # I want to keep unauthorized people from loaning books
+        expect{ subject.checkout( Person.new({name: "Adolf", active: false})) }.to raise_error 'Person is not allowed to loan books'
     end
 
 end

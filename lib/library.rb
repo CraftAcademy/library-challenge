@@ -12,7 +12,7 @@ class Library
     end
  
     def set_collection
-        (YAML.load_file('./lib/data.yml')).map! {|rawdata|  Book.new(rawdata.merge({library:self}))}
+        (YAML.load_file('./lib/data.yml')).map! {|rawdata|  Book.new(rawdata.merge({library: self}))}
     end
 
     def set_users
@@ -44,14 +44,21 @@ class Library
         @collection.select {|book| book.available==true }
     end
 
-    def find_unavailable
-        @collection.select {|book| book.available==false }
+    def find_unavailable(user)
+        unavail = @collection.select {|book| book.available==false }
+        unavail.map! {|book| book_to_hash(book)}
+        if user.role == 'User'
+            unavail.each {|book| 
+                book.delete(:loanee)
+            }
+        end
+        unavail
     end
 
 
     def book_to_hash(bookobj)
         name = bookobj.loanee.nil? ? nil : bookobj.loanee.name     
-     {item:{title:bookobj.title,author:bookobj.author,category:bookobj.category},available:bookobj.available,loanee: name, return_date:bookobj.return_date}
+        {item: {title: bookobj.title, author: bookobj.author,category: bookobj.category }, available: bookobj.available, loanee: name, return_date: bookobj.return_date }
     end
 
     def user_to_hash(userobj)
@@ -73,7 +80,5 @@ class Library
         end
         File.open('./lib/users.yml', 'w') { |f| f.write updated_users.to_yaml }
     end
-
-
 
 end

@@ -9,6 +9,9 @@ describe Person do
     let(:book2)  {Book.new({item: {title: 'Book2', author: 'Author2', category: 'Cat2'},library:lib})}
 
     it 'cannot exist without a name' do
+    #   As a library owner
+    #   In order to make sure I can get my books back
+    #   I want to keep the personal details of the loanees
         expect{ described_class.new}.to raise_error 'Person must have a name'        
     end
 
@@ -17,6 +20,9 @@ describe Person do
     end
 
     it 'can check what books it has loaned,return them,remove correct receipt' do
+        # As a visitor
+        # In order to check when to return loaned books
+        # I need to see list/receipts of my loans
         book1.checkout(subject)
         book2.checkout(subject)
         expect( subject.receipts ).to be_a_kind_of(Array)
@@ -28,6 +34,7 @@ describe Person do
     end
 
     
+
 
 
 end
