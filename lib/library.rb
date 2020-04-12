@@ -31,12 +31,12 @@ class Library
     index = @collection.to_a.index {|key,| key[:item][:title] == book_title}
     book = @collection[index]
     if book[:available] == false
-      "Book not availible right now, back in library #{ book[:return_date] }"
+      "Book not availible right now, back in library #{book[:return_date]}"
     else
       book[:available] = false
       book[:return_date] = "#{Date.today.next_month(1).strftime("%Y/%m/%d")}"
       File.open('./lib/data.yml', 'w') { |f| f.write @collection.to_yaml }
-      return book 
+      return book
     end
     
   end 
