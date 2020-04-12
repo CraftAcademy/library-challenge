@@ -29,7 +29,14 @@ describe Library do
   
   it 'has return date for checked out book' do
   expect(subject.check_out('Madicken')).to include(return_date: Date.today.next_month(1).strftime("%Y/%m/%d"))
- end 
+  end 
+
+  it 'checks in a book in the collection when returned' do
+    expect(subject.check_in('Madicken')).to include(available: true, return_date: nil)
+  end
+  it 'displays a message telling user that the book is unavailable' do
+    expect(subject.check_out('The Girl with the Dragon Tattoo')).to eq.include? "Book not availible right now, back in library "
+  end
 end
 
 

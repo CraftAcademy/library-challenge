@@ -47,5 +47,10 @@
 - :item:
     :title: Madicken
     :author: Astrid Lindgren
+  :available: true
+  :return_date: 
+- :item:
+    :title: The Girl with the Dragon Tattoo
+    :author: Stieg Larsson
   :available: false
-  :return_date: 2020/05/12
+  :return_date: 2022/04/04

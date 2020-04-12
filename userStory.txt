@@ -25,5 +25,5 @@ in order to have the book returned by the user
 I want to receive a message with the return date
 ​
 as a user
-in order to know when to return the book
-I want to receive a message with the return date
+in order to return the book
+I want to receive a message with confirmation
