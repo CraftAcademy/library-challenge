@@ -39,7 +39,7 @@ describe User do
     end
     
     it 'returns a list of books checked out to an account' do
-      
+        expect(subject.user_list).to include(include(:return_date))
     end
 
 end

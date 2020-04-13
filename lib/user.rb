@@ -36,6 +36,15 @@ class User
       @account_status = :disabled
     end
 
+    def user_list
+      book_list = []
+      books = @library.user_booklist(@account_nr)
+      books.each do |book| 
+      book_list << {title: book[:item][:title], author: book[:item][:author], return_date: book[:return_date]}
+      end
+      book_list
+    end
+
     private
     def set_name(obj)
         obj == nil ? missing_name : @name = obj
@@ -44,6 +53,5 @@ class User
     def missing_name
         raise "A name is required"
     end
-
-      
+  
 end
