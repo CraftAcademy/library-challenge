@@ -20,11 +20,11 @@ In order to use the library app you will need the following
 
 ### Terminal Instructions
 
-Load files in IRB or Pry, All other files required
+Load files in IRB or Pry, All other files required by this file.
   ```
   >load “./lib/library.rb" 
   ```
-Create Library,Book,Person objects from _data.yml_ and _users.yml_
+Create Library. Books and Person objects are loaded from _data.yml_ and _users.yml_
   ```
   >lib = Library.new 
   ```
@@ -66,13 +66,17 @@ Checkout book (person must be active user)
   ```
   >book.checkout(person)
   ```
+View receipt of book loans 
+  ```
+  >person.show_receipts
+  ```
 Return book 
   ```
   >book.return_book
   ```
-View receipt of book loans 
+Return book from receipts (i = index of the book in person.show_receipts)
   ```
-  >person.show_receipts
+  >person.receipts[i][:book].return_book
   ```
 ### Object Models
 \* = Mandatory on .new
