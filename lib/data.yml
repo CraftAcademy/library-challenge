@@ -39,14 +39,14 @@
     :title: Mio min Mio
     :author: Astrid Lindgren
   :available: true
-  :return_date: 
-  :account_nr: 
+  :return_date: 2020/04/16
+  :account_nr: 123456
 - :item:
     :title: Karlsson på taket
     :author: Astrid Lindgren
   :available: true
-  :return_date: 
-  :account_nr: 
+  :return_date: 2020/04/16
+  :account_nr: 123456
 - :item:
     :title: Nils Karlsson pyssling
     :author: Astrid Lindgren
@@ -64,4 +64,4 @@
     :author: Stieg Larsson
   :available: false
   :return_date: 2022/04/04
-  :account_nr: 
+  :account_nr: 123456

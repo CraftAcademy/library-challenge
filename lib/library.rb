@@ -55,4 +55,9 @@ class Library
     
     return book 
   end 
+
+  def user_booklist(account_nr)
+    book_list = @collection.select { |obj|obj[:account_nr] == account_nr }
+    book_list.length == 0 ? 'no books checked out' : book_list 
+  end
 end
