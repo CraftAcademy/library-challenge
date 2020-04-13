@@ -40,7 +40,7 @@ describe Library do
     end
 
     it "Can see return date for unavailable books" do
-        sara = Person.new({name: "Sara"})
+        sara = Person.new({name: "Sara", active: true})
         subject.collection[0].checkout(sara)
         expect(subject.find_unavailable(sara)[0][:return_date] ).not_to be nil
         subject.collection[0].return_book
@@ -53,10 +53,10 @@ describe Library do
         # As a user
         # In order to keep my personal information safe
         # I don't want other users to know what I am reading
-        sara = Person.new({name: "Sara"})   
+        sara = Person.new({name: "Sara", active: true})   
         subject.collection[0].checkout(sara)
         expect(subject.find_unavailable(sara)[0][:loanee]).to be nil
-        boris = Person.new({name: "Boris", role: "Librarian"})
+        boris = Person.new({name: "Boris", role: "Librarian", active: true})
         expect(subject.find_unavailable(boris)[0][:loanee]).not_to be nil
         subject.collection[0].return_book
     end
@@ -64,7 +64,7 @@ describe Library do
     it 'can registers users' do
         users = subject.users.length
         subject.add_user({name: "Alice"})
-        expect(subject.users.length).to eq (users + 1)
+        expect(subject.users.length).to eq users + 1
     end
 
 end

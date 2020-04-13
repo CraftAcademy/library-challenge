@@ -7,7 +7,7 @@ describe Book do
     let(:lib) {Library.new}
     subject { described_class.new({item:{title: 'Alfons och soldatpappan', author: 'Gunilla Bergström', category: 'Children'},library:lib}) }
 
-    let(:person) { Person.new(name: "Person") }
+    let(:person) { Person.new(name: "Person", active: true) }
 
     it 'must have a title' do
         expect {described_class.new({item:{author: "someone", category: 'Children'}})}.to raise_error 'Book must have a title'

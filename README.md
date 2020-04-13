@@ -1,5 +1,37 @@
 ## Library Challenge
-### Week 1 Ruby challenge
+
+### The Project
+This is a project to demonstrate how a simple Library system could work. We are using YAML for data persistence on book data and users. We have been using TDD to continuously make sure we are following the scope and having functional code. The library has search functions and books can checked out and returned. Effort has been put in to make it user friendly in terminal.
+
+### Authors
+- Marcus https://github.com/ViaMarcus
+- Ali https://github.com/kermit-klein
+- Theodora https://github.com/hashtagDora
+
+### Dependencies/Installing
+
+
+Terminal Instructions
+
+User Stories Tested with RSpec
+
+License
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Instructions
 -------

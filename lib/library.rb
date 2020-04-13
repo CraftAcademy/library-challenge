@@ -6,7 +6,7 @@ class Library
 
     attr_accessor :collection, :users
 
-    def initialize(attr={})
+    def initialize
         @collection = set_collection
         @users = set_users
         replace_id
@@ -29,8 +29,9 @@ class Library
     end
 
     def add_user(attrs = {})
+        attrs[:active] = attrs[:active].nil? ? true : attrs[:active]
         @users << Person.new(attrs)
-        a = update_user_database
+        update_user_database
         @users[-1]
     end
 
