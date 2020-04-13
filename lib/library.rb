@@ -47,8 +47,8 @@ class Library
     book[:available] = false
     book[:return_date] = "#{Date.today.next_month(1).strftime("%Y/%m/%d")}"
     book[:account_nr] = account_nr
-    File.open('./lib/data.yml', 'w') { |f| f.write @collection.to_yaml }
-    return book
+    write_to_file
+    book
   end
 
   def check_in(book_title)
@@ -57,13 +57,18 @@ class Library
     book[:available] = true
     book[:return_date] = nil
     book[:account_nr] = nil
-    File.open('./lib/data.yml', 'w') { |f| f.write @collection.to_yaml }
-    
-    return book 
+    write_to_file
+    book 
   end 
 
   def user_booklist(account_nr)
     book_list = @collection.select { |obj|obj[:account_nr] == account_nr }
     book_list.length == 0 ? 'no books checked out' : book_list 
+  end
+  
+  private
+
+  def write_to_file
+    File.open('./lib/data.yml', 'w') { |f| f.write @collection.to_yaml }
   end
 end
