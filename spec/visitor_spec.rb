@@ -6,21 +6,21 @@ require 'date'
 describe Visitor do
 
 
-    it "Can find a list of all the books" do
-    expect(subject.show_list).to eq [{:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, :available=>true, :return_date=>nil}] 
+    it 'Can find a list of all the books' do
+    expect(subject.show_list).to eq [{:item=>{:title=>'Alfons och soldatpappan', :author=>'Gunilla Bergström'}, :available=>true, :return_date=>nil}] 
     end
 
     it 'Can search for book title' do 
-    expect(subject.search_title('Alfons')).to eq [{:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, :available=>true, :return_date=>nil}]
+    expect(subject.search_title('Alfons')).to eq [{:item=>{:title=>'Alfons och soldatpappan', :author=>'Gunilla Bergström'}, :available=>true, :return_date=>nil}]
     end
 
-    it 'Can check status availability' do 
+    it 'Can check availability of a book' do 
     expect(subject.check_status_book('Alfons')).not_to be nil
     end
 
-    describe'Can check out book' do
+    describe 'Can check out book' do
 
-        it "Add book into visitor account"do
+        it "The book is added into visitor's account" do
         expect(subject.check_out_book('Alfons och soldatpappan')).to be_truthy
         end
 
@@ -30,22 +30,19 @@ describe Visitor do
         expect(book_to_test[0][:available]).to eq false
         end
 
-        it "Receive receipt with return date one month from today's date" do 
+        it "Receives receipt with return date one month from today's date" do 
         subject.check_out_book('Alfons och soldatpappan')
-        expected_date=Date.today.next_month(1).strftime('%d/%m/%y')
+        expected_date = Date.today.next_month(1).strftime('%d/%m/%y')
         expected_outcome = {message:"The book is due before the following date: #{expected_date}"}
         end
     end
 
-    describe "Can return book" do
+    describe 'Can return book' do
     
-        it "The book becomes available upon checkin" do
+        it 'The book becomes available upon checkin' do
             subject.check_in_book('Alfons och soldatpappan')
             returned_book = YAML.load_file('./lib/data.yml').select { |obj| obj[:item][:title].include? 'Alfons och soldatpappan' }
             expect(returned_book[0][:available]).to eq true
         end
     end
-
-
-
 end
