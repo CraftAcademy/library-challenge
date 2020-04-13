@@ -21,12 +21,13 @@ describe Book do
         expect {described_class.new({item:{title: "something", author: 'Someone'}})}.to raise_error 'Book must have a category'
     end
 
-    it 'Book must not be available after checkout' do
+    it 'Book must not be available after checkout and has a return date' do
         # As a visitor
         # In order to loan a book
         # I need to checkout the book from library
         subject.checkout(person)
         expect(subject.available).to eq false
+        expect(subject.return_date).not_to eq nil
         subject.return_book
     end
 

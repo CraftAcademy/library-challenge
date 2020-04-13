@@ -10,75 +10,114 @@ This is a project to demonstrate how a simple Library system could work. We are 
 
 ### Dependencies/Installing
 
-
-Terminal Instructions
-
-User Stories Tested with RSpec
-
-License
-
-
+In order to use the library app you will need the following  
+- Ruby 2.7.0  (https://github.com/rvm/ubuntu_rvm)  
+- Rspec (included rspec in Gemfile)
+- Rubocop (included rubocop in Gemfile)
+- IRB or Pry (included pry in Gemfile)
+- Bundler ($ gem install bundler)
 
 
+### Terminal Instructions
+
+Load files in IRB or Pry, All other files required
+  ```
+  >load “./lib/library.rb" 
+  ```
+Create Library,Book,Person objects from _data.yml_ and _users.yml_
+  ```
+  >lib = Library.new 
+  ```
+Create additional Person or Librarian
+  ```
+  >person = lib.add_user({name:"UserName"})
+  >librarian = lib.add_user({name:"UserName",role:"librarian"}) 
+  ```
+List collection of books
+  ```
+  >lib.list_collection
+  ```
+Search for title in book collection
+  ```
+  >lib.find_title("The Shining")
+  ```
+Search for author in book collection
+  ```
+  >lib.find_title("Stephen King")
+  ```
+Search for category in book collection
+  ```
+  >lib.find_title("Horror")
+  ```
+Search for only available books
+  ```
+  >lib.find_available("Horror")
+  ```
+Search for only unavailable books (only librarian can see who loaned books,person can only see unavailable book info)
+  ```
+  >lib.find_unavailable(person)
+  >lib.find_unavailable(librarian)
+  ```
+Select a specific book
+  ```
+  >book = lib.select_book("Exact Title of the Book")
+  ```
+Checkout book (person must be active user)
+  ```
+  >book.checkout(person)
+  ```
+Return book 
+  ```
+  >book.return_book
+  ```
+View receipt of book loans 
+  ```
+  >person.show_receipts
+  ```
+### Object Models
+\* = Mandatory on .new
+#### Book
+Item:
+	title* = String  
+	author* = String  
+	category* = String   
+available = Boolean  
+loanee = Person  
+return_date = Regex (dd/mm/yy)
+#### Person
+name: String*  
+phone: String  
+role: String ('User' is default)  
+active: Boolean  
+receipts: Hash containing a book object and Strings  
+#### Library
+collection: Array of Book  
+users: Array of Person 
 
 
+### User Stories Tested with RSpec
+
+* As a librarian and a person,
+In order to know which book I am looking at,
+I want to know the title, author and category of the book.
+* As a librarian,In order to have loaned books back
+I need to set a return date.
+* As a librarian, In order to have loaned books back,
+I need to know who loaned book.
+* As a person,In order to find a specific book,
+I need to search the library book collection.
+* As a person, In order to loan a book,
+I need to checkout the book from library.
+* As a person, In order to check when to return loaned books,
+I need to see list/receipts of my loans.
+* As a person, In order to return books before due time,
+I need to able to return book to library collection.
+* As a librarian, In order to make sure I can get my books back,
+I want to keep the personal details of the loanees.
+* As a librarian, In order to make sure books are not lost,
+I want to keep unauthorized people from loaning books.
 
 
+### License
 
-
-
-
-
-
-
-
-
-Instructions
--------
-Read this entire README carefully and follow all instructions.
-
-* Challenge time: this weekend, until Monday 9am
-* Feel free to use Google, Stack Overflow, your notes, previously written code, books, etc. but work on your own
-* If you refer to or have in whole or partially used the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution to GitHub and create a Pull Request**
-* You must submit a Pull Request to this repository with your code by 9.30am Monday morning - before the stand-up
-
-
-### Tasks
-----
-
-* Fork the challenge repo: https://github.com/CraftAcademy/library-challenge
-* Run the command `bundle install` in the project directory to ensure you have all the gems
-* Write your specs and implementation
-* Be smart about using Git: commit and push often. Use feature branches.
-* Create a Pull Request as soon as possible
-* Read the comments from Hound and fix any issues that the service points out.
-
-### Tips
-----
-
-##### Some hints:
-  * A Person needs to have a list of books that he currently has in his possession. That list needs to include the return date.
-  * The return date can be calculated using the `Date` object. Out of the box, there are methods you can use to add days to the current date.
-  * Make use of `doubles` when writing your specs
-  * Follow the [naming conventions/standards](https://craftacademy.gitbooks.io/coding-as-a-craft/content/extras/naming_standards.html) for methods and variables
-
-### What we are looking for
-----
-##### I'm hoping to see that:
-* You can take a problem set and write a well tested implementation on your own.
-* You understand how to define Ruby Classes and work with objects.
-* You understand how classes can interact with each other.
-* You know how to make use of arrays, hashes, and associated methods to create dynamic lists.
-* You know how to write specs and use them as a blueprint in your development.
-* I can track your work by following you commit history - so please commit as soon you are done with a feature or when you have made a test pass.
-
-##### In your Pull Request, I'm hoping to see:
-* That you are testing the right thing in the right spec file.
-* That all tests passing - green is good!
-* High test coverage (above 95% is accepted)
-* The code is easy to follow: every class has a clear responsibility, methods are short, code is nicely formatted, etc.
-* The `README.md` includes information on how to use your solution with command examples in `irb`. (Feel free to remove this text)
-
-
-**Happy coding!**
+MIT License

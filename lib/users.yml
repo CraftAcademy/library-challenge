@@ -34,3 +34,10 @@
   :id: 5
   :born_date: 
   :no_of_borrowed_books: 0
+- :name: Alice
+  :phone: 
+  :role: User
+  :active: true
+  :id: 6
+  :born_date: 
+  :no_of_borrowed_books: 0
