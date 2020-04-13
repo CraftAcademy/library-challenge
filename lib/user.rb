@@ -16,7 +16,7 @@ class User
 
     def check_out_book(search_word)
        if (account_nr.to_s.length == 6 || account_nr == nil) && account_status == :active
-          @book = @library.check_out(search_word)
+          @book = @library.check_out(search_word, @account_nr)
           receipt
        else 
         'You do not have a valid account' 

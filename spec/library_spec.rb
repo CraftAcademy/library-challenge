@@ -4,6 +4,10 @@ require 'yaml'
 
 describe Library do
   subject { described_class.new()}
+
+  let(:account) {instance_double('User', account_status: :active, account_nr: 123456)}
+
+
   it 'has collection on initialize' do
     expect(subject.collection).to be_truthy
   end
@@ -23,8 +27,7 @@ describe Library do
   end
 
   it 'checks out a book in the collection' do
-    
-    expect(subject.check_out('Madicken')).to include(available: false, return_date: Date.today.next_month(1).strftime("%Y/%m/%d"))
+    expect(subject.check_out('Madicken', 123456)).to include(available: false, return_date: Date.today.next_month(1).strftime("%Y/%m/%d"))
     # subject.check_out('Madicken')
   end
   
@@ -38,7 +41,7 @@ describe Library do
     expect(subject.check_in('Madicken')).to include(available: true, return_date: nil)
   end
   it 'displays a message telling user that the book is unavailable' do
-    expect(subject.check_out('The Girl')).to match(/Book not availible right now, back in library/)
+    expect(subject.check_out('The Girl', 123456)).to match(/Book not availible right now, back in library/)
   end
 end
 

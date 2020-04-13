@@ -38,4 +38,8 @@ describe User do
         expect(subject.check_in_book('Madicken')).to eq 'Book is checked in'
     end
     
+    it 'returns a list of books checked out to an account' do
+      
+    end
+
 end
