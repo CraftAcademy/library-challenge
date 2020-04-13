@@ -70,10 +70,11 @@ Also used the Craft Academy documentation.
 
 ### Updates/improvment plans:
 
-- Add a account class
+- Add an account class
   that holds the time the user has been inactive in order to deactivate the account.
-  The library should be able to create an account.
-  The user should have to put in an pin code to validate account.
+- The library should be able to create an account.
+- The user should have to put in an pin code to validate account.
+- Add an UI to the application.
 - An image that presents the book along with the text.
 
 #### Licensed under MIT license

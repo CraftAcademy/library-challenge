@@ -56,12 +56,12 @@
 - :item:
     :title: Madicken
     :author: Astrid Lindgren
-  :available: true
-  :return_date: 
-  :account_nr: 
+  :available: false
+  :return_date: 2020/05/13
+  :account_nr: 696969
 - :item:
     :title: The Girl with the Dragon Tattoo
     :author: Stieg Larsson
   :available: false
-  :return_date: 2022/04/04
-  :account_nr: 123456
+  :return_date: 2020/05/13
+  :account_nr: 696969
