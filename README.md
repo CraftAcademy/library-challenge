@@ -27,8 +27,30 @@ Clone repo.
 Run bundler to install gems.
 
 Instructions:<br>
-Load blabla....
-
+Load the class files<br>
+require './lib/library'<br>
+require './lib/user'<br>
+Load the required modules<br>
+require 'yaml'<br>
+require 'date'<br>
+Create class objects<br>
+lib = Library.new<br>
+user = User.new(name: 'Jenny', account_nr: 123456, account_status: :active)<br>
+<br>
+As a librarian<br>
+search book by title<br>
+lib.search('Pippi Långstrump')<br>
+search book by author<br>
+lib.search('Astrid L')<br>
+<br>
+As a user<br>
+check out book<br>
+user.check_out_book('Madicken')<br>
+check in a book<br>
+user.check_in_book('Madicken')<br>
+get the list of your checkout books<br>
+user.user_list<br>
+<br>
 Acknowledgement:<br>
 Built the structure from this assignment
 https://github.com/jysmys/atm_challenge_2020
