@@ -15,20 +15,26 @@ class Library
   end
 
   def search(search_item)
-    item_title = @collection.select { |obj| obj[:item][:title].include?search_item }
-    item_author = @collection.select { |obj| obj[:item][:author].include?search_item }
-    if item_title.length == 0 && item_author.length == 0
-       return 'no such book'
-    elsif item_title.length == 0
-      return item_author
-    else 
-      return item_title 
-    end
+    item_title = search_title(search_item)
+    item_author = search_author(search_item)
+    item_title.length > 0 ? item_title : item_author.length > 0 ? item_author : 'no such book'
+  end
+
+  def search_title(search_item)
+    @collection.select { |obj| obj[:item][:title].include?search_item }
+  end
+
+  def search_author(search_item)
+    @collection.select { |obj| obj[:item][:author].include?search_item }
+  end
+
+  def search_bookindex(book_title)
+    @collection.to_a.index {|key,| key[:item][:title] == book_title}
   end
 
   def check_out(search_item, account_nr)
     book_title = search(search_item)[0][:item][:title]
-    index = @collection.to_a.index {|key,| key[:item][:title] == book_title}
+    index = search_bookindex(book_title)
     book = @collection[index]
     book[:available] ?  set_check_out(book, account_nr) : not_availible(book)
   end 
@@ -46,7 +52,7 @@ class Library
   end
 
   def check_in(book_title)
-    index = @collection.to_a.index {|key,| key[:item][:title] == book_title}
+    index = search_bookindex(book_title)
     book = @collection[index]
     book[:available] = true
     book[:return_date] = nil
