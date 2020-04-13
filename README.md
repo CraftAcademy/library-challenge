@@ -67,7 +67,9 @@ Check-in book
 >check_in_book
 ```
 Return date
+```
 >return_date
+```
 
 
 ## **User stories**
