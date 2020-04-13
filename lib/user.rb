@@ -1,13 +1,13 @@
 require './lib/library.rb'
 class User 
-    attr_accessor :name, :account, :library, :account_nr
+    attr_accessor :name, :account_status, :library, :account_nr
 
     def initialize(attr={})
         set_name(attr[:name])
         @library = Library.new
         @book = nil
         @account_nr = attr[:account_nr]
-        @account = attr[:account]
+        @account_status = attr[:account_status]
     end
 
     def search_book(search_word)
@@ -15,12 +15,12 @@ class User
     end
 
     def check_out_book(search_word)
-        if account_nr.to_s.length == 6
-      # if account is valid then its ok to check out book
-      @book = @library.check_out(search_word)
-      receipt
-        else "You do not have a vaild account" 
-        end
+       if (account_nr.to_s.length == 6 || account_nr == nil) && account_status == :active
+          @book = @library.check_out(search_word)
+          receipt
+       else 
+        'You do not have a valid account' 
+       end
     end
 
     def check_in_book(book_name)
@@ -32,6 +32,10 @@ class User
       {account: @account_nr, title: @book[:item][:title], return_date: @book[:return_date]}
     end
 
+    def deactivate
+      @account_status = :disabled
+    end
+
     private
     def set_name(obj)
         obj == nil ? missing_name : @name = obj
@@ -40,5 +44,6 @@ class User
     def missing_name
         raise "A name is required"
     end
-  
+
+      
 end
