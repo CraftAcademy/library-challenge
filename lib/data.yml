@@ -1,0 +1,67 @@
+---
+- :item:
+    :title: Alfons och soldatpappan
+    :author: Gunilla Bergström
+  :available: true
+  :return_date: 
+  :account_nr: 
+- :item:
+    :title: Skratta lagom! Sa pappa Åberg
+    :author: Gunilla Bergström
+  :available: true
+  :return_date: 
+  :account_nr: 
+- :item:
+    :title: Osynligt med Alfons
+    :author: Gunilla Bergström
+  :available: true
+  :return_date: 
+  :account_nr: 
+- :item:
+    :title: Pippi Långstrump
+    :author: Astrid Lindgren
+  :available: true
+  :return_date: 
+  :account_nr: 
+- :item:
+    :title: Pippi Långstrump går ombord
+    :author: Astrid Lindgren
+  :available: true
+  :return_date: 
+  :account_nr: 
+- :item:
+    :title: Bröderna Lejonhjärta
+    :author: Astrid Lindgren
+  :available: true
+  :return_date: 
+  :account_nr: 
+- :item:
+    :title: Mio min Mio
+    :author: Astrid Lindgren
+  :available: true
+  :return_date: 2020/04/16
+  :account_nr: 123456
+- :item:
+    :title: Karlsson på taket
+    :author: Astrid Lindgren
+  :available: true
+  :return_date: 2020/04/16
+  :account_nr: 123456
+- :item:
+    :title: Nils Karlsson pyssling
+    :author: Astrid Lindgren
+  :available: true
+  :return_date: 
+  :account_nr: 
+- :item:
+    :title: Madicken
+    :author: Astrid Lindgren
+  :available: false
+  :return_date: 2020/05/13
+  :account_nr: 696969
+- :item:
+    :title: The Girl with the Dragon Tattoo
+    :author: Stieg Larsson
+  :available: false
+  :return_date: 2020/05/13
+  :account_nr: 696969
