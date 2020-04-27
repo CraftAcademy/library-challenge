@@ -1,4 +1,4 @@
-Virtual Library project: Carlos(https://github.com/Carltesio) and Philip
+Virtual Library project: [Carlos](https://github.com/Carltesio) and Philip
 
 The code - 
 
