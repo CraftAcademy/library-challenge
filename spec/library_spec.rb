@@ -20,4 +20,8 @@ describe Library do
         expect(subject.return_date).to eq expected_date
     end
 
+    it 'check for the availability of the books' do
+        expect(subject.availability).to_not include(false)
+    end
+
 end

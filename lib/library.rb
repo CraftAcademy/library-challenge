@@ -16,4 +16,7 @@ class Library
         Date.today.next_month.strftime('%d/%m/%y')
     end
 
+    def availability
+        collection.select { |obj| obj[:available] == true }
+    end
 end
