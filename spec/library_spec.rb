@@ -1,5 +1,6 @@
 require 'yaml'
 require './lib/library.rb'
+require 'date'
 
 
 
@@ -13,4 +14,10 @@ describe Library do
         expected_output = 'Alfons och soldatpappan'
         expect(subject.book).to eq expected_output
     end
+
+    it 'return date is set one month forward' do
+        expected_date = Date.today.next_month.strftime('%d/%m/%y')
+        expect(subject.return_date).to eq expected_date
+    end
+
 end

@@ -1,4 +1,5 @@
 require 'yaml'
+require 'date'
 
 class Library
     attr_accessor :collection
@@ -9,6 +10,10 @@ class Library
 
     def book
         book = collection[0][:item][:title]
+    end
+
+    def return_date
+        Date.today.next_month.strftime('%d/%m/%y')
     end
 
 end
