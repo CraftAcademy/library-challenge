@@ -4,7 +4,8 @@ class Library
     attr_accessor :catalogue
 
     def initialize
-        @catalogue = 5
+        @catalogue = YAML.load_file('./lib/data.yml')
+        
     end
-
 end
+

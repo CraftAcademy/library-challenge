@@ -5,8 +5,8 @@ require'date'
 
 describe Library do
     
-it 'has 5 books on initialization' do
-    expect(subject.catalogue).to eq 5
+it 'check for available book catalogue' do
+    expect(subject.catalogue).to_not eq nil 
 end
 
 
