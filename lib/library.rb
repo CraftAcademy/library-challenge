@@ -9,6 +9,7 @@ class Library
     def initialize
         @catalogue = YAML.load_file('./lib/data.yml')
         @exp_date = return_date
+
     end
 
    def book_list
@@ -16,8 +17,13 @@ class Library
    end
    
     def show_title
-    book_name = @catalogue[0][:item][:title]
-    end
+    book_titles = 
+                catalogue[0][:item][:title],
+                catalogue[1][:item][:title],
+                catalogue[2][:item][:title],
+                catalogue[3][:item][:title],
+                catalogue[4][:item][:title]
+     end
 
      def book_status
       @book_status = :available   
