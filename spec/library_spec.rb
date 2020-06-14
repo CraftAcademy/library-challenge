@@ -5,7 +5,7 @@ require'date'
 
 describe Library do
     
-it 'check if book catalogue exist' do
+it 'Adding books to catalogue' do
     expect(subject.catalogue).to_not eq nil 
 end
 
@@ -23,7 +23,7 @@ it 'show list of books with title and author' do
   end
 
   it 'expected to have an return date on initialize' do
-      expected_date = Date.today.next_day(30).strftime('%d/%m/%y')
+      expected_date = Date.today.next_month.strftime('%d/%m/%y')
       expect(subject.return_date).to eq expected_date
   end
 
