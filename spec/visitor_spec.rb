@@ -14,6 +14,10 @@ describe Visitor do
     expect(subject.see_author).to_not eq nil
 end
 
+it 'visitor can view the available books' do
+    expect(subject.see_available_books).to_not eq false 
+end 
+
 
 
 

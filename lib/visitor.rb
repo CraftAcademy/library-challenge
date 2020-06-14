@@ -29,5 +29,16 @@ class Visitor
                      @catalogue[4][:item][:item]]
     end
 
+    def see_available_books
+        books_status = [@catalogue[0][:available],
+                       @catalogue[1][:available],
+                       @catalogue[2][:available],
+                       @catalogue[3][:available],
+                      @catalogue[4][:available]]
+
+  books_status.select {|value| value === true}
+
+    end
+
 
 end
