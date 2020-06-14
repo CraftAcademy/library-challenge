@@ -9,9 +9,9 @@ class Library
     end
 
         def book_checkout
+            
             File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
         end
-
 
     def books
         books = 

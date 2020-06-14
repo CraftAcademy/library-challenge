@@ -12,8 +12,7 @@ describe Library do
 
 
     it 'give name of book' do
-        expected_output = 'Alfons och soldatpappan'
-        expect(subject.book).to eq expected_output
+        expect(subject.books).to include 'Alfons och soldatpappan'
     end
 
     it 'return date is set one month forward' do
