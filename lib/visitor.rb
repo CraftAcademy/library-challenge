@@ -14,6 +14,10 @@ class Visitor
         catalogue.detect { |obj| obj[:item][:title].include? "Osynligt"  }
     end
 
+    def check_available_books  
+        catalogue.select {|book_status| book_status[:available] == true}          
+    end
+
     def checkout_book
         catalogue = YAML.load_file('./lib/data.yml')
         catalogue[0][:available] = false
