@@ -17,12 +17,21 @@ class Library
    end
    
     def show_title
-    book_titles = 
-                catalogue[0][:item][:title],
+   puts book_titles =[catalogue[0][:item][:title],
                 catalogue[1][:item][:title],
                 catalogue[2][:item][:title],
                 catalogue[3][:item][:title],
-                catalogue[4][:item][:title]
+                catalogue[4][:item][:title]] 
+                
+     end
+
+     def show_author
+    puts book_author =[catalogue[0][:item][:author],
+                    catalogue[1][:item][:author],
+                    catalogue[2][:item][:author],
+                    catalogue[3][:item][:author],
+                    catalogue[4][:item][:author]] 
+
      end
 
      def book_status
