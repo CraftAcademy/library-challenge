@@ -41,7 +41,7 @@ class Library
                          catalogue[3][:available],
                          catalogue[4][:available]]
 
-         puts    books_status.select {|value| value === true}            
+             books_status.select {|value| value === true}            
      end
 
      def return_date

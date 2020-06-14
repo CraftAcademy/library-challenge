@@ -60,7 +60,7 @@ User Stories:
 Stakeholder = Visitor
 1# 
 As a visitor
-In order to be able to see the books that belong to library
+In order to be able to see the books that belong to the library
 I need to see if a list of books exists.
 
 2# 
