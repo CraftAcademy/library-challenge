@@ -16,36 +16,18 @@ class Library
        @catalogue
    end
    
-    def show_title
-    book_titles =[catalogue[0][:item][:title],
-                catalogue[1][:item][:title],
-                catalogue[2][:item][:title],
-                catalogue[3][:item][:title],
-                catalogue[4][:item][:title]] 
-                
-     end
+    def show_title_author
+        for i in 0..4
+            puts catalogue[i][:item]
+        end
+    end
 
-     def show_author
-     book_author =[catalogue[0][:item][:author],
-                    catalogue[1][:item][:author],
-                    catalogue[2][:item][:author],
-                    catalogue[3][:item][:author],
-                    catalogue[4][:item][:author]] 
-
-     end
-
-     def book_availability
-        books_status = [catalogue[0][:available],
-                         catalogue[1][:available],
-                         catalogue[2][:available],
-                         catalogue[3][:available],
-                         catalogue[4][:available]]
-
-             books_status.select {|value| value === true}            
+     def book_availability  
+        catalogue.select {|book_status| book_status[:available] == true}          
      end
 
      def return_date
-         Date.today.next_day(STANDARD_VALIDITY_DAYS).strftime('%d/%m')
+         Date.today.next_day(STANDARD_VALIDITY_DAYS).strftime('%d/%m/%y')
      end
     
 
