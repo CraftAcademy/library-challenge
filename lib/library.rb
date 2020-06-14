@@ -10,9 +10,16 @@ class Library
 
         def book_checkout
             collection[0][:available] = false
+            collection[0][:return_date] = Date.today.next_month.strftime('%d/%m/%y')
             File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
         end
         
+        def book_checkin
+            collection[0][:available] = true
+            collection[0][:return_date] = nil
+            File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
+        end
+
     def book_list
         book_list = 
         collection[0][:item],
