@@ -1,6 +1,7 @@
 require 'yaml'
 require 'date'
 
+
 class Library
     attr_accessor :catalogue, :exp_date
 
@@ -26,7 +27,7 @@ class Library
      end
 
      def return_date
-        (Date.today).next_month.strftime('%d/%m/%y')
+        Date.today.next_month.strftime('%d/%m/%y')
      end
     
 
