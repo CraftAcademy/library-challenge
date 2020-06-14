@@ -5,18 +5,19 @@ require 'date'
 
 
 describe Library do
+
     it 'have a collection on initialize' do
         expected_output = YAML.load_file('./lib/data.yml')
         expect(subject.collection).to eq expected_output
     end
 
     it 'when checking out a book the database is updated' do
-        expexted_output = collection[0][:available] = false
+        expected_output = {:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, :available=>false, :return_date=>Date.today.next_month.strftime('%d/%m/%y')}
         expect(subject.book_checkout).to eq expected_output
     end
 
     it 'when checking in a book the database is updated' do
-        expexted_output = collection[0][:available] = false
+        expected_output = {:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, :available=>true, :return_date=>nil}
         expect(subject.book_checkin).to eq expected_output
     end
 
