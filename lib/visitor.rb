@@ -23,7 +23,13 @@ class Visitor
         
     end
 
-    
+    def return_book
+        catalogue = YAML.load_file('./lib/data.yml')
+        catalogue[0][:available] = true
+        catalogue[0][:return_date] = nil
+        File.open('./lib/data.yml', 'w') { |f| f.write catalogue.to_yaml }
+        catalogue[0]
+    end
    
 
 

@@ -13,6 +13,10 @@ describe Visitor do
       expect(subject.checkout_book).to eq expected_output
    end
 
+   it 'visitor can return the book' do
+      expected_output = {:item=>{:title=>"Alfons och soldatpappan", :author=>"Gunilla Bergström"}, :available=>true, :return_date=>nil}
+      expect(subject.return_book).to eq expected_output
+   end
    
 
 
