@@ -21,5 +21,13 @@ class Visitor
                      @catalogue[4][:item][:title]] 
     end
 
+    def see_author
+    book_author = [@catalogue[0][:item][:author],
+                     @catalogue[1][:item][:author],
+                     @catalogue[2][:item][:author],
+                     @catalogue[3][:item][:author],
+                     @catalogue[4][:item][:item]]
+    end
+
 
 end

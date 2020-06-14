@@ -10,7 +10,11 @@ describe Visitor do
     expect(subject.see_title).to_not eq nil 
  end
 
+ it 'visitor should see books author' do 
+    expect(subject.see_author).to_not eq nil
+end
 
 
- 
+
+
 end
