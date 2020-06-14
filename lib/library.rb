@@ -2,7 +2,7 @@ require 'yaml'
 require 'date'
 
 class Library
-    attr_accessor :catalogue, :book_status, :exp_date
+    attr_accessor :catalogue, :exp_date
 
     STANDARD_VALIDITY_DAYS = 30
 
@@ -13,11 +13,11 @@ class Library
     end
 
    def book_list
-        @catalogue
+       @catalogue
    end
    
     def show_title
-   puts book_titles =[catalogue[0][:item][:title],
+    book_titles =[catalogue[0][:item][:title],
                 catalogue[1][:item][:title],
                 catalogue[2][:item][:title],
                 catalogue[3][:item][:title],
@@ -26,7 +26,7 @@ class Library
      end
 
      def show_author
-    puts book_author =[catalogue[0][:item][:author],
+     book_author =[catalogue[0][:item][:author],
                     catalogue[1][:item][:author],
                     catalogue[2][:item][:author],
                     catalogue[3][:item][:author],
@@ -34,8 +34,14 @@ class Library
 
      end
 
-     def book_status
-      @book_status = :available   
+     def book_availability
+        books_status = [catalogue[0][:available],
+                         catalogue[1][:available],
+                         catalogue[2][:available],
+                         catalogue[3][:available],
+                         catalogue[4][:available]]
+
+         puts    books_status.select {|value| value === true}            
      end
 
      def return_date

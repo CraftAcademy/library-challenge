@@ -22,8 +22,8 @@ it 'show list of books with title' do
       expect(subject.show_author).to_not eq nil
   end
 
-  it 'check if the book is unavailable' do
-      expect(subject.book_status).to eq :available
+  it 'check if the book is available' do
+      expect(subject.book_availability).to_not eq false
   end
 
   it 'expected to have an return date on initialize' do
