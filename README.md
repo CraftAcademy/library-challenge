@@ -50,3 +50,49 @@ Read this entire README carefully and follow all instructions.
 
 
 **Happy coding!**
+
+Group Members : 
+-Odean 
+-Sima 
+
+User Stories:
+
+Stakeholder = Visitor
+1# 
+As a visitor
+In order to be able to see the books that belong to library
+I need to see if a list of books exists.
+
+2# 
+As a Visitor 
+In order to check the list of existed books I need to see list of books with title and author
+
+3# 
+As a Visitor 
+In order to check the availibility status of the book I need a list of book to show if the book is available or not
+
+4# 
+As a Visitor 
+In order to have the book I need to find the title and check out the book.
+
+5# 
+As a Visitor
+ In order to return the book I need to know the return date(30 days after check out)
+
+Stakeholder = Library 
+1#
+As a Library
+In order to be able to see the books that belong to library
+I need to see if a list of books exists.
+
+2#
+ As a Library 
+ In order to check the list of existed books I need to see list of books with title and author
+
+3#
+ As a Library 
+ In order to check the availibility status of the book I need a list of book to show if the book is available or not
+
+4# 
+As a library 
+In order to know the books status I need to have the list of book with updated status.
