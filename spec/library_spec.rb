@@ -10,8 +10,7 @@ describe Library do
         expect(subject.collection).to eq expected_output
     end
 
-
-    it 'give name of book' do
+    it 'gives a list of books by title and author' do
         expect(subject.books).to include 'Alfons och soldatpappan'
     end
 

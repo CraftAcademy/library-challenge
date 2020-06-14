@@ -9,17 +9,17 @@ class Library
     end
 
         def book_checkout
-            
+            collection[0][:available] = false
             File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
         end
-
-    def books
-        books = 
-            collection[0][:item][:title],
-            collection[1][:item][:title],
-            collection[2][:item][:title],
-            collection[3][:item][:title],
-            collection[4][:item][:title]
+        
+    def book_list
+        book_list = 
+        collection[0][:item],
+        collection[1][:item],
+        collection[2][:item],
+        collection[3][:item],
+        collection[4][:item]
     end
 
     def exp_return_date
@@ -27,11 +27,10 @@ class Library
     end
 
     def availability
-        collection.select { |obj| obj[:available] == true }
+        collection.select { |book| book[:available] == true }
     end
 
     def not_available
-        collection.select { |obj| obj[:return_date] != nil }
+        collection.select { |book| book[:return_date] != nil }
     end
-
 end
