@@ -1,6 +1,13 @@
 ## Library Challenge
 ### Week 1 Ruby challenge
 
+#### Acknowledgments
+
+In order to do this, we used CraftAcademy course material, we used information from the YAML demo. We also looked at our senior's code for indication if we were on the right track. We mostly looked at :
+
+https://github.com/emtalen/library-challenge
+https://github.com/jysmys/library-challenge
+
 #### User stories
 As a User
 When looking at the list of books
