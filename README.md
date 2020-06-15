@@ -52,7 +52,7 @@ Read this entire README carefully and follow all instructions.
 **Happy coding!**
 
 Group Members : 
--Odean 
+-Odeane 
 -Sima 
 
 User Stories:
@@ -96,3 +96,35 @@ I need to see if a list of books exists.
 4# 
 As a library 
 In order to know the books status I need to have the list of book with updated status.
+* in order to have better understanding of the codes and methods, we went through Emma's git hub and checked her library project.
+* All other parts are from course materials, google searches and Stackoverflow.
+
+Instructions
+
+load irb
+  irb
+
+load files  
+  load './lib/library.rb'
+  load './lib/visitor.rb'
+
+create a library instance
+
+    library1 = Library.new
+    visitor1 = Visitor.new
+
+search for books with keywords
+
+  visitor1.book_search
+
+check for available books
+    visitor1.check_available_books
+
+
+Checkout a book  
+  visitor1.checkout_book
+
+checking book
+
+  visitor.return_book
+
