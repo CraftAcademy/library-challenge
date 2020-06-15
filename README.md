@@ -101,27 +101,36 @@ In order to know the books status I need to have the list of book with updated s
 
 Instructions
 
-load irb
+Load irb
+
   ```irb```
 
-load files  
-  ```load './lib/library.rb' ```
- ``` load './lib/visitor.rb'```
+Load files  
 
-create a library instance
+```load './lib/library.rb' ```
+
+``` load './lib/visitor.rb'```
+
+Create a library instance
+
 ```library1 = Library.new```
+
 ```visitor1 = Visitor.new ```
 
-search for books with keywords
+Search for books with keywords
+
 ```visitor1.book_search```
 
-check for available books
-   ``` visitor1.check_available_books```
+Check for available books
+
+``` visitor1.check_available_books```
 
 
 Checkout a book  
- ``` visitor1.checkout_book```
 
-checking book
+``` visitor1.checkout_book```
+
+Return a book
+
 ```visitor.return_book```
 
