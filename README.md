@@ -105,26 +105,23 @@ load irb
   irb
 
 load files  
-  load './lib/library.rb'
-  load './lib/visitor.rb'
+  ```load './lib/library.rb'
+  load './lib/visitor.rb'```
 
 create a library instance
-
-    library1 = Library.new
-    visitor1 = Visitor.new
+```library1 = Library.new
+    visitor1 = Visitor.new ```
 
 search for books with keywords
-
-  visitor1.book_search
+```visitor1.book_search```
 
 check for available books
-    visitor1.check_available_books
+   ``` visitor1.check_available_books```
 
 
 Checkout a book  
-  visitor1.checkout_book
+ ``` visitor1.checkout_book```
 
 checking book
-
-  visitor.return_book
+```visitor.return_book```
 
