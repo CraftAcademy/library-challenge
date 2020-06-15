@@ -50,3 +50,87 @@ Read this entire README carefully and follow all instructions.
 
 
 **Happy coding!**
+
+Group Members : 
+-Odeane 
+-Sima 
+
+User Stories:
+
+Stakeholder = Visitor
+1# 
+As a visitor
+In order to be able to see the books that belong to the library
+I need to see if a list of books exists.
+
+2# 
+As a Visitor 
+In order to check the list of existed books I need to see list of books with title and author
+
+3# 
+As a Visitor 
+In order to check the availibility status of the book I need a list of book to show if the book is available or not
+
+4# 
+As a Visitor 
+In order to have the book I need to find the title and check out the book.
+
+5# 
+As a Visitor
+ In order to return the book I need to know the return date(30 days after check out)
+
+Stakeholder = Library 
+1#
+As a Library
+In order to be able to see the books that belong to library
+I need to see if a list of books exists.
+
+2#
+ As a Library 
+ In order to check the list of existed books I need to see list of books with title and author
+
+3#
+ As a Library 
+ In order to check the availibility status of the book I need a list of book to show if the book is available or not
+
+4# 
+As a library 
+In order to know the books status I need to have the list of book with updated status.
+* in order to have better understanding of the codes and methods, we went through Emma's git hub and checked her library project.
+* All other parts are from course materials, google searches and Stackoverflow.
+
+Instructions
+
+Load irb
+
+  ```irb```
+
+Load files  
+
+```load './lib/library.rb' ```
+
+``` load './lib/visitor.rb'```
+
+Create a library instance
+
+```library1 = Library.new```
+
+```visitor1 = Visitor.new ```
+
+Search for books with keywords
+
+```visitor1.book_search```
+
+Check for available books
+
+``` visitor1.check_available_books```
+
+
+Checkout a book  
+
+``` visitor1.checkout_book```
+
+Return a book
+
+```visitor.return_book```
+
