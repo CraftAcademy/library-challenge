@@ -102,15 +102,15 @@ In order to know the books status I need to have the list of book with updated s
 Instructions
 
 load irb
-  irb
+  ```irb```
 
 load files  
-  ```load './lib/library.rb'
-  load './lib/visitor.rb'```
+  ```load './lib/library.rb' ```
+ ``` load './lib/visitor.rb'```
 
 create a library instance
-```library1 = Library.new
-    visitor1 = Visitor.new ```
+```library1 = Library.new```
+```visitor1 = Visitor.new ```
 
 search for books with keywords
 ```visitor1.book_search```
