@@ -31,6 +31,25 @@ I need a check in functionality
 as an app user
 in order to know where the books are
 we need a list with the books that every visitor have in their possession
+-------
+Functionalities:
+
+have a library - list books - being able to search on it --> 
+
+check out the books --> should make the book unavailable
+
+when checking out the book --> return the book in 1 month
+---------
+Implementation:
+files:
+-library_search
+-library_search_spec
+
+classes:
+-Library
+
+methods:
+-
 
 
 
