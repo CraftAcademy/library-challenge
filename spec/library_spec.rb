@@ -13,4 +13,8 @@ describe Library do
      :return_date=>nil}]
     expect(subject.search_by_author("As")).to eq expected_output
   end
+
+  # it 'a book is checked out' do
+
+  # end
 end
