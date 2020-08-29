@@ -7,6 +7,10 @@ describe Library do
   end
 
   it 'when searching for author we get all the books for that author' do
-    expect(subject.search_by_author("As")).to eq search_result
+    expected_output = [{:item=>{:title=>"Pippi Långstrump", :author=>"Astrid Lindgren"}, :available=>true, :return_date=>nil},
+    {:item=>{:title=>"Pippi Långstrump går ombord", :author=>"Astrid Lindgren"},
+     :available=>true,
+     :return_date=>nil}]
+    expect(subject.search_by_author("As")).to eq expected_output
   end
 end

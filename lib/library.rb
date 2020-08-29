@@ -11,7 +11,6 @@ class Library
 
   def search_by_author(author_name)
     search_result = @collection.select{|obj| obj[:item][:author].include? author_name}
-  end  
-  #binding.pry
+  end
 end
 
