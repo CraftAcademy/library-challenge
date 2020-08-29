@@ -2,25 +2,25 @@
 - :item:
     :title: A Game of Thrones
     :author: George R.R. Martin
-  :available: true
-  :return_date: 
+  :available: false
+  :return_date: 29/09/20
 - :item:
     :title: The Blade Runner
     :author: Alan E
   :available: true
-  :return_date:
+  :return_date: 
 - :item:
     :title: Harry Potter
     :author: J.K. Rowling
   :available: true
-  :return_date:
+  :return_date: 
 - :item:
     :title: Lord of The Rings
     :author: J.R.R. Tolkien
   :available: true
-  :return_date:
+  :return_date: 
 - :item:
     :title: Alice in Wonderland
     :author: Lewis Carroll
   :available: true
-  :return_date:
+  :return_date: 

@@ -8,5 +8,13 @@ describe Visitor do
         expect(subject.checkout_book).to eq expected_output
     end
 
+
+=begin
+    it 'can checkout specific book' do
+        expected_output = {:item =>{:item, :author} :available => false, :return_date => Date.today.next_month.strftime('%d/%m/%y') }
+        expect(subject.checkout_book).to eq expected_output
+    end
+=end
+
 end
 
