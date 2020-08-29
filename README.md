@@ -1,3 +1,39 @@
+                #USER STORIES#
+
+as the library staff
+in order to have an overview of available books
+we need to store all books availability in a file
+
+as a visitor
+in order to know if the book I like is available
+I need to be able to read the availability list
+
+as an app user
+in order to identify the book in the list
+I need to see the tittle and the author of the book
+
+as the library admin
+in order to keep track of our books
+we need our visitors to checkout the books when they borrow them
+
+as a visitor
+in order to tell the library which book I am borrowing
+I need to be able to easily checkout my book
+
+as an app user
+in order to know when a book should be returned
+I need to be able to see the return date
+
+as an app user
+in order to make a book available again (return the book)
+I need a check in functionality
+
+as an app user
+in order to know where the books are
+we need a list with the books that every visitor have in their possession
+
+
+
 ## Library Challenge
 ### Week 1 Ruby challenge
 
