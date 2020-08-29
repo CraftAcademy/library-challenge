@@ -1,16 +1,18 @@
-As a visitor 
-I want to see a list of books of the Library
-So that i can chose a book of interest
+As a Library owner
+I want to see a list of books 
+So that i know what the Library has to offer
 
-as a visitor
+As a Library owner
 I want to see a list of books (with author and title) available 
-so that i can choose a book to checkout
+so that i know what books can be checked out
 
-as a visitor
+
+
+As a Visitor
 i want to checkout a book for 1month of time
 so that i know when to return it
 
-as a visitor
+As a Visitor
 i want to see when unavailable books are planned to be returned
 so that i know when it's available for me to checkout
 
