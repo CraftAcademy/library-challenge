@@ -34,7 +34,7 @@ we need a list with the books that every visitor have in their possession
 -------
 Functionalities:
 
-have a library - list books - being able to search on it --> 
+have a library = list books - being able to search on it --> 
 
 check out the books --> should make the book unavailable
 
