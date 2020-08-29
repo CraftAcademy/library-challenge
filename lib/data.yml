@@ -1,0 +1,26 @@
+---
+- :item:
+    :title: A Game of Thrones
+    :author: George R.R. Martin
+  :available: true
+  :return_date: 
+- :item:
+    :title: The Blade Runner
+    :author: Alan E
+  :available: false
+  :return_date: '2016-05-25'
+- :item:
+    :title: Harry Potter
+    :author: J.K. Rowling
+  :available: true
+  :return_date: 
+- :item:
+    :title: Lord of The Rings
+    :author: J.R.R. Tolkien
+  :available: true
+  :return_date: 
+- :item:
+    :title: Alice in Wonderland
+    :author: Lewis Carroll
+  :available: true
+  :return_date:
