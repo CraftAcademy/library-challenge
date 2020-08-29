@@ -12,11 +12,13 @@ class Library
         @catalogue
     end
 
-     def show_title_author 
+    def show_title_author 
         for i in 0..4
-             catalogue[i][:item]
+            puts catalogue[i][:item]
         end
     end
+
+    
 end
 
 

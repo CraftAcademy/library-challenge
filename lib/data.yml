@@ -7,18 +7,18 @@
 - :item:
     :title: The Blade Runner
     :author: Alan E
-  :available: false
-  :return_date: '2016-05-25'
+  :available: true
+  :return_date:
 - :item:
     :title: Harry Potter
     :author: J.K. Rowling
   :available: true
-  :return_date: 
+  :return_date:
 - :item:
     :title: Lord of The Rings
     :author: J.R.R. Tolkien
   :available: true
-  :return_date: 
+  :return_date:
 - :item:
     :title: Alice in Wonderland
     :author: Lewis Carroll
