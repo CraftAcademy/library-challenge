@@ -8,8 +8,7 @@ class Books
 
   def initialize
     
-    
-  
+      
 
   end
   def check_list
