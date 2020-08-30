@@ -52,7 +52,9 @@ gem 'coveralls',
 gem 'rubocop'
 
 
+# Acknowledgements
 
+https://github.com/Odeane/library-challenge
 
 
 
