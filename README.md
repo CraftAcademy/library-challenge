@@ -33,7 +33,6 @@ As a Visitor
 i want to see when unavailable books are planned to be returned
 so that I know when it's available for me to checkout
 
-
 ## Dependencies
 source 'https://rubygems.org'
 
@@ -61,3 +60,9 @@ $irb
 
 //see list containing title & author
 >library1.show_title_author 
+
+###Acknowledge
+Thanks to Odeane Croney who inspired us with coding and helping us out with IRB
+https://github.com/Odeane/library-challenge.git
+
+Thanks to Johan, Connor and Emiliano for helping us out with gem installation
