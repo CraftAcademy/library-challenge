@@ -12,6 +12,10 @@ describe Visitor do
 
   #In order to checkout a book, we need to modify the status of them
 
+  it 'Can checkout a book' do
+    expected_output = {:item => {:title => "Slutet på historien", :author => "Jan Gillou"}, :available => false, :return_date => Date.today.next_day(30).strftime('%d/%m')}
+    expect(subject.checkout_a_book).to eq expected_output
+end
 
 
 
