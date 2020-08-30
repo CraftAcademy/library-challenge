@@ -1,5 +1,5 @@
 require './lib/database.rb'
-require 'yaml'
+require 'date'
 require 'pry'
 
 
@@ -36,6 +36,11 @@ describe Database do
   it 'shows the availability of a certain book' do 
     expect(subject.book_available).to_not eq false
   end
+
+  it 'expected to have a return date for non available books' do
+    expected_date = Date.today.next_day(30).strftime('%d/%m')
+    expect(subject.return_date).to eq expected_date
+end
 
 
 

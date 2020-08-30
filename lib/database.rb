@@ -35,6 +35,9 @@ class Database
               books[4][:item][:available] 
             ]
   end
+  def return_date
+    
+  end
 
   
     
