@@ -8,6 +8,8 @@ class Books
   def initialize
       @collection = YAML.load_file('./lib/books_list.yml')
   end
+    
+      
 
   def available_books
     i = 0
@@ -33,11 +35,14 @@ class Books
     while i < collection.length
       if collection[i][:item][:title] == "#{title_asked}"
         collection[i][:available] = false
-        collection[i][:return_date] = Date.today.next_month
+        collection[i][:return_date] = Date.today.next_month.strftime('%m/%y')
         collection[i][:withdraw_by] = "#{name}"
+         book_taked= collection[i]
       end
+      i = i + 1
     end
       File.open('./lib/books_list.yml', 'w') { |f| f.write @collection.to_yaml }
+      book_taked
   end
 
   def return_of_books(title_returned)
