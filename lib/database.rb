@@ -3,7 +3,7 @@ require 'pry'
 
 class Database
 
-  attr_accessor :books
+  attr_accessor :books, :exp_date
 
   def initialize 
     @books = YAML.load_file('./lib/data.yml')
@@ -34,6 +34,10 @@ class Database
               books[3][:item][:available],
               books[4][:item][:available] 
             ]
+  end
+
+  def return_date
+    Date.today.next_month.strftime('%d/%m/%y')
   end
 
   
