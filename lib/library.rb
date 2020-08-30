@@ -3,7 +3,7 @@ require 'pry'
 
 
 class Library
-  attr_accessor :collection 
+  attr_accessor :collection, :return_date
 
   def initialize
     @collection = YAML.load_file('./lib/data.yml')
@@ -19,5 +19,12 @@ class Library
     File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
   end 
 
+BORROW_PERIOD = 1
 
+  def receipt
+    @return_date = 'Happy'
+  end
+  binding.pry
 end
+
+# Date.today.next_month(Library::BORROW_PERIOD).strftime("%m")

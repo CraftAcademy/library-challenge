@@ -17,4 +17,8 @@ describe Library do
   it 'a book gets checked out ' do
     expect(subject.checkout('Osynligt med Alfons')).to eq 575
   end
+
+  # it 'user receives a message with return date' do
+  #   expect(subject.receipt).to eq 'thank you for the visit, please return before'
+  # end
 end
