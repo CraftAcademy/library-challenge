@@ -13,6 +13,11 @@ describe Visitor do
         expect(subject.return_book).to eq expected_output
     end
 
+    it 'shows a list of returning dates of unavailable books' do
+        expected output =  {:item => {:title => "A Game of Thrones", :author => "George R.R. Martin"}, :available => false, :return_date => Date.today.next_month.strftime('%d/%m/%y') }
+        expect(subject.show_return_date).to eq expected_output
+    end
+
 
 =begin
     it 'can checkout specific book' do

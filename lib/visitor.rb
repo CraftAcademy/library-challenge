@@ -22,6 +22,16 @@ class Visitor
         catalogue[0]
     end
 
+    def show_return_date
+        for i in 0..4
+        when catalogue[0][:available] = false do
+            puts catalogue[i][:item, :return_date]
+        else
+            return
+        end
+            
+    end
+
 =begin Testing out
     def checkout_specific_book
         catalogue = YAML.load_file('./lib/data.yml')
