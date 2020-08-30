@@ -23,6 +23,6 @@ BORROW_PERIOD = 1
 
   def receipt
     @return_date = Date.today.next_month(Library::BORROW_PERIOD).strftime("%m/%d")
-    print "Thank you for lending our books, your return date is #{return_date}"
+    raise "Thank you for lending our books, your return date is #{return_date}"
   end
 end

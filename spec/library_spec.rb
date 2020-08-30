@@ -18,11 +18,7 @@ describe Library do
     expect(subject.checkout('Osynligt med Alfons')).to eq 575
   end
 
-  # it 'user receives a message with return date' do
-  #   expect(subject.receipt).to eq 'thank you for the visit, please return before'
-  # end
-
   it 'user receives a message with return date' do
-    expect(subject.receipt).to eq "Thank you for lending our books, your return date is 09/30"
+    expect { subject.receipt }.to raise_error 'Thank you for lending our books, your return date is 09/30'
   end
 end
