@@ -1,10 +1,11 @@
 source 'https://rubygems.org'
 
-ruby '2.3.1'
+ruby '2.7.0'
 
 gem 'rake'
 gem 'rspec'
+
 gem 'pry'
 gem 'pry-byebug'
-gem 'coveralls', require: false
+gem 'coveralls'
 gem 'rubocop'
