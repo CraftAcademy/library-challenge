@@ -11,6 +11,8 @@ require 'pry'
 
 describe Database do
 
+  let(:visitor) { instance_double('Visitor', name: 'Jenny' )}
+
   it 'has books availables' do
     @books = YAML.load_file('./lib/data.yml')
     expect(subject.books).to eq @books
@@ -40,7 +42,7 @@ describe Database do
   it 'expected to have a return date for non available books' do
     expected_date = Date.today.next_day(30).strftime('%d/%m')
     expect(subject.return_date).to eq expected_date
-end
+ end
 
 
 
