@@ -14,13 +14,7 @@ describe Library do
     expect(subject.search_by_author("As")).to eq expected_output
   end
 
-  it 'deactivates book using the instance method' do
-    subject.checkout
-    expect(subject.book_checkout).to eq :false
+  it 'a book gets checked out ' do
+    expect(subject.checkout('Osynligt med Alfons')).to eq 575
   end
-
-
-  # it 'a book is checked out' do
-
-  # end
 end
