@@ -1,9 +1,8 @@
 # Library Challenge
 
-The library challenge is about creating an app for libraries. The app can be used by both librarians and users to check books in and out.
-
 ## The Code
 
+Our code is about creating an app for libraries. The app can be used by both librarians and users to check books in and out and check availability.
 
 ## Dependencies
 
