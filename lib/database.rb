@@ -1,5 +1,6 @@
 require 'yaml'
 require 'pry'
+require 'date'
 
 class Database
 
@@ -34,6 +35,10 @@ class Database
               books[3][:item][:available],
               books[4][:item][:available] 
             ]
+  end
+  def return_date
+    Date.today.next_day(30).strftime('%d/%m')
+
   end
 
 
