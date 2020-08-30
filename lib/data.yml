@@ -2,8 +2,8 @@
 - :item:
     :title: A Game of Thrones
     :author: George R.R. Martin
-  :available: false
-  :return_date: 29/09/20
+  :available: true
+  :return_date: 
 - :item:
     :title: The Blade Runner
     :author: Alan E
