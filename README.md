@@ -1,32 +1,61 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Library Challenge
+
+This challenge consists basically in to have a database with information, in this case, about books.
+In short, this could be the base of a software that libraries could use, where they have the information that users can 
+consult and to check which book is available or when its going to be back the one that is not.
+If the users want to borrow a book, they will get the return date 30 days ahead. 
+
+# User Stories
+
+
+
+As a library, it should be possible to see the list of books available to get borrowed.
+As a library, it should be also possible to search books filtered by author or title.
+As a visitor, I want to be able to borrow books and see the date it should be returned
+As a visitor, I want to be able to return books 
+
+# SETUP
+
+Open IRB
+load './lib/database.rb' 
+* Create a new library from it
+(ex. library = Database.new )
+
+check the books available by their title
+(library.items_by_title)
+
+Check the books available by their author
+library.items_by_author)
+
+* Create a visitor 
+(load './lib/visitor.rb' and type your_name = Visitor.new )
+
+Borrow a book
+(your_name.checkout_a_book)
+
+Return a book
+(your_name.checkin_a_book)
+
+
+# Dependencies
+
+
+source 'https://rubygems.org'
+
+ruby '2.7.0'
+
+gem 'rake' 
+gem 'rspec' 
+gem 'pry' 
+gem 'pry-byebug' 
+gem 'coveralls', 
+gem 'rubocop'
+
+
+
+
+
+
 ### Week 1 Ruby challenge
 
 Instructions

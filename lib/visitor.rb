@@ -1,6 +1,6 @@
 require 'yaml'
 
-require 'yaml'
+
 
 class Visitor
 
