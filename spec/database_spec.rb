@@ -18,22 +18,26 @@ describe Database do
     expect(subject.books).to eq @books
     
   end
-
-  #In order to search books using the title as a reference,
-  #we need to create a function that allow us to list the titles
+=begin
+  In order to search books using the title as a reference,
+  we need to create a function that allow us to list the titles
+=end
 
   it 'shows the books that are available by their title' do
     expect(subject.items_by_title).to_not eq nil
   end
-    #In order to search books using the author as a reference,
-  #we need to create a function that allow us to list the authors
+=begin
+    In order to search books using the author as a reference,
+  we need to create a function that allow us to list the authors
+=end
 
   it 'shows the books that are available by their author' do
     expect(subject.items_by_author).to_not eq nil
   end
-
-  #In order to check the availability of a certain book,
-  #we need to create a function that tell us which book is in the library
+=begin
+  In order to check the availability of a certain book,
+  we need to create a function that tell us which book is in the library
+=end 
 
   it 'shows the availability of a certain book' do 
     expect(subject.book_available).to_not eq false

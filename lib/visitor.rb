@@ -23,6 +23,14 @@ class Visitor
     books[0]
   end
 
+  def checkin_a_book
+    books = YAML.load_file('./lib/data.yml')
+    books[0][:available] = true
+    books[0][:return_date] = nil
+    File.open('./lib/data.yml', 'w') { |f| f.write books.to_yaml }
+    books[0]
+end
+
 end
   
 
