@@ -2,15 +2,15 @@
 - :item:
     :title: Disappearing Earth
     :author: Julia Phillips
-  :available: false
-  :return_date: '09/20'
-  :withdraw_by: facundo
+  :available: true
+  :return_date:
+  :withdraw_by:
 - :item:
     :title: A High Wind in Jamaica
     :author: Richard Hughes
   :available: true
   :return_date:
-  :withdraw_by:
+  :withdraw_by: www
 - :item:
     :title: Under a Starry Sky
     :author: Laura Kemp

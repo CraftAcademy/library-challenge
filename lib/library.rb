@@ -1,15 +1,16 @@
 require 'yaml'
+require './lib/person'
+
 require 'date'
 
 class Books
 
-  attr_accessor :collection
+  attr_accessor :collection, :name, :title
 
   def initialize
       @collection = YAML.load_file('./lib/books_list.yml')
   end
     
-      
 
   def available_books
     i = 0
@@ -22,7 +23,8 @@ class Books
   end
 
   def serch_by_title(title)
-    collection.select { |obj| obj[:item][:title].include? "#{title}"  }
+   x = collection.select { |obj| obj[:item][:title].include? "#{title}"  }
+
   end
 
   def serch_by_author(author)
@@ -45,16 +47,20 @@ class Books
       book_taked
   end
 
-  def return_of_books(title_returned)
+  def return_of_books(title_returned, name)
     i = 0
     while i < collection.length
       if collection[i][:item][:title] == "#{title_returned}"
         collection[i][:available] = true
-        collection[i][:return_date] = ""
-        collection[i][:withdraw_by] = ""
+        collection[i][:return_date] = nil
+        collection[i][:withdraw_by] = nil
+        book_returned= collection[i]
+
       end
+      i = i + 1
     end
       File.open('./lib/books_list.yml', 'w') { |f| f.write @collection.to_yaml }
+      book_returned
   end
   
 

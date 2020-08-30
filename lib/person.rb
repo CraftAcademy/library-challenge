@@ -3,11 +3,12 @@ require 'pry'
 
 class Person
 
-  attr_accessor :name, 
+  attr_accessor :name, :collection, :x
 
   def initilialize(attrs = {})
     @name = set_person(attrs[:name])
-
+    @collection = YAML.load_file('./lib/books_list.yml')
+    @title = ''
   end
 
   def set_person(name)
@@ -19,9 +20,12 @@ class Person
   end
 
   def books_in_possession(name)
-    collection.select { |obj| obj[:item][:withdraw_by].include? "#{name}"  }
-      end
-    
-    
+     @x= collection
+     binding.pry
+
+    #x= collection.select { |obj| obj[:item][:title].include? "#{title}"}
+
+  end
+      
   
 end
