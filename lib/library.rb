@@ -62,30 +62,11 @@ class Books
       File.open('./lib/books_list.yml', 'w') { |f| f.write @collection.to_yaml }
       book_returned
   end
+
+  def books_in_possession(name)
+    #x = collection.select { |obj| obj[:item][:withdraw_by].include? "#{name}"}
+
+  end
   
 
 end
-
-=begin
-    @collection.detect { |book| book[:item][:available] == true }
-
-  [{:item=>{:title=>"Disappearing Earth", :author=>"Julia Phillips"}, 0
-  :available=>true, 1
-  :return_date=>nil},
- {:item=>{:title=>"A High Wind in Jamaica", :author=>"Richard Hughes"}, 1
-  :available=>true, 
-  :return_date=>nil},
- {:item=>{:title=>"Lot Stories", :author=>"Bryan Washington"}, 2
-  :available=>true,
-  :return_date=>nil},
- {:item=>{:title=>"Under a Starry Sky", :author=>"Laura Kemp"}, 3
-  :available=>true,
-  :return_date=>nil},
- {:item=>{:title=>"Thunder Bay", :author=>"Douglas Skelton"}, 4
-  :available=>true,
-  :return_date=>nil}]
-
-
-  https://github.com/ViaMarcus/library-challenge/blob/master/lib/person.rb
-  add user to the yaml
-=end

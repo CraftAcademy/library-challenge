@@ -3,7 +3,11 @@ require 'pry'
 
 
 describe Books do
-  
+  let(:collection) {YAML.load_file('./lib/books_list.yml')}
+
+  before do
+    collection[3] = {:item=> {:title=>"Thunder Bay", :author=>"Douglas Skelton"}, :available=>true, :return_date=>nil, :withdraw_by=>'Facundo'}
+    end
 
   it 'Check if the list book exist' do
      expect(File.exist?('./lib/books_list.yml')).to be_truthy
@@ -29,19 +33,12 @@ describe Books do
   expected_output = {:item=>{:title=>"Disappearing Earth", :author=>"Julia Phillips"}, :available=>true, :return_date=>nil, :withdraw_by=>nil}
   expect(subject.return_of_books('Disappearing Earth', 'facundo')).to eq expected_output
   end
+
+  it '' do
+ 
+    #expect(subject.books_in_possession('Facundo')).to be_truthy
+   # allow(collection).to receive(config)
+
+  end
 end
 
-=begin
-
-
-  Tests: file exist?        done
-        return date
-        title eq to title   done
-        all books available?
-it 'wefsfgewfdv' do
-    expected_date = 'Disappearing Earthddddd'
-    expect(subject.check_list).to eq expected_date
-  end
-
-
-=end
