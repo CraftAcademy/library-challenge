@@ -10,7 +10,6 @@ class Library
         @book = true
         @collection = YAML.load_file('./lib/data.yml')
         @book_status = :available
-        #@book_return_date = :return_date
         @return_date = Date.today.next_month(1).strftime("%m/%y")
     end
 
