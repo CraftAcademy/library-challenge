@@ -33,7 +33,7 @@ class Library
 
     def book_return_date(return_date)
         #Date.today.next_month(STANDARD_VALIDITY_MONTH).strftime('%m/%y')
-        Date.today.next_month(STANDARD_VALIDITY_MONTH).strftime('%d&%y')
+        Date.today.next_month(STANDARD_VALIDITY_MONTH).strftime('%m&%y')
       end
     
 end
