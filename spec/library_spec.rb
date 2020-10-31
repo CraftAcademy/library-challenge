@@ -22,6 +22,15 @@ describe Library do
         expected_output= YAML.load_file('./lib/data.yml').select{|collection|collection[:item][:author].include? 'Astrid Lindgren'}
         expect(subject.author_search('Astrid Lindgren')).to eq expected_output
     end
-
+     
+     describe 
+   
+    #it'should have a return date if the book is borrowed' do
+        #expected_date = Date.today.next_month(1).strftime("%m/%y")
+        #expect(subject.return_date).to eq expected_date
+    it 'return date for the book' do
+            expected_date= Date.today.next_month(1).strftime("%m/%y")
+            expect(subject.return_date).to eq expected_date
+        end
   
 end
