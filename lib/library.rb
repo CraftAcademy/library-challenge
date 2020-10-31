@@ -14,12 +14,14 @@ class Library
 
     def load_data(collection)
         collection = collection
-        
-        
     end
 
     def checking_availability(book) 
         @book = book
+    end
+
+    def title_search(search)
+        @collection = collection.select{|collection|collection[:item][:title].include? search}
     end
 
     
