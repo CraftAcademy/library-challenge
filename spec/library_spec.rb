@@ -8,7 +8,11 @@ describe Library do
 
     it 'checks if book is available' do
         expect(subject.book).to eq 'Pippi'
+
     end
     
+    it 'can view the list of the :collection of books' do
+        expect(subject.collection).to be_truthy
+    end
 
 end
