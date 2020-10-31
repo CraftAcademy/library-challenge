@@ -6,7 +6,7 @@ describe Library do
     #expect (subject.collection).to be_truthy
 
     it 'checks if book is available' do
-        expect(subject.book).to eq 'Pippi'
+        expect(subject.book_status).to eq :available
     end
     
     it 'can view the list of the :collection of books' do
@@ -18,4 +18,10 @@ describe Library do
         expect(subject.title_search('Pippi Långstrump')).to eq expected_output
     end
 
+    it 'search for a book by author' do
+        expected_output= YAML.load_file('./lib/data.yml').select{|collection|collection[:item][:author].include? 'Astrid Lindgren'}
+        expect(subject.author_search('Astrid Lindgren')).to eq expected_output
+    end
+
+  
 end
