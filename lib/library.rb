@@ -18,7 +18,7 @@ class Library
         collection = collection
     end
 
-    def checking_availability(book) #2
+    def checking_availability(book) #2 den här koden pratar inte med någonting
         @book = book.select{|collection|collection[:item][:available].to eq true}
     end
 
