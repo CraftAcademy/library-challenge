@@ -7,7 +7,8 @@ class Library
     attr_accessor :book, :collection, :available, :book_status, :return_date
 
     def initialize()
-        @book = true
+        #@book = true
+        @book = YAML.load_file('./lib/data.yml')#nyinlagd 1/11
         @collection = YAML.load_file('./lib/data.yml')
         @book_status = :available
         @return_date = Date.today.next_month(1).strftime("%m/%y")
@@ -19,7 +20,7 @@ class Library
     end
 
     def checking_availability(book) #2 den här koden pratar inte med någonting
-        @book = book.select{|collection|collection[:item][:available].to eq true}
+        book = book.select{|collection|collection[:item][:available].to eq true}
     end
 
     def title_search(search) #3 ok

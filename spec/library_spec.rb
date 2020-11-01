@@ -9,7 +9,7 @@ describe Library do
         expect(subject.collection).to be_truthy
     end
 
-    it 'checks if book is available' do #2 den här koden pratar med rad 12 i library.rb
+    it 'checks if book is available' do #2 den här koden pratar med rad 13 i library.rb
         expect(subject.book_status).to eq :available
     end
     
