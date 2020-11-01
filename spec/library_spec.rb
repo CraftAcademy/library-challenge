@@ -23,9 +23,10 @@ describe Library do
         expect(subject.author_search('Astrid Lindgren')).to eq expected_output
     end
 
-    it 'return date for the book' do 
-        expected_date= Date.today.next_month(1).strftime("%m/%y")
-        expect(subject.return_date).to eq expected_date
+    it 'return date for when the book should be back' do 
+        subject.book_return_date("Pippi Långstrump går ombord")
+        expect(subject.collection[4][:available]).to be false
+        expect(subject.collection[4][:return_date]).to eq Date.today.next_month(1).strftime("%m/%y")
     end
 
 end

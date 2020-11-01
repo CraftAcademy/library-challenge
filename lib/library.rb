@@ -2,13 +2,13 @@ require 'date'
 require 'yaml'
 
 class Library
+    STANDARD_VALIDITY_MONTH = 1
     attr_accessor :collection, :return_date
 
     def initialize()
         @collection = YAML.load_file('./lib/data.yml')
         @return_date = Date.today.next_month(1).strftime("%m/%y")
     end
-
 
     def load_data(collection) 
         collection = collection
