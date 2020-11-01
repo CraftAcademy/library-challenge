@@ -31,7 +31,7 @@ describe Library do
 
     it 'get message when book should be returned' do
         expected_output = 'The book should be returned within a month'
-        expect(subject.return_book('Skratta lagom!')).to eq expected_output
+        expect(subject.return_book('The book should be returned within a month')).to eq expected_output
     end
 
 
