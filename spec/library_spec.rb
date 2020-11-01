@@ -8,13 +8,6 @@ describe Library do
         expect(subject.collection).to be_truthy
     end
 
-    it 'checks if a book is avalible' do
-        #expected_output= YAML.load_file('./lib/data.yml').select{|collection|collection[:item][:title].
-         #expect(subject.book_status[:item][:avalible]) == false  
-    
-        expect(subject.available?("Alfons och soldatpappan", "Gunilla Bergström")).to be true
-        end
-
     it 'search for a book by title' do #3 ok
         expected_output= YAML.load_file('./lib/data.yml').select{|collection|collection[:item][:title].include? 'Pippi Långstrump'}
         expect(subject.title_search('Pippi Långstrump')).to eq expected_output
