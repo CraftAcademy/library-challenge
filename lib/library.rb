@@ -3,7 +3,7 @@ require 'yaml'
 
 class Library
     STANDARD_VALIDITY_MONTH = 1
-    attr_accessor :collection, :return_date
+    attr_accessor :collection, :return_date, :title
 
     def initialize()
         @collection = YAML.load_file('./lib/data.yml')
@@ -32,5 +32,9 @@ class Library
 
     def available(collection)
         collection = @collection.select { |item| item[:available] == true }
+    end
+
+    def return_book(book_return_date)
+        @return_date = book_return_date
     end
 end

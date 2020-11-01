@@ -29,4 +29,10 @@ describe Library do
         expect(subject.collection[4][:return_date]).to eq Date.today.next_month(1).strftime("%m/%y")
     end
 
+    it 'get message when book should be returned' do
+        expected_output = 'The book should be returned within a month'
+        expect(subject.return_book('Skratta lagom!')).to eq expected_output
+    end
+
+
 end
