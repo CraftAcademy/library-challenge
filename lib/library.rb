@@ -14,6 +14,15 @@ class Library
         collection = collection
     end
 
+    def book_status(available)#ny
+        #@book = book_status[:available]
+        book_status = @collection.select{|collection|collection[:item][:title] == available}         
+    end
+
+    #def checking_availability(book) #2 den här koden pratar inte med någonting
+    #    book = book.select{|collection|collection[:item][:available].to eq true}
+    #end
+
     def title_search(search) #3 ok
         @collection = collection.select{|collection|collection[:item][:title].include? search}  
     end
