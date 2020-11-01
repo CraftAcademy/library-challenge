@@ -10,11 +10,4 @@ describe User do
         expect(subject.user).to eq 'Paulina'
     end
 
-    #it 'User can checkout book' do
-    #    expected_output = YAML.load_file('.lib/data')
-    #end
-
-
-
-
 end

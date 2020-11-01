@@ -10,27 +10,23 @@ class Library
     end
 
 
-    def load_data(collection) #1 ok
+    def load_data(collection) 
         collection = collection
     end
 
-    def book_status(available)#ny works!!!
+    def book_status(available)
         book_status = @collection.select{|collection|collection[:item][:title] == available}         
     end
 
-    #def checking_availability(book) #2 den här koden pratar inte med någonting
-    #    book = book.select{|collection|collection[:item][:available].to eq true}
-    #end
-
-    def title_search(search) #3 ok
+    def title_search(search) 
         @collection = collection.select{|collection|collection[:item][:title].include? search}  
     end
 
-    def author_search(search) #4 ok
+    def author_search(search) 
         @collection = collection.select{|collection|collection[:item][:author].include? search}  
     end
 
-    def book_return_date(return_date)#5
+    def book_return_date(return_date)
         Date.today.next_month(STANDARD_VALIDITY_MONTH).strftime('%m&%y')
     end
 
