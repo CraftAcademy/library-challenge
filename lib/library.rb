@@ -20,8 +20,8 @@ class Library
     end
 
     def book_status(available)#ny
-        @book = book_status[:available]
-        #book_status = @collection.select{|collection|collection[:item][:title] == available}         
+        #@book = book_status[:available]
+        book_status = @collection.select{|collection|collection[:item][:title] == available}         
     end
 
     #def checking_availability(book) #2 den här koden pratar inte med någonting
