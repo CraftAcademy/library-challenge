@@ -12,7 +12,7 @@ describe Library do
 
     #it 'checks if book is available' do #2 den här koden pratar med rad 13 i library.rb
     #    expect(subject.book_status).to eq :available
-    #end
+    #end 
 
     it 'checks if the book Alfons och soldatpappan is available' do #ny
         expected_output= YAML.load_file('./lib/data.yml').select{|collection|collection[:item][:title] == 'Alfons och soldatpappan'}
