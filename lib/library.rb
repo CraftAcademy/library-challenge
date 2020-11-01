@@ -19,8 +19,7 @@ class Library
         collection = collection
     end
 
-    def book_status(available)#ny
-        #@book = book_status[:available]
+    def book_status(available)#ny works!!!
         book_status = @collection.select{|collection|collection[:item][:title] == available}         
     end
 
