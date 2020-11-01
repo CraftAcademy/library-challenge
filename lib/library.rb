@@ -4,13 +4,13 @@ require 'yaml'
 recipe =
 
 class Library
-    attr_accessor :book, :collection, :available, :book_status, :return_date
+    attr_accessor :book, :collection, :available, :book_status, :return_date, :title
 
     def initialize()
         #@book = true
         @book = YAML.load_file('./lib/data.yml')#nyinlagd 1/11
         @collection = YAML.load_file('./lib/data.yml')
-        @book_status = :available
+        #@book_status = :available
         @return_date = Date.today.next_month(1).strftime("%m/%y")
     end
 
@@ -19,9 +19,14 @@ class Library
         collection = collection
     end
 
-    def checking_availability(book) #2 den här koden pratar inte med någonting
-        book = book.select{|collection|collection[:item][:available].to eq true}
+    def book_status(available)#ny
+        @book = book_status[:available]
+        #book_status = @collection.select{|collection|collection[:item][:title] == available}         
     end
+
+    #def checking_availability(book) #2 den här koden pratar inte med någonting
+    #    book = book.select{|collection|collection[:item][:available].to eq true}
+    #end
 
     def title_search(search) #3 ok
         @collection = collection.select{|collection|collection[:item][:title].include? search}  

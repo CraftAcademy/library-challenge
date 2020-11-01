@@ -1,5 +1,6 @@
 require 'yaml'
 require './lib/library.rb'
+require './lib/user.rb'
 
 describe Library do
     #let (:book){instance_double('Pippi')}
@@ -9,10 +10,15 @@ describe Library do
         expect(subject.collection).to be_truthy
     end
 
-    it 'checks if book is available' do #2 den här koden pratar med rad 13 i library.rb
-        expect(subject.book_status).to eq :available
+    #it 'checks if book is available' do #2 den här koden pratar med rad 13 i library.rb
+    #    expect(subject.book_status).to eq :available
+    #end
+
+    it 'checks if the book Alfons och soldatpappan is available' do #ny
+        expected_output= YAML.load_file('./lib/data.yml').select{|collection|collection[:item][:title] == 'Alfons och soldatpappan'}
+        expect(subject.book_status('Alfons och soldatpappan')).to eq expected_output
     end
-    
+
     it 'search for a book by title' do #3 ok
         expected_output= YAML.load_file('./lib/data.yml').select{|collection|collection[:item][:title].include? 'Pippi Långstrump'}
         expect(subject.title_search('Pippi Långstrump')).to eq expected_output
