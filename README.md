@@ -21,6 +21,11 @@ The librarian needs a easy way of checking the availability of a specific book
 *checker method for availability*
 
 As a visitor
+In order to rent a book
+They need to be able to check out a book
+*book checkout method that changes availability and sets return date*
+
+As a visitor
 In order for the visitor to know when the return date is
 On book checkout it displays the return date
 *checkout method gives return date*
