@@ -1,26 +1,41 @@
-## Library Challenge
-### Week 1 Ruby challenge
+# Library Challenge
+## Week 1 Ruby challenge
 
-Instructions
+### Problem Statement
 -------
-Read this entire README carefully and follow all instructions.
+A newly built library has a handful of books, but they have no system of keeping track of their books. 
 
-* Challenge time: this weekend, until Monday 9am
-* Feel free to use Google, Stack Overflow, your notes, previously written code, books, etc. but work on your own
-* If you refer to or have in whole or partially used the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution to GitHub and create a Pull Request**
-* You must submit a Pull Request to this repository with your code by 9.30am Monday morning - before the stand-up
+With our book tracker, all books are stored in a 'database', with title and author as attributes. The librarian can whether they have the book available or if it's rented out. Consumers can rent books and will be given the deadline of book return, which is 1 month later.
 
+### User Stories
+-------
+As a library
+In order to keep track of my books
+All books needs to be stored in one list
 
-### Tasks
-----
+As a librarian
+In order to know whether the book is available or not
+He/she needs to be able to easily access this in the book list
 
-* Fork the challenge repo: https://github.com/CraftAcademy/library-challenge
-* Run the command `bundle install` in the project directory to ensure you have all the gems
-* Write your specs and implementation
-* Be smart about using Git: commit and push often. Use feature branches.
-* Create a Pull Request as soon as possible
-* Read the comments from Hound and fix any issues that the service points out.
+As a reader
+In order to find a good book
+He/she needs to easily access the title
+
+As a reader
+In order to read
+He/she needs to be able to rent a book
+
+As a librarian
+In order to ensure that the books will return within a reasonable time
+Books need to be given a return_date on check out
+
+As a reader
+In order to know, when he/she should return the book.
+The checkout process needs to tell the user of the return_date
+
+###
+
+### T
 
 ### Tips
 ----
