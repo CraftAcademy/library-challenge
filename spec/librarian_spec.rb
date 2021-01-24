@@ -2,6 +2,7 @@ require './lib/librarian.rb'
 require 'date'
 
 describe Librarian do
+    let(:visitor) { instance_double('Visitor', rented_books: []) }
 
     it 'librarian checks if he has a list of the books' do
     expect(subject.list).not_to be nil
@@ -16,13 +17,13 @@ describe Librarian do
         
         it 'it changes availability' do
             title = 'Big Fish'
-            subject.check_out(title)
+            subject.check_out(title, visitor)
             expect(subject.check_availability(title)).to eq false
         end
 
         it 'it sets a return date on the book' do
             title = 'Big Fish'
-            subject.check_out(title)
+            subject.check_out(title, visitor)
             expected_output = Date.today.next_month.strftime('%d/%m')
             expect(subject.check_return_date(title)).to eq expected_output
         end
@@ -31,21 +32,20 @@ describe Librarian do
             title = 'Big Fish'
             date = Date.today.next_month.strftime('%d/%m')
             expected_output = "Thanks for using our library, please return the book before: #{date}, thanks!"
-            expect { subject.check_out(title) }.to output(expected_output).to_stdout
+            expect { subject.check_out(title, visitor) }.to output(expected_output).to_stdout
         end
 
         it 'it checks availability if a book is rented out' do
             title = 'Big Fish'
-            subject.check_out(title)
-            expect { subject.check_out(title) }.to raise_error "The book is already rented!"
+            subject.check_out(title, visitor)
+            expect { subject.check_out(title, visitor) }.to raise_error "The book is already rented!"
         end
-
 
     end
 
     it 'can check return date on specific title' do
         title = 'Big Fish'
-        subject.check_out(title)
+        subject.check_out(title, visitor)
         expected_output = Date.today.next_month.strftime('%d/%m')
         expect(subject.check_return_date(title)).to eq expected_output
     end
@@ -54,6 +54,5 @@ describe Librarian do
         title = 'Moby Dick'
         expect { subject.check_return_date(title) }.to raise_error 'Book is not rented out.'
     end
-    
 
 end

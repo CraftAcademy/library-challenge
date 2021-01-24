@@ -24,6 +24,8 @@ class Librarian
         book[:return_date] = Date.today.next_month.strftime('%d/%m')
         print "Thanks for using our library, please return the book before: #{book[:return_date]}, thanks!"
         book[:available] = false
+
+        visitor.rented_books.push(book)
         end
     
     end
