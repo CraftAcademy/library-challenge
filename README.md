@@ -8,6 +8,25 @@ We will build a system that features a list which stores all the books, along wi
 The librarian can also check the availability of each book.
 Visitors can rent books and will be able to see the required return date. When a book is rented, the return date will be listed in the system.
 
+### Dependencies
+-------
+
+### Setup & instructions
+-------
+
+### Acknowledgements
+-------
+https://makandracards.com/makandra/41094-testing-terminal-output-with-rspec
+https://www.shortcutfoo.com/app/dojos/ruby-dates/cheatsheet
+
+
+### Improvements
+-------
+
+### License
+-------
+Rspec - MIT license
+
 ### User stories
 -------
 As a librarian
