@@ -1,8 +1,9 @@
-require './lib/data.yml'
 require 'date'
 
 class Librarian
 
+    def initialize
 
+    end
     
 end

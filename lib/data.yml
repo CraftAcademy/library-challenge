@@ -1,0 +1,26 @@
+---
+- :book:
+    :title: Big Fish
+    :author: Daniel Wallace
+  :available: true
+  :return_date:
+- :book:
+    :title: Moby Dick
+    :author: Herman Melville
+  :available: true
+  :return_date:
+- :book:
+    :title: The Hobbit
+    :author: J. R. R. Tolkien
+  :available: true
+  :return_date:
+- :book:
+    :title: The Alchemist
+    :author: Paulo Coelho
+  :available: true
+  :return_date:
+- :book:
+    :title: Fountainhead
+    :author:  Ayn Rand
+  :available: true
+  :return_date:
