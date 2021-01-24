@@ -26,6 +26,8 @@ class Librarian
         book[:available] = false
 
         visitor.rented_books.push(book)
+
+        --
         end
     
     end
