@@ -8,7 +8,6 @@ class Librarian
 
     def initialize
         @list = YAML.load_file('./lib/data.yml')
-        
     end
 
     def check_availability(title)
@@ -16,8 +15,7 @@ class Librarian
         book[:available]
     end
 
-    def check_out(title)
-
+    def check_out(title, reader)
 
         book = @list.detect { |hash| hash[:book][:title] == title }
         if book[:available] == false
@@ -27,7 +25,6 @@ class Librarian
         print "Thanks for using our library, please return the book before: #{book[:return_date]}, thanks!"
         book[:available] = false
         end
-    
     
     end
 
