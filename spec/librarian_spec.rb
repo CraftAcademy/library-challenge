@@ -11,6 +11,7 @@ describe Librarian do
     expect(subject.check_availability('Big Fish')).to be true
     end
     
+
     describe 'check_out method' do
         
         it 'it changes availability' do
@@ -29,9 +30,17 @@ describe Librarian do
         it 'it prints the return date' do
             title = 'Big Fish'
             date = Date.today.next_month.strftime('%d/%m')
-            expected_output = "Thanks for using our library, please return the book before: #{date}, Thanks!"
+            expected_output = "Thanks for using our library, please return the book before: #{date}, thanks!"
             expect { subject.check_out(title) }.to output(expected_output).to_stdout
         end
+
+        it 'it checks availability if a book is rented out' do
+            title = 'Big Fish'
+            subject.check_out(title)
+            expect { subject.check_out(title) }.to raise_error "The book is already rented!"
+        end
+
+
     end
 
     it 'can check return date on specific title' do
@@ -46,4 +55,5 @@ describe Librarian do
         expect { subject.check_return_date(title) }.to raise_error 'Book is not rented out.'
     end
     
+
 end
