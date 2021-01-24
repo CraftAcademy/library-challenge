@@ -1,4 +1,5 @@
 require 'date'
+require 'pry'
 require 'yaml'
 require './lib/visitor.rb'
 
@@ -22,7 +23,7 @@ class Librarian
         book[:available] = false
 
         book[:return_date] = Date.today.next_month.strftime('%d/%m')
-        print "Thanks for using our library, please return the book before: #{book[:return_date]}, Thanks!"
+        print "Thanks for using our library, please return the book before: #{book[:return_date]}, thanks!"
     end
 
     def check_return_date(title)
