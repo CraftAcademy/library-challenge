@@ -1,52 +1,78 @@
-## Library Challenge
-### Week 1 Ruby challenge
+# Library Challenge
+## Week 1 Ruby challenge
 
-Instructions
+### Problem Statement
 -------
-Read this entire README carefully and follow all instructions.
+A newly built library does not have a system to track their books. 
+We will build a system that features a list which stores all the books, along with their titles and authors.
+The librarian can also check the availability of each book.
+Visitors can rent books and will be able to see the required return date. When a book is rented, the return date will be listed in the system.
 
-* Challenge time: this weekend, until Monday 9am
-* Feel free to use Google, Stack Overflow, your notes, previously written code, books, etc. but work on your own
-* If you refer to or have in whole or partially used the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution to GitHub and create a Pull Request**
-* You must submit a Pull Request to this repository with your code by 9.30am Monday morning - before the stand-up
+### Dependencies
+-------
+pry
+pry-byebug
+rspec
 
+### Setup & instructions
+-------
+1) **bundle**
+2) Open *irb* and **require './lib/librarian.rb'**
+3) Initiate the classes:
+3.1) **librarian = Librarian.new**
+3.2) **visitor = Visitor.new**
+4) Get list of books: **librarian.list**
+5) Notice the titles, as they are used in all methods.
+6) Check availability: **librarian.check_availability("title")**
+7) Check out a book: **librarian.check_out("title", visitor)**
+7.1) This will change availability of the book, set a return date, and add the book to visitor's rented_books attribute. 
+8) Check return date: **librarian.check_return_date("title")**
 
-### Tasks
-----
-
-* Fork the challenge repo: https://github.com/CraftAcademy/library-challenge
-* Run the command `bundle install` in the project directory to ensure you have all the gems
-* Write your specs and implementation
-* Be smart about using Git: commit and push often. Use feature branches.
-* Create a Pull Request as soon as possible
-* Read the comments from Hound and fix any issues that the service points out.
-
-### Tips
-----
-
-##### Some hints:
-  * A Person needs to have a list of books that he currently has in his possession. That list needs to include the return date.
-  * The return date can be calculated using the `Date` object. Out of the box, there are methods you can use to add days to the current date.
-  * Make use of `doubles` when writing your specs
-  * Follow the [naming conventions/standards](https://craftacademy.gitbooks.io/coding-as-a-craft/content/extras/naming_standards.html) for methods and variables
-
-### What we are looking for
-----
-##### I'm hoping to see that:
-* You can take a problem set and write a well tested implementation on your own.
-* You understand how to define Ruby Classes and work with objects.
-* You understand how classes can interact with each other.
-* You know how to make use of arrays, hashes, and associated methods to create dynamic lists.
-* You know how to write specs and use them as a blueprint in your development.
-* I can track your work by following you commit history - so please commit as soon you are done with a feature or when you have made a test pass.
-
-##### In your Pull Request, I'm hoping to see:
-* That you are testing the right thing in the right spec file.
-* That all tests passing - green is good!
-* High test coverage (above 95% is accepted)
-* The code is easy to follow: every class has a clear responsibility, methods are short, code is nicely formatted, etc.
-* The `README.md` includes information on how to use your solution with command examples in `irb`. (Feel free to remove this text)
+### Acknowledgements
+-------
+https://makandracards.com/makandra/41094-testing-terminal-output-with-rspec
+https://www.shortcutfoo.com/app/dojos/ruby-dates/cheatsheet
 
 
-**Happy coding!**
+### Improvements
+-------
+- Functionality that lets the visitor the return the book, thus modifying the YAML-file and changing visitors rented_book list
+- Recreating visitors rented book list into YAML-file
+- As a visitor, in order to see a list of all available books, we need a method to to check which ones are available.
+
+
+### License
+-------
+Rspec - MIT license
+
+### User stories
+-------
+As a librarian
+In order to track my books
+The librarian needs a list of all books
+*book list = YAML file as librarian attribute*
+
+As a librarian
+In order the see the availability of the books
+The librarian needs a easy way of checking the availability of a specific book
+*checker method for availability*
+
+As a visitor
+In order to rent a book
+They need to be able to check out a book
+*book checkout method that changes availability and sets return date*
+
+As a visitor
+In order to receive a book
+They need to have the book stored them
+*rented_books attribute to visitor class*
+
+As a visitor
+In order for the visitor to know when the return date is
+On book checkout it displays the return date
+*checkout method gives return date*
+
+As a librarian
+In order to successfully rent out books
+The librarian needs to check availability before doing the check out
+*availability checker inside checkout method*
