@@ -19,10 +19,16 @@ class Librarian
         # Display return for visitor
         book = @list.detect { |hash| hash[:book][:title] == title }
         book[:available] = false
+
+        book[:return_date] = Date.today.next_month.strftime('%d/%m')
     end
 
-    def set_return_date(title)
+    def check_return_date(title)
         book = @list.detect { |hash| hash[:book][:title] == title }
+        book[:return_date]
     end
+
+    private
+
 
 end

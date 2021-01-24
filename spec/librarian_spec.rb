@@ -22,7 +22,8 @@ describe Librarian do
         it 'it sets a return date on the book' do
             title = 'Big Fish'
             subject.check_out(title)
-            expect(sub)
+            expected_output = Date.today.next_month.strftime('%d/%m')
+            expect(subject.check_return_date(title)).to eq expected_output
         end
 
     end
