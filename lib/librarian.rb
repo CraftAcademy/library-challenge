@@ -26,10 +26,13 @@ class Librarian
 
     def check_return_date(title)
         book = @list.detect { |hash| hash[:book][:title] == title }
-        book[:return_date]
+        book[:available] == false ? book[:return_date] : not_rented_out
     end
 
     private
 
+    def not_rented_out
+        raise 'Book is not rented out.'
+    end
 
 end
