@@ -15,12 +15,13 @@ class Librarian
     end
 
     def check_out(title)
-        # Set return date
+
         # Display return for visitor
         book = @list.detect { |hash| hash[:book][:title] == title }
         book[:available] = false
 
         book[:return_date] = Date.today.next_month.strftime('%d/%m')
+        print "Thanks for using our library, please return the book before: #{book[:return_date]}, Thanks!"
     end
 
     def check_return_date(title)

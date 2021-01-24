@@ -26,6 +26,13 @@ describe Librarian do
             expect(subject.check_return_date(title)).to eq expected_output
         end
 
+        it 'it prints the return date' do
+            title = 'Big Fish'
+            date = Date.today.next_month.strftime('%d/%m')
+            expected_output = "Thanks for using our library, please return the book before: #{date}, Thanks!"
+            expect { subject.check_out(title) }.to output(expected_output).to_stdout
+        end
+
     end
 
     
