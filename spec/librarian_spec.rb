@@ -41,5 +41,9 @@ describe Librarian do
         expect(subject.check_return_date(title)).to eq expected_output
     end
 
+    it 'raises error on check return date if book is not rented out' do
+        title = 'Moby Dick'
+        expect { subject.check_return_date(title) }.to raise_error 'Book is not rented out.'
+    end
     
 end
