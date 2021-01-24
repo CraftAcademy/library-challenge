@@ -10,6 +10,7 @@ class Librarian
     end
 
     def check_availability(title)
-        list
-    
+        book = @list.detect { |hash| hash[:book][:title] == title }
+        book[:available]
+    end
 end
