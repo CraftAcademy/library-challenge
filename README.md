@@ -36,6 +36,9 @@ https://www.shortcutfoo.com/app/dojos/ruby-dates/cheatsheet
 
 ### Improvements
 -------
+- Functionality that lets the visitor the return the book, thus modifying the YAML-file and changing visitors rented_book list
+- Recreating visitors rented book list into YAML-file
+- As a visitor, in order to see a list of all available books, we need a method to to check which ones are available.
 
 
 ### License
