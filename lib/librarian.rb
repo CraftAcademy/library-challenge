@@ -1,5 +1,6 @@
 require 'date'
 require 'yaml'
+require './lib/visitor.rb'
 
 class Librarian
     attr_accessor :list

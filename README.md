@@ -10,9 +10,23 @@ Visitors can rent books and will be able to see the required return date. When a
 
 ### Dependencies
 -------
+pry
+pry-byebug
+rspec
 
 ### Setup & instructions
 -------
+1) **bundle**
+2) Open *irb* and **require './lib/librarian.rb'**
+3) Initiate the classes:
+3.1) **librarian = Librarian.new**
+3.2) **visitor = Visitor.new**
+4) Get list of books: **librarian.list**
+5) Notice the titles, as they are used in all methods.
+6) Check availability: **librarian.check_availability("title")**
+7) Check out a book: **librarian.check_out("title", visitor)**
+7.1) This will change availability of the book, set a return date, and add the book to visitor's rented_books attribute. 
+8) Check return date: **librarian.check_return_date("title")**
 
 ### Acknowledgements
 -------
@@ -22,6 +36,7 @@ https://www.shortcutfoo.com/app/dojos/ruby-dates/cheatsheet
 
 ### Improvements
 -------
+
 
 ### License
 -------
