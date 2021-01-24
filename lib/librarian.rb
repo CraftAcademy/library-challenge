@@ -27,7 +27,7 @@ class Librarian
 
         visitor.rented_books.push(book)
 
-        --
+        File.open('./lib/data.yml', 'w') { |f| f.write @list.to_yaml }
         end
     
     end
