@@ -15,7 +15,7 @@ class Librarian
         book[:available]
     end
 
-    def check_out(title, reader)
+    def check_out(title, visitor)
 
         book = @list.detect { |hash| hash[:book][:title] == title }
         if book[:available] == false
