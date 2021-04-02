@@ -15,4 +15,8 @@ As a keeper
 In order to successfully rent out books
 The keeper  needs to check availability before doing the check out
 
+**4-USER STORY for Customer!**
+As a customer
+In order to rent a book customer should be able to check available list of books
+They need to be able to check out a book
 
