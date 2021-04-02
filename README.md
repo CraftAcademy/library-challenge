@@ -52,18 +52,18 @@ Read this entire README carefully and follow all instructions.
 **Happy coding!**
 
 ## User Stories
-As a Visitor 
-to see what books that are availabe
-i want a list of the books
+- As a Visitor 
+- to see what books that are availabe
+- i want a list of the books
 
-(Visitor = class?)
-(availabe = method?)
-(book_list = class? YAML?)
+- (Visitor = class?)
+- (availabe = method?)
+- (book_list = class? YAML?)
 
 
-As a Visitor
-To know when i should return my books
-I want to get a receipt of what books and when
+- As a Visitor
+- To know when i should return my books
+- I want to get a receipt of what books and when
 
 (receipt = method?)
 (return = method?)
