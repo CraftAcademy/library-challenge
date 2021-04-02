@@ -52,3 +52,36 @@ Read this entire README carefully and follow all instructions.
 **Happy coding!**
 
 ## User Stories
+As a Visitor 
+to see what books that are availabe
+i want a list of the books
+
+(Visitor = class?)
+(availabe = method?)
+(book_list = class? YAML?)
+
+
+As a Visitor
+To know when i should return my books
+I want to get a receipt of what books and when
+
+(receipt = method?)
+(return = method?)
+
+As a Visitor
+to be able to return my books
+i need to posses the books
+
+(posses = method?)
+
+As the Library
+to see what books we have
+i want a list of all the books
+
+(Library = Class?)
+
+As the Library
+To be able to lend a book
+The book need to be available
+
+(lend = method?)
