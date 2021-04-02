@@ -57,33 +57,51 @@ Read this entire README carefully and follow all instructions.
   <li>to see what books that are availabe</li>
   <li>i want a list of the books</li>
 </ul>
-
-- (Visitor = class?)
-- (availabe = method?)
-- (book_list = class? YAML?)
-
-- As a Visitor
-- To know when i should return my books
-- I want to get a receipt of what books and when
-====================
-- (receipt = method?)
-- (return = method?)
-====================
-- As a Visitor
-- to be able to return my books
-- i need to posses the books
-====================
-- (posses = method?)
-====================
-- As the Library
-- to see what books we have
-- i want a list of all the books
-====================
-- (Library = Class?)
-====================
-- As the Library
-- To be able to lend a book
-- The book need to be available
-====================
-- (lend = method?)
-====================
+<br>
+<ul>
+<li>(Visitor = class?)</li>
+<li>(availabe = method?)</li>
+<li>(book_list = class? YAML?)</li>
+</ul>
+<br>
+<ul>
+<li>As a Visitor</li>
+<li>To know when i should return my books</li>
+<li>I want to get a receipt of what books and when</li>
+</ul>
+<br>
+<ul>
+<li>(receipt = method?)</li>
+<li>(return = method?)</li>
+</ul>
+<br>
+<ul>
+<li>As a Visitor</li>
+<li>to be able to return my books</li>
+<li>i need to posses the books</li>
+</ul>
+<br>
+<ul>
+<li>(posses = method?)</li>
+</ul>
+<br>
+<ul>
+<li>As the Library</li>
+<li>to see what books we have</li>
+<li>i want a list of all the books</li>
+</ul>
+<br>
+<ul>
+<li>(Library = Class?)</li>
+</ul>
+<br>
+<ul>
+<li>As the Library</li>
+<li>To be able to lend a book</li>
+<li>The book need to be available</li>
+</ul>
+<br>
+<ul>
+<li>(lend = method?)</li>
+</ul>
+<br>
