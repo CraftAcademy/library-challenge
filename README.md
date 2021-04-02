@@ -20,3 +20,9 @@ As a customer
 In order to rent a book customer should be able to check available list of books
 They need to be able to check out a book
 
+**5-USER STORY for Customer!**
+As a visitor
+In order to receive a book
+They need to store the book
+
+
