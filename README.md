@@ -25,4 +25,7 @@ As a visitor
 In order to receive a book
 They need to store the book
 
-
+**6-USER STORY for Customer!**
+As a visitor
+The keeper needs to know when the return date is
+At book checkout it displays the date of return
