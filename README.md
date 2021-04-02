@@ -52,14 +52,16 @@ Read this entire README carefully and follow all instructions.
 **Happy coding!**
 
 ## User Stories
-- As a Visitor 
-- to see what books that are availabe
-- i want a list of the books
-====================
+<ul>
+  <li>As a Visitor</li>
+  <li>to see what books that are availabe</li>
+  <li>i want a list of the books</li>
+</ul>
+
 - (Visitor = class?)
 - (availabe = method?)
 - (book_list = class? YAML?)
-====================
+
 - As a Visitor
 - To know when i should return my books
 - I want to get a receipt of what books and when
