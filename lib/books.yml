@@ -1,26 +1,26 @@
 ---
--   :item:
-      :title: Lord of the Rings
-      :author: J.R.R. Tolkien
-    :available: true
-    :return_date:
--   :item:
-      :title: 'Hobbit: There and Back Again'
-      :author: J.R.R. Tolkien
-    :available: false
-    :return_date: '2021-05-03'
--   :item:
-      :title: 'Halo: Fall of Reach'
-      :author: Eric Nylund
-    :available: true
-    :return_date:
--   :item:
-      :title: 'Foundation'
-      :author: Isaak Asimov
-    :available: false
-    :return_date: '2021-05-03'
--   :item:
-      :title: Fifty Shades of Grey
-      :author: E.L. James
-    :available: true
-    :return_date:
+- :item:
+    :title: Lord of the Rings
+    :author: J.R.R. Tolkien
+  :available: true
+  :return_date: 
+- :item:
+    :title: 'Hobbit: There and Back Again'
+    :author: J.R.R. Tolkien
+  :available: false
+  :return_date: '2021-05-03'
+- :item:
+    :title: 'Halo: Fall of Reach'
+    :author: Eric Nylund
+  :available: true
+  :return_date: 
+- :item:
+    :title: Foundation
+    :author: Isaak Asimov
+  :available: false
+  :return_date: 03-05-21
+- :item:
+    :title: Fifty Shades of Grey
+    :author: E.L. James
+  :available: true
+  :return_date: 

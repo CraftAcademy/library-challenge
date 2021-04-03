@@ -19,8 +19,15 @@ class Library
     end
 
     def change_status
-      @pulled_book[:available] == false ? change_status_to_true : change_status_to_false 
+      @pulled_book[:available] == false ? change_status_to_true : change_status_to_false
+    end
 
+    def push_book
+        @book_list.map { |book| book[:item][:title] == @pulled_book[:item][:title] ? @pulled_book : book }
+    end
+
+    def save_book_list
+        File.open('./lib/books.yml', 'w') { |file| file.write @book_list.to_yaml }
     end
     
     private

@@ -39,4 +39,26 @@ describe Library do
       expect(subject.pulled_book).to eq expected_outcome
     end
 
+    it 'saves changes from @pulled_book to @book_list' do
+        subject.read_book_list
+        subject.pull_book({title: 'Foundation'})
+        subject.change_status
+        subject.push_book
+        subject.pull_book({title: 'Foundation'})
+        expected_outcome = {:item=>{:title=>"Foundation", :author=>"Isaak Asimov"}, :available=>true, :return_date=>nil}
+        expect(subject.pulled_book).to eq expected_outcome
+    end
+
+    it 'rewrites a books.yml file with updated @book_list' do
+        subject.read_book_list
+        subject.pull_book({title: 'Foundation'})
+        subject.change_status
+        subject.push_book
+        subject.save_book_list
+        subject.read_book_list
+        subject.pull_book({title: 'Foundation'})
+        expected_outcome = {:item=>{:title=>"Foundation", :author=>"Isaak Asimov"}, :available=>true, :return_date=>nil}
+        expect(subject.pulled_book).to eq expected_outcome
+    end
+
 end
