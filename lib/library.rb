@@ -6,7 +6,7 @@ class Library
 
     def initialize
         @book_list
-        @book
+        @pulled_book
     end
 
     def read_book_list

@@ -22,5 +22,5 @@ describe Library do
         subject.read_book_list        
         expect{ subject.pull_book }.to raise_error(RuntimeError, "Specify the title of book to pull")
     end
-
+    
 end
