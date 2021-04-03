@@ -23,11 +23,19 @@ describe Library do
         expect{ subject.pull_book }.to raise_error(RuntimeError, "Specify the title of book to pull")
     end
 
-    it 'edits the avalibility value and sets return date value' do
+    it 'edits the avalibility value false and set return date' do
       subject.read_book_list
       subject.pull_book({title: 'Lord of the Rings'})
       subject.change_status
       expected_outcome = {:item=>{:title=>"Lord of the Rings", :author=>"J.R.R. Tolkien"}, :available=>false, :return_date=>'03-05-21'}
+      expect(subject.pulled_book).to eq expected_outcome
+    end
+
+    it 'edits the avalibility value to true and removes return date' do
+      subject.read_book_list
+      subject.pull_book({title: 'Foundation'})
+      subject.change_status
+      expected_outcome = {:item=>{:title=>"Foundation", :author=>"Isaak Asimov"}, :available=>true, :return_date=>nil}
       expect(subject.pulled_book).to eq expected_outcome
     end
 
