@@ -1,1 +1,1 @@
-equire_relative '../lib/library.rb
+require_relative '../lib/library.rb
