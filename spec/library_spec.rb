@@ -14,13 +14,21 @@ describe Library do
 
     it 'can pull individual book from book_list' do
         subject.read_book_list
-        expected_outcome = {:item=>{:title=>"Foundation", :author=>"Isaak Asimov"}, :avalible=>false, :return_date=>"2021-05-03"}
+        expected_outcome = {:item=>{:title=>"Foundation", :author=>"Isaak Asimov"}, :available=>false, :return_date=>"2021-05-03"}
         expect(subject.pull_book({title: 'Foundation'})).to eq expected_outcome
     end
 
     it 'returns error if no title is given to pull_book method' do
         subject.read_book_list        
         expect{ subject.pull_book }.to raise_error(RuntimeError, "Specify the title of book to pull")
+    end
+
+    it 'edits the avalibility value and sets return date value' do
+      subject.read_book_list
+      subject.pull_book({title: 'Lord of the Rings'})
+      subject.change_status
+      expected_outcome = {:item=>{:title=>"Lord of the Rings", :author=>"J.R.R. Tolkien"}, :available=>false, :return_date=>'03-05-21'}
+      expect(subject.pulled_book).to eq expected_outcome
     end
 
 end
