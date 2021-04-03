@@ -14,7 +14,7 @@ describe Library do
 
     it 'can pull individual book from book_list' do
         subject.read_book_list
-        expected_outcome = {:item=>{:title=>"Foundation", :author=>"Isaak Asimov"}, :available=>false, :return_date=>"2021-05-03"}
+        expected_outcome = {:item=>{:title=>"Foundation", :author=>"Isaak Asimov"}, :available=>false, :return_date=>"03-05-21"}
         expect(subject.pull_book({title: 'Foundation'})).to eq expected_outcome
     end
 

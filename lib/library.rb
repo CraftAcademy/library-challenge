@@ -29,6 +29,8 @@ class Library
     def save_book_list
         File.open('./lib/books.yml', 'w') { |file| file.write @book_list.to_yaml }
     end
+
+    
     
     private
 
@@ -43,7 +45,7 @@ class Library
     def change_status_to_true
       @pulled_book[:available] = true
       @pulled_book[:return_date] = nil
-    end
+    end    
     
     def change_status_to_false
       #binding.pry
