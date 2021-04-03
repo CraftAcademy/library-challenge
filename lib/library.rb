@@ -29,8 +29,6 @@ class Library
     def save_book_list
         File.open('./lib/books.yml', 'w') { |file| file.write @book_list.to_yaml }
     end
-
-    
     
     private
 
