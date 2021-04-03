@@ -1,0 +1,26 @@
+---
+-   :item:
+      :title: Lord of the Rings
+      :author: J.R.R. Tolkien
+    :avalible: true
+    :return_date:
+-   :item:
+      :title: 'Hobbit: There and Back Again'
+      :author: J.R.R. Tolkien
+    :avalible: false
+    :return_date: '2021-05-03'
+-   :item:
+      :title: 'Halo: Fall of Reach'
+      :author: Eric Nylund
+    :avalible: true
+    :return_date:
+-   :item:
+      :title: 'Foundation'
+      :author: Isaak Asimov
+    :avalible: false
+    :return_date: '2021-05-03'
+-   :item:
+      :title: Fifty Shades of Grey
+      :author: E.L. James
+    :avalible: true
+    :return_date:
