@@ -1,6 +1,5 @@
-require "coveralls"
-Coveralls.wear!
-require "pry"
+
+require 'pry'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
