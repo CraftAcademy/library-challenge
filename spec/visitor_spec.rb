@@ -33,8 +33,6 @@ describe Visitor do
 
     it 'checks for the list of currently owned books' do
         subject.read_book_list
-        subject.pull_book({title: 'Lord of the Rings'})
-        subject.change_status
         subject.rent_the_book({title: 'Lord of the Rings'})
         subject.rent_the_book({title: 'Halo: Fall of Reach'})
         expected_outcome = [
@@ -44,7 +42,14 @@ describe Visitor do
         expect(subject.books_in_possesion).to eq expected_outcome
     end
 
-    after(:all) do
+    it 'can return the book' do
+        subject.read_book_list
+        subject.rent_the_book({title: 'Lord of the Rings'})
+        subject.return_the_book({title: 'Lord of the Rings'})
+        expect(subject.books_in_possesion).to eq []
+    end
+
+    after(:each) do
         book_list = YAML.load_file('./lib/books_original_state.yml')
         File.open('./lib/books.yml', 'w') { |file| file.write book_list.to_yaml }
       end
