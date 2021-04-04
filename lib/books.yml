@@ -3,7 +3,7 @@
     :title: Lord of the Rings
     :author: J.R.R. Tolkien
   :available: true
-  :return_date:
+  :return_date: 
 - :item:
     :title: 'Hobbit: There and Back Again'
     :author: J.R.R. Tolkien
@@ -13,7 +13,7 @@
     :title: 'Halo: Fall of Reach'
     :author: Eric Nylund
   :available: true
-  :return_date:
+  :return_date: 
 - :item:
     :title: Foundation
     :author: Isaak Asimov
@@ -23,4 +23,4 @@
     :title: Fifty Shades of Grey
     :author: E.L. James
   :available: true
-  :return_date:
+  :return_date: 
