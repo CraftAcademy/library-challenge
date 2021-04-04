@@ -25,5 +25,5 @@ class Keeper
 
     def list_of_books
         @books
-      end
+    end
 end
