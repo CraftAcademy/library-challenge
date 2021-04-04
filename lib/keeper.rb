@@ -52,4 +52,8 @@ class Keeper
   def failure_payload(message)
     { status: false, message: message }
   end
+  def success_payload(book)
+    { status: true, message: 'success', book: book }
+  end
+
 end
