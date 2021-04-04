@@ -23,7 +23,7 @@ class Library
             book[:return_date] =Date.today.next_day(30)
             book[:available] = false
         end
-        binding.pry
+        
         change_availabilty
     end
     
