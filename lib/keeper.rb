@@ -12,26 +12,27 @@ class Keeper
   
     def search by
       if by[:title] != nil && by[:author] != nil then
-        return @books.select { |book| book[:book][:title].include?(by[:title]) && book[:book][:author].include?(by[:author]) }
+        return @books.select { |book| book[:publication][:title].include?(by[:title]) && book[:publication][:author].include?(by[:author]) }
       end
       if by[:title] != nil then
-        return @books.select { |book| book[:book][:title].include? by[:title] }
+        return @books.select { |book| book[:publication][:title].include? by[:title] }
       end
       if by[:author] != nil then
-        return @books.select { |book| book[:book][:author].include? by[:author] }
+        return @books.select { |book| book[:publication][:author].include? by[:author] }
       end
       return []
     end
-    def check_out book
-        book = fetch_book(book)
-        if found_book?(book) then
-          return failure_payload('not found')
-        elsif not_available_book?(book) then
-          return failure_payload('not available')
-        else
-          checkout_book = perform_checkout(book)
-          update_database
-          return success_payload(checkout_book)
+    def check_out title
+      book = fetch_book(title)
+      if found_book?(book) then
+        return failure_payload('not found')
+      elsif not_available_book?(book) then
+        return failure_payload('not available')
+      else
+        checkout_book = perform_checkout(book)
+        update_database
+        return success_payload(checkout_book)
+      end
     end
     
 

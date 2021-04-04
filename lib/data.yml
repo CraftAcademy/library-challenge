@@ -1,25 +1,25 @@
 ---
-- :book:
+- :publication:
     :title: Mathew
     :author: Apostle-Mathew
   :available: true
   :return_date: 
-- :book:
+- :publication:
     :title: Genesis
     :author: Moses
   :available: true
   :return_date: 
-- :book:
+- :publication:
     :title: The Hobbit
     :author: J. R. R. Tolkien
   :available: true
   :return_date: 
-- :book:
+- :publication:
     :title: Luke
     :author: Desciple-Luke
   :available: true
   :return_date: 
-- :book:
+- :publication:
     :title: Romans
     :author: Apostle-Paul
   :available: true
