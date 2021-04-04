@@ -15,10 +15,17 @@ class Keeper
       if by[:title] != nil then
         return @books.select { |book| book[:book][:title].include? by[:title] }
       end
-
+      if by[:author] != nil then
+        return @books.select { |book| book[:book][:author].include? by[:author] }
+      end
     end
 
     def list_of_books
         @books
     end
+
+
+
+    
+    
 end
