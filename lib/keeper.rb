@@ -1,7 +1,6 @@
 require 'date'
 require 'pry'
 require 'yaml'
-require './lib/keeper.rb'
 class Keeper
     DATABASE_FILE = './lib/data.yml'
     attr_accessor :books
