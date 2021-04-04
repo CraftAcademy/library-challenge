@@ -36,4 +36,20 @@ class Keeper
     def list_of_books
         @books
     end
+    private 
+
+  def fetch_book(title)
+    @books.detect { |book| book[:publication][:title] == title }
+  end
+
+  def found_book?(book)
+    book == nil
+  end
+
+  def not_available_book?(book)
+    book[:available] == false
+  end
+  def failure_payload(message)
+    { status: false, message: message }
+  end
 end
