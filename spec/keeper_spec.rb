@@ -9,32 +9,27 @@ describe Keeper do
   
     it 'is able to search books by titles' do
       found_book = {book: {title: 'Mathew', author: 'Apostle-Mathew'}}
-      subject.books = [
-        found_book,
-        {book: {title: 'Genesis', author: 'Moses'}}
-      ] 
+      subject.books = [found_book,{book: {title: 'Genesis', author: 'Moses'}}] 
       result = subject.search({title:'Mathew'})
       expect(result).to eq [found_book]
     end
     it 'is able to search books by authors' do
         found_book = {book: {title: 'Mathew', author: 'Apostle-Mathew'}}
-        subject.books = [
-          found_book,
-          {book: {title: 'Genesis', author: 'Moses'}}
-        ]
+        subject.books = [found_book,{book: {title: 'Genesis', author: 'Moses'}}]
         result = subject.search({author: 'Apostle-Mathew'})
         expect(result).to eq [found_book]
       end
       
       it 'is able to search books by titles and authors' do
         found_book = {book: {title: 'Mathew', author: 'Apostle-Mathew'}}
-        subject.books = [
-          found_book,
-          {book: {title: 'Genesis', author: 'Moses'}},
-          {book: {title: 'The Hobbit', author: 'J. R. R. Tolkien'}}
-        ]
+        subject.books = [found_book,{book: {title: 'Genesis', author: 'Moses'}},{book: {title: 'The Hobbit', author: 'J. R. R. Tolkien'}}]
         result = subject.search({title: 'Mathew', author: 'Apostle-Mathew'})
         expect(result).to eq [found_book]
+      end
+      it 'returns empty array if no title or author provided to search' do
+        subject.books = [{book: {title: 'Mathew', author: 'Apostle-Mathew'}},{book: {title: 'Genesis', author: 'Moses'}}]
+        result = subject.search({})
+        expect(result).to eq []
       end
       
       it 'is expected to provide a list of books' do
