@@ -66,6 +66,6 @@ class Keeper
       author: book[:publication][:author],
       return_date: book[:return_date]
     }
-    
+    #trying to solve problem
   end
 end
