@@ -22,7 +22,13 @@ class Keeper
       end
       return []
     end
-
+    def check_out book
+        book = fetch_book(book)
+        if found_book?(book) then
+          return failure_payload('not found')
+        else not_available_book?(book) then
+          return failure_payload('not available')
+    end
     def list_of_books
         @books
       end
