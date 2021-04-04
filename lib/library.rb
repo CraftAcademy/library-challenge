@@ -1,9 +1,10 @@
 require 'date'
-require 'pry'
 require 'yaml'
+require 'pry'
 
 class Library 
-    attr_accessor :books 
+
+    attr_accessor :books
 
     def initialize 
         @books = YAML.load_file('./lib/data_test.yml')
@@ -15,25 +16,31 @@ class Library
 
     def checkout (title)
 
-        book = @books.select {|hash| hash[:book][:title] == title}
-
+        book = @books.detect { |books| books[:book][:title] == title}
         if book[:available] == false
-            raise RuntimeError 'Book unavailable'
+            unavailable 
         else
-            book[:return_date] =Date.today.next_day(30)
+            book[:return_date] =Date.today.next_day(30).strftime('%d/%m')
             book[:available] = false
+
+            change_availabilty
         end
         
-        change_availabilty
+        
     end
     
     
     def change_availabilty 
 
-    File.open('./lib/data_test.yml', 'w') {|file| file.write books.to_yaml}
+        File.open('./lib/data_test.yml', 'w') {|file| file.write books.to_yaml}
     
     end
 
 end
 
+private
+
+def unavailable
+    raise 'Book unavailable'
+end
 

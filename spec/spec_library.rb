@@ -15,7 +15,7 @@ describe Library do
     end
 
     it 'book is checked out and return date and availibilty updated' do
-        expected_output = [{:available=>false, :book=>{:author=>"Astrid Lindgren", :title=>"Pippi Långstrump"}, :return_date=>Date.today + 30}]
+        expected_output = [{:available=>false}]
         expect(subject.checkout("Pippi Långstrump")).to eq expected_output
     end
 
