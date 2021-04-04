@@ -33,6 +33,8 @@ class Keeper
           update_database
           return success_payload(checkout_book)
     end
+    
+
     def list_of_books
         @books
     end
