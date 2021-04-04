@@ -3,8 +3,7 @@ require './lib/library.rb'
 require 'date'
 
 describe Visitor do
-    expected_return_date = Date.today.next_day(30).strftime('%d-%m-%y')
-    
+    expected_return_date = Date.today.next_day(30).strftime('%d-%m-%y')    
 
     it 'can check what books are available for rent' do
         expected_outcome = [
@@ -49,13 +48,19 @@ describe Visitor do
         expect(subject.books_in_possesion).to eq []
     end
 
+    it 'cheks if file is changed when book is returned' do
+        subject.read_book_list
+        subject.rent_the_book({title: 'Lord of the Rings'})
+        subject.return_the_book({title: 'Lord of the Rings'})
+        subject.read_book_list
+        subject.pull_book({title: 'Lord of the Rings'})
+        expected_outcome = {:item=>{:title=>"Lord of the Rings", :author=>"J.R.R. Tolkien"}, :available=>true, :return_date=>nil}
+        expect(subject.pulled_book).to eq expected_outcome
+    end
+
     after(:each) do
         book_list = YAML.load_file('./lib/books_original_state.yml')
         File.open('./lib/books.yml', 'w') { |file| file.write book_list.to_yaml }
-      end
+    end
     
-    
-    
-    #return_the_book
-
 end
