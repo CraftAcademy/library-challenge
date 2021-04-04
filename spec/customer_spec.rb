@@ -6,7 +6,7 @@ require './lib/customer.rb'
 describe Customer do
     let(:name) {'Arun'}
 
-    let:(:keeper){instance_double}('Keeper', books: [])
+    let(:keeper){instance_double('Keeper', books: [])}
     subject{Customer.new(name)}
 
     before do
@@ -27,6 +27,33 @@ describe Customer do
 
     it 'is expected to be error if there is no list of books' do
         expect{subject.borrow({keeper: keeper})}.to raise_error ('Requred list of books')
+    end
+
+    it 'is required to update the list of books when' do
+        book_to_be_borrowed={
+            title: "Harry Potter",
+            author: "J K Rowling",
+            return_date: Date.today.next_month(1)
+        }
+        title_to_be_borrowed = book_to_be_borrowed[:title]
+
+        subject.books=[]
+
+        allow(keeper).to receive(:check_out).and_return({
+          status: true,
+          message: "success",
+          book: book_to_be_borrowed  
+        })
+
+        expect(keeper).to receive(:check_out).with(title_to_be_borrowed)
+        
+        subject.borrow({
+            title: title_to_be_borrowed,
+            keeper: keeper
+        })
+
+
+        expect(subject.books).to eq [book_to_be_borrowed]
     end
 
 
