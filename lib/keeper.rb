@@ -38,28 +38,36 @@ class Keeper
     def list_of_books
         @books
     end
+    private 
 
-    private
+  def fetch_book(title)
+    @books.detect { |book| book[:publication][:title] == title }
+  end
 
-    def fetch_book(title)
-      @books.detect { |book| book[:item][:title] == title }
-    end
-  
-    def found_book?(book)
-      book == nil
-    end
-  
-    def not_available_book?(book)
-      book[:available] == false
-    end
-  
-    def failure_payload(message)
-      { status: false, message: message }
-    end
-  
-    
+  def found_book?(book)
+    book == nil
+  end
 
+  def not_available_book?(book)
+    book[:available] == false
+  end
 
+  def failure_payload(message)
+    { status: false, message: message }
+  end
 
+  def success_payload(book)
+    { status: true, message: 'success', book: book }
+  end
+
+  def perform_checkout(book)
+    book[:available] = false
+    book[:return_date] = Date.today.next_month(1)
+    {
+      title: book[:publication][:title],
+      author: book[:publication][:author],
+      return_date: book[:return_date]
+    }
+  end
 
 end
