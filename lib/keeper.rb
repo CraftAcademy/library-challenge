@@ -12,13 +12,13 @@ class Keeper
   
     def search by
       if by[:title] != nil && by[:author] != nil then
-        return @books.select { |book| book[:book][:title].include?(by[:title]) && book[:book][:author].include?(by[:author]) }
+        return @books.select { |book| book[:publication][:title].include?(by[:title]) && book[:publication][:author].include?(by[:author]) }
       end
       if by[:title] != nil then
-        return @books.select { |book| book[:book][:title].include? by[:title] }
+        return @books.select { |book| book[:publication][:title].include? by[:title] }
       end
       if by[:author] != nil then
-        return @books.select { |book| book[:book][:author].include? by[:author] }
+        return @books.select { |book| book[:publication][:author].include? by[:author] }
       end
       return []
     end
