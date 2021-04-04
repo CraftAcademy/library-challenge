@@ -2,15 +2,23 @@ require 'date'
 require 'pry'
 require 'yaml'
 require './lib/keeper.rb'
-
 class Keeper
-    attr_accessor :list
-
+    DATABASE_FILE = './lib/data.yml'
+    attr_accessor :books
+  
     def initialize
-        @list = YAML.load_file('./lib/data.yml')
+      @books = YAML.load_file(DATABASE_FILE)
     end
-    def check_availability(title)
-        book = @list.detect { |hash| hash[:book][:title] == title }
-        book[:available]
+  
+    def search by
+
+      if by[:title] != nil then
+        return @books.select { |book| book[:book][:title].include? by[:title] }
+      end
+
+    end
+
+    def list_of_books
+        @books
     end
 end
