@@ -4,10 +4,12 @@ require 'pry'
 class Library 
     RENTAL_TIME = 30
     attr_accessor :book_list, :pulled_book 
+    attr_reader :thirty_days_later
 
     def initialize
         @book_list
         @pulled_book
+        @thirty_days_later = Date.today.next_day(30).strftime('%d-%m-%y')
     end
 
     def read_book_list
@@ -20,10 +22,6 @@ class Library
 
     def change_status
       @pulled_book[:available] == false ? change_status_to_true : change_status_to_false
-    end
-
-    def push_book
-        @book_list.map { |book| book[:item][:title] == @pulled_book[:item][:title] ? @pulled_book : book }
     end
 
     def save_book_list
@@ -43,12 +41,13 @@ class Library
     def change_status_to_true
       @pulled_book[:available] = true
       @pulled_book[:return_date] = nil
+      @book_list.map { |book| book[:item][:title] == @pulled_book[:item][:title] ? @pulled_book : book }
     end    
     
     def change_status_to_false
-      #binding.pry
       @pulled_book[:available] = false
       @pulled_book[:return_date] = Date.today.next_day(RENTAL_TIME).strftime('%d-%m-%y')
+      @book_list.map { |book| book[:item][:title] == @pulled_book[:item][:title] ? @pulled_book : book }
     end
 
 
