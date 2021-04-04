@@ -45,6 +45,7 @@ GEM
       sync
 
 PLATFORMS
+  arm64-darwin-20
   x86_64-linux
 
 DEPENDENCIES
