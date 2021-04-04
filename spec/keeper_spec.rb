@@ -26,7 +26,18 @@ describe Keeper do
         expect(result).to eq [found_book]
       end
       
+      it 'is able to search books by titles and authors' do
+        found_book = {book: {title: 'Mathew', author: 'Apostle-Mathew'}}
+        subject.books = [
+          found_book,
+          {book: {title: 'Genesis', author: 'Moses'}},
+          {book: {title: 'The Hobbit', author: 'J. R. R. Tolkien'}}
+        ]
+        result = subject.search({title: 'Mathew', author: 'Apostle-Mathew'})
+        expect(result).to eq [found_book]
+      end
       
       it 'is expected to provide a list of books' do
         expect(subject.list_of_books).to eq books
-      en
+      end
+end
