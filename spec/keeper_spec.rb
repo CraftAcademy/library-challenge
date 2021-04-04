@@ -23,5 +23,5 @@ describe Keeper do
     it 'is expected to provide a list of books' do
         expect(subject.list_of_books).to eq books
     end    
-end
+  end
 
