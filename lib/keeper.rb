@@ -26,8 +26,12 @@ class Keeper
         book = fetch_book(book)
         if found_book?(book) then
           return failure_payload('not found')
-        else not_available_book?(book) then
+        elsif not_available_book?(book) then
           return failure_payload('not available')
+        else
+          checkout_book = perform_checkout(book)
+          update_database
+          return success_payload(checkout_book)
     end
     def list_of_books
         @books
