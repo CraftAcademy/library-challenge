@@ -10,12 +10,4 @@ describe Customer do
         expect(subject.rented_books).to eq []
     end
 
-    # it 'upon checkout, customer will receive the book to his list' do
-    #     title = "Big Fish"
-    #     keeper.check_out(title, subject)
-    #     book = keeper.list.detect { |hash| hash[:book][:title] == title }
-    #     expect(subject.rented_books).to eq [book]
-
-    # end
-
 end
