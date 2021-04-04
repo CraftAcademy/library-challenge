@@ -4,10 +4,18 @@ require './lib/customer.rb'
 
 
 describe Customer do
-    let(:keeper) { Keeper.new }
+    let(:name) {'Arun'}
 
-    it 'has an attribute of rented books on initialize, that is an empty array' do
-        expect(subject.rented_books).to eq []
-    end
+    let:(:keeper){instance_double}('Keeper', books: [])
+    subject{Customer.new(name)}
+
+   
+
+
+    
+
+
+
+
 
 end
