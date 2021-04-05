@@ -35,8 +35,8 @@ class Visitor
         raise 'Book is unavailable'
     end
 
-    def return_error(args)
-        raise `Return book error: #{args[:item][:title]} is already returned please contact staff` 
+    def return_error
+        raise 'This book is already returned please contact staff'
     end
     
     def update_data

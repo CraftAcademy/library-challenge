@@ -13,9 +13,8 @@ class Library
         @thirty_days_later = Date.today.next_day(30).strftime('%d-%m-%y')
     end
 
-    def new_visitor(attrs = {})
-        # I want name of variable to be automatically created = to name of visitor
-        @visitor = Visitor.new({name: attrs[:name], library: self})
+    def new_visitor
+        @visitor = Visitor.new({library: self})
     end
 
     def read_book_list
