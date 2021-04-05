@@ -6,7 +6,7 @@
   :return_date: 
 - :book:
     :title: Skratta lagom! Sa pappa Åberg
-    :author: Gunilla Bergström 
+    :author: Gunilla Bergström
   :available: true
   :return_date: 
 - :book:
@@ -17,7 +17,7 @@
 - :book:
     :title: Pippi Långstrump
     :author: Astrid Lindgren
-  :available: true
+  :available: 
   :return_date: 
 - :book:
     :title: Pippi Lånstrump går ombord

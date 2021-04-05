@@ -4,7 +4,7 @@ require './lib/library.rb'
 describe Visitor do
     let(:library) {Library.new}
     it 'has a name on initialization' do
-        expect(subject.name).to eq 'Thomas'
+        expect(subject.name).to eq nil
     end
 
     it 'has on initialize an empty array' do

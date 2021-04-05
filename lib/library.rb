@@ -5,10 +5,10 @@ require 'pry'
 
 class Library 
 
-    attr_accessor :books
+    attr_accessor :books, :name
 
     def initialize 
-        @books = YAML.load_file('./lib/data_test.yml')
+        @books = YAML.load_file('./lib/data.yml')
     end
 
     def book_search(input)
@@ -16,27 +16,19 @@ class Library
     end
 
     def checkout (title, visitor)
-
         book = @books.detect { |books| books[:book][:title] == title}
+
         if book[:available] == false
             unavailable 
         else
             book[:return_date] =Date.today.next_day(30).strftime('%d/%m')
             book[:available] = false
             visitor.books_loaned.push(book)
-            change_availabilty
-        end
-        
-        
+            change_availabilty  
+        end 
     end
-    
-    
-    
-    def change_availabilty 
 
-        File.open('./lib/data_test.yml', 'w') {|file| file.write books.to_yaml}
     
-    end
 end
 
 private
@@ -45,5 +37,9 @@ def unavailable
     raise 'Book unavailable'
 end
 
+def change_availabilty 
 
+    File.open('./lib/data.yml', 'w') {|file| file.write books.to_yaml}
+
+end
 
