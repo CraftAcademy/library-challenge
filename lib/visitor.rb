@@ -1,5 +1,6 @@
 require 'pry'
 require './lib/library.rb'
+require 'date'
 
 class Visitor   
     attr_accessor :receipt, :books_in_possesion

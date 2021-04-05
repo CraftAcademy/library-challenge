@@ -1,5 +1,6 @@
 require 'yaml'
 require 'pry'
+require 'date'
 
 class Library 
     RENTAL_TIME = 30
