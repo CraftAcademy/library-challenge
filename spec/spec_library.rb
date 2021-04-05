@@ -15,7 +15,7 @@ describe Library do
     end
 
     it 'book is checked out and return date and availibilty updated' do
-        expected_output = [{:available=>false}]
+        expected_output = [{:available=>false, :return_date=>Date.today.next_day(30).strftime('%d/%m')}]
         expect(subject.checkout("Pippi Långstrump")).to_yaml(opts = {})
     end
 
