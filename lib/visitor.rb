@@ -13,7 +13,7 @@ class Visitor
     
     def see_available                     
         all_books = @library.read_book_list
-        availible_books = all_books.select { |book| book[:available] == true }             
+        availible_books = all_books.select { |book| book[:available] == true }                     
     end
 
     def rent_the_book(args={})
