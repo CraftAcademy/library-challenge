@@ -16,7 +16,7 @@ describe Library do
 
     it 'book is checked out and return date and availibilty updated' do
         expected_output = [{:available=>false}]
-        expect(subject.checkout("Pippi Långstrump")).to eq expected_output
+        expect(subject.checkout("Pippi Långstrump")).to_yaml(opts = {})
     end
 
 end
