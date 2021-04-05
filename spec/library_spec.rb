@@ -65,7 +65,7 @@ describe Library do
         end
     end
 
-    after(:all) do
+    after(:each) do
       book_list = YAML.load_file('./lib/books_original_state.yml')
       File.open('./lib/books.yml', 'w') { |file| file.write book_list.to_yaml }
     end

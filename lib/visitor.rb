@@ -1,29 +1,30 @@
 require 'pry'
 require './lib/library.rb'
 
-class Visitor < Library    
+class Visitor   
     attr_accessor :receipt, :books_in_possesion
+    attr_reader :library
     
-    def initialize
+    def initialize(attrs = {})
         @books_in_possesion = Array.new
-    end
-    
+        @library = attrs[:library]        
+    end    
     
     def see_available                     
-        all_books = self.read_book_list
+        all_books = @library.read_book_list
         availible_books = all_books.select { |book| book[:available] == true }             
     end
 
     def rent_the_book(args={})
-        self.pull_book(args)
-        @pulled_book[:available] == true ? update_data : book_unavailable
-        @books_in_possesion << {title: @pulled_book[:item][:title], return_date: @pulled_book[:return_date]}        
-        @receipt = {title: @pulled_book[:item][:title], return_date: @pulled_book[:return_date], date: Date.today.strftime('%d-%m-%y') }
+        @library.pull_book(args)
+        library.pulled_book[:available] == true ? update_data : book_unavailable
+        @books_in_possesion << {title: library.pulled_book[:item][:title], return_date: library.pulled_book[:return_date]}        
+        @receipt = {title: library.pulled_book[:item][:title], return_date: library.pulled_book[:return_date], date: Date.today.strftime('%d-%m-%y') }
     end
 
     def return_the_book(args={})
-        self.pull_book(args)
-        @pulled_book[:available] == false ? update_data : return_error
+        @library.pull_book(args)
+        library.pulled_book[:available] == false ? update_data : return_error
         @books_in_possesion.delete_if { |book| book[:title] == args[:title]}
     end
     
@@ -38,7 +39,7 @@ class Visitor < Library
     end
     
     def update_data
-        self.change_status
-        self.save_book_list        
+        @library.change_status
+        @library.save_book_list        
     end
 end

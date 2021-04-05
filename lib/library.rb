@@ -4,12 +4,17 @@ require 'pry'
 class Library 
     RENTAL_TIME = 30
     attr_accessor :book_list, :pulled_book 
-    attr_reader :thirty_days_later
+    attr_reader :thirty_days_later, :visitor
 
     def initialize
         @book_list
         @pulled_book
         @thirty_days_later = Date.today.next_day(30).strftime('%d-%m-%y')
+    end
+
+    def new_visitor(attrs = {})
+        # I want name of variable to be automatically created = to name of visitor
+        @visitor = Visitor.new({name: attrs[:name], library: self})
     end
 
     def read_book_list

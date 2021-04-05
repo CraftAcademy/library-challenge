@@ -4,6 +4,8 @@ require 'date'
 
 describe Visitor do
     expected_return_date = Date.today.next_day(30).strftime('%d-%m-%y')    
+    library = Library.new
+    subject { described_class.new({name: 'Bob', library: library}) }
 
     it 'can check what books are available for rent' do
         expected_outcome = [
@@ -15,12 +17,12 @@ describe Visitor do
     end
    
     it 'can rent the book' do
-        subject.read_book_list
+        subject.library.read_book_list
         subject.rent_the_book({title: 'Lord of the Rings'})
-        subject.read_book_list
-        subject.pull_book({title: 'Lord of the Rings'})
+        subject.library.read_book_list
+        subject.library.pull_book({title: 'Lord of the Rings'})
         expected_outcome = {:item=>{:title=>"Lord of the Rings", :author=>"J.R.R. Tolkien"}, :available=>false, :return_date=>expected_return_date}
-        expect(subject.pulled_book).to eq expected_outcome
+        expect(subject.library.pulled_book).to eq expected_outcome
     end
 
     it 'sends a recipet' do
