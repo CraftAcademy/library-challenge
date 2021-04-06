@@ -30,4 +30,3 @@ As a visitor
 The keeper needs to know when the return date is
 At book checkout it displays the date of return
 
-**Bundle installation done**
