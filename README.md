@@ -42,3 +42,20 @@ MIT License
 - [Save data to file from StackoOverflow](https://stackoverflow.com/a/2777863)
 - [Convert Array or Hash object to YAML format](https://stackoverflow.com/a/17576810)
 - Sanne Lindholm (https://github.com/salindholm/library-challenge)
+- Lucas 
+
+## Instructions
+➜  library-challenge git:(master) ✗ irb 
+irb(main):001:0> load './lib/keeper.rb'
+=> true
+irb(main):002:0> load './lib/customer.rb'
+=> true
+irb(main):003:0> keeper = Keeper.new
+irb(main):004:0> keeper.search(title: 'Mathew')
+=> [{:publication=>{:title=>"Mathew", :author=>"Apostle-Mathew"}, :available=>true, :return_date=>nil}]
+irb(main):005:0> keeper.search(author: 'Moses')
+=> [{:publication=>{:title=>"Genesis", :author=>"Moses"}, :available=>true, :return_date=>nil}]
+irb(main):006:0> keeper.search(title: 'Mathew', author: 'Apostle-Mathew')
+=> [{:publication=>{:title=>"Mathew", :author=>"Apostle-Mathew"}, :available=>true, :return_date=>nil}]
+irb(main):007:0> 
+
