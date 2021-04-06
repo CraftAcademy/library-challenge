@@ -7,3 +7,4 @@ gem 'rubocop-rails'
 gem 'rubocop'
 gem 'coveralls', require: false
 gem 'rake'
+gem 'solargraph', group: :development

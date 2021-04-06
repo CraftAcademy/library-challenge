@@ -1,7 +1,10 @@
 require 'date'
 require 'pry'
 require 'yaml'
+
+
 class Keeper
+
     DATABASE_FILE = './lib/data.yml'
     attr_accessor :books
   
@@ -21,6 +24,7 @@ class Keeper
       end
       return []
     end
+    
     def check_out title
       book = fetch_book(title)
       if found_book?(book) then
@@ -33,6 +37,8 @@ class Keeper
         return success_payload(checkout_book)
       end
     end
+    
+
     def list_of_books
         @books
     end

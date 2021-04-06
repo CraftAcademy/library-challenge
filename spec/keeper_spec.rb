@@ -27,10 +27,7 @@ describe Keeper do
         expect(result).to eq [found_book]
   end
   it 'returns empty array if no title or author provided to search' do
-        subject.books = [
-          {publication:{title: 'Mathew', author: 'Apostle-Mathew'}},
-          {publication:{title: 'Genesis', author: 'Moses'}}
-        ]
+        subject.books = [{publication:{title: 'Mathew', author: 'Apostle-Mathew'}},{publication:{title: 'Genesis', author: 'Moses'}}]
         result = subject.search({})
         expect(result).to eq []
   end
