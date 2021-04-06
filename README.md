@@ -30,3 +30,15 @@ As a visitor
 The keeper needs to know when the return date is
 At book checkout it displays the date of return
 
+## License
+MIT License 
+
+## Dependencies
+- Ruby
+- RSpec
+
+## Acknowlegments
+- Course material from [Craft Academy]
+- [Save data to file from StackoOverflow](https://stackoverflow.com/a/2777863)
+- [Convert Array or Hash object to YAML format](https://stackoverflow.com/a/17576810)
+- Sanne Lindholm (https://github.com/salindholm/library-challenge)
