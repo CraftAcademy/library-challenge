@@ -71,6 +71,8 @@ class Keeper
       author: book[:publication][:author],
       return_date: book[:return_date]
     }
-    #trying to solve problem
+  end
+  def update_database
+    File.open(DATABASE_FILE, 'w') { |file| file.write(@books.to_yaml) }
   end
 end
