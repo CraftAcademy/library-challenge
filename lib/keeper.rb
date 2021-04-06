@@ -53,15 +53,10 @@ class Keeper
   def failure_payload(message)
     { status: false, message: message }
   end
-<<<<<<< HEAD
-
-=======
->>>>>>> 1d3c190 (failure_payload message and  success payload message added)
   def success_payload(book)
     { status: true, message: 'success', book: book }
   end
 
-<<<<<<< HEAD
   def perform_checkout(book)
     book[:available] = false
     book[:return_date] = Date.today.next_month(1)
@@ -72,6 +67,4 @@ class Keeper
     }
     #trying to solve problem
   end
-=======
->>>>>>> 1d3c190 (failure_payload message and  success payload message added)
 end
