@@ -1,3 +1,106 @@
+Virtual Library project: [Carlos](https://github.com/Carltesio) and [Philip](https://github.com/pgaunizt)
+
+The code - 
+
+This program serves a digital catalogue between a library and a customer.
+
+- The 'digital library' allows user and library to check the books by its title or         Author.
+- The 'digital library' allows user and library to check a list of the available and       unavailable books.
+- The 'digital library' allos the library to change the availability status of a book.
+- The 'digital library' allow the user and library to see when a book will be available    again.
+
+Dependencies - 
+
+This project uses Bundle to manage the Gemfiles and YAML for the data.
+The code consists in two folders, 'lib' and 'spec':
+Lib - Stores the implmentation code in the file 'library, and the data 'data.yml'.
+Spec - Contains the test for the implementation code in the 'library_spec.rb'.
+
+The Virtual Library has been developed and stored Github. Carltesio/github.com and pgaunizt/github.com have forked the repository from craftacademy/github.com.
+Every part of the worked has been commited into Github and the parts of code that were created but were not used in the final code have been left at the bottom of the file 'library.rb' as comments.
+
+How to setup the code and run it:
+
+-Install Ruby
+-Install Bundler: https://bundler.io
+-instructions: the program can be used through IRB (test on it are still to be made)
+
+The code was implemented following inputs from the Craft Academy learning material and  solutions of our own.
+
+Credits: The part of the code that changes the status of the availability was developed           with suggestions from robin-lillqvist/github.com
+
+License: The follwing code is open source as part of a learning process type of project. Feel free to implement and/or suggest any modifications to it.
+Authors: https://github.com/Carltesio https://github.com/pgaunizt
+
+
+
+
+// The following lines are the begining of the assignment and requests for the project//
+
+
+*****************************************************************************************
+
+
+
+
+
+
+
+Project requirements
+"We need an app where both the visitors and the library can see if a list of books is available, it would be nice to see both the title and the author of the book. The library needs to store these books in a file where we can easily check if a book is available or not. The library also needs the visitors to check out books after finding the title they want. Depending on the time of the checkout the library needs the books to be returned within a month and obviously, it would be nice for the visitor to know which date to return the book."
+
+returns true if there is a list of books *
+  Can search for book by title *
+  Can search for book by author *
+  list of available books *
+  returns the date of return *
+  returns the list of unavailable books*
+  change book to unavailable*
+  change book to unavailable*
+
+Users stories:
+
+As a Visitor/library
+In order to search for books 
+I would like to see if there is a catalog with items
+
+As a Visitor/library
+In order to search for books
+I would like to search for a book by its title
+
+As a Visitor/library
+In order to search for books
+I would like to search for a book by its Author
+
+As a Visitor/library
+In order to lend/borrow an available book
+I would like to see a list of the available books
+
+As a Visitor/library
+In order to know when a book should be back at the library
+I would like to see a return date
+
+As a library
+In order to communicate when a book is being borrowed
+I would like to change the available status
+
+As a library
+In order to communicate when a book is being returned
+I would like to change the available status
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Library Challenge
 ### Week 1 Ruby challenge
 
