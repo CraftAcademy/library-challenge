@@ -1,0 +1,24 @@
+---
+- :item:
+    :title: Oliver Twist
+    :author: Mark Twain
+  :available: true
+  :return_date:
+- :item:
+    :title: The Expanse
+    :author: James S.A.Corey
+  :available: false
+  :return_date: "2021-09-22"
+- :item:
+    :title: Name Of The Wind
+    :author: Patrick Rothfuss
+  :available: true
+- :item:
+    :title: The Way Of Kings
+    :author: Brandon Sanderson
+  :available: true
+- item:
+    :title: Code
+    :author: Petzold Charles
+    :available: false
+    :return_date: "2021-09-15"
