@@ -8,4 +8,10 @@ class Library
   def initialize
     @collection = YAML.load_file("./lib/data.yml")
   end
+
+  def search(book)
+    collection.select { |book| book[:item][:title].include? "Pippi"  }
+  
+  
+  end
 end
