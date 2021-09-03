@@ -10,8 +10,6 @@ class Library
   end
 
   def search(book)
-    collection.select { |book| book[:item][:title].include? "Pippi"  }
-  
-  
+    collection.select { |book| book[:item][:title].include? "Alfons" }
   end
 end
