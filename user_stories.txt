@@ -2,11 +2,12 @@ User Stories
 
 As a Customer
 
-I want to be able to see a list of books that are available with the title and the author.
-I would like to know the date of when I need to return the book.
+I want to see a list of available books with the title and the author.
+I want to know the date I need to return the book.
 
-As a Library
+As the Library
 
-We would like to store our books by title and author in a application and easily be able to see if the book is available or not.
-We would like that customers could checkout their books.
-The books would have a return date of one month.
+I would like to store the books titles and authors in a application.
+I would like to easily be able to see if the book is available or not.
+I would like that customers can checkout their books.
+I would like the books to have a return date of one month.
