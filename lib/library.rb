@@ -21,4 +21,16 @@ class Library
   def book_return_date
     Date.today.next_month
   end
+
+  def checkout_book(title)
+    book = @collection.detect { |book| book[:item][:title] == title }
+    if book[:available] == true
+    then 
+      book[:available] = false
+      book[:return_date] = book_return_date
+    return { message: 'checkout of book success'}
+    end
+    
+  end
+
 end

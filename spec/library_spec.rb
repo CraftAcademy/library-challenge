@@ -28,8 +28,14 @@ describe Library do
   end
 
   it 'is expected to have a return date within 30 days' do
-    book_return_date = YAML.load_file('./lib/data.yml').select { |book| book[:return_date] == Date.today.next_month }
+    book_return_date = YAML.load_file('./lib/data.yml').select { |book| book[:return_date] != nil }
     # binding.pry
-    expect(subject.book_return_date).to be < :return_date
+    expect(subject.book_return_date(Date.today)).to be <= :return_date
+  end
+
+  it 'is expected to checkout a book succesfully' do
+    expected_output = {:message=>'checkout of book success'}
+    # binding.pry
+    expect(subject.checkout_book('Star Trek')).to eq expected_output
   end
 end
