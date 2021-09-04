@@ -1,12 +1,10 @@
-# date.next_month can be used to
-# put 30 days for books to be returned
 require 'yaml'
 require 'date'
 
 class Library
   attr_accessor :collection, :return_date
 
-  def initialize
+  def initialize(attrs = {})
     @collection = YAML.load_file('./lib/data.yml')
   end
 

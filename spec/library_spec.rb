@@ -1,17 +1,17 @@
 require_relative '../lib/library'
 require 'date'
-require 'pry'
+
 
 describe Library do
   after do
     # YAML source info https://medium.com/launch-school/storing-objects-in-yaml-with-ruby-d02c60e0dc65
-    test_data = YAML.load_file('./lib/data_test.yml')
+    test_data = YAML.load_file('./lib/data_unchanged.yml')
     File.open('./lib/data.yml', 'w') { |file| file.write test_data.to_yaml }
   end
 
   # let(:objects) { instance_double() }
 
-  subject { described_class.new }
+  # subject { described_class.new }
 
   it 'is expected to show a list of books' do
     expect(subject.collection).to_not eq nil
