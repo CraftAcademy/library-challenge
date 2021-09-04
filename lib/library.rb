@@ -2,7 +2,7 @@ require 'yaml'
 require 'date'
 
 class Library
-  attr_accessor :available_books
+  attr_accessor :available_books, :collection
 
   def initialize
     # maybe change into ALL Books and create available books with private method below.
@@ -19,6 +19,6 @@ class Library
   private
 
   def book_available
-    @collection.select { |book| book[:available] = true }
+    @collection.select { |book| book[:book][:available] == true }
   end
 end

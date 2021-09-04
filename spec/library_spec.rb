@@ -8,8 +8,15 @@ describe Library do
 
   it 'is expected to check out books' do
     title = 'Alfons och soldatpappan'
-    expected_output = { status: true, message: 'Enjoy', date: Date.today, exp_date: Date.today.next_month }
-    #binding.pry
+    expected_output = { status: true, message: 'Enjoy', date: Date.today, exp_date: Date.today.next_month }    
     expect(subject.checkout(title)).to eq expected_output
   end
+
+  it 'is expected that when a book is checked out, it is no longer available' do
+      binding.pry
+      #subject.checkout(title)
+
+  end
+
+
 end
