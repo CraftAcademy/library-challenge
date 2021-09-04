@@ -13,9 +13,10 @@ describe Library do
   end
 
   it 'is expected that when a book is checked out, it is no longer available' do
-      binding.pry
-      #subject.checkout(title)
-
+      #binding.pry
+      subject.checkout('Pippi Långstrump')
+      checkedout_book = subject.collection.detect { |book| book[:book][:title] == 'Pippi Långstrump' }
+      expect(checkedout_book[:available]).to eq false
   end
 
 
