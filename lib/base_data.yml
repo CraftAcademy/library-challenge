@@ -3,7 +3,7 @@
     :title: Oliver Twist
     :author: Charles Dickens
   :available: true
-  :return_date:
+  :return_date: 
 - :book:
     :title: The Expanse
     :author: James S. A. Corey
@@ -13,19 +13,19 @@
     :title: Name Of The Wind
     :author: Patrick Rothfuss
   :available: true
-  :return_date:
+  :return_date: 
 - :book:
     :title: The Way Of Kings
     :author: Brandon Sanderson
   :available: true
-  :return_date:
+  :return_date: 
 - book:
     :title: Code
     :author: Petzold Charles
     :available: false
-    :return_date: "2021-09-15"
+    :return_date: '2021-09-15'
 - :book:
     :title: Pippi Långstrump
     :author: Astrid Lindgren
   :available: true
-  :return_date:
+  :return_date: 

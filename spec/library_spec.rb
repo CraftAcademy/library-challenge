@@ -9,7 +9,7 @@ describe Library do
                                                           return_date: nil
   end
 
-  it 'is expected tobe able to search for books by author' do
+  it 'is expected to be able to search for books by author' do
     expect(subject.search_for_author('James S. A. Corey')).to eq book: { author: 'James S. A. Corey',
                                                                          title: 'The Expanse' }, available: true,
                                                                  return_date: nil
@@ -21,4 +21,3 @@ describe Library do
                                                       return_date: nil
   end
 end
-
