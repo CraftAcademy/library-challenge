@@ -2,6 +2,12 @@ require './lib/library'
 require 'date'
 
 describe Library do
+  after(:all) do
+    puts "Resetting data.yml using test_data.yml"
+    collection = YAML.load_file('./lib/test_data.yml')
+    File.open('./lib/data.yml', 'w') { |file| file.write collection.to_yaml }
+  end
+  
   it 'is expected to contain books' do
     expect(subject.available_books).to be_truthy
   end
@@ -17,7 +23,8 @@ describe Library do
     title = 'Alfons och soldatpappan'
     return_date = subject.collection.detect { |book| book[:book][:title] == title }[:return_date]
     subject.collection.detect { |book| book[:book][:title] == title }[:available] = false
-    expected_output = { status: false, message: "#{title} is not available, please come back after #{return_date.strftime('%D')}.", date: Date.today }
+    expected_output = { status: false,
+                        message: "#{title} is not available, please come back after #{return_date.strftime('%D')}.", date: Date.today }
     expect(subject.checkout(title)).to eq expected_output
   end
 

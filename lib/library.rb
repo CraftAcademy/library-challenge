@@ -11,7 +11,8 @@ class Library
   end
 
   def checkout(title)
-    collection.detect { |book| book[:book][:title] == title }[:available] ? successful_checkout(title) : unsuccessful_checkout(title)
+    title_availability(title) ? successful_checkout(title) : unsuccessful_checkout(title)
+    #collection.detect { |book| book[:book][:title] == title }[:available] ? successful_checkout(title) : unsuccessful_checkout(title)
   end
 
   private
@@ -30,6 +31,10 @@ class Library
   def unsuccessful_checkout(title)
     return_date = collection.detect { |book| book[:book][:title] == title }[:return_date]
     { status: false, message: "#{title} is not available, please come back after #{return_date.strftime('%D')}.", date: Date.today }
+  end
+
+  def title_availability(title)
+    collection.detect { |book| book[:book][:title] == title }[:available]
   end
 
   def update_collection
