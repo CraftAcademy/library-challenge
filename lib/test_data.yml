@@ -1,25 +1,25 @@
 ---
-- :item:
+- :book:
     :title: Oliver Twist
     :author: Charles Dickens
   :available: false
-  :return_date:
-- :item:
+  :return_date: 
+- :book:
     :title: The Expanse
     :author: James S. A. Corey
   :available: true
-  :return_date:
-- :item:
+  :return_date: 
+- :book:
     :title: Name Of The Wind
     :author: Patrick Rothfuss
   :available: true
-  :return_date:
-- :item:
+  :return_date: 
+- :book:
     :title: The Way Of Kings
     :author: Brandon Sanderson
   :available: true
-  :return_date:
-- item:
+  :return_date: 
+- book:
     :title: Code
     :author: Petzold Charles
     :available: false

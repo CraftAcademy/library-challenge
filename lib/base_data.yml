@@ -1,30 +1,30 @@
 ---
-- :item:
+- :book:
     :title: Oliver Twist
     :author: Charles Dickens
   :available: true
   :return_date:
-- :item:
+- :book:
     :title: The Expanse
     :author: James S. A. Corey
   :available: true
   :return_date: 
-- :item:
+- :book:
     :title: Name Of The Wind
     :author: Patrick Rothfuss
   :available: true
   :return_date:
-- :item:
+- :book:
     :title: The Way Of Kings
     :author: Brandon Sanderson
   :available: true
   :return_date:
-- item:
+- book:
     :title: Code
     :author: Petzold Charles
     :available: false
     :return_date: "2021-09-15"
-- :item:
+- :book:
     :title: Pippi Långstrump
     :author: Astrid Lindgren
   :available: true
