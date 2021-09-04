@@ -16,15 +16,16 @@ class Library
   end
 
   def checkout_book(title)
-    # if search_for_title(title)[:available] == false
-    #   return 'unavailable'
+    if search_for_title(title)[:available] == false
+      'book unavailable'
 
-    # else
-    search_for_title(title)[:available] = false
+    else
+      search_for_title(title)[:available] = false
 
-    File.open('./lib/test_data.yml', 'w') { |f| f.write list_of_books.to_yaml }
-    # will change the availablity from true to false in the test file, but wont update on first iteration....
-    list_of_books.detect { |obj| obj[:book][:title].include? title }
-    # end
+      File.open('./lib/test_data.yml', 'w') { |f| f.write list_of_books.to_yaml }
+      # will change the availablity from true to false in the test file, but wont update on first iteration....
+      list_of_books.detect { |obj| obj[:book][:title].include? title }
+
+    end
   end
 end
