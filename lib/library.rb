@@ -6,12 +6,12 @@ require 'date'
 class Library
   attr_accessor :collection, :return_date
 
-  def initialize(_attrs = {})
+  def initialize
     @collection = YAML.load_file('./lib/data.yml')
   end
 
   def search(_book)
-    collection.select { |book| book[:item][:title] == book }
+    @collection.select { |book| book[:item][:title] == book }
   end
 
   def available_books
@@ -24,13 +24,13 @@ class Library
 
   def checkout_book(title)
     book = @collection.detect { |book| book[:item][:title] == title }
+    # binding.pry
     if book[:available] == true
-    then 
       book[:available] = false
       book[:return_date] = book_return_date
-    return { message: 'checkout of book success'}
-    end
-    
-  end
+      return { message: 'Checkout of book success! Please return by:', date: Date.today.next_month }
 
+    end
+    File.open('./lib/data.yml', 'w') { |file| file.write collection.to_yaml }
+  end
 end
