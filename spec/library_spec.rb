@@ -34,11 +34,18 @@ describe Library do
 
   it 'is expected that a book that is being checked out has a return date' do
     expect(subject.checkout_book('The Expanse')).to eq book: { author: 'James S. A. Corey',
-                                                        title: 'The Expanse' }, available: false,
-                                                return_date: Date.today.next_month
+                                                               title: 'The Expanse' }, available: false,
+                                                       return_date: Date.today.next_month
   end
 
-  it 'is expected to be able to search for all available books' do
-    expect(subject.list_available_books).to eq @list_of_books.detect { |obj| obj[:book][:available] == true}
+
+
+     #Test passing (false positive i think) its because its identical list_of_books.select in spec and method. 
+     #Maybe you can continue on it or replace with a test and method that weorks
+  describe do
+    list_of_books = YAML.load_file('./lib/base_data.yml')
+    it 'is expected to be able to search for all available books' do
+      expect(subject.list_available_books).to eq list_of_books.select { |obj| obj[:book][:available] == true }
+    end
   end
 end
