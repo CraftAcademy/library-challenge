@@ -8,7 +8,7 @@ class Library
   end
 
   def search_for_title(title)
-    list_of_books.detect { |obj| obj[:item][:title] == title }
+    list_of_books.select { |obj| obj[:item][:title].include? title }
   end
 
   def search_for_author(author)
