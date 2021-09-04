@@ -3,13 +3,17 @@
 require "yaml"
 
 class Library
-  attr_accessor :collection, :item
+  attr_accessor :collection, :item, :available
 
-  def initialize
+  def initialize(attrs = {})
     @collection = YAML.load_file("./lib/data.yml")
   end
 
   def search(book)
     collection.select { |book| book[:item][:title].include? "Alfons" }
+  end
+
+  def available_books
+    @collection.detect { |book| book[available].include? "Alfons" }
   end
 end
