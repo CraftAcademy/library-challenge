@@ -10,10 +10,10 @@ class Library
   end
 
   def search(book)
-    collection.select { |book| book[:item][:title].include? "Alfons" }
+    collection.select { |book| book[:item][:title] == book }
   end
 
   def available_books
-    @collection.detect { |book| book[:available] == true }
+    @collection.select { |book| book[:available] == true }
   end
 end
