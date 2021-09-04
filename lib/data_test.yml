@@ -3,29 +3,36 @@
     :title: Alfons och soldatpappan
     :author: Gunilla Bergström
   :available: true
-  :return_date:
+  :return_date: 
+
 - :item:
     :title: Alfie Atkins
     :author: Gunilla Bergström
   :available: false
   :return_date: '2021-09-30'
+
 - :item:
     :title: Pippi och soldatpappan
     :author: Bunilla Bergström
   :available: false
   :return_date: '2000-01-01'
+
 - :item:
     :title: Star Trek
     :author: Gene Roddenberry
   :available: true
   :return_date:
+
 - :item:
     :title: The Prometheus Design
     :author: Sondra Marshak and Myrna Culbreath
   :available: true
   :return_date:
+
 - :item:
     :title: Mutiny on the Enterprise
     :author: Robert E. Vardeman
   :available: true
   :return_date:
+
+---
