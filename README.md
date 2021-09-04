@@ -11,9 +11,13 @@ As a library
 in order to help people loan books
 I want to display a list of available books.
 
+As a library
+in order to allow people to loan books
+I want to allow them to check out available books
 
-
-
+As a library
+in order to help people loan the books they want
+I want to inform them when unavailable books are due back
 
 
 
