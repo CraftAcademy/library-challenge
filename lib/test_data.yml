@@ -2,13 +2,13 @@
 - :item:
     :title: Oliver Twist
     :author: Charles Dickens
-  :available: true
+  :available: false
   :return_date:
 - :item:
     :title: The Expanse
     :author: James S. A. Corey
   :available: true
-  :return_date: 
+  :return_date:
 - :item:
     :title: Name Of The Wind
     :author: Patrick Rothfuss
@@ -23,4 +23,4 @@
     :title: Code
     :author: Petzold Charles
     :available: false
-    :return_date: "2021-09-15"
+    :return_date: '2021-09-15'
