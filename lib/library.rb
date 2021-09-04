@@ -14,6 +14,6 @@ class Library
   end
 
   def available_books
-    @collection.detect { |book| book[available].include? "Alfons" }
+    @collection.detect { |book| book[:available] == true }
   end
 end

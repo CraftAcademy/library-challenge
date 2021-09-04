@@ -16,7 +16,7 @@ describe Library do
   end
 
   it "it is expected to search for any available book by title or author" do
-    expected_output = YAML.load_file("./lib/data.yml").select { |book| book[:availble].include? "Alfons" }
+    expected_output = YAML.load_file("./lib/data.yml").detect { |book| book[:available] = true }
     expect(subject.available_books).to eq expected_output
   end
 
