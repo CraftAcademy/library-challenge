@@ -6,18 +6,25 @@ describe Library do
     expect(subject.available_books).to be_truthy
   end
 
-  it 'is expected to check out books' do
+  it 'is expected to check out available books' do
     title = 'Alfons och soldatpappan'
-    expected_output = { status: true, message: 'Enjoy', date: Date.today, exp_date: Date.today.next_month }    
+    expected_output = { status: true, message: "You've checked out #{title}", date: Date.today,
+                        return_date: Date.today.next_month }
     expect(subject.checkout(title)).to eq expected_output
   end
 
-  it 'is expected that when a book is checked out, it is no longer available' do
-      #binding.pry
-      subject.checkout('Pippi Långstrump')
-      checkedout_book = subject.collection.detect { |book| book[:book][:title] == 'Pippi Långstrump' }
-      expect(checkedout_book[:available]).to eq false
+  it 'is expected to not check out unavailable books' do
+    title = 'Alfons och soldatpappan'
+    return_date = subject.collection.detect { |book| book[:book][:title] == title }[:return_date]
+    subject.collection.detect { |book| book[:book][:title] == title }[:available] = false
+    expected_output = { status: false, message: "#{title} is not available, please come back after #{return_date.strftime('%D')}.", date: Date.today }
+    expect(subject.checkout(title)).to eq expected_output
   end
 
-
+  it 'is expected that after a book is checked out, it is no longer available' do
+    title = 'Pippi Långstrump'
+    subject.checkout(title)
+    checkedout_book = subject.collection.detect { |book| book[:book][:title] == title }
+    expect(checkedout_book[:available]).to eq false
+  end
 end

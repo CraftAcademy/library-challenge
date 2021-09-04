@@ -11,14 +11,28 @@ class Library
   end
 
   def checkout(title)
-    successful_checkout = { status: true, message: 'Enjoy', date: Date.today, exp_date: Date.today.next_month }
-    unsuccessful_checkout = { status: false, message: 'Not available', date: Date.today }
-    available_books.any? { |book| book[:book][:title] == title } ? successful_checkout : unsuccessful_checkout
+    collection.detect { |book| book[:book][:title] == title }[:available] ? successful_checkout(title) : unsuccessful_checkout(title)
   end
 
   private
 
   def book_available
-    @collection.select { |book| book[:book][:available] == true }
+    @collection.select { |book| book[:available] == true }
+  end
+
+  def successful_checkout(title)
+    collection.detect { |book| book[:book][:title] == title }[:available] = false
+    collection.detect { |book| book[:book][:title] == title }[:return_date] = Date.today.next_month
+    update_collection
+    { status: true, message: "You've checked out #{title}", date: Date.today, return_date: Date.today.next_month }
+  end
+
+  def unsuccessful_checkout(title)
+    return_date = collection.detect { |book| book[:book][:title] == title }[:return_date]
+    { status: false, message: "#{title} is not available, please come back after #{return_date.strftime('%D')}.", date: Date.today }
+  end
+
+  def update_collection
+    File.open('./lib/data.yml', 'w') { |file| file.write collection.to_yaml }
   end
 end
