@@ -1,5 +1,6 @@
 require './lib/library'
 require 'yaml'
+require 'date'
 
 describe Library do
   after do
@@ -24,10 +25,20 @@ describe Library do
   it 'is expected that a customer can check out a book' do
     expect(subject.checkout_book('The Expanse')).to eq book: { author: 'James S. A. Corey',
                                                                title: 'The Expanse' }, available: false,
-                                                       return_date: nil
+                                                       return_date: Date.today.next_month
   end
 
   it 'is expected that if a book is already checked out it should tell the user it is unavailable' do
-    expect(subject.checkout_book('Code')).to eq "book unavailable"
+    expect(subject.checkout_book('Code')).to eq 'book unavailable'
+  end
+
+  it 'is expected that a book that is being checked out has a return date' do
+    expect(subject.checkout_book('The Expanse')).to eq book: { author: 'James S. A. Corey',
+                                                        title: 'The Expanse' }, available: false,
+                                                return_date: Date.today.next_month
+  end
+
+  it 'is expected to be able to search for all available books' do
+    expect(subject.search_for_available).to eq @list_of_books.detect { |obj| obj[:book][:available] == true}
   end
 end

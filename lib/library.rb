@@ -1,4 +1,5 @@
 require 'yaml'
+require 'date'
 
 class Library
   attr_accessor :list_of_books
@@ -22,8 +23,9 @@ class Library
     else
       search_for_title(title)[:available] = false
 
+      search_for_title(title)[:return_date] = Date.today.next_month
+
       File.open('./lib/test_data.yml', 'w') { |f| f.write list_of_books.to_yaml }
-      # will change the availablity from true to false in the test file, but wont update on first iteration....
       list_of_books.detect { |obj| obj[:book][:title].include? title }
 
     end
