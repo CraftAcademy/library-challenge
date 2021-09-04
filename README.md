@@ -5,6 +5,18 @@ Team: August and Max
 
 Due date: Monday 6/9
 
+### User stories
+
+As a library
+in order to help people loan books
+I want to display a list of available books.
+
+
+
+
+
+
+
 Instructions
 -------
 Read this entire README carefully and follow all instructions.
@@ -54,3 +66,5 @@ Read this entire README carefully and follow all instructions.
 
 
 **Happy coding!**
+
+
