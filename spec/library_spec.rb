@@ -5,7 +5,7 @@ require 'date'
 describe Library do
   after do
     updated_list = YAML.load_file('./lib/test_data.yml')
-    File.open('./lib/_base_data.yml', 'w') { |f| f.write updated_list.to_yaml }
+    File.open('./lib/test_data.yml', 'w') { |f| f.write updated_list.to_yaml }
     # updated_list.detect { |obj| obj[:book][:title].include? title }
   end
 
@@ -39,6 +39,6 @@ describe Library do
   end
 
   it 'is expected to be able to search for all available books' do
-    expect(subject.search_for_available).to eq @list_of_books.detect { |obj| obj[:book][:available] == true}
+    expect(subject.list_available_books).to eq @list_of_books.detect { |obj| obj[:book][:available] == true}
   end
 end

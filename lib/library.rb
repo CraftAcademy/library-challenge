@@ -30,4 +30,8 @@ class Library
 
     end
   end
+
+  def list_available_books
+      list_of_books.select { |obj| obj[:book][:available] == true}
+  end
 end
