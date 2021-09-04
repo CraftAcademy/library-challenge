@@ -1,7 +1,9 @@
 ## Library Challenge
 ### Week 1 Ruby challenge
 
-Team: August and Max
+Team: August and Max   
+
+Due date: Monday 6/9
 
 Instructions
 -------
