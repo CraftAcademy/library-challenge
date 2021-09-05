@@ -29,9 +29,7 @@ describe Library do
   end
 
   it 'is expected that a customer can checkout a book' do
-    expect(subject.checkout_book('The Expanse')).to eq book: { author: 'James S. A. Corey',
-                                                               title: 'The Expanse' }, available: false,
-                                                       return_date: Date.today.next_month
+    expect(subject.checkout_book('The Expanse')).to eq ["Book checked out, please return", Date.today.next_month.strftime('%d/%m/%y')] 
   end
 
   it 'is expected that if a book is already checked out it should tell the user it is unavailable' do
@@ -39,9 +37,7 @@ describe Library do
   end
 
   it 'is expected that a book that is being checked out has a return date' do
-    expect(subject.checkout_book('The Expanse')).to eq book: { author: 'James S. A. Corey',
-                                                               title: 'The Expanse' }, available: false,
-                                                       return_date: Date.today.next_month
+    expect(subject.checkout_book('The Expanse')).to eq ["Book checked out, please return", Date.today.next_month.strftime('%d/%m/%y')]
   end
 
   it 'is expected that a customer can return a book' do

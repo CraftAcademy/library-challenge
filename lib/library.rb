@@ -22,11 +22,12 @@ class Library
     else
       checkout_search(title)[:available] = false
 
-      checkout_search(title)[:return_date] = Date.today.next_month
+      checkout_search(title)[:return_date] = Date.today.next_month.strftime('%d/%m/%y')
+
+      return 'Book checked out, please return', Date.today.next_month.strftime('%d/%m/%y')
 
       File.open('./lib/test_data.yml', 'w') { |f| f.write list_of_books.to_yaml }
       list_of_books.detect { |obj| obj[:book][:title].include? title }
-
     end
   end
 
