@@ -45,19 +45,19 @@ describe Library do
   end
 
   it 'is expected that when a book is checked out a name will be stored' do
-    expected_output = [{ book: { author: 'James S. A. Corey', title: 'The Expanse' }, available: true,
-                         return_date: nil, checked_out_by: 'Fraser' }]
-    expect(subject.checkout_book('The Expanse', 'Fraser')).to eq expected_output
+    expected_output = { book: { author: 'James S. A. Corey', title: 'The Expanse' }, available: false,
+                        return_date: Date.today.next_month.strftime('%d/%m/%y.'), checked_out_by: 'Fraser' }
+    expect(subject.checkout_book('The Expanse', visitor)).to eq expected_output
   end
 
   it 'is expected that a customer can return a book' do
-    expected_output = 'Book returned.' 
-    expect(subject.return_book('Oliver Twist')).to eq expected_output 
+    expected_output = 'Book returned.'
+    expect(subject.return_book('Oliver Twist')).to eq expected_output
   end
 
   it 'is expected to be able to search for all available books' do
-     list_of_books = YAML.load_file('./lib/base_data.yml')
-     expected_output = list_of_books.select { |obj| obj[:available] == true } 
+    list_of_books = YAML.load_file('./lib/base_data.yml')
+    expected_output = list_of_books.select { |obj| obj[:available] == true }
     expect(subject.list_available_books).to eq expected_output
   end
 end

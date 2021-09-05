@@ -28,7 +28,7 @@ class Library
 
       File.open('./lib/test_data.yml', 'w') { |f| f.write list_of_books.to_yaml }
 
-      return "Book checked out, please return #{Date.today.next_month.strftime('%d/%m/%y.')}"
+      return list_of_books.detect { |obj| obj[:book][:title].include? title } #"Book checked out, please return #{Date.today.next_month.strftime('%d/%m/%y.')}"
 
     end
   end
