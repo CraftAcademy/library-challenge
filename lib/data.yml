@@ -17,13 +17,15 @@
 - :item:
     :title: Star Trek
     :author: Gene Roddenberry
-  :available: true
+  :available: false
   :return_date:
+    :message: 'Please return by date: 2021-10-05'
 - :item:
     :title: The Prometheus Design
     :author: Sondra Marshak and Myrna Culbreath
-  :available: true
+  :available: false
   :return_date:
+    :message: 'Please return by date: 2021-10-05'
 - :item:
     :title: Mutiny on the Enterprise
     :author: Robert E. Vardeman

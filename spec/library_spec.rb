@@ -18,7 +18,7 @@ describe Library do
 
     expect(subject.search('Star Trek')).to eq expected_output
   end
-
+#needs more info, like return date displayed
   it 'is expected to show all available books' do
     expected_output = YAML.load_file('./lib/data.yml').select { |book| book[:available] == true }
     expect(subject.available_books).to eq expected_output
