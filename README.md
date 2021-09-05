@@ -2,7 +2,7 @@
 ### Week 1 Ruby challenge
 
 <h2>The Code</h2>
-This code has been written to simulate a virtual ATM, simulating the machine, an account on it, and a user interacting with the ATM.
+This code has been written to simulate a virtual library, simulating a application and a user interacting with it .
 
 <h2>Dependencies </h2>
 The dependencies are as follows:
