@@ -16,24 +16,24 @@ class Library
     list_of_books.select { |obj| obj[:book][:author].include? author }
   end
 
-  def checkout_book(title, name)
-    if checkout_search(title)[:available] == false
-      'Book unavailable.'
-    else
-      checkout_search(title)[:available] = false
+  # def checkout_book(title, name)
+  #   if checkout_search(title)[:available] == false
+  #     'Book unavailable.'
+  #   else
+  #     checkout_search(title)[:available] = false
 
-      checkout_search(title)[:return_date] = "#{Date.today.next_month.strftime('%d/%m/%y.')}"
+  #     checkout_search(title)[:return_date] = "#{Date.today.next_month.strftime('%d/%m/%y.')}"
 
-      checkout_search(title)[:checked_out_by] = name
+  #     checkout_search(title)[:checked_out_by] = name
 
-      File.open('./lib/test_data.yml', 'w') { |f| f.write list_of_books.to_yaml }
+  #     File.open('./lib/test_data.yml', 'w') { |f| f.write list_of_books.to_yaml }
 
-      #return list_of_books.detect { |obj| obj[:book][:title].include? title } 
+  #     #return list_of_books.detect { |obj| obj[:book][:title].include? title } 
       
-      return "Book checked out, please return #{Date.today.next_month.strftime('%d/%m/%y.')}"
+  #     return "Book checked out, please return #{Date.today.next_month.strftime('%d/%m/%y.')}"
 
-    end
-  end
+  #   end
+  # end
 
   def return_book(title)
     checkout_search(title)[:available] = true
