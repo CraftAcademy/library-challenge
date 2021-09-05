@@ -9,5 +9,7 @@ As the Library
 
 I would like to store the books titles and authors in a application.
 I would like to easily be able to see if the book is available or not.
-I would like that customers can checkout their books.
+I would like it so customers can checkout their books.
+I would like it so customers can return their books.
 I would like the books to have a return date of one month.
+ 

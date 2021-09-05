@@ -13,7 +13,7 @@ class Library
   end
 
   def search_for_author(author)
-    list_of_books.detect { |obj| obj[:book][:author] == author }
+    list_of_books.select { |obj| obj[:book][:author].include? author }
   end
 
   def checkout_book(title)
@@ -30,8 +30,17 @@ class Library
 
     end
   end
+  
+  def return_book(title)
+    search_for_title(title)[:available] = true
+
+      search_for_title(title)[:return_date] = nil
+
+      File.open('./lib/test_data.yml', 'w') { |f| f.write list_of_books.to_yaml }
+      list_of_books.detect { |obj| obj[:book][:title].include? title }
+  end
 
   def list_available_books
-      list_of_books.select { |obj| obj[:book][:available] == true}
+    list_of_books.select { |obj| obj[:book][:available] == true }
   end
 end
