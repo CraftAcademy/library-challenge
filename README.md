@@ -32,7 +32,7 @@ As a visitor \
 In order to see which date to return the book \
 I want a function that will give me a receipt on my return due date
 
-- ## Instructions
+## Instructions
 
 ### Enter code below in the terminal to load the Library class.
 
@@ -66,7 +66,7 @@ As a librarian I can check available books by typing:
 
 ```
 
-Enter code below in the terminal to load the Visitor class.
+### Enter code below in the terminal to load the Visitor class.
 
 ```
 
