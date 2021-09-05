@@ -2,13 +2,16 @@ require './lib/library'
 require 'date'
 
 describe Library do
-  let(:person) { instance_double('Person', name: 'Thomas', bookshelf: [{book: {title: 'Guinnues world records'}, return_date: Date.today.next_year}])}
+  let(:person) do
+    instance_double('Person', name: 'Thomas',
+                              bookshelf: [{ book: { title: 'Guinnues world records' }, return_date: Date.today.next_year }])
+  end
   after(:each) do
-    puts "Resetting data.yml using test_data.yml"
+    puts 'Resetting data.yml using test_data.yml'
     collection = YAML.load_file('./lib/test_data.yml')
     File.open('./lib/data.yml', 'w') { |file| file.write collection.to_yaml }
   end
-  
+
   it 'is expected to contain books' do
     expect(subject.available_books).to be_truthy
   end
@@ -37,14 +40,18 @@ describe Library do
   end
 
   it 'is expected to not checkout books to persons with overdue books' do
-    title = 'Pippi Långstrump'    
+    title = 'Pippi Långstrump'
     person.bookshelf.pop
-    person.bookshelf.append({book: {title: 'Alfons och soldatpappan'}, return_date: Date.today.next_month(-1)})
-    
+    person.bookshelf.append({ book: { title: 'Alfons och soldatpappan' }, return_date: Date.today.next_month(-1) })
+
     expected_output = { status: false,
-                        message: "Unavailable to checkout when having overdue books.", date: Date.today }
-    expect(subject.checkout(title, person)).to eq expected_output 
-    
+                        message: 'Unavailable to checkout when having overdue books.', date: Date.today }
+    expect(subject.checkout(title, person)).to eq expected_output
   end
 
+  it 'is expected to be able to add books to the catalog' do
+    new_book = { book: { title: 'Of Grammatology', author: 'Jacques Derrida' } }
+    subject.add_to_collection(new_book)
+    expect(subject.collection.detect { |book| book[:book] == new_book[:book] }[:book] == new_book[:book]).to be true
+  end
 end

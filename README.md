@@ -23,6 +23,10 @@ As a library
 in order to not checkout books to people who hadn't returned their books on time
 I want to check their bookshelf
 
+As a library
+in order to keep people interested in my collection
+I want to be able to add new titles to my collection
+
 
 Instructions
 -------

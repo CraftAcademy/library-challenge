@@ -13,11 +13,16 @@ class Library
   def checkout(title, person)
     if person.bookshelf[0][:return_date] < Date.today
       { status: false,
-      message: "Unavailable to checkout when having overdue books.", date: Date.today }
-    else 
+        message: 'Unavailable to checkout when having overdue books.', date: Date.today }
+    else
       title_availability(title) ? successful_checkout(title) : unsuccessful_checkout(title)
     end
-    #collection.detect { |book| book[:book][:title] == title }[:available] ? successful_checkout(title) : unsuccessful_checkout(title)
+    # collection.detect { |book| book[:book][:title] == title }[:available] ? successful_checkout(title) : unsuccessful_checkout(title)
+  end
+
+  def add_to_collection(arg = {})
+    collection.append({book: {title: arg[:book][:title], author: arg[:book][:author]}, available: true, return_date: ''})
+    update_collection
   end
 
   private
