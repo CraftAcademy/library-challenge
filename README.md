@@ -9,46 +9,79 @@
 Breaking down the user stories:
 
 As a librarian
+In order to check all books in my library
+I want a function to call all books in my library
+(library.collection)
+
+As a librarian
 In order to check available books
 I want a function to call available books
 (library.available_books)
 
+As a librarian
+In order to search for a specific book
+I want a function to search for specific book by entering a title
+(library.search(title))
+
 As a visitor
-In order to check available books
-I want a function to call available books
+In order to check available books followed by title and author
+I want a function to show available books with title and author
+(visitor.visitor_available_books)
 
-#### Based on the story above I exctracted these functions while writing the application:
+As a visitor
+In order to borrow a book the visitor needs to check the book out
+I want a function to make the visitor being able to check the book out
+(checkout_book(title))
 
-### The Visitor needs to be able to access the following
+As a visitor
+In order to see which date to return the book
+I want a function that will give me a receipt on my return due date
+(checkout_book(title))
 
-- List of available books in library, shows title and author
-- List of books currently in possesion, and the return dates
-- Able to checkout books
+## Instructions
+
+### Enter code below in the terminal to load the Library class.
 
 ```
+
+$irb
+>load 'lib/library.rb'
+
+```
+
+I can create a new library by typing:
+
+```
+
+> library = Library.new
+
+```
+
+I can see all books in the collection by typing:
+
+```
+> library.collection
+
+```
+
+As a librarian I can check available books by typing:
+
+```
+
+> library.available_books
+
+```
+
+Enter code below in the terminal to load the Visitor class.
+
+```
+
 $irb
 >load 'lib/visitor.rb'
 
-
 ```
 
-### The Library needs to have these functions
-
-- List of all books showing all data and return dates
-- List of available books in library, shows title and author
-- To store the data of available and unavailable books
-
-```
-$irb
->load 'lib/library.rb'
->libarary = Library.new
->libarary.collection
-
-
-
-```
-
-## Instructions
+As a visitor I can checkout an available book by typing:
 
 I can create a new visitor by typing:
 
@@ -62,7 +95,12 @@ As a visitor I can check available books by typing:
 > visitor.visitor_available_books
 ```
 
-As a visitor I can checkout an available book by typing:
+```
+> visitor.visitor_available_books
+```
+
+As a visitor I can checkout an available book and get a
+return date by typing:
 
 ```
 > visitor.checkout_book('title')

@@ -3,7 +3,6 @@ require "yaml"
 
 class Visitor
   TIME_RETURN_OPTION = 1
-  attr_accessor :visitor_available_books, :collection
 
   def initialize(_attrs = {})
     @collection = YAML.load_file("./lib/data.yml")
