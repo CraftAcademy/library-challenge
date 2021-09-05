@@ -19,4 +19,11 @@ describe Person do
     subject.checkout(title, library)
     expect(subject.bookshelf.detect { |book| book[:book][:title] == title }).not_to be nil
   end
+
+  it 'is expected to show a list of available book to the person' do
+      #book_available(library)
+      available_list = library.collection.select { |book| book[:available] == true }      
+      expect(subject.book_available(library)).to eq available_list
+  end
+
 end

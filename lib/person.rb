@@ -12,6 +12,10 @@ class Person
     library.checkout(title, self)
   end
 
+  def book_available(library)
+    library.available_books
+  end
+
   private
 
   def set_name(obj)

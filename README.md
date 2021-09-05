@@ -31,6 +31,10 @@ As a person
 in order to read books 
 I would like to check them out
 
+As a person
+in order to get the most out of my library
+I want to search for all books by author
+
 Instructions
 -------
 Read this entire README carefully and follow all instructions.
