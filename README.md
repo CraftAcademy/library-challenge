@@ -8,28 +8,28 @@
 
 ## Breaking down the user stories
 
-> As a librarian
-> In order to check all books in my library
+> As a librarian return
+> In order to check all books in my library  
 > I want a function to call all books in my library
 
-> As a librarian
-> In order to check available books
+> As a librarian  
+> In order to check available books  
 > I want a function to call available books
 
-> As a librarian
-> In order to search for a specific book
+> As a librarian  
+> In order to search for a specific book  
 > I want a function to search for specific book by entering a title
 
-> As a visitor
-> In order to check available books followed by title and author
+> As a visitor  
+> In order to check available books followed by title and author  
 > I want a function to show available books with title and author
 
-> As a visitor
-> In order to borrow a book the visitor needs to check the book out
+> As a visitor  
+> In order to borrow a book the visitor needs to check the book out  
 > I want a function to make the visitor being able to check the book out
 
-> As a visitor
-> In order to see which date to return the book
+> As a visitor  
+> In order to see which date to return the book  
 > I want a function that will give me a receipt on my return due date
 
 ## Instructions
