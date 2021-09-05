@@ -19,8 +19,8 @@ class Visitor
   def checkout_book(title)
     book = @collection.detect { |book| book[:item][:title] == title }
     # binding.pry
-    if book[:available] == true
-      book[:available] = false
+    if book[:available] == true ||
+      book[:available] = false ||
       book[:return_date] = book_return_date
       return { message: 'Checkout of book success! Please return by:', date: Date.today.next_month }
 
