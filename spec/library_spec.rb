@@ -49,10 +49,10 @@ describe Library do
   #   expect(subject.checkout_book('The Expanse', visitor.name)).to eq expected_output
   # end
 
-  it 'is expected that a customer can return a book' do
-    expected_output = 'Book returned.'
-    expect(subject.return_book('Oliver Twist')).to eq expected_output
-  end
+  # it 'is expected that a customer can return a book' do
+  #   expected_output = 'Book returned.'
+  #   expect(subject.return_book('Oliver Twist')).to eq expected_output
+  # end
 
   it 'is expected to be able to search for all available books' do
     list_of_books = YAML.load_file('./lib/base_data.yml')

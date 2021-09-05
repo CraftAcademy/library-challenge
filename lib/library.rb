@@ -50,8 +50,8 @@ class Library
   end
 end
 
-private
+# private
 
-def checkout_search(title)
-  list_of_books.detect { |obj| obj[:book][:title].include? title }
-end
+# def checkout_search(title)
+#   list_of_books.detect { |obj| obj[:book][:title].include? title }
+# end

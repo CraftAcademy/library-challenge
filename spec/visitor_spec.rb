@@ -27,4 +27,9 @@ describe Visitor do
     expected_output = "Book checked out, please return #{Date.today.next_month.strftime('%d/%m/%y.')}"
     expect(subject.checkout_book('The Expanse', 'Serge')).to eq expected_output
   end
+
+  it 'is expected that a customer can return a book' do
+    expected_output = 'Book returned.'
+    expect(subject.return_book('Oliver Twist')).to eq expected_output
+  end
 end

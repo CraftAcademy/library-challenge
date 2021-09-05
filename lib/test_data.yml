@@ -2,15 +2,15 @@
 - :book:
     :title: Oliver Twist
     :author: Charles Dickens
-  :available: false
-  :return_date: 06/10/21
-  :checked_out_by: Fraser
+  :available: true
+  :return_date:
+  :checked_out_by:
 - :book:
     :title: The Expanse
     :author: James S. A. Corey
-  :available: false
-  :return_date: 05/10/21.
-  :checked_out_by: Serge
+  :available: true
+  :return_date:
+  :checked_out_by:
 - :book:
     :title: Name Of The Wind
     :author: Patrick Rothfuss
