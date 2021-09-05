@@ -1,6 +1,4 @@
 require './lib/library'
-# require "yaml"
-# require "date"
 
 class Visitor
   attr_accessor :name, :list_of_books
@@ -37,13 +35,9 @@ class Visitor
 
       File.open('./lib/test_data.yml', 'w') { |f| f.write list_of_books.to_yaml }
 
-      # return list_of_books.detect { |obj| obj[:book][:title].include? title }
-
       "Book checked out, please return #{Date.today.next_month.strftime('%d/%m/%y.')}"
     end
   end
-
- 
 
   def return_book(title)
     database

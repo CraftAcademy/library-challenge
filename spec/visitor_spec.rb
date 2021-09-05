@@ -5,7 +5,7 @@ describe Visitor do
   after do
     updated_list = YAML.load_file('./lib/test_data.yml')
     File.open('./lib/test_data.yml', 'w') { |f| f.write updated_list.to_yaml }
-    # updated_list.detect { |obj| obj[:book][:title].include? title }
+    
   end
 
   subject { described_class.new(name: 'Serge') }
