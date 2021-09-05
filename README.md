@@ -27,6 +27,9 @@ As a library
 in order to keep people interested in my collection
 I want to be able to add new titles to my collection
 
+As a person
+in order to read books 
+I would like to check them out
 
 Instructions
 -------
