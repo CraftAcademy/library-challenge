@@ -6,7 +6,6 @@ class Visitor
   attr_accessor :name, :list_of_books
 
   def initialize(name)
-    # @list_of_books = nil
     @name = name
   end
 
@@ -44,9 +43,7 @@ class Visitor
     end
   end
 
-  def list_available_books
-    list_of_books.select { |obj| obj[:available] == true }
-  end
+ 
 
   def return_book(title)
     database
@@ -57,6 +54,11 @@ class Visitor
 
     File.open('./lib/test_data.yml', 'w') { |f| f.write list_of_books.to_yaml }
     'Book returned.'
+  end
+
+  def list_available_books
+    database
+    list_of_books.select { |obj| obj[:available] == true }
   end
 end
 
