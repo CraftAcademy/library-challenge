@@ -5,7 +5,9 @@ require 'yaml'
 
 describe Visitor do
   let(:library) { instance_double('Library', collection: YAML.load_file('./lib/data.yml')) }
-  # subject { described_class.new(library:) }
+
+  # subject { described_class.new(visitor: library) }
+
 
   after do
     # YAML source info https://medium.com/launch-school/storing-objects-in-yaml-with-ruby-d02c60e0dc65
@@ -20,6 +22,7 @@ describe Visitor do
   end
 
   it 'is expected to checkout a book successfully' do
+   
     expected_output = { message: 'Checkout of book success! Please return by:', date: Date.today.next_month }
     # binding.pry
     expect(subject.checkout_book('Star Trek')).to eq expected_output

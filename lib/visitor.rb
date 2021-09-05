@@ -1,15 +1,15 @@
-require './lib/library.rb'
+require './lib/library'
 require 'yaml'
 
 class Visitor
   attr_accessor :visitor_available_books, :collection
 
-  def visitor_available_books
-    YAML.load_file('./lib/data.yml').select { |book| book[:available] == true }
+  def initialize(_attrs = {})
+    @collection = YAML.load_file('./lib/data.yml')
   end
 
-  def available_books
-    @collection.select { |book| book[:available] == true }
+  def visitor_available_books
+    YAML.load_file('./lib/data.yml').select { |book| book[:available] == true }
   end
 
   def book_return_date

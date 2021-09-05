@@ -8,8 +8,8 @@ class Library
     @collection = YAML.load_file('./lib/data.yml')
   end
 
-  def search(_book)
-    @collection.select { |book| book[:item][:title] == book }
+  def search(book)
+    @collection.select { |book| book[:title] == book }
   end
 
   def available_books
