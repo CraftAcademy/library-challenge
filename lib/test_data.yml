@@ -4,7 +4,7 @@
     :author: Charles Dickens
   :available: true
   :return_date:
-  :checked_out_by: Fraser
+  :checked_out_by:
 - :book:
     :title: The Expanse
     :author: James S. A. Corey
