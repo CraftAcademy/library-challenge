@@ -6,11 +6,17 @@ class Visitor
   attr_accessor :name, :list_of_books
 
   def initialize(name)
-    @list_of_books = YAML.load_file('./lib/base_data.yml')
+    #@list_of_books = nil
     @name = name
   end
 
+  def database
+    @list_of_books = YAML.load_file('./lib/base_data.yml')
+  end
+
   def checkout_book(title, name)
+    database
+
     if checkout_search(title)[:available] == false
       'Book unavailable.'
     else
