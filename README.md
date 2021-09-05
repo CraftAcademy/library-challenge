@@ -19,6 +19,9 @@ As a library
 in order to help people loan the books they want
 I want to inform them when unavailable books are due back
 
+As a library 
+in order to not checkout books to people who hadn't returned their books on time
+I want to check their bookshelf
 
 
 Instructions

@@ -10,8 +10,13 @@ class Library
     @available_books = book_available
   end
 
-  def checkout(title)
-    title_availability(title) ? successful_checkout(title) : unsuccessful_checkout(title)
+  def checkout(title, person)
+    if person.bookshelf[0][:return_date] < Date.today
+      { status: false,
+      message: "Unavailable to checkout when having overdue books.", date: Date.today }
+    else 
+      title_availability(title) ? successful_checkout(title) : unsuccessful_checkout(title)
+    end
     #collection.detect { |book| book[:book][:title] == title }[:available] ? successful_checkout(title) : unsuccessful_checkout(title)
   end
 
@@ -30,7 +35,7 @@ class Library
 
   def unsuccessful_checkout(title)
     return_date = collection.detect { |book| book[:book][:title] == title }[:return_date]
-    { status: false, message: "#{title} is not available, please come back after #{return_date.strftime('%D')}.", date: Date.today }
+    { status: false, message: "#{title} is not available, please come back after #{return_date}.", date: Date.today }
   end
 
   def title_availability(title)
