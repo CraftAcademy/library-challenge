@@ -15,8 +15,7 @@ class Visitor
 
   def search_for_title(title)
     database
-    obj1 = list_of_books.select { |obj| obj[:book][:title].include? title }
-    "Here is a list of matching titles: #{obj1.slice(:title, :author)}" 
+    list_of_books.select { |obj| obj[:book][:title].include? title }
   end
 
   def search_for_author(author)
@@ -38,9 +37,13 @@ class Visitor
 
       File.open('./lib/test_data.yml', 'w') { |f| f.write list_of_books.to_yaml }
 
+      # return list_of_books.detect { |obj| obj[:book][:title].include? title }
+
       "Book checked out, please return #{Date.today.next_month.strftime('%d/%m/%y.')}"
     end
   end
+
+ 
 
   def return_book(title)
     database

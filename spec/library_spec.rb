@@ -14,9 +14,9 @@ describe Library do
   subject { described_class.new }
 
   it 'is expected to be able to search for books by title' do
-    expected_output = [{ book: { author: 'James S. A. Corey', title: 'The Expanse' }, available: true,
-                         return_date: nil, checked_out_by: nil }]
-    expect(subject.search_for_title('The Expanse')).to eq expected_output
+    expect(subject.search_for_title('The Expanse')).to eq [{ book: { author: 'James S. A. Corey',
+                                                                     title: 'The Expanse' }, available: true,
+                                                             return_date: nil, checked_out_by: nil }]
   end
 
   # it 'is expected to return a message saying the book is already checked out' do
@@ -24,14 +24,13 @@ describe Library do
   # end
 
   it 'is expected to be able to search for books by author' do
-    expected_output = [{ book: { author: 'James S. A. Corey', title: 'The Expanse' }, available: true, return_date: nil,
-                         checked_out_by: nil }]
-    expect(subject.search_for_author('James S. A. Corey')).to eq expected_output
+    expect(subject.search_for_author('James S. A. Corey')).to eq [{ book: { author: 'James S. A. Corey',
+                                                                            title: 'The Expanse' }, available: true,
+                                                                    return_date: nil, checked_out_by: nil }]
   end
 
   it 'is expected to be able to search for all available books' do
     list_of_books = YAML.load_file('./lib/base_data.yml')
-    expected_output = list_of_books.select { |obj| obj[:available] == true }
-    expect(subject.list_available_books).to eq expected_output
+    expect(subject.list_available_books).to eq list_of_books.select { |obj| obj[:available] == true }
   end
 end
