@@ -37,6 +37,13 @@ https://learn.craftacademy.co/courses/enrolled/645199
 
 Craft Academy Cohort 2021
 
+<h2> Updates/Improvement Plans</h2>
+
+Ability to see what books you have checked out already
+Improve search method return messages.
+Ability to donate a book to the library.
+Not being allowed to check out a book if you have overdue books.
+
 <h2>License</h2>
 MIT License
 
