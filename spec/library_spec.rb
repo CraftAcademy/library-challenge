@@ -47,7 +47,7 @@ describe Library do
   it 'is expected that when a book is checked out a name will be stored' do
     expected_output = { book: { author: 'James S. A. Corey', title: 'The Expanse' }, available: false,
                         return_date: Date.today.next_month.strftime('%d/%m/%y.'), checked_out_by: 'Fraser' }
-    expect(subject.checkout_book('The Expanse', visitor)).to eq expected_output
+    expect(subject.checkout_book('The Expanse', visitor.name)).to eq expected_output
   end
 
   it 'is expected that a customer can return a book' do
