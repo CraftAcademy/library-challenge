@@ -1,0 +1,21 @@
+---
+- :item:
+    :title: Harry Potter and Philosopher's Stone
+    :author: J. K. Rowling
+  :available: true
+  :return_date:
+- :item:
+    :title: Harry Potter and Chamber of Secrets
+    :author: J. K. Rowling
+  :available: false
+  :return_date: "2021-12-25"
+- :item:
+    :title: Silk
+    :author: Aleksandro Bariko
+  :available: true
+  :return_date:
+- :item:
+    :title: Argrā Rūsa
+    :author: Elīna Zālīte
+  :available: true
+  :return_date:
