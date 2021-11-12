@@ -49,4 +49,4 @@ Read this entire README carefully and follow all instructions.
 * The `README.md` includes information on how to use your solution with command examples in `irb`. (Feel free to remove this text)
 
 
-**Happy coding!**
+** More Happy coding!**
