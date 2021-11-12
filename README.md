@@ -7,13 +7,13 @@ I am supposed to imagine that I am approached by library and they have these req
 
 ### Requirements translated into USER STORIES
 
+As a library
+In order to be able to inform our visitors about all books we have
+I want to display all books
+
 As a visitor
 In order to take a book
 I want to see list of available books
-
-As a library
-In order to be able to give a book to our visitors
-I want to display available books
 
 As a visitor
 In order to choose a book
