@@ -15,7 +15,7 @@
   :available: true
   :return_date:
 - :item:
-    :title: Argrā Rūsa
+    :title: Agrā Rūsa
     :author: Elīna Zālīte
-  :available: true
-  :return_date:
+  :available: false
+  :return_date: "2021-11-30"
