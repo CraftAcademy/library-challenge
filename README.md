@@ -50,3 +50,45 @@ Read this entire README carefully and follow all instructions.
 
 
 **Happy coding!**
+
+Requirements
+-------
+
+We are approached by a newly built library. They need an app to keep track of all their books. Luckily they have only received a handful of books so far and this is the perfect time to create a prototype application that will keep track of the books.
+
+> *“We need an app where both the visitors and the library can see if a list of books is available, it would be nice to see both the title and the author of the book. The library needs to store these books in a file where we can easily check if a book is available or not. The library also needs the visitors to check out books after finding the title they want. Depending on the time of the checkout the library needs the books to be returned within a month and obviously, it would be nice for the visitor to know which date to return the book.”*
+
+From the description above, I am able to extract the following user stories:
+
+> As a library visitor/employee
+> In order to check if a book is available
+> I want to have a list of books with availability, title and author.
+
+> As a book
+> In order to save my information
+> I need to have a title, an author, and availability
+
+> As a library employee
+> In order to check a book availability
+> I want to store these books in a file
+
+> As a library employee
+> In order to keep track of the books availability
+> I want to store information about who checked out the book
+
+> As a library employee
+> In order to search of a book in my list
+> I want to be able to make a search by title
+
+> As a library employee
+> In order to keep the books available to every visitor
+> I want to give 1 month period for lending a book
+
+> As a visitor
+> In order to remember when I am supposed to return the book
+> I want to know which date I'm due to return the book
+
+> As a person
+> In order to keep track of the books in my possession
+> I want to have a list of books with the return date
+
