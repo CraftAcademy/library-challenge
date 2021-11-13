@@ -12,4 +12,8 @@ describe Book do
     expect(subject.author).to eq 'George Orwell'
   end
 
+  it 'is expected to raise an error if no title is set' do
+    expect { described class }.to raise_error "A title is required"
+  end
+
 end
