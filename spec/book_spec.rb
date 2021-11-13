@@ -18,4 +18,14 @@ describe Book do
   it "is expected to raise an error if no author is set" do
     expect { described_class.new(title: "The Alchemist") }.to raise_error "An author is required"
   end
+
+  it "is expected to being able to change title attribute" do
+    expect { subject.title = "The Picture of Dorian Gray" }
+      .to change { subject.title }.from("1984").to("The Picture of Dorian Gray")
+  end
+
+  it "is expected to being able to change author attribute" do
+    expect { subject.author = "Oscar Wilde" }
+      .to change { subject.author }.from("George Orwell").to("Oscar Wilde")
+  end
 end
