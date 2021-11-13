@@ -1,7 +1,8 @@
 class Library
-  attr_accessor :all_books
+  attr_accessor :all_books, :available_books
   def initialize
     @all_books = YAML.load_file('./lib/data.yml')
+    @available_books = find_available_books
   end
 
   def find_available_books
@@ -16,5 +17,25 @@ class Library
       available_books.push(author_and_title_only)
     end
     return available_books
+  end
+
+  def checkout(selected_title)
+    selected_book =
+      @available_books.find { |book| book[:title].include? selected_title }
+
+    title = selected_book[:title]
+    author = selected_book[:author]
+    return_date = Date.today.next_month
+    return(
+      "Visitor have checked out #{title} by #{author} and will return it before #{return_date} "
+    
+  end
+
+  private
+
+  def available?(selected)
+    @search_results =
+      @all_books.select { |book| book[:item][:title].include? selected }
+    @search_results == [] ? false : true
   end
 end

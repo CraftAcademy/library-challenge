@@ -15,7 +15,7 @@ RSpec.describe Library do
       },
       { title: 'Silk', author: 'Aleksandro Bariko' },
     ]
-    expect(subject.find_available_books).to eq expected_output
+    expect(subject.available_books).to eq expected_output
   end
 
   it 'is expected to see a return date when a book is checked out' do
@@ -23,7 +23,7 @@ RSpec.describe Library do
     author = 'J. K. Rowling'
     return_date = Date.today.next_month
     expected_output =
-      "You have checked out #{title} by #{author} and you need to return it before #{return_date} "
+      "Visitor have checked out #{title} by #{author} and will return it before #{return_date} "
     expect(subject.checkout(title)).to eq expected_output
   end
 end
