@@ -1,5 +1,4 @@
 class Book
-
   attr_accessor :title, :author
 
   def initialize(args = {})
@@ -24,5 +23,4 @@ class Book
   def set_title(title)
     title == nil ? missing_title : title
   end
-
 end
