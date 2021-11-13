@@ -26,4 +26,9 @@ RSpec.describe Library do
       "Visitor have checked out #{title} by #{author} and will return it before #{return_date} "
     expect(subject.checkout(title)).to eq expected_output
   end
+
+  it 'is expected to not be able to check out book that is not available' do
+    title = 'Harry Potter and Philosopher\'s Stone'
+    author = 'J. K. Rowling'
+  end
 end
