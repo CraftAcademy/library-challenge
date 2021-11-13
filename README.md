@@ -17,7 +17,7 @@ I want to see list of available books
 
 As a visitor
 In order to choose a book
-I want to see the author and the title of the book
+I want to see the author and the title of available books
 
 As a library
 In order to give the right book

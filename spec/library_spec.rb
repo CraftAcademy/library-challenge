@@ -6,25 +6,14 @@ RSpec.describe Library do
     expect(subject.all_books).to be_truthy
   end
 
-  it 'is expected to see available books' do
+  it 'is expected to see title and author of available books' do
     expected_output = [
       {
-        item: {
-          title: "Harry Potter and Philosopher's Stone",
-          author: 'J. K. Rowling',
-        },
-        available: true,
-        return_date: nil,
+        title: "Harry Potter and Philosopher's Stone",
+        author: 'J. K. Rowling',
       },
-      {
-        item: {
-          title: 'Silk',
-          author: 'Aleksandro Bariko',
-        },
-        available: true,
-        return_date: nil,
-      },
+      { title: 'Silk', author: 'Aleksandro Bariko' },
     ]
-    expect(subject.available_books).to eq expected_output
+    expect(subject.find_available_books).to eq expected_output
   end
 end
