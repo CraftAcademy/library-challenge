@@ -60,35 +60,35 @@ We are approached by a newly built library. They need an app to keep track of al
 
 From the description above, I am able to extract the following user stories:
 
-> As a library visitor/employee
-> In order to check if a book is available
+> As a library visitor/employee  
+> In order to check if a book is available  
 > I want to have a list of books with availability, title and author.
 
-> As a book
-> In order to save my information
+> As a book  
+> In order to save my information  
 > I need to have a title, an author, and availability
 
-> As a library employee
-> In order to check a book availability
+> As a library employee  
+> In order to check a book availability  
 > I want to store these books in a file
 
-> As a library employee
-> In order to keep track of the books availability
+> As a library employee  
+> In order to keep track of the books availability  
 > I want to store information about who checked out the book
 
-> As a library employee
-> In order to search of a book in my list
+> As a library employee  
+> In order to search of a book in my list  
 > I want to be able to make a search by title
 
-> As a library employee
-> In order to keep the books available to every visitor
+> As a library employee  
+> In order to keep the books available to every visitor  
 > I want to give 1 month period for lending a book
 
-> As a visitor
-> In order to remember when I am supposed to return the book
+> As a visitor  
+> In order to remember when I am supposed to return the book  
 > I want to know which date I'm due to return the book
 
-> As a person
-> In order to keep track of the books in my possession
+> As a person  
+> In order to keep track of the books in my possession  
 > I want to have a list of books with the return date
 
