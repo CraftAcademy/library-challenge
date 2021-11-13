@@ -1,0 +1,26 @@
+---
+- :book:
+    :title: En världsomsegling under havet
+    :author: Jules Verne
+  :available: true
+  :return_date:
+- :book:
+    :title: Sömnlös
+    :author: Wilhelm Moberg
+  :available: false
+  :return_date: '2021-01-25'
+- :book:
+    :title: Utvandrarna
+    :author: Wilhelm Moberg
+  :available: true
+  :return_date:
+- :book:
+    :title: Samhällets olycksbarn
+    :author: Victor Hugo
+  :available: true
+  :return_date:
+- :book:
+    :title: Ringaren i Notre-dame
+    :author: Victor Hugo
+  :available: true
+  :return_date:
