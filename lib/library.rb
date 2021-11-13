@@ -9,11 +9,11 @@ class Library
     available_books_all_fields =
       @all_books.select { |book| book[:available] == true }
     available_books_all_fields.each do |book|
-      trimmed_book = {
+      author_and_title_only = {
         author: book[:item][:author],
         title: book[:item][:title],
       }
-      available_books.push(trimmed_book)
+      available_books.push(author_and_title_only)
     end
     return available_books
   end
