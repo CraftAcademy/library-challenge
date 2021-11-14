@@ -21,10 +21,19 @@ describe Library do
       }
       expect(subject.add_book_to_inventory).to eq expected_output
     end
+
+    it "is expected to raise an error if no book has been created" do
+      subject.book = nil
+      expect { subject.add_book_to_inventory }.to raise_error "A book is required"
+    end
   end
 
   describe "can find a book in the inventory" do
     xit "is expected to find a book by title" do
+      expected_output = {
+        status: true,
+        message: "#{subject.book.title} found"
+      }
       expect(subject.find_book(title: "Animal Farm")).to eq
     end
   end

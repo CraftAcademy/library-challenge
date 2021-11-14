@@ -31,7 +31,7 @@ class Library
       book: { title: @book.title,
               author: @book.author },
       available: @available,
-      return_date: @return_date,
+      return_date: @return_date
     }
     array = load_yml_file
     array.push new_book
