@@ -11,9 +11,9 @@ class Library
   def add_book_to_inventory(available = true, return_date = nil)
     @book.nil? ? missing_book : add_book_to_yml_file(available, return_date)
 
-    response = {
+    {
       status: true,
-      message: "#{@book.title} by #{@book.author} added to the inventory",
+      message: "#{@book.title} by #{@book.author} added to the inventory"
     }
   end
 
