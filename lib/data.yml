@@ -1,40 +1,40 @@
 ---
-- :item:
+- :book:
     :title: Oathbreaker
     :author: Brandon Sanderson
   :availible: true
   :return_date: 
-- :item:
+- :book:
     :title: Mistborn
     :author: Brandon Sanderson
   :availible: true
   :return_date: 
-- :item:
+- :book:
     :title: Lord of the Rings
     :author: Tolkien
   :availible: true
   :return_date: 
-- :item:
+- :book:
     :title: Hobbit
     :author: Tolkien
   :availible: true
   :return_date: 
-- :item:
+- :book:
     :title: Why nations fail
     :author: Daron Acemoglu
   :availible: true
   :return_date: 
-- :item:
+- :book:
     :title: Warbreaker
     :author: Brandon Sanderson
   :availible: true
   :return_date: 
-- :item:
+- :book:
     :title: Letter to my Daughter
     :author: Yanis Varfkouris
   :availible: true
   :return_date: 
-- :item:
+- :book:
     :title: Adults in the room
     :author: Yanis Varfkouris
   :availible: true

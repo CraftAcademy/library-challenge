@@ -1,7 +1,6 @@
-require "date"  #irb syntax for initializing calsses ATM challenge: "> person = Person.new({:name => "Mathias"})"
 require "./lib/library_fs.rb"
+require "date"  
 
-# mathias = Person.new({:account => "mlj"})
 
 
 class Person
