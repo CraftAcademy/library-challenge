@@ -48,5 +48,24 @@ Read this entire README carefully and follow all instructions.
 * The code is easy to follow: every class has a clear responsibility, methods are short, code is nicely formatted, etc.
 * The `README.md` includes information on how to use your solution with command examples in `irb`. (Feel free to remove this text)
 
+##### USER STORIES #####
+As a library
+We require an interactive database of our books 
+To track books available, unavailable and returns due. 
 
-** More Happy coding!**
+As a library 
+We require a list of borrowers, items borrowed and return dates
+To manage the timely return of items
+
+As a reader
+We require a database of books
+To show the books in their library and their availability
+
+As a reader 
+We require method to take out books
+To show books taken out and their return date. 
+
+As a reader 
+We require method to return books
+To show books are returns and available again 
+
