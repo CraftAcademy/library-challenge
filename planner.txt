@@ -1,0 +1,11 @@
+*Tests to build
+
+**1.	Do all books have an: author, title and availability status
+**2.	Can the database list books available? 
+**3.	Can the database show books unavailable, their return date & borrower?
+**4.	Can a user check out a book 
+**5.	Does the book show the correct return due-date
+**6.	Can a user return a book?
+**7.	Does the returned book status update correctly 
+
+

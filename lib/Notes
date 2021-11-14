@@ -1,0 +1,11 @@
+
+Book1 {author(string), title (string), status: in / out availability (Boolean), borrower, return_due date (number))
+Books2 etc….
+[populate the book with yaml database]
+*if status is in >  borrower, return_due_date = nil
+
+If status is out > borrower = x, return_due_date = today.date +month
+
+Define – check out book (status out, borrower = x,  return date = today + month)
+
+Define – return book (status in, borrower & return due = n/a)
