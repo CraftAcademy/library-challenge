@@ -1,4 +1,4 @@
-require "./lib/user.rb"
+require "./lib/library.rb"
 require "pry"
 
 describe Library do
@@ -6,8 +6,8 @@ describe Library do
 
   let(:user) {instance_double("User", example_user: "Loanrobot")}
 
-  it "is expected for user to search to see if book is available" do
-    
+  it "is expected for library to contain books" do
+    expect(subject.books).to eq YAML.load_file('./lib/data.yml')
   end
 
   it "is expected that user can checkout a book" do
