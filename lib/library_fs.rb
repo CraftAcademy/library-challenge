@@ -1,19 +1,23 @@
 require "date"
-require "./lib/book.rb"
+require "./lib/person.rb"
 #require "./lib/data.yml"
 require 'yaml'
 
 class Library
-    attr_accessor :author, :book, :title
+    attr_accessor :author, :book, :title, :books_availible
 
     def initialize() #only need to read the YAML file to check for books
-        collection = YAML.load_file('./lib/data.yml')
+        @collection = YAML.load_file('./lib/data.yml')
+        @books_availible
 
+    end
+
+    def create_book(args = {})
+        @book = Book.new({ author: args[:author], title: args[:title]})
     end
 
     def file_book(author, title)
         @book = Book.new({ author: self.author, title: self.title})
-        @bookID = generate_bookID()
         @status = :active
         @return_date = nil
         File.open('./lib/data.yml', 'w') {|file| file.write(lib.to_yaml)}

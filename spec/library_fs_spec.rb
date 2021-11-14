@@ -1,5 +1,5 @@
 require "./lib/library_fs.rb"
-require "./lib/book.rb"
+require "./lib/person.rb"
 require "date"
 
 describe Book do
