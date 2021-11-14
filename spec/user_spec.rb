@@ -3,8 +3,6 @@ require "./lib/user.rb"
 Rspec.describe User do
   subject { User.new } #keeping temporarily for clarity
 
-  let(:user) { instance_double("User", name: "example_user") }
-
   it "is expected for user to see if book is available" do
   end
 
