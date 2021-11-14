@@ -13,13 +13,8 @@ class Library
 
     response = {
       status: true,
-      message: "#{@book.title} by #{@book.author} added to the inventory"
+      message: "#{@book.title} by #{@book.author} added to the inventory",
     }
-    # if book_missing?
-    # else
-    #   @available = available
-    #   @return_date = return_date
-    # end
   end
 
   private
@@ -32,7 +27,22 @@ class Library
     @available = available
     @return_date = return_date
 
-    array = [book: { title: @book.title, author: @book.author }, available: @available, return_date: @return_date]
+    new_book = {
+      book: { title: @book.title,
+              author: @book.author },
+      available: @available,
+      return_date: @return_date,
+    }
+    array = load_yml_file
+    array.push new_book
+    write_to_yml_file(array)
+  end
+
+  def load_yml_file
+    YAML.load_file("./library_data.yml")
+  end
+
+  def write_to_yml_file(array)
     File.open("./library_data.yml", "w") { |file| file.write(array.to_yaml) }
   end
 end
