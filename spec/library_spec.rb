@@ -10,6 +10,14 @@ describe Library do
     expect(subject.books).to eq YAML.load_file('./lib/data.yml')
   end
 
+  it "is ecpected for a user to search for a books author" do
+    expected_output = [{:book=>{:title=>"Sömnlös", :author=>"Wilhelm Moberg"}, 
+    :available=>false, :return_date=>"2021-01-25"}, {:book=>{:title=>"Utvandrarna", 
+    :author=>"Wilhelm Moberg"}, :available=>true, :return_date=>nil}]
+    
+    expect(subject.search_book_author).to eq expected_output
+  end
+
   it "is expected that user can checkout a book" do
   end
 
