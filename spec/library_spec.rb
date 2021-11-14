@@ -1,4 +1,5 @@
 require "./lib/library.rb"
+require "date"
 
 describe Library do
   let(:book) { instance_double("Book", title: "Animal Farm", author: "George Orwell") }
@@ -32,7 +33,7 @@ describe Library do
     it "is expected to find a book by title" do
       expected_output = {
         status: true,
-        message: "Animal Farm found"
+        message: "Animal Farm found",
       }
       expect(subject.find_book(title: "Animal Farm")).to eq expected_output
     end
@@ -49,6 +50,12 @@ describe Library do
 
     it "is expected to welcome visitors" do
       expect(subject.visitor).to be_an_instance_of Visitor
+    end
+
+    it "is expected to return message with visitor name and return date" do
+      subject.find_book(title: "Animal Farm")
+      expected_output = "#{subject.visitor.name} has to return #{subject.book.title} no later than #{Date.today.next_month(1).strftime("%d/%m/%Y")}"
+      expect(subject.lend_book).to eq expected_output
     end
   end
 end

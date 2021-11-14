@@ -2,11 +2,16 @@
 - :book:
     :title: Animal Farm
     :author: George Orwell
-  :available: true
-  :return_date: 
+  :available: false
+  :return_date: 14/12/2021
 - :book:
     :title: Animal Farm
     :author: George Orwell
+  :available: true
+  :return_date: 
+- :book:
+    :title: The Picture of Dorian Gray
+    :author: Oscar Wilde
   :available: true
   :return_date: 
 - :book:

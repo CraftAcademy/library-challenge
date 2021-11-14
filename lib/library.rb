@@ -1,6 +1,7 @@
 require "./lib/book.rb"
 require "./lib/visitor.rb"
 require "yaml"
+require "date"
 
 class Library
   attr_accessor :book, :available, :return_date, :visitor
@@ -22,7 +23,8 @@ class Library
     if args[:title].nil?
       missing_title
     else
-      result = search_book(args[:title])
+      result = search_book(title: args[:title], available: true)
+      # binding.pry
       if result.nil?
         {
           status: false,
@@ -44,6 +46,13 @@ class Library
     @visitor = Visitor.new(name: args[:name])
   end
 
+  def lend_book
+    result = search_book(title: @book.title, available: true)
+    check_out_book(result)
+    #Missing updating Visitor data 
+    "#{@visitor.name} has to return #{@book.title} no later than #{@return_date}"
+  end
+
   private
 
   def missing_book
@@ -54,9 +63,9 @@ class Library
     raise "A title is required"
   end
 
-  def search_book(title)
+  def search_book(args = {})
     array = load_yml_file
-    array.detect { |item| item[:book][:title] == title }
+    array.detect { |item| item[:book][:title].include?(args[:title]) && (item[:available] == args[:available])}
   end
 
   def add_book_to_yml_file(available, return_date)
@@ -71,6 +80,28 @@ class Library
     }
     array = load_yml_file
     array.push new_book
+    write_to_yml_file(array)
+  end
+
+  def check_out_book(args = {})
+    @book.title = args[:book][:title]
+    @book.author = args[:book][:author]
+    @available = false
+    @return_date = Date.today.next_month(1).strftime("%d/%m/%Y")
+    item = {
+      book: { title: @book.title,
+              author: @book.author },
+      available: @available,
+      return_date: @return_date,
+    }
+    update_book(item)
+  end
+
+  def update_book(args = {})
+    array = load_yml_file
+    index = array.index {|item| item[:book][:title].include?(args[:book][:title]) && (item[:available] == true)}
+    array[index][:available] = args[:available]
+    array[index][:return_date] = args[:return_date]
     write_to_yml_file(array)
   end
 
