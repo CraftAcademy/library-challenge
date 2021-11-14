@@ -12,6 +12,14 @@ describe Library do
   end
 
   describe "can add a book in the inventory" do
+    before { subject.create_book(title: book.title, author: book.author) }
 
+    it "is expected to add a book in the inventory" do
+      expected_output = {
+        status: true,
+        message: "#{book.title} by #{book.author} added to the inventory"
+      }
+      expect(subject.add_book_to_inventory).to eq expected_output
+    end
   end
 end
