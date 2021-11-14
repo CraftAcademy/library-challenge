@@ -7,7 +7,7 @@ class Library
   attr_accessor :book, :available, :return_date, :visitor
 
   def create_book(args = {})
-    @book = Book.new( title: args[:title], author: args[:author] )
+    @book = Book.new(title: args[:title], author: args[:author])
   end
 
   def add_book_to_inventory(available = true, return_date = nil)
@@ -48,8 +48,8 @@ class Library
 
   def lend_book
     result = search_book(title: @book.title, available: true)
-    check_out_book(result)
-    #Missing updating Visitor data 
+    item = check_out_book(result)
+    @visitor.save_book_receipt(item)
     "#{@visitor.name} has to return #{@book.title} no later than #{@return_date}"
   end
 
@@ -95,6 +95,7 @@ class Library
       return_date: @return_date
     }
     update_book(item)
+    item
   end
 
   def update_book(args = {})
