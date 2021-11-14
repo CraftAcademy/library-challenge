@@ -1,0 +1,26 @@
+2.5.1 :005 > book = Book.new({:author => "Brandon Sandersson"}, {:title => "Way of Kings"})
+'
+) 
+ => #<Book:0x000056491346b150 @author="'", @title=")"> 
+2.5.1 :006 > book
+ => #<Book:0x000056491346b150 @author="'", @title=")"> 
+
+
+-------------------------------------------
+
+syntax for populating an array with class. 
+
+2.5.1 :023 > arry
+ => [] 
+2.5.1 :024 > arry.push book1
+ => [#<Book:0x0000564253fc53c8 @author="God\n", @title="Bible\n">] 
+2.5.1 :025 > arry
+ => [#<Book:0x0000564253fc53c8 @author="God\n", @title="Bible\n">] 
+2.5.1 :026 > arry.push book
+ => [#<Book:0x0000564253fc53c8 @author="God\n", @title="Bible\n">, #<Book:0x0000564253ffb2e8 @author="=\n", @title=")\n">] 
+
+ -------------------------------------------
+
+ push from library array (lib) to YAML: 
+
+ File.open('./lib/data.yml', 'w') {|file| file.write(lib.to_yaml)}

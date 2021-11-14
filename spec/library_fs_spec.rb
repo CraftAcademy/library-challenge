@@ -15,5 +15,9 @@ describe Book do
         expect(subject.title).to eq "Way of Kings"
     end
 
+    # it "is suposed to be able to check out book"
+    #     expect(subject.check_out).to eq nill
+    # end
+
 
 end
