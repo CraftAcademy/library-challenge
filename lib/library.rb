@@ -1,4 +1,5 @@
 require "./lib/book.rb"
+require "yaml"
 
 class Library
   attr_accessor :book, :available, :return_date
@@ -7,9 +8,9 @@ class Library
     @book = Book.new({ title: args[:title], author: args[:author] })
   end
 
-  def add_book_to_inventory(available = true, return_date = "")
-    @book == nil? ? missing_book : add_book_to_yml_file(available, return_date)
-    
+  def add_book_to_inventory(available = true, return_date = nil)
+    @book.nil? ? missing_book : add_book_to_yml_file(available, return_date)
+
     response = {
       status: true,
       message: "#{@book.title} by #{@book.author} added to the inventory"
@@ -30,5 +31,8 @@ class Library
   def add_book_to_yml_file(available, return_date)
     @available = available
     @return_date = return_date
+
+    array = [book: { title: @book.title, author: @book.author }, available: @available, return_date: @return_date]
+    File.open("./library_data.yml", "w") { |file| file.write(array.to_yaml) }
   end
 end
