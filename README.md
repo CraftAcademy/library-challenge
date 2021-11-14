@@ -51,7 +51,17 @@ Will be updated
 
 ### Instructions
 
-Will be updated
+For this programm there is no user interface. To use it follow these steps:
+
+- make sure you are in right (library_challenge) directory
+- type irb
+- ``` require './lib/library'````
+- ```library = Library.new ````
+- To checkout a book (Harry Potter and Philosopher's Stone) you can write  
+  ```library.checkout("Philos") ````
+- and get output `"Visitor have checked out Harry Potter and Philosopher's Stone by J. K. Rowling and will return it before 2021-12-14 " `
+- to find available books ```library.find_available_books ````
+- and you will see available books ```=> [{:item=>{:title=>"Silk", :author=>"Aleksandro Bariko"}, :available=>true, :return_date=>nil}] ````
 
 ### Acknowledgements
 

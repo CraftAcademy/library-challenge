@@ -6,50 +6,30 @@ class Library
   end
 
   def find_available_books
-    available_books = []
-    available_books_all_fields =
-      @all_books.select { |book| book[:available] == true }
-    available_books_all_fields.each do |book|
-      author_and_title_only = {
-        author: book[:item][:author],
-        title: book[:item][:title],
-      }
-      available_books.push(author_and_title_only)
-    end
-    return available_books
+    @all_books.select { |book| book[:available] == true }
   end
 
   def checkout(selected_title)
     selected_book =
-      @available_books.find { |book| book[:title].include? selected_title }
+      @available_books.detect do |book|
+        book[:item][:title].include? selected_title
+      end
 
-    title = selected_book[:title]
-    author = selected_book[:author]
+    title = selected_book[:item][:title]
+    author = selected_book[:item][:author]
     return_date = Date.today.next_month
-
+    update_yaml_file(title)
     return(
       "Visitor have checked out #{title} by #{author} and will return it before #{return_date} "
     )
+  end
 
-    #title = 'Harry Potter and Philosopher\'s Stone'
-    #author = 'J. K. Rowling'
-    #return_date = Date.today.next_month
-    @all_books.detect { |book| book[:title] == title }[:available] = false
-    @all_books.detect { |book| book[:title] == title }[:return_date] =
-      Date.today.next_month
-    update_yaml_file
+  private
 
-    def update_yaml_file
-      File.open('./lib/data.yml', 'w') { |file| file.write @all_books.to_yaml }
-    end
+  def update_yaml_file(title)
+    selected_book = @all_books.detect { |book| book[:item][:title] == title }
+    selected_book[:available] = false
+    selected_book[:return_date] = Date.today.next_month
+    File.open('./lib/data.yml', 'w') { |file| file.write @all_books.to_yaml }
   end
 end
-
-elvita = data.find { | p | p[:name] == 'Elvita' }
- => {:name=>"Elvita", :is_married=>false}
-3.0.0 :005 > elvita[:is_married] = true
- => true
-3.0.0 :006 > data
- => [{:name=>"Ilze", :is_married=>false}, {:name=>"Elvita", :is_married=>true}]
-3.0.0 :007 > File.open('./lib/people.yaml', 'w') do |out| YAML.dump(data, out)
-3.0.0 :008 > end
