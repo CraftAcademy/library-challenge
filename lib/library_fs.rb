@@ -4,50 +4,46 @@ require "./lib/person.rb"
 require 'yaml'
 
 class Library
-    attr_accessor :author, :book, :title, :books_availible
+    attr_accessor :library, :book_availible
 
     def initialize() #only need to read the YAML file to check for books
-        @collection = YAML.load_file('./lib/data.yml')
-        @books_availible
+        @library = YAML.load_file('./lib/data.yml')
+        @book_availible = book_availible
 
     end
 
-    def create_book(args = {})
-        @book = Book.new({ author: args[:author], title: args[:title]})
-    end
-
-    def file_book(author, title)
-        @book = Book.new({ author: self.author, title: self.title})
-        @status = :active
-        @return_date = nil
-        File.open('./lib/data.yml', 'w') {|file| file.write(lib.to_yaml)}
+    def browse_book (args={})
 
     end
 
-    def check_out(title)
-        # get data from YAML assuming book is availible (title, author & book ID)
-        # set expiery date
-        # update Library YAML with expected return date
-        # maybe even describe who borrowed it
-
-
-
-    end
-        
-    def check_out(bookID)
-
-
+    def borrow_book(title, account)
+        book_availible(title) ? checkout_ok(title, account) : checkout_nok(title) 
     end
 
     private
+    
 
-    def set_expiery_date
-        date.today.next_month(Book::STANDARD_VALIDITY_YRS).strftime("%m/%d")
+    def book_availible
+        @library.select { |book| book[:item][:return_date] == nil }
     end
 
-    def generate_bookID()
-        rand(1000..9999)
-        ## if bookID == (create a logic that checks weather book ID is duplicate, then do again untill no duplicate then generate number)
+    
+    def checkout_ok(title, account)
+        library.detect { |book| book[:item][:title] == title }[:availible] = false
+        library.detect { |book| book[:item][:title] == title }[:return_date] = Date.today.next_month
+        account.on_hand.append(library.detect { book| book[:item][:title] == title })
+        library_update
+        #{ status: true, message: "You have borrowed #{title}, please return ", Date.today.next_month }
+        { status: true, message: "You've checked out #{title}", date: Date.today, return_date: Date.today.next_month }
     end
 
+    def checkout_nok
+        return_date = library.detect { |book| book[:item][:title] == title }[:return_date]
+        {message: "#{title} is not availible, is expected to be returned #{return:_date}" }
+    end
+
+
+    def library_update
+        File.open.('./lib/data.yml', 'w') { |file| file.write library.to_yaml }
+    end
 end

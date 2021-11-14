@@ -1,31 +1,34 @@
 require "date"  #irb syntax for initializing calsses ATM challenge: "> person = Person.new({:name => "Mathias"})"
+require "./lib/library_fs.rb"
+
+# mathias = Person.new({:account => "mlj"})
 
 
 class Person
-    attr_accessor :author, :title, :on_hand
+    attr_accessor :account, :on_hand
 
-    def initialize(args = {}) #author, title
-        @author = set_author(args[:author])
-        @title = set_title(args[:title])
+    def initialize(args = {}) 
+        create_account(args [:account])
+        @on_hand = []
 
+    end
+
+    def borrow_book(title, library)
+        library.borrow_book(title, self)
+    end
+
+    def browse_book(library)
+        library.book_availible
     end
 
     private
 
-    def missing_name
-        raise "A title is required"
-      end
-    
-      def missin_author
-        raise "An author is needed"
-      end
+    def missing_account
+        raise "An account is required"
+    end
 
-      def set_title(title)
-        title == nil ? missing_name : title
-      end
-
-      def set_author(writer)
-        author == nil ? missin_author : author
-      end
+    def create_account(obj)
+        obj == nil ? missing_account : @account = obj
+    end
 
 end
