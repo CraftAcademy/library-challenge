@@ -30,12 +30,17 @@ RSpec.describe Library do
   end
 
   it 'is expected to see a return date when a book is checked out' do
+    # this spec alters data.yml file. Need to fix that
     title = 'Harry Potter and Philosopher\'s Stone'
     author = 'J. K. Rowling'
     return_date = Date.today.next_month
     expected_output =
       "Visitor have checked out #{title} by #{author} and will return it before #{return_date} "
     expect(subject.checkout(title)).to eq expected_output
+  end
+
+  it 'is expected to see an error message if the book is not available' do
+    expect(subject.checkout('Agrā Rūsa')).to eq 'This book is not available'
   end
 
   it 'is expected to change books availability from true to false after a checkout' do

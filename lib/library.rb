@@ -1,3 +1,4 @@
+require 'yaml'
 class Library
   attr_accessor :all_books, :available_books
   def initialize
@@ -11,17 +12,21 @@ class Library
 
   def checkout(selected_title)
     selected_book =
-      @available_books.detect do |book|
+      @available_books.find do |book|
         book[:item][:title].include? selected_title
       end
 
-    title = selected_book[:item][:title]
-    author = selected_book[:item][:author]
-    return_date = Date.today.next_month
-    update_yaml_file(title)
-    return(
-      "Visitor have checked out #{title} by #{author} and will return it before #{return_date} "
-    )
+    if selected_book == nil
+      return 'This book is not available'
+    else
+      title = selected_book[:item][:title]
+      author = selected_book[:item][:author]
+      return_date = Date.today.next_month
+      update_yaml_file(title)
+      return(
+        "Visitor have checked out #{title} by #{author} and will return it before #{return_date} "
+      )
+    end
   end
 
   private
