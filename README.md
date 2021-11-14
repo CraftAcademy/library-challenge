@@ -38,7 +38,3 @@ I want to see return dates for each book in a list
 As a library
 In order to know which books are checked out by visitors  
 I want to update file with availability infomation and retun dates
-
-As a visitor  
-Ir order to keep track of my books  
-I want to have a list of books that is in my possession and return dates for them
