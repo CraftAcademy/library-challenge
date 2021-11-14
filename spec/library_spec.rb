@@ -41,4 +41,14 @@ describe Library do
       expect { subject.find_book }.to raise_error "A title is required"
     end
   end
+
+  describe "can lend books to visitors for 1 month" do
+    let(:visitor) { instance_double("Visitor", name: "Gaia") }
+
+    before { subject.welcome_visitor(name: visitor.name) }
+
+    it "is expected to welcome visitors" do
+      expect(subject.visitor).to be_an_instance_of Visitor
+    end
+  end
 end

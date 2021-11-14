@@ -1,8 +1,9 @@
 require "./lib/book.rb"
+require "./lib/visitor.rb"
 require "yaml"
 
 class Library
-  attr_accessor :book, :available, :return_date
+  attr_accessor :book, :available, :return_date, :visitor
 
   def create_book(args = {})
     @book = Book.new({ title: args[:title], author: args[:author] })
@@ -37,6 +38,10 @@ class Library
         }
       end
     end
+  end
+
+  def welcome_visitor(args = {})
+    @visitor = Visitor.new(name: args[:name])
   end
 
   private
