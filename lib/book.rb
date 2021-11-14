@@ -17,10 +17,10 @@ class Book
   end
 
   def set_author(author)
-    author == nil ? missing_author : author
+    author.nil? ? missing_author : author
   end
 
   def set_title(title)
-    title == nil ? missing_title : title
+    title.nil? ? missing_title : title
   end
 end

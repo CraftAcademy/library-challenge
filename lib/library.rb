@@ -7,7 +7,7 @@ class Library
   attr_accessor :book, :available, :return_date, :visitor
 
   def create_book(args = {})
-    @book = Book.new({ title: args[:title], author: args[:author] })
+    @book = Book.new( title: args[:title], author: args[:author] )
   end
 
   def add_book_to_inventory(available = true, return_date = nil)
@@ -76,7 +76,7 @@ class Library
       book: { title: @book.title,
               author: @book.author },
       available: @available,
-      return_date: @return_date,
+      return_date: @return_date
     }
     array = load_yml_file
     array.push new_book
@@ -92,7 +92,7 @@ class Library
       book: { title: @book.title,
               author: @book.author },
       available: @available,
-      return_date: @return_date,
+      return_date: @return_date
     }
     update_book(item)
   end

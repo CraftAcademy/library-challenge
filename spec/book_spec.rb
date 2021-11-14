@@ -12,11 +12,13 @@ describe Book do
   end
 
   it "is expected to raise an error if no title is set" do
-    expect { described_class.new(author: "Paulo Coelho") }.to raise_error "A title is required"
+    expect { described_class.new(author: "Paulo Coelho") }
+      .to raise_error "A title is required"
   end
 
   it "is expected to raise an error if no author is set" do
-    expect { described_class.new(title: "The Alchemist") }.to raise_error "An author is required"
+    expect { described_class.new(title: "The Alchemist") }
+      .to raise_error "An author is required"
   end
 
   it "is expected to being able to change title attribute" do
