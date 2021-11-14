@@ -13,6 +13,10 @@ class Visitor
     write_to_yml_file(array)
   end
 
+  def create_yml_file
+    File.open("./#{@name}_data.yml", "w")
+  end
+
   private
 
   def missing_name

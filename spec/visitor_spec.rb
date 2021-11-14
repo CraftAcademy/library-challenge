@@ -10,4 +10,10 @@ describe Visitor do
   it "is expected to raise an error if no name is set" do
     expect { described_class.new }.to raise_error "A name is required"
   end
+
+  describe "can create base YML file" do
+    it "is expected to create empty file when using create_yml_file" do
+      expect(subject.create_yml_file).to be_truthy
+    end
+  end
 end
