@@ -17,10 +17,41 @@ class Library
     }
   end
 
+  def find_book(args = {})
+    if args[:title].nil?
+      missing_title
+    else
+      result = search_book(args[:title])
+      if result.nil?
+        {
+          status: false,
+          message: "#{result[:book][:title]} not found"
+        }
+      else
+        create_book(title: result[:book][:title], author: result[:book][:author])
+        @available = result[:available]
+        @return_date = result[:return_date]
+        {
+          status: true,
+          message: "#{result[:book][:title]} found"
+        }
+      end
+    end
+  end
+
   private
 
   def missing_book
     raise "A book is required"
+  end
+
+  def missing_title
+    raise "A title is required"
+  end
+
+  def search_book(title)
+    array = load_yml_file
+    array.detect { |item| item[:book][:title] == title }
   end
 
   def add_book_to_yml_file(available, return_date)
@@ -31,7 +62,7 @@ class Library
       book: { title: @book.title,
               author: @book.author },
       available: @available,
-      return_date: @return_date
+      return_date: @return_date,
     }
     array = load_yml_file
     array.push new_book

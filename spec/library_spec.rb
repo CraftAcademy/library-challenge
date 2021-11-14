@@ -29,12 +29,16 @@ describe Library do
   end
 
   describe "can find a book in the inventory" do
-    xit "is expected to find a book by title" do
+    it "is expected to find a book by title" do
       expected_output = {
         status: true,
-        message: "#{subject.book.title} found"
+        message: "Animal Farm found"
       }
-      expect(subject.find_book(title: "Animal Farm")).to eq
+      expect(subject.find_book(title: "Animal Farm")).to eq expected_output
+    end
+
+    it "is expected to raise an error if no title is passed in" do
+      expect { subject.find_book }.to raise_error "A title is required"
     end
   end
 end
