@@ -54,7 +54,7 @@ Will be updated
 For this programm there is no user interface. To use it follow these steps:
 
 - make sure you are in right (library_challenge) directory
-- type irb
+- type `irb`
 - `require './lib/library'`
 - `library = Library.new `
 - To checkout a book (Harry Potter and Philosopher's Stone) you can write  
@@ -73,3 +73,9 @@ However, never tried just to copy anything.
 The code is never finished... Currently want to do more than I am able to do in just one weekend.
 Most important - write a spec that checks whether YAML file is updated with a new data by creating a fake file,
 implementing code, check if desired changes have been included and then discard the fake file.
+
+One of the specs alters data.yml file. That needs to be fixed.
+
+Class Visitor is craeted but not yet used appropriate.
+
+Planned to create a spec to check whether return_date is really set for 1 month
