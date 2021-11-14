@@ -102,3 +102,56 @@ In our library_data.yml we'll have:
   :return_date: 
 
 ```
+
+```ruby
+3.0.0 :006 > kista_library.find_book(title: "1984")
+ => {:status=>true, :message=>"1984 found"} 
+
+```
+
+We can lend a book:
+
+```ruby
+3.0.0 :007 > kista_library.visitor
+ => nil 
+3.0.0 :008 > kista_library.welcome_visitor(name: "Giorgio")
+ => #<Visitor:0x000055f27fb5f348 @name="Giorgio"> 
+3.0.0 :009 > kista_library.visitor
+ => #<Visitor:0x000055f27fb5f348 @name="Giorgio"> 
+3.0.0 :010 > kista_library.book
+ => #<Book:0x000055f27fe06448 @author="George Orwell", @title="1984"> 
+3.0.0 :012 > kista_library.visitor.create_yml_file
+ => #<File:./Giorgio_data.yml> 
+3.0.0 :013 > kista_library.lend_book
+ => "Giorgio has to return 1984 no later than 15/12/2021" 
+
+```
+
+The Giorgio_data.yml file will be generated:
+
+```yml
+---
+- :book:
+    :title: '1984'
+    :author: George Orwell
+  :available: false
+  :return_date: 15/12/2021
+
+```
+
+And the library_data.yml will be updated:
+
+```yml
+---
+- :book:
+    :title: '1984'
+    :author: George Orwell
+  :available: false
+  :return_date: 15/12/2021
+
+```
+
+Improvement plans
+-------
+
+There is still some error handling to manage, some code refactory and some updates are needed with the already present functionalities, for example it's not possible to search for a book by author yet, the searching can be improved.
