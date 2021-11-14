@@ -1,0 +1,31 @@
+---
+- :item:
+    :title:  The Four Hour Work Week
+    :author:  Tim Ferriss
+  :available: true
+  :return_date:
+  :borrower:
+- :item:
+    :title:  I Choose Myself
+    :author:  James Altucher
+  :available: false 
+  :return_date: '2021-11-25'
+  :borrower: Max
+- :item:
+    :title:  Stillness is Key
+    :author:  Ryan Holiday
+  :available: false 
+  :return_date: '2021-12-11'
+  :borrower: Jean
+  - :item:
+    :title:  Start with why 
+    :author:  Simon Sinek
+  :available: false 
+  :return_date: '2022-12-10'
+  :borrower: Jean
+  - :item:
+    :title:  The E Myth
+    :author:  Michael E Gerger
+  :available: true  
+  :return_date: 
+  :borrower: 
