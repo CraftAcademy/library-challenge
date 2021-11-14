@@ -1,52 +1,50 @@
 ## Library Challenge
-### Week 1 Ruby challenge
+### the code
 
-Instructions
--------
-Read this entire README carefully and follow all instructions.
+This challenge was an example of being contacted by a client with a fairly clear requirement. 
 
-* Challenge time: this weekend, until Monday 9am
-* Feel free to use Google, Stack Overflow, your notes, previously written code, books, etc. but work on your own
-* If you refer to or have in whole or partially used the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution to GitHub and create a Pull Request**
-* You must submit a Pull Request to this repository with your code by 9.30am Monday morning - before the stand-up
+Create an app for data storage and inventory status. 
+In this case a library that needed to track, store and review the status of their books.
+
+A UI was not requested, only the logical side and data storage, so the majority of the work was done in Ruby.rb and stored in a YAML.yml file acting as the library.
 
 
-### Tasks
+### Requirement translated into USER STORIES
 ----
 
-* Fork the challenge repo: https://github.com/CraftAcademy/library-challenge
-* Run the command `bundle install` in the project directory to ensure you have all the gems
-* Write your specs and implementation
-* Be smart about using Git: commit and push often. Use feature branches.
-* Create a Pull Request as soon as possible
-* Read the comments from Hound and fix any issues that the service points out.
+As the client
+in order to keep track of inventory and show customer what's availible and if not, when.
+Display books and authors.
 
-### Tips
-----
+As a visitor
+in order to find what I am looking for
+I want to display all books.
 
-##### Some hints:
-  * A Person needs to have a list of books that he currently has in his possession. That list needs to include the return date.
-  * The return date can be calculated using the `Date` object. Out of the box, there are methods you can use to add days to the current date.
-  * Make use of `doubles` when writing your specs
-  * Follow the [naming conventions/standards](https://craftacademy.gitbooks.io/coding-as-a-craft/content/extras/naming_standards.html) for methods and variables
+as a visitor 
+in order to know when to give back the book
+I want a reciept that tells me when I need to hand it back.
 
-### What we are looking for
-----
-##### I'm hoping to see that:
-* You can take a problem set and write a well tested implementation on your own.
-* You understand how to define Ruby Classes and work with objects.
-* You understand how classes can interact with each other.
-* You know how to make use of arrays, hashes, and associated methods to create dynamic lists.
-* You know how to write specs and use them as a blueprint in your development.
-* I can track your work by following you commit history - so please commit as soon you are done with a feature or when you have made a test pass.
-
-##### In your Pull Request, I'm hoping to see:
-* That you are testing the right thing in the right spec file.
-* That all tests passing - green is good!
-* High test coverage (above 95% is accepted)
-* The code is easy to follow: every class has a clear responsibility, methods are short, code is nicely formatted, etc.
-* The `README.md` includes information on how to use your solution with command examples in `irb`. (Feel free to remove this text)
+As a librarian, 
+I want a system that can automatically update when book is borrowed.
 
 
-**Happy coding!**
+### Dependencies
+Rspec for unit testing and pry for debugging.
+
+### Setup
+
+
+#### instructions
+
+
+#### Acknowledgements
+Previous CA students for inspiration. 
+special focus on AugustEnhager & maxarvid though tried not to plagarism.
+
+#### Updates
+
+Some of the functions are not working properly. 
+I am unable to borrow a book from the library.
+The code also lacks a UI, that could increase the ease for search functions for both client and customers of the library.
+
+I focused mainly on the code instead of the user specs. It was a deliberate decition from my end.
