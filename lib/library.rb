@@ -30,9 +30,10 @@ class Library
     return(
       "Visitor have checked out #{title} by #{author} and will return it before #{return_date} "
     )
-    title = 'Harry Potter and Philosopher\'s Stone'
-    author = 'J. K. Rowling'
-    return_date = Date.today.next_month
+
+    #title = 'Harry Potter and Philosopher\'s Stone'
+    #author = 'J. K. Rowling'
+    #return_date = Date.today.next_month
     @all_books.detect { |book| book[:title] == title }[:available] = false
     @all_books.detect { |book| book[:title] == title }[:return_date] =
       Date.today.next_month
@@ -43,3 +44,12 @@ class Library
     end
   end
 end
+
+elvita = data.find { | p | p[:name] == 'Elvita' }
+ => {:name=>"Elvita", :is_married=>false}
+3.0.0 :005 > elvita[:is_married] = true
+ => true
+3.0.0 :006 > data
+ => [{:name=>"Ilze", :is_married=>false}, {:name=>"Elvita", :is_married=>true}]
+3.0.0 :007 > File.open('./lib/people.yaml', 'w') do |out| YAML.dump(data, out)
+3.0.0 :008 > end
