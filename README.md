@@ -1,56 +1,6 @@
 ## Library Challenge
 ### Week 1 Ruby challenge
 
-Instructions
--------
-Read this entire README carefully and follow all instructions.
-
-* Challenge time: this weekend, until Monday 9am
-* Feel free to use Google, Stack Overflow, your notes, previously written code, books, etc. but work on your own
-* If you refer to or have in whole or partially used the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution to GitHub and create a Pull Request**
-* You must submit a Pull Request to this repository with your code by 9.30am Monday morning - before the stand-up
-
-
-### Tasks
-----
-
-* Fork the challenge repo: https://github.com/CraftAcademy/library-challenge
-* Run the command `bundle install` in the project directory to ensure you have all the gems
-* Write your specs and implementation
-* Be smart about using Git: commit and push often. Use feature branches.
-* Create a Pull Request as soon as possible
-* Read the comments from Hound and fix any issues that the service points out.
-
-### Tips
-----
-
-##### Some hints:
-  * A Person needs to have a list of books that he currently has in his possession. That list needs to include the return date.
-  * The return date can be calculated using the `Date` object. Out of the box, there are methods you can use to add days to the current date.
-  * Make use of `doubles` when writing your specs
-  * Follow the [naming conventions/standards](https://craftacademy.gitbooks.io/coding-as-a-craft/content/extras/naming_standards.html) for methods and variables
-
-### What we are looking for
-----
-##### I'm hoping to see that:
-* You can take a problem set and write a well tested implementation on your own.
-* You understand how to define Ruby Classes and work with objects.
-* You understand how classes can interact with each other.
-* You know how to make use of arrays, hashes, and associated methods to create dynamic lists.
-* You know how to write specs and use them as a blueprint in your development.
-* I can track your work by following you commit history - so please commit as soon you are done with a feature or when you have made a test pass.
-
-##### In your Pull Request, I'm hoping to see:
-* That you are testing the right thing in the right spec file.
-* That all tests passing - green is good!
-* High test coverage (above 95% is accepted)
-* The code is easy to follow: every class has a clear responsibility, methods are short, code is nicely formatted, etc.
-* The `README.md` includes information on how to use your solution with command examples in `irb`. (Feel free to remove this text)
-
-
-**Happy coding!**
-
 Requirements
 -------
 
@@ -92,3 +42,63 @@ From the description above, I am able to extract the following user stories:
 > In order to keep track of the books in my possession  
 > I want to have a list of books with the return date
 
+Code
+-------
+
+I'm trying to simulate basic operations in a library environment. I'm simulating adding books to an inventory (yml file), search for a book by title, lending a book to a visitor...
+
+Setup
+-------
+
+A Gemfile is present with all the dependencies needed for this project.
+Choose a folder where you want to download this project, then open your terminal in it:
+
+> git clone https://github.com/giacoletti/library-challenge
+
+> cd library-challenge
+
+> bundle install
+
+You need to create an empty library_data.yml file too to make it work properly. (Improvements are on the way)
+
+Instructions
+-------
+
+You can try this software in your favorite ruby shell (pry or irb):
+
+```ruby 
+3.0.0 :001 > require "yaml"
+ => true 
+3.0.0 :002 > require "./lib/book.rb"
+ => true 
+3.0.0 :003 > require "./lib/library.rb"
+ => true 
+3.0.0 :004 > require "./lib/visitor.rb"
+ => false 
+
+3.0.0 :006 > kista_library = Library.new
+ => #<Library:0x00005651ec9a4568> 
+3.0.0 :007 > kista_library.create_book(title: "1984", author: "George Orwell")
+ => #<Book:0x00005651ec96fb38 @author="George Orwell", @title="1984"> 
+3.0.0 :008 > kista_library.book
+ => #<Book:0x00005651ec96fb38 @author="George Orwell", @title="1984"> 
+3.0.0 :009 > kista_library.book.author
+ => "George Orwell" 
+3.0.0 :010 > kista_library.book.title
+ => "1984" 
+3.0.0 :011 > kista_library.add_book_to_inventory
+ => {:status=>true, :message=>"1984 by George Orwell added to the inventory"} 
+
+```
+
+In our library_data.yml we'll have:
+
+```yml
+---
+- :book:
+    :title: '1984'
+    :author: George Orwell
+  :available: true
+  :return_date: 
+
+```
