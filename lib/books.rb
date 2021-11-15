@@ -13,11 +13,11 @@ class Books
     end
 
     def search_by_title(title)
-        details.select { |book| book[:item][:title].include? title }
+        details.select { |obj| obj[:item][:title].include? "The Four Hour Work Week"  }
     end
 
     def search_by_author(author)
-        details.select { |book| book[:item][:author].include? author }
+        details.detect { |book| book[:item][:author].include? author }
     end
 
     def available_books

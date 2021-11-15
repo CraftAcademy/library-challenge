@@ -12,18 +12,26 @@ require 'yaml'
     describe Books do
         #let (:) { Books.new }
 
-        it "is expected return the books title of Four Hour Work Week and" do
+        it 'is epected to returns true if there are books in the library database' do
+            expect(subject.details).not_to be nil
+        end
 
-            expected_book = [{item: {
-                title: 'Four Hour Work week',
-                author: 'Tim Ferriss'}, 
+        it 'is is expected to return true of there books showing as available in the the database' do
+            expect(subject.available_books).to be_truthy
+        end
+
+        it "is expected return the book details of Four Hour Work Week and" do
+            expected_book = {
+                author: 'Tim Ferriss', 
+                title: 'The Four Hour Work Week',
                 available: true, 
                 return_date: nil,
-                borrower: nil }]
-
+                borrower: nil,
+             }
             expect(subject.search_by_title('Tim Ferriss')).to eq(expected_book)
         end
         
+
 
         it "is expected to return the author of Tim Ferriss" do
                 expect(subject.author).to eq "Tim Ferriss"
