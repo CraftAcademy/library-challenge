@@ -17,13 +17,13 @@
   :available: false 
   :return_date: '2021-12-11'
   :borrower: Jean
-  - :item:
+- :item:
     :title:  Start with why 
     :author:  Simon Sinek
   :available: false 
   :return_date: '2022-12-10'
   :borrower: Jean
-  - :item:
+- :item:
     :title:  The E Myth
     :author:  Michael E Gerger
   :available: true  

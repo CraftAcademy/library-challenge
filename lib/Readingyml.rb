@@ -7,5 +7,8 @@ collection[0][:available] = false
 File.open('./lib/data.yml', 'w') { |f| f.write collection.to_yaml }
  => 567
 
+collection.detect { |obj| obj[:item][:title] == "Tim Ferriss"  }
+
+
 
 puts "Your book was borrowed on #{start_da} and is due backon #{end_date}."
