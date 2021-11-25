@@ -1,6 +1,6 @@
 require "./lib/library.rb"
 
-Rspec.describe Library do
+RSpec.describe Library do
   it "is expected to have a collection of books as an array" do
     expect(subject.books).to be_instance_of Array
   end
