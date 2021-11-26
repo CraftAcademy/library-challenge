@@ -4,6 +4,7 @@ RSpec.describe Library do
   describe "instance methods" do
     it { is_expected.to respond_to(:books) }
     it { is_expected.to respond_to(:search) }
+    it { is_expected.to respond_to(:checkout) }
   end
   it "is expected to have a collection of books as an array" do
     expect(subject.books).to be_instance_of Array
@@ -36,6 +37,24 @@ RSpec.describe Library do
         }
         expect(book).to eq(expected_result)
       end
+    end
+  end
+
+  describe "#checkout" do
+    let(:person) { instance_double("Person", book_shelf: []) }
+
+    before do
+      @book = subject.search("Lord of the flies")
+      subject.checkout(@book)
+    end
+
+    it "is expected to set availability to false" do
+      expect(@book["available"]).to eq false
+    end
+
+    it "is expected to set return_date to today + 1 month" do
+      expected_return_date = Date.today.next_month.strftime("%Y-%m-%d")
+      expect(@book["return_date"]).to eq expected_return_date
     end
   end
 end
