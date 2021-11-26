@@ -1,6 +1,10 @@
 require "./lib/library.rb"
 
 RSpec.describe Library do
+  describe "instance methods" do
+    it { is_expected.to respond_to(:books) }
+    it { is_expected.to respond_to(:search) }
+  end
   it "is expected to have a collection of books as an array" do
     expect(subject.books).to be_instance_of Array
   end
