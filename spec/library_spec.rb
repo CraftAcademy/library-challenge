@@ -17,5 +17,8 @@ RSpec.describe Library do
     it "is expected to have a availibility status" do
       expect(subject.books.first.keys).to include ("available")
     end
+    it "is expected to have a return date" do
+      expect(subject.books.first.keys).to include ("return_date")
+    end
   end
 end
