@@ -8,4 +8,10 @@ RSpec.describe Library do
   it "is expected to hold 4 books" do
     expect(subject.books.size).to eq 4
   end
+
+  describe "a book" do
+    it "is expected to have a availibility status" do
+      expect(subject.books.first.keys).to include ("available")
+    end
+  end
 end
