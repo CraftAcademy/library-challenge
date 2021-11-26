@@ -14,11 +14,28 @@ RSpec.describe Library do
   end
 
   describe "a book" do
-    it "is expected to have a availibility status" do
-      expect(subject.books.first.keys).to include ("available")
+    it "is expected to have a availibily status" do
+      expect(subject.books.first.keys).to include("available")
     end
     it "is expected to have a return date" do
-      expect(subject.books.first.keys).to include ("return_date")
+      expect(subject.books.first.keys).to include("return_date")
+    end
+  end
+
+  describe "#search" do
+    describe "using title" do
+      it "is expected to return one object" do
+        book = subject.search("Lord of the flies")
+        expected_result = {
+          :book => {
+            :title => "Lord of the flies",
+            :author => "William Golding",
+          },
+          "available" => true,
+          "return_date" => "",
+        }
+        expect(book).to eq(expected_result)
+      end
     end
   end
 end

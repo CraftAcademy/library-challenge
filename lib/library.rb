@@ -1,4 +1,6 @@
 require "yaml"
+require 'pry'
+require "date"
 
 class Library
   attr_accessor :books
@@ -7,6 +9,7 @@ class Library
     @books = YAML.load_file("./lib/data.yml")
   end
 
-  def search
+  def search(title)
+  @books.detect {|item| item[:book][:title] == title }
   end
 end
