@@ -1,16 +1,14 @@
 ---
- -book:
-   title: 'bible'
-   author: 'God'
- -book:
-   title: 'bible'
-   author: 'God'
- -book:
-   title: 'bible'
-   author: 'God'
- -book:
-   title: 'bible'
-   author: 'God'
- -book:
-   title: 'bible'
-   author: 'God'           
+- :book:
+    :title: Lord of the flies
+    :author: William Golding
+- :book:
+    :title: Sweetbitter
+    :author: Stephanie Danler
+- :book:
+    :title: Tuesdays with Morrie
+    :author: Mitch Albom
+- :book:
+    :title: The Fault in Our Stars
+    :author: John Green
+ 
