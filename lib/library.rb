@@ -14,9 +14,9 @@ class Library
   end
 
   def checkout(item, person)
-    item['available'] = false
-    item['return_date'] = Date.today.next_month.strftime("%Y-%m-%d")
+    item["available"] = false
+    item["return_date"] = Date.today.next_month.strftime("%Y-%m-%d")
     person.book_shelf.push(item)
-    File.open('./lib/data.yml', 'w') {|file| file.write @books.to_yaml }
+    File.open("./lib/data.yml", "w") { |file| file.write @books.to_yaml }
   end
 end

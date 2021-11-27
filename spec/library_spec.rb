@@ -50,7 +50,7 @@ RSpec.describe Library do
 
     before do
       @book = subject.search("Lord of the flies")
-      subject.checkout(@book,person)
+      subject.checkout(@book, person)
     end
 
     it "is expected to set availability to false" do
@@ -71,11 +71,11 @@ RSpec.describe Library do
       end
 
       it "is expected to be updated with new availability" do
-        expect(@book['available']).to eq false
+        expect(@book["available"]).to eq false
       end
 
       it "is expected to be updated with new return date" do
-        expect(@book['return_date']).to_not eq ""
+        expect(@book["return_date"]).to_not eq ""
       end
     end
     describe "in storage" do
@@ -85,11 +85,11 @@ RSpec.describe Library do
       end
 
       it "is expected to be updated with new availability" do
-        expect(@book['available']).to eq false
+        expect(@book["available"]).to eq false
       end
 
       it "is expected to be updated with new return date" do
-        expect(@book['return_date']).to_not eq ""
+        expect(@book["return_date"]).to_not eq ""
       end
     end
   end
