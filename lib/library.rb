@@ -16,5 +16,6 @@ class Library
   def checkout(object)
     object["available"] = false
     object["return_date"] = Date.today.next_month.strftime("%Y-%m-%d")
+    File.open("./lib/data.yml", "w") { |file| file.write @books.to_yaml }
   end
 end
