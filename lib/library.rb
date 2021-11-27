@@ -13,9 +13,10 @@ class Library
     @books.detect { |item| item[:book][:title] == title }
   end
 
-  def checkout(object)
-    object["available"] = false
-    object["return_date"] = Date.today.next_month.strftime("%Y-%m-%d")
-    File.open("./lib/data.yml", "w") { |file| file.write @books.to_yaml }
+  def checkout(item, person)
+    item['available'] = false
+    item['return_date'] = Date.today.next_month.strftime("%Y-%m-%d")
+    person.book_shelf.push(item)
+    File.open('./lib/data.yml', 'w') {|file| file.write @books.to_yaml }
   end
 end

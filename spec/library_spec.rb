@@ -50,7 +50,7 @@ RSpec.describe Library do
 
     before do
       @book = subject.search("Lord of the flies")
-      subject.checkout(@book)
+      subject.checkout(@book,person)
     end
 
     it "is expected to set availability to false" do
@@ -61,13 +61,13 @@ RSpec.describe Library do
       expected_return_date = Date.today.next_month.strftime("%Y-%m-%d")
       expect(@book["return_date"]).to eq expected_return_date
     end
-    #it "is expected to add book to persons book_shelf" do
-     # expect(person.book_shelf).to include @book
-   # end
+    it "is expected to add book to persons book_shelf" do
+      expect(person.book_shelf).to include @book
+    end
 
     describe "the book in memory" do
       before do
-        @book = subject.books.detect { |object| object[:book][:title] == "Lord of the flies" }
+        @book = subject.books.detect { |item| item[:book][:title] == "Lord of the flies" }
       end
 
       it "is expected to be updated with new availability" do
