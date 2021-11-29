@@ -1,52 +1,53 @@
 ## Library Challenge
 ### Week 1 Ruby challenge
 
-Instructions
+Requirements
 -------
-Read this entire README carefully and follow all instructions.
 
-* Challenge time: this weekend, until Monday 9am
-* Feel free to use Google, Stack Overflow, your notes, previously written code, books, etc. but work on your own
-* If you refer to or have in whole or partially used the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution to GitHub and create a Pull Request**
-* You must submit a Pull Request to this repository with your code by 9.30am Monday morning - before the stand-up
+We are approached by a newly built library. They need an app to keep track of all their books. 
 
+ *“We need an app where both the visitors and the library can see if a list of books is available, it would be nice to see both the title and the author of the book. The library needs to store these books in a file where we can easily check if a book is available or not. The library also needs the visitors to check out books after finding the title they want. Depending on the time of the checkout the library needs the books to be returned within a month and obviously, it would be nice for the visitor to know which date to return the book.”*
 
-### Tasks
-----
+From the description above, I am able to extract the following user stories:
 
-* Fork the challenge repo: https://github.com/CraftAcademy/library-challenge
-* Run the command `bundle install` in the project directory to ensure you have all the gems
-* Write your specs and implementation
-* Be smart about using Git: commit and push often. Use feature branches.
-* Create a Pull Request as soon as possible
-* Read the comments from Hound and fix any issues that the service points out.
-
-### Tips
-----
-
-##### Some hints:
-  * A Person needs to have a list of books that he currently has in his possession. That list needs to include the return date.
-  * The return date can be calculated using the `Date` object. Out of the box, there are methods you can use to add days to the current date.
-  * Make use of `doubles` when writing your specs
-  * Follow the [naming conventions/standards](https://craftacademy.gitbooks.io/coding-as-a-craft/content/extras/naming_standards.html) for methods and variables
-
-### What we are looking for
-----
-##### I'm hoping to see that:
-* You can take a problem set and write a well tested implementation on your own.
-* You understand how to define Ruby Classes and work with objects.
-* You understand how classes can interact with each other.
-* You know how to make use of arrays, hashes, and associated methods to create dynamic lists.
-* You know how to write specs and use them as a blueprint in your development.
-* I can track your work by following you commit history - so please commit as soon you are done with a feature or when you have made a test pass.
-
-##### In your Pull Request, I'm hoping to see:
-* That you are testing the right thing in the right spec file.
-* That all tests passing - green is good!
-* High test coverage (above 95% is accepted)
-* The code is easy to follow: every class has a clear responsibility, methods are short, code is nicely formatted, etc.
-* The `README.md` includes information on how to use your solution with command examples in `irb`. (Feel free to remove this text)
+ As a library visitor/employee  
+ In order to check if a book is available  
+ I want to have a list of books with availability, title and author.
 
 
-**Happy coding!**
+ As a library employee  
+ In order to check a book availability  
+ I want to store these books in a file
+
+ As a library employee  
+ In order to keep track of the books availability  
+ I want to store information about who checked out the book
+
+ As a library employee  
+ In order to search of a book in my list  
+ I want to be able to make a search by title
+
+ As a library employee  
+ In order to keep the books available to every visitor  
+ I want to give 1 month period for lending a book
+
+# The code
+The library_challenge is a simple ruby based project, 
+In order to produce good quality code,
+we work in a test driven way and unit test this coade According to the requirements and logical needs set by the course material we need to have a Library, so we write the code based on Library  class to complete the whole project.
+# Dependencies
+Game framework we used Rspec for unit test
+
+# Setup
+We’ll be write our application using Test Driven Development(RSpec),
+In order to be able to use it we need to install it.
+There are two ways to install libraries (gems). 
+A direct install from your terminal(gem install rspec) .$ gem install bundler or by adding a gem as a dependency to your application using Bundler ,
+you just add a gem to a specific file named Gemfile. And run bundle install again. The next step is to initialize RSpec and configure it for our needs. 
+.$ rspec --init Edit the .rspec file and add --format documentation to see a more verbose rspec output.
+ .rspec file needs to look like this. --format documentation --color --require spec_helper
+ # Acknowledgements
+ WE Miyeaier and Shagufta did pairing programming on this project. we are thankful to our coach for his assitance and appreciate our fellow students help. 
+# Improvement plans
+-------
+In this project we have only the write the basic tests and the project is without any user interface. our future plan is to write many more test for different usecase stories.

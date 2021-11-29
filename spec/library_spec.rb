@@ -46,7 +46,7 @@ RSpec.describe Library do
   end
 
   describe "#checkout" do
-    let(:person) { instance_double("Person", book_shelf: []) }
+    #let(:person) { instance_double("Person", book_shelf: []) }
 
     before do
       @book = subject.search("Lord of the flies")
