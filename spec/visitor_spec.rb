@@ -5,7 +5,7 @@ require 'date'
 
 describe Visitor do
 
-  let(:library) {instance_double('Library', collection: YAML.load_file('./lib/data.yml' ) )}
+  let(:library) { instance_double('Library', collection: YAML.load_file('./lib/data.yml')) }
 
   it 'shows all available books' do
     expected_output = YAML.load_file('./lib/data.yml').select { |book| book[:available] == true }

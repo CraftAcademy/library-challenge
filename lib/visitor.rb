@@ -7,9 +7,8 @@ class Visitor
 
   def initialize
     @book_depository = []
+    @visitor_available_books = :available
   end
-
-  private
 
   def visitor_available_books(library)
     library.available_books

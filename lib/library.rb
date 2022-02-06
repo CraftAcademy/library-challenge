@@ -30,7 +30,7 @@ class Library
         book[:available] = false
         book[:return_date] = returndate
 
-      return { message: 'successfully booked'}
+      return { message: 'booked successfully' }
     
     end
      
