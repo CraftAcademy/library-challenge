@@ -1,0 +1,11 @@
+---
+- :item:
+    :title: Harry Potter
+    :author: JK Rowling
+  :available: true
+  :return_date:
+- :item:
+    :title: Lord of the rings
+    :author: JRR Tolkien
+  :available: false
+  :return_date: '2022-02-16'
